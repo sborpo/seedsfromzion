@@ -25,7 +25,6 @@ namespace seedsfromzion.Backup
             paths[0] = path;
             zipCollection(paths, target);
         }
-
         public static void zipCollection(System.Collections.Generic.IEnumerable<string> files, String target)
         {
             ZipFile zip = new ZipFile();
