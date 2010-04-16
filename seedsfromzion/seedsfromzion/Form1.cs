@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Backup;
+using MySql.Data;
+
+
 namespace seedsfromzion
 {
     public partial class Form1 : Form
