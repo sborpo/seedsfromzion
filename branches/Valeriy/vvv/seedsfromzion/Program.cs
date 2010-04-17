@@ -17,5 +17,6 @@ namespace seedsfromzion
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
         }
+        //VALERIY changing
     }
 }
