@@ -10,21 +10,20 @@ namespace seedsfromzion.DataAccess
     /// The class is responsible to the communication with the DBMS.
     /// this is a singelton class.
     /// </summary>
-    public class DatabaseAccess : pIDatabaseAccess
+    public class DatabaseAccess : IDatabaseAccess
     {
         #region Data
-        private static DatabaseAccess dbAccess; //the DatabaseAccess Singelton
-        private string connectionString; //the connection string to the database
+        private static string connectionString; //the connection string to the database
         //connection string arguments
-        private string username;
-        private string password;
-        private string databaseName;
+        private static string username;
+        private static string password;
+        private static string databaseName;
         //system arguments
-        private String sqlDir;
+        private static String sqlDir;
         #endregion
 
         #region Methods
-        DatabaseAccess()
+        static DatabaseAccess()
         {
             configSetter();
             //retrieves connection information from the connection string
@@ -34,14 +33,8 @@ namespace seedsfromzion.DataAccess
 
         }
 
-        public static IDatabaseAccess getInstance()
-        {
-            if (dbAccess == null)
-            {
-                dbAccess = new DatabaseAccess();
-            }
-                return dbAccess;
-        }
+
+
 
 
         /// <summary>
@@ -122,7 +115,7 @@ namespace seedsfromzion.DataAccess
         /// Sets the initiale configuration of the DatabaseAccess class , using the application's
         /// configuration file.
         /// </summary>
-        private void configSetter()
+        private static void configSetter()
         {
                 // Open the configuration file and retrieve 
                 // the connectionStrings section.
@@ -142,6 +135,36 @@ namespace seedsfromzion.DataAccess
                 //load the elemnts
                 sqlDir = elements.Get("SqlFolder").Value.ValueXml.InnerText;
         }
+        #endregion
+
+        #region IDatabaseAccess Members
+
+
+        public void performDMLQuery(MySql.Data.MySqlClient.MySqlCommand query)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void performDMLTransaction(MySql.Data.MySqlClient.MySqlCommand[] queries)
+        {
+            throw new NotImplementedException();
+        }
+
+        public System.Data.DataSet getResultSetFromDb(MySql.Data.MySqlClient.MySqlCommand query)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object getScalarFromDb(MySql.Data.MySqlClient.MySqlCommand query)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void optimizeDb(DateTime threshold)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
     }
 }
