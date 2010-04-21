@@ -7,7 +7,7 @@ using Ionic.Zip;
 
 namespace seedsfromzion.Backup
 {
-    class Zipper
+    public class Zipper
     {
         public static bool extract(String zipFile, String destPath)
         {
