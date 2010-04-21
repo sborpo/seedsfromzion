@@ -10,7 +10,7 @@ namespace seedsfromzion.DataAccess
     /// The class is responsible to the communication with the DBMS.
     /// this is a singelton class.
     /// </summary>
-    class DatabaseAccess
+    public class DatabaseAccess
     {
         #region Data
         private static DatabaseAccess dbAccess; //the DatabaseAccess Singelton
@@ -22,7 +22,6 @@ namespace seedsfromzion.DataAccess
         //system arguments
         private String sqlDir;
         #endregion
-
 
         #region Methods
         DatabaseAccess()
