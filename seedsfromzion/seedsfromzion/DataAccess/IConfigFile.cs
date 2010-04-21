@@ -7,6 +7,7 @@ namespace seedsfromzion.DataAccess
 {
     interface IConfigFile
     {
+        static public IConfigFile getInstance();
         string ImagesPath
         {
             get;
