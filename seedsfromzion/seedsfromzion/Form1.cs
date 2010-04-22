@@ -18,6 +18,11 @@ namespace seedsfromzion
         public Form1()
         {
             //check 2
+            ConfigFile config = ConfigFile.getInstance;
+            string str=config.ConnectionString;
+            str = config.MySqlPath;
+            IDatabaseAccess db = new DatabaseAccess();
+            db.performDbBackup("c:/hahasads");
             InitializeComponent();
         }
     }
