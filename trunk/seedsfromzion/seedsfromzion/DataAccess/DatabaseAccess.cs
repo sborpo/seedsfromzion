@@ -117,23 +117,9 @@ namespace seedsfromzion.DataAccess
         /// </summary>
         private static void configSetter()
         {
-                // Open the configuration file and retrieve 
-                // the connectionStrings section.
-                Configuration config = ConfigurationManager.OpenExeConfiguration(System.Reflection.Assembly.GetExecutingAssembly().Location);
-                ConnectionStringsSection section = config.GetSection("connectionStrings") as ConnectionStringsSection;
-                if (section.SectionInformation.IsProtected)
-                {
-                    // Remove encryption.
-                    section.SectionInformation.UnprotectSection();
-                }
-                connectionString= section.ConnectionStrings["seedsfromzion.configurations.connection"].ConnectionString;
-                
-                //Now we will load the rest of the configuration
-                ConfigurationSectionGroup configGroup = config.SectionGroups["applicationSettings"];
-                ClientSettingsSection ar =configGroup.Sections["seedsfromzion.configurations"] as ClientSettingsSection;
-                SettingElementCollection elements =ar.Settings;
-                //load the elemnts
-                sqlDir = elements.Get("SqlFolder").Value.ValueXml.InnerText;
+            ConfigFile config = ConfigFile.getInstance;
+            connectionString=config.ConnectionString;
+            sqlDir = config.MySqlPath;
         }
         #endregion
 

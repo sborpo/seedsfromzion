@@ -27,11 +27,12 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.ImageFolder;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.ImageFolder = value;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -39,11 +40,12 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.BackupFolder;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.BackupFolder = value;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -51,23 +53,25 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.SqlFolder;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.SqlFolder = value;
+                Properties.Settings.Default.Save();
             }
         }
 
-        public string LastOptimizationDate
+        public DateTime LastOptimizationDate
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.LastOptimizeDate;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.LastOptimizeDate = value;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -75,11 +79,12 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.OptimizeFrequency;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.OptimizeFrequency = value;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -87,11 +92,12 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.VisaNotify;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.VisaNotify = value;
+                Properties.Settings.Default.Save();
             }
         }
 
@@ -99,11 +105,13 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.OrderNotify;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.OrderNotify = value;
+                Properties.Settings.Default.Save();
+
             }
         }
 
@@ -111,39 +119,30 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
-                throw new NotImplementedException();
+                return Properties.Settings.Default.UnitsNotify;
             }
             set
             {
-                throw new NotImplementedException();
+                Properties.Settings.Default.UnitsNotify = value;
+                Properties.Settings.Default.Save();
             }
         }
 
         public string ConnectionString
         {
-            get { throw new NotImplementedException(); }
+            get 
+            {
+        
+                Configuration config = ConfigurationManager.OpenExeConfiguration(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                ConnectionStringsSection section = config.GetSection("connectionStrings") as ConnectionStringsSection;
+                if (section.SectionInformation.IsProtected)
+                {
+                    // Remove encryption.
+                    section.SectionInformation.UnprotectSection();
+                }
+                return section.ConnectionStrings["seedsfromzion.Settings1.connection"].ConnectionString;
+            }
         }
 
-
-        private String getProperty(String propertyName)
-        {
-
-            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            ConfigurationSectionGroup configGroup = config.SectionGroups["applicationSettings"];
-            ClientSettingsSection ar =configGroup.Sections["seedsfromzion.configurations"] as ClientSettingsSection;
-            SettingElementCollection elements =ar.Settings;
-            //load the elemnts
-            return elements.Get(propertyName).Value.ValueXml.InnerText;
-        }
-
-        private String setProperty(String propertyName, String value)
-        {
-            Configuration config = ConfigurationManager.OpenExeConfiguration(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            ConfigurationSectionGroup configGroup = config.SectionGroups["applicationSettings"];
-            ClientSettingsSection ar = configGroup.Sections["seedsfromzion.configurations"] as ClientSettingsSection;
-            SettingElementCollection elements = ar.Settings;
-            //load the elemnts
-            return elements.Get(propertyName).Value.ValueXml.InnerText = value;
-        }
     }
 }
