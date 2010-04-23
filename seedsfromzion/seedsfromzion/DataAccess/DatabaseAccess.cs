@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 using System.Text.RegularExpressions;
+using MySql.Data.MySqlClient;
+using MySql.Data;
+using System.Data;
 namespace seedsfromzion.DataAccess
 {
     /// <summary>
@@ -22,7 +25,7 @@ namespace seedsfromzion.DataAccess
         private static String sqlDir;
         #endregion
 
-        #region Methods
+        #region IDatabaseAccess Members
         static DatabaseAccess()
         {
             configSetter();
@@ -121,34 +124,138 @@ namespace seedsfromzion.DataAccess
             connectionString=config.ConnectionString;
             sqlDir = config.MySqlPath;
         }
-        #endregion
 
-        #region IDatabaseAccess Members
-
-
+        /// <summary>
+        /// performes a DML command on the database.
+        /// information about defining MySqlCommand object can be found 
+        /// here:
+        /// http://www.csharp-station.com/Tutorials/AdoDotNet/Lesson06.aspx
+        /// </summary>
+        /// <param name="query"></param>
         public void performDMLQuery(MySql.Data.MySqlClient.MySqlCommand query)
         {
-            throw new NotImplementedException();
+            MySqlCommand[] arr = new MySqlCommand[1];
+            arr[0] = query;
+            performDMLTransaction(arr);
         }
 
+
+        /// <summary>
+        /// performs a transcation of several commands,if one command
+        /// fails then there is a rollback , otherwise commit.
+        /// </summary>
+        /// <param name="queries"></param>
         public void performDMLTransaction(MySql.Data.MySqlClient.MySqlCommand[] queries)
         {
-            throw new NotImplementedException();
+            //open connection to the DBMS
+            MySqlConnection conn=null;
+            MySqlTransaction transaction=null;
+            try
+            {
+            conn= new MySqlConnection(connectionString);
+            conn.Open();
+            //create a transaction
+            transaction = conn.BeginTransaction();
+            //define to each command the transaction and the connection it should be executed
+            foreach (MySqlCommand command in queries)
+            {
+                command.Connection = conn;
+                command.Transaction = transaction;
+            }
+                //execute each command
+                foreach (MySqlCommand command in queries)
+                {
+                    command.ExecuteNonQuery();
+                }
+                //commit the changes
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                //if we recieved a problem , rollback and throw execption to user
+                if (transaction != null) { transaction.Rollback(); }
+                throw ex; 
+            }
+            finally
+            {
+                if (conn != null) { conn.Close(); }
+            }
         }
 
+        /// <summary>
+        /// executes the given sql query and returns the answer in 
+        /// a dataset.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public System.Data.DataSet getResultSetFromDb(MySql.Data.MySqlClient.MySqlCommand query)
         {
-            throw new NotImplementedException();
+           MySqlConnection conn = new MySqlConnection(connectionString);
+           query.Connection = conn;
+           MySqlDataAdapter dataAdapter = new MySqlDataAdapter();
+           dataAdapter.SelectCommand = query;
+            try{
+                DataSet result = new DataSet();
+                dataAdapter.Fill(result);
+                return result;
+            }
+            catch (Exception ex)
+            {
+                
+                if ((!(conn==null))&&(conn.State != ConnectionState.Closed)) { conn.Close(); }
+                throw ex;
+            }
+            //the fill method should close if everything is fine the connection
         }
 
+        /// <summary>
+        /// Used for retriving a single value from the database.
+        /// executes the given sql query and returns the answer in 
+        /// an Object which represent a scalar object.
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public object getScalarFromDb(MySql.Data.MySqlClient.MySqlCommand query)
         {
-            throw new NotImplementedException();
+            MySqlConnection conn=null;
+            try
+            {
+                conn=new MySqlConnection(connectionString);
+                conn.Open();
+                query.Connection = conn;
+                Object result = query.ExecuteScalar();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                if (conn != null) { conn.Close(); }
+                throw ex;
+            }
+
         }
 
+
+        /// <summary>
+        /// moves records older then the given date from the table WorkHours to the
+        /// the same table which works on an archive engine.
+        /// more information about Archive Engine:
+        /// http://dev.mysql.com/tech-resources/articles/storage-engine.html
+        /// </summary>
+        /// <param name="startTime"></param>
         public void optimizeDb(DateTime threshold)
         {
-            throw new NotImplementedException();
+            MySqlCommand moveCommand = new MySqlCommand("INSERT INTO  seedsdb.workarchive (workerId, date, startTime, endTime)"
+                                                    +"(SELECT workerId, date, startTime, endTime FROM seedsdb.workdays "+
+                                                    "WHERE date< @Date);");
+            MySqlCommand deleteCommand = new MySqlCommand("DELETE FROM seedsdb.workdays WHERE date< @Date;");
+            MySqlParameter dateParam = new MySqlParameter();
+            dateParam.ParameterName = "@Date";
+            dateParam.Value = String.Format("{0:yyyy-M-d}", threshold); 
+            moveCommand.Parameters.Add(dateParam);
+            deleteCommand.Parameters.Add(dateParam);
+            MySqlCommand[] arr = new MySqlCommand[2];
+            arr[0] = moveCommand; arr[1] = deleteCommand;
+            performDMLTransaction(arr);
         }
 
         #endregion

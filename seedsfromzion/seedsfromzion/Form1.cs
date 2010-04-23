@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Backup;
 using MySql.Data;
+using MySql.Data.MySqlClient;
 using seedsfromzion.DataAccess;
 
 
@@ -22,8 +23,10 @@ namespace seedsfromzion
             string str=config.ConnectionString;
             str = config.MySqlPath;
             IDatabaseAccess db = new DatabaseAccess();
-            db.performDbBackup("c:/hahasads");
+            DateTime date= new DateTime(2040,3,8);
+            db.optimizeDb(date);
             InitializeComponent();
+            
         }
     }
 }
