@@ -53,7 +53,13 @@
   <ItemGroup>
     <Compile Include="DataAccess\ConfigFile.cs" />
     <Compile Include="DataAccess\DatabaseAccess.cs" />
+    <Compile Include="DataAccess\HtmlEndLine.cs" />
+    <Compile Include="DataAccess\HtmlHeading.cs" />
+    <Compile Include="DataAccess\HtmlParagraph.cs" />
+    <Compile Include="DataAccess\HtmlTable.cs" />
+    <Compile Include="DataAccess\HtmlElem.cs" />
     <Compile Include="DataAccess\IDatabaseAccess.cs" />
+    <Compile Include="DataAccess\Report.cs" />
     <Compile Include="DataAccess\Zipper.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
