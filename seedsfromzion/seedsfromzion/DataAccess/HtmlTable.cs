@@ -12,7 +12,7 @@ namespace seedsfromzion.DataAccess
         public HtmlTable(DataTable table)
         {
             StringBuilder sb= new StringBuilder();
-            sb.Append("<table><thead><tr>");
+            sb.Append("<table class=\"maintable\"><thead><tr>");
             foreach (DataColumn col in table.Columns)
             {
                 sb.Append("<th>"+col.ColumnName+"</th>");
@@ -34,7 +34,7 @@ namespace seedsfromzion.DataAccess
 
         public override string  toString()
         {
-            throw myTable;
+            return String.Format("<div align={0}> {1}</div>",alignment,myTable);
         }
     }
 }
