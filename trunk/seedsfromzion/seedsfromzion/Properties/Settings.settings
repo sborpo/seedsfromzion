@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SqlFolder" Type="System.String" Scope="User">
-      <Value Profile="(Default)">E:\Program Files\MySQL\MySQL Server 5.1\bin</Value>
+      <Value Profile="(Default)">C:\Program Files\MySQL\MySQL Server 5.1\bin</Value>
     </Setting>
     <Setting Name="ImageFolder" Type="System.String" Scope="User">
       <Value Profile="(Default)">Images</Value>
