@@ -122,6 +122,6 @@
     <value>..\Resources\blackAndWhiteStyle.css;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1255</value>
   </data>
   <data name="colorStyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportStyle.css;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1255</value>
+    <value>..\Resources\colorStyle.css;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1255</value>
   </data>
 </root>

@@ -100,8 +100,8 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\colorStyle.css" />
     <None Include="Resources\blackAndWhiteStyle.css" />
-    <None Include="Resources\reportStyle.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Managers\" />
