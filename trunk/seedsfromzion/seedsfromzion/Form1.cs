@@ -18,7 +18,16 @@ namespace seedsfromzion
     {
         public Form1()
         {
-
+            DatabaseAccess db = new DatabaseAccess();
+            Report r = new Report();
+            HtmlElem head = new HtmlHeading("שעות העבודה של עובד מספר 5");
+            HtmlElem linebreak = new HtmlEndLine(4);
+            HtmlElem table = new HtmlTable(db.getResultSetFromDb(new MySqlCommand("SELECT* FROM seedsdb.workdays WHERE workerId=5")).Tables[0]);
+            HtmlElem ending = new HtmlParagraph("משהו לסוף");
+            table.align(HtmlAlign.center);
+            r.append(head).append(linebreak).append(table).append(linebreak).append(ending);
+            r.ReportColor = Report.ReportStyle.Color;
+            r.save(@"c:\example.html");
            
             InitializeComponent();
             

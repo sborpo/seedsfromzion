@@ -1,0 +1,15 @@
+/*The background of the page , something green*/
+.sign {width:100%;
+	color:black}
+body
+{
+background-color:white;
+}
+/*headings will be a color close to white*/
+.signature { color:black ; font-size:12px; font-family:"Times New Roman", Times, serif;}
+p { color:black;}
+.line {color: black; height: 1px;}
+.maintable {color:black; border: 1px solid black; border-collapse:collapse;}
+td {padding:15px; border: 1px solid black;}
+th {background-color:black; color:white; border: 1px solid black;}
+.tdsign{ border: 1px solid white;}
