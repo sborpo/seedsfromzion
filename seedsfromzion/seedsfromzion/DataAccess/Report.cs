@@ -8,12 +8,14 @@ namespace seedsfromzion.DataAccess
 {
     class Report
     {
+        public enum ReportStyle {BlackWhite, Color};
         private LinkedList<HtmlElem> document;
+        private ReportStyle docStyle;
         
         public Report()
         {
             document = new LinkedList<HtmlElem>();
-            useHebrewEncoding();
+            this.ReportColor = ReportStyle.Color;
             addSignature();
         }
 
@@ -23,13 +25,25 @@ namespace seedsfromzion.DataAccess
             return this;
         }
 
+        public ReportStyle ReportColor
+        {
+            get
+            {
+                return docStyle;
+            }
+            set
+            {
+                docStyle = value;
+            }
+        }
+
         public void save(string targetDir)
         {
             if (File.Exists(targetDir))
             {
                 File.Delete(targetDir);
             }
-          
+            addHeader();
             TextWriter tw =null;
             try
             {
@@ -56,23 +70,17 @@ namespace seedsfromzion.DataAccess
                 return code;
             }
         }
-        private void useHebrewEncoding()
+        private void addHeader()
         {
-            HtmlCode code= new HtmlCode("<head>"+
-                                        "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">"+
-                                        "<style type=\"text/css\">"+
-                                        ".sign {width:100%;color:black}"+
-                                         "body{background-color:#f4ffd8;}"+
-                                         ".signature { color:green ; font-size:12px; font-family:\"Times New Roman\", Times, serif;}"+
-                                         "p { color:black;}"+
-                                          ".line {color: #f00; height: 1px;}"+
-                                         " .maintable {color:black; border: 1px solid black; border-collapse:collapse;}"+
-                                          " td {padding:15px; border: 1px solid green;}"+
-                                           " th {background-color:green; color:white; border: 1px solid green;}"+
-                                           " .tdsign{ border: 1px solid #f4ffd8;}"+
-                                        "</style>"+
-                                        "</head>");
-            document.AddLast(code);
+            string style = (docStyle.Equals(ReportStyle.BlackWhite)) ? Properties.Resources.blackAndWhiteStyle : Properties.Resources.colorStyle;
+            HtmlCode code = new HtmlCode("<head>" +
+                                      "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" +
+                                      "<style type=\"text/css\">" +
+                                      style+
+                                      "</style>" +
+                                      "</head>");
+
+            document.AddFirst(code);
 
         }
         private void addSignature()
