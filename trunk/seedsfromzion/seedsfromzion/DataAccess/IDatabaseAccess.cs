@@ -42,11 +42,11 @@ namespace seedsfromzion.DataAccess
 
         /// <summary>
         /// executes the given sql query and returns the answer in 
-        /// a dataset.
+        /// a datatable.
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-       DataSet getResultSetFromDb(MySqlCommand query);
+       DataTable getResultSetFromDb(MySqlCommand query);
 
         /// <summary>
         /// Used for retriving a single value from the database.

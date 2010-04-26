@@ -31,7 +31,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.command1 = new DevComponents.DotNetBar.Command();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.slider1 = new DevComponents.DotNetBar.Controls.Slider();
+            this.button1 = new System.Windows.Forms.Button();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,21 +52,22 @@
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "labelX1";
             // 
-            // slider1
+            // button1
             // 
-            this.slider1.Location = new System.Drawing.Point(41, 147);
-            this.slider1.Name = "slider1";
-            this.slider1.Size = new System.Drawing.Size(181, 23);
-            this.slider1.TabIndex = 2;
-            this.slider1.Text = "slider1";
-            this.slider1.Value = 0;
+            this.button1.Location = new System.Drawing.Point(133, 25);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Controls.Add(this.slider1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
@@ -80,7 +82,8 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private DevComponents.DotNetBar.Command command1;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.Controls.Slider slider1;
+        private System.Windows.Forms.Button button1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
 
     }
