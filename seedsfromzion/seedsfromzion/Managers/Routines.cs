@@ -41,9 +41,9 @@ namespace seedsfromzion.Managers
         private static void checkVisaExpirationDate()
         {
             String date=String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.VisaExpireDays)); 
-            DataAccessUtils.commandBuilder("SELECT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS"
+            MySqlCommand command=DataAccessUtils.commandBuilder("SELECT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS"
             +"WHERE VS.expireDate<@Date AND VS.visaId=WS.visaId AND W.id=VS.visaId","@Date",date);
-            DataTable res= getResultSetFromDb(command);
+            DataTable res= DatabaseAccess.getResultSetFromDb(command);
             StringBuilder sb = new StringBuilder();
             if (res.Rows.Count != 0)
             {
@@ -57,10 +57,10 @@ namespace seedsfromzion.Managers
            
         }
 
-        public void checkNotifications()
+        public static void checkNotifications()
         {
         }
-        public void abortChecking()
+        public static  void abortChecking()
         {
             notificationsThread.CancelAsync();
            
