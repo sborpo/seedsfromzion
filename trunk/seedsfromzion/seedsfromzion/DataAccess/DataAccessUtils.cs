@@ -21,7 +21,7 @@ namespace seedsfromzion.DataAccess
         /// <returns></returns>
         public static  MySqlCommand commandBuilder(String query,params string[] paramsValues)
         {
-            if (paramsValues%2!=0)
+            if (paramsValues.Length%2!=0)
             {
                 return null;
             }
@@ -45,7 +45,7 @@ namespace seedsfromzion.DataAccess
         public static bool rowExists(string query, params string[] paramValues)
         {
             MySqlCommand command = commandBuilder(query, paramValues);
-            DataTable res = getResultSetFromDb(command);
+            DataTable res = DatabaseAccess.getResultSetFromDb(command);
             if (res.Rows.Count != 0)
                 return true;
             return false;
