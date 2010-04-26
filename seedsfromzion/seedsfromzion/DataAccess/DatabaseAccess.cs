@@ -13,7 +13,7 @@ namespace seedsfromzion.DataAccess
     /// The class is responsible to the communication with the DBMS.
     /// this is a singelton class.
     /// </summary>
-    public class DatabaseAccess : IDatabaseAccess
+    public static class DatabaseAccess// : IDatabaseAccess
     {
         #region Data
         private static string connectionString; //the connection string to the database
@@ -36,15 +36,12 @@ namespace seedsfromzion.DataAccess
 
         }
 
-
-
-
-
+        
         /// <summary>
         /// Performs a complete database restoration , using the given sql file backup.
         /// </summary>
         /// <param name="backupFile"></param>
-        public void restoreDb(string backupFile)
+        public static void restoreDb(string backupFile)
         {
             string back = String.Format(@"""{0}""", backupFile);
             string command = String.Format(@"mysql -u {0} --password={1} <{2}", username, password, back);
@@ -57,7 +54,7 @@ namespace seedsfromzion.DataAccess
         /// target directory
         /// </summary>
         /// <param name="targerDir"></param>
-        public void performDbBackup(string targerDir)
+        public static void performDbBackup(string targerDir)
         {
             string back = String.Format(@"""{0}""", targerDir);
             string command = String.Format(@"mysqldump.exe --add-drop-table -B {0} -u {1} --password={2} >{3}", databaseName, username, password, back);
@@ -69,7 +66,7 @@ namespace seedsfromzion.DataAccess
         /// Invocates the given command using the CMD.
         /// </summary>
         /// <param name="command"></param>
-        private void proccessInvocator(string command)
+        private static void proccessInvocator(string command)
         {
             System.Diagnostics.ProcessStartInfo DBProcessStartInfo = new System.Diagnostics.ProcessStartInfo("cmd.exe", @"/C " + command);
             //Redirect the output to standard window
@@ -90,7 +87,7 @@ namespace seedsfromzion.DataAccess
         /// <summary>
         /// Encryps the ConnectionString section. 
         /// </summary>
-        private void encryptConfig()
+        private static void encryptConfig()
         {
             try
             {
@@ -118,7 +115,7 @@ namespace seedsfromzion.DataAccess
         /// Sets the initiale configuration of the DatabaseAccess class , using the application's
         /// configuration file.
         /// </summary>
-        private static void configSetter()
+        private static  void configSetter()
         {
             ConfigFile config = ConfigFile.getInstance;
             connectionString=config.ConnectionString;
@@ -132,7 +129,7 @@ namespace seedsfromzion.DataAccess
         /// http://www.csharp-station.com/Tutorials/AdoDotNet/Lesson06.aspx
         /// </summary>
         /// <param name="query"></param>
-        public void performDMLQuery(MySql.Data.MySqlClient.MySqlCommand query)
+        public static void performDMLQuery(MySql.Data.MySqlClient.MySqlCommand query)
         {
             MySqlCommand[] arr = new MySqlCommand[1];
             arr[0] = query;
@@ -145,7 +142,7 @@ namespace seedsfromzion.DataAccess
         /// fails then there is a rollback , otherwise commit.
         /// </summary>
         /// <param name="queries"></param>
-        public void performDMLTransaction(MySql.Data.MySqlClient.MySqlCommand[] queries)
+        public static void performDMLTransaction(MySql.Data.MySqlClient.MySqlCommand[] queries)
         {
             //open connection to the DBMS
             MySqlConnection conn=null;
@@ -184,11 +181,11 @@ namespace seedsfromzion.DataAccess
 
         /// <summary>
         /// executes the given sql query and returns the answer in 
-        /// a dataset.
+        /// a datatable.
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public System.Data.DataSet getResultSetFromDb(MySql.Data.MySqlClient.MySqlCommand query)
+        public static System.Data.DataTable getResultSetFromDb(MySql.Data.MySqlClient.MySqlCommand query)
         {
            MySqlConnection conn = new MySqlConnection(connectionString);
            query.Connection = conn;
@@ -197,7 +194,7 @@ namespace seedsfromzion.DataAccess
             try{
                 DataSet result = new DataSet();
                 dataAdapter.Fill(result);
-                return result;
+                return result.Tables[0];
             }
             catch (Exception ex)
             {
@@ -215,7 +212,7 @@ namespace seedsfromzion.DataAccess
         /// </summary>
         /// <param name="query"></param>
         /// <returns></returns>
-        public object getScalarFromDb(MySql.Data.MySqlClient.MySqlCommand query)
+        public static object getScalarFromDb(MySql.Data.MySqlClient.MySqlCommand query)
         {
             MySqlConnection conn=null;
             try
@@ -242,8 +239,15 @@ namespace seedsfromzion.DataAccess
         /// http://dev.mysql.com/tech-resources/articles/storage-engine.html
         /// </summary>
         /// <param name="startTime"></param>
-        public void optimizeDb(DateTime threshold)
+        public static void optimizeDb(DateTime threshold)
         {
+
+            MySqlCommand moveCommand = DataAccessUtils.commandBuilder("INSERT INTO  seedsdb.workarchive (workerId, date, startTime, endTime)"
+                                                    + "(SELECT workerId, date, startTime, endTime FROM seedsdb.workdays " +
+                                                    "WHERE date< @Date);", "@Date", String.Format("{0:yyyy-M-d}", threshold));
+            MySqlCommand deleteCommand = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workdays WHERE date< @Date;", "@Date", String.Format("{0:yyyy-M-d}", threshold));
+
+            /*
             MySqlCommand moveCommand = new MySqlCommand("INSERT INTO  seedsdb.workarchive (workerId, date, startTime, endTime)"
                                                     +"(SELECT workerId, date, startTime, endTime FROM seedsdb.workdays "+
                                                     "WHERE date< @Date);");
@@ -252,7 +256,7 @@ namespace seedsfromzion.DataAccess
             dateParam.ParameterName = "@Date";
             dateParam.Value = String.Format("{0:yyyy-M-d}", threshold); 
             moveCommand.Parameters.Add(dateParam);
-            deleteCommand.Parameters.Add(dateParam);
+            deleteCommand.Parameters.Add(dateParam);*/
             MySqlCommand[] arr = new MySqlCommand[2];
             arr[0] = moveCommand; arr[1] = deleteCommand;
             performDMLTransaction(arr);
