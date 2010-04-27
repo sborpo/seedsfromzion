@@ -66,12 +66,15 @@
     <Compile Include="DataAccess\Notification.cs" />
     <Compile Include="DataAccess\Report.cs" />
     <Compile Include="DataAccess\Zipper.cs" />
+    <Compile Include="DataStructures\ClientInfo.cs" />
+    <Compile Include="DataStructures\OrderInfo.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\OrderManager.cs" />
     <Compile Include="Managers\Routines.cs" />
     <Compile Include="Managers\WorkerManager.cs" />
     <Compile Include="Program.cs" />
