@@ -13,9 +13,9 @@ namespace seedsfromzion.Managers
         {
             if (checkWorkerExists(p_ID))
             {
-                //TODO: write to log, or throw an exception
-                return;
+                throw new ArgumentException("Worker already exists");
             }
+
         }
 
         public void FindWorker(string p_name) { }
