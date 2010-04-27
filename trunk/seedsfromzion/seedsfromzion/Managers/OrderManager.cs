@@ -10,13 +10,21 @@ namespace seedsfromzion.Managers
     {
         #region Public Methods
 
-        public void addOrder(ClientInfo clientInfo, OrderInfo orderInfo)
+        public bool addOrder(ClientInfo clientInfo, OrderInfo orderInfo)
         {
-            if (checkClientExists(clientInfo.clientId))
+            //checking that the client exists
+            if (!checkClientExists(clientInfo.clientId))
             {
-                //TODO: write to log, or throw an exception
-                return;
+                return false;
             }
+            //checking that here is no other order in the DB with the same orderId
+            if (checkOrderExists(orderInfo.orderId))
+            {
+                return false;
+            }
+            //adding the new order into the database:
+            //TODO: add the new order to the database
+
         }
 
         public OrderInfo findOrder(int orderId, int clientId) 
