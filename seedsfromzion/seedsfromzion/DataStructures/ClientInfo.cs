@@ -7,5 +7,9 @@ namespace seedsfromzion.DataStructures
 {
     class ClientInfo
     {
+        public int clientId;;
+        public String phoneNumber;
+        public String email;
+       
     }
 }
