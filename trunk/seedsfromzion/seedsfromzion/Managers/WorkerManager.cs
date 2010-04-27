@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using seedsfromzion.DataAccess;
 
 namespace seedsfromzion.Managers
 {
@@ -25,8 +26,7 @@ namespace seedsfromzion.Managers
         #region Private Methods
         private bool checkWorkerExists(int p_ID)
         {
-            //TODO
-            return false;
+            return DataAccessUtils.rowExists("SELECT workerid FROM seedsdb.workers WHERE workerid=@P_ID;", p_ID);
         }
         #endregion
     }
