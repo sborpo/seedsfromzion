@@ -33,5 +33,14 @@
   &lt;string&gt;"13"&lt;/string&gt;
 &lt;/ArrayOfString&gt;</Value>
     </Setting>
+    <Setting Name="VisaFrequency" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="OrderFrequency" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">24</Value>
+    </Setting>
+    <Setting Name="UnitsFrequency" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">48</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
