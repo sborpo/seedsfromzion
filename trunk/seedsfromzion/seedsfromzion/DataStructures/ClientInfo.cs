@@ -5,7 +5,7 @@ using System.Text;
 
 namespace seedsfromzion.DataStructures
 {
-    class ClientInfo
+    public struct ClientInfo
     {
         public int clientId;
         public String phoneNumber;

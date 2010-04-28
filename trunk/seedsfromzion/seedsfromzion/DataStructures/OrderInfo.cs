@@ -5,7 +5,7 @@ using System.Text;
 
 namespace seedsfromzion.DataStructures
 {
-    class OrderInfo
+    public struct OrderInfo
     {
         public int orderId;
         public int[] plantId;
