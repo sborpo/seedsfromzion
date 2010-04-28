@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using seedsfromzion.DataAccess;
 using MySql.Data.MySqlClient;
+using seedsfromzion.DataStructures;
 
 namespace seedsfromzion.Managers
 {
@@ -26,7 +27,10 @@ namespace seedsfromzion.Managers
                                                                   "VALUES(@P_ID, @P_NAME, NULL, NULL)", "@P_ID", p_ID.ToString(), "@P_NAME", p_name);
         }
 
-        public void FindWorker(string p_name) { }
+        public WorkerInfo FindWorker(string p_name) 
+        {
+ 
+        }
 
         #endregion
 
