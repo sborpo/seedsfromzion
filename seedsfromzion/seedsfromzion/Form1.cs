@@ -10,34 +10,38 @@ using seedsfromzion.Backup;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using seedsfromzion.DataAccess;
+using seedsfromzion.Managers;
+using System.Threading;
 
 
 namespace seedsfromzion
 {
     public partial class Form1 : Form
     {
+        public delegate void displayNotification(String title,String text);
+        public displayNotification displayFunc;
+        Routines routine ;
+        private  Notification notification;
         public Form1()
         {
-         
 
+           DataAccess.DatabaseAccess.performDbBackup(@"c:\stam.sql");
             InitializeComponent();
-           
-            if (components == null)
-            {
-                components = this.components = new System.ComponentModel.Container();
-            }
-           
+            notification = new Notification(Screen.GetWorkingArea(this));
+            displayFunc = new displayNotification(notification.showNotification);
+            routine = new Routines(this);
+               
             
         }
 
+
+       
+
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            Notification heh = new Notification(this.components);
-            heh.setIcon(this.Icon);
-            heh.showNotification("MMM","asdasd");
-            heh.showNotification("adqwqwF", "sisaf");
-            heh.showNotification("aqRRRR", "zqqwrrqsssss");
+             routine.checkNotifications();
+           //routine.checkNotifications();
+           
            
             
 
@@ -46,6 +50,11 @@ namespace seedsfromzion
         private void ribbonControl1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            routine.abortChecking();
         }
     }
 }
