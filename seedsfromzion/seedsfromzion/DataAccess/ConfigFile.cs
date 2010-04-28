@@ -22,7 +22,47 @@ namespace seedsfromzion.DataAccess
                 return file;
             }
         }
+        public int VisaFreq
+        {
+            get
+            {
+                return Properties.Settings.Default.VisaFrequency;
+            }
+            set
+            {
+                Properties.Settings.Default.VisaFrequency = value;
+                Properties.Settings.Default.Save();
+            }
 
+        }
+
+        public int OrderFreq
+        {
+            get
+            {
+                return Properties.Settings.Default.OrderFrequency;
+            }
+            set
+            {
+                Properties.Settings.Default.OrderFrequency = value;
+                Properties.Settings.Default.Save();
+            }
+
+        }
+
+        public int UnitsFreq
+        {
+            get
+            {
+                return Properties.Settings.Default.UnitsFrequency;
+            }
+            set
+            {
+                Properties.Settings.Default.UnitsFrequency = value;
+                Properties.Settings.Default.Save();
+            }
+
+        }
         public string ImagesPath
         {
             get
