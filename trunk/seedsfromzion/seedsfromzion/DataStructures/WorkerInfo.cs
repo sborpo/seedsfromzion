@@ -5,7 +5,11 @@ using System.Text;
 
 namespace seedsfromzion.DataStructures
 {
-    public class WorkerInfo
+    public struct WorkerInfo
     {
+        public string ID;
+        public string Name;
+        public string Phone;
+        public string Comments;
     }
 }
