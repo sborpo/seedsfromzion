@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections;
+using System.Drawing;
 
 
 namespace seedsfromzion.DataAccess
@@ -12,7 +13,8 @@ namespace seedsfromzion.DataAccess
 
     class Notification
     {
-       private static NotifyIcon notify;
+
+       private static Rectangle notifyWindow;
        private static Notification not;
        private static Queue<NotifyMessage> notificationQueue;
 
@@ -50,27 +52,29 @@ namespace seedsfromzion.DataAccess
        }
 
 
-
-       public Notification(IContainer component)
+       public void close()
+       {
+           //notify.Visible = false;
+       }
+       public Notification(Rectangle component)
        {
            if (not !=null)
            {
                return;
            }
-           notify = new NotifyIcon(component);
            notificationQueue = new Queue<NotifyMessage>();
-           notify.Visible = true;
-           notify.BalloonTipIcon = ToolTipIcon.Warning;
-           notify.BalloonTipClosed += new EventHandler(notify_BalloonTipClosed);
-           notify.BalloonTipClicked +=new EventHandler(notify_BalloonTipClosed);
            not = this;
+           notifyWindow = component;
+
+
+           
 
        }
 
 
        void notify_BalloonTipClosed(object sender, EventArgs e)
        {
-           notify.Visible = false;
+           //notify.Visible = false;
            lock (notificationQueue)
            {
                notificationQueue.Dequeue();
@@ -82,19 +86,16 @@ namespace seedsfromzion.DataAccess
                }
            }
        }
-       public void setIcon(System.Drawing.Icon icn)
-       {
-           notify.Icon = icn;
-       }
+
 
        private void displayNotify(NotifyMessage mes)
        {
-           notify.Visible = true;
-           notify.BalloonTipTitle = mes.Title;
-           notify.BalloonTipText = mes.Text;
-           notify.ShowBalloonTip(50000);
-
+           NotificationWindow notific = new NotificationWindow(mes.Title, mes.Text, notifyWindow);
+           notific.CloseButtonClick += new EventHandler(notify_BalloonTipClosed);
+           notific.Show();
        }
+
+ 
        public void showNotification(String title,String text)
        {
            NotifyMessage message = new NotifyMessage(title, text);
