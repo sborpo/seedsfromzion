@@ -64,6 +64,12 @@
     <Compile Include="DataAccess\HtmlElem.cs" />
     <Compile Include="DataAccess\IDatabaseAccess.cs" />
     <Compile Include="DataAccess\Notification.cs" />
+    <Compile Include="DataAccess\NotificationWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataAccess\NotificationWindow.designer.cs">
+      <DependentUpon>NotificationWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataAccess\Report.cs" />
     <Compile Include="DataAccess\Zipper.cs" />
     <Compile Include="DataStructures\ClientInfo.cs" />
@@ -71,7 +77,7 @@
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\OrderManager.cs" />
@@ -79,6 +85,12 @@
     <Compile Include="Managers\WorkerManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DataAccess\NotificationWindow.he.resx">
+      <DependentUpon>NotificationWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataAccess\NotificationWindow.resx">
+      <DependentUpon>NotificationWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -107,6 +119,7 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\ico.png" />
     <None Include="Resources\colorStyle.css" />
     <None Include="Resources\blackAndWhiteStyle.css" />
   </ItemGroup>
