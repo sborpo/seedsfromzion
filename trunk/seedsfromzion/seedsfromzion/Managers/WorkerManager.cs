@@ -34,11 +34,18 @@ namespace seedsfromzion.Managers
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * From seedsdb.workers WHERE name=@P_NAME",
                 "@P_NAME", p_name);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
-            if (result.Rows.Count )
-            {
 
+            WorkerInfo worker = new WorkerInfo();
+            if (result.Rows.Count == 1)
+            {
+                worker.ID = (string)result.Rows[0]["id"];
+                worker.Name = (string)result.Rows[0]["name"];
+                worker.Phone = (string)result.Rows[0]["phone"];
+                worker.Comments = (string)result.Rows[0]["comments"];
+                return worker;
             }
-            
+            /// TODO: consider what to do whan exists more than one worker with the same name.
+            return worker;
         }
 
         #endregion
