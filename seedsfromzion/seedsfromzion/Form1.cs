@@ -40,6 +40,7 @@ namespace seedsfromzion
         private void button1_Click(object sender, EventArgs e)
         {
              routine.checkNotifications();
+             int x;
            //routine.checkNotifications();
            
            
