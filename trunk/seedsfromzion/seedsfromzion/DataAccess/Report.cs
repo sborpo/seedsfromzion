@@ -8,6 +8,7 @@ namespace seedsfromzion.DataAccess
 {
     class Report
     {
+        
         public enum ReportStyle {BlackWhite, Color};
         private LinkedList<HtmlElem> document;
         private ReportStyle docStyle;
