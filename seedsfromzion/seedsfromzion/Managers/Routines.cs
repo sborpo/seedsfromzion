@@ -15,12 +15,12 @@ namespace seedsfromzion.Managers
     public class Routines
     {
 
-      
+
         private class Worker
         {
-           
 
-           private Form1 notify;
+
+            private Form1 notify;
 
             public Worker(Form1 notify)
             {
@@ -31,7 +31,7 @@ namespace seedsfromzion.Managers
 
             public void Close()
             {
-               // notify.close();
+                // notify.close();
             }
             public void HandleDueDate()
             {
@@ -57,14 +57,14 @@ namespace seedsfromzion.Managers
                     try
                     {
                         checkVisaExpirationDate();
-                        Thread.Sleep(new TimeSpan(0, ConfigFile.getInstance.VisaFreq,0));
+                        Thread.Sleep(new TimeSpan(0, ConfigFile.getInstance.VisaFreq, 0));
                     }
                     catch (ThreadInterruptedException ex)
                     {
                         return;
                     }
                 }
-                
+
             }
 
             private void checkVisaExpirationDate()
@@ -82,10 +82,10 @@ namespace seedsfromzion.Managers
                 {
                     sb.Append((String)row["name"] + "\n");
                 }
-                notify.Invoke(notify.displayFunc,(String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
+                notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
             }
 
-            private  void checkOrderDate()
+            private void checkOrderDate()
             {
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.OrderDueDate));
                 MySqlCommand command = DataAccessUtils.commandBuilder("SELECT id,name FROM seedsdb.Orders O, seedsdb.Clients C "
@@ -100,33 +100,33 @@ namespace seedsfromzion.Managers
                 {
                     sb.Append(row["id"] + "  " + row["name"] + "\n");
                 }
-                notify.Invoke(notify.displayFunc,(String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
+                notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
             }
         }
 
-        private Thread [] controller;
+        private Thread[] controller;
         private Worker threadWorker;
         private static bool terminate;
 
-       public Routines(Form1 notifyWind)
+        public Routines(Form1 notifyWind)
         {
             threadWorker = new Worker(notifyWind);
             //TODO: control number of threads
             controller = new Thread[2];
             terminate = false;
-            
+
         }
 
         public void checkNotifications()
         {
-  
+
             controller[0] = new Thread(threadWorker.HandleDueDate);
             controller[1] = new Thread(threadWorker.HandleVisa);
             foreach (Thread th in controller)
             {
                 th.Start();
             }
-            
+
         }
 
         public void abortChecking()
@@ -136,8 +136,8 @@ namespace seedsfromzion.Managers
                 th.Interrupt();
             }
             terminate = true;
-            
-         
+
+
         }
     }
 }
