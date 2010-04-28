@@ -105,5 +105,12 @@ namespace seedsfromzion.Properties {
                 return ResourceManager.GetString("colorStyle", resourceCulture);
             }
         }
+        
+        internal static System.Drawing.Bitmap ico {
+            get {
+                object obj = ResourceManager.GetObject("ico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
