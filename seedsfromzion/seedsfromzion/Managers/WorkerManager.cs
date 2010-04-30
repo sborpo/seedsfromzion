@@ -1,11 +1,13 @@
-﻿using System;
+﻿#region usings
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using seedsfromzion.DataAccess;
 using MySql.Data.MySqlClient;
 using seedsfromzion.DataStructures;
-using System.Data;
+using System.Data; 
+#endregion
 
 namespace seedsfromzion.Managers
 {
