@@ -40,7 +40,7 @@ namespace seedsfromzion.Managers
                     checkOrderDate();
                     try
                     {
-                        //Thread.Sleep(new TimeSpan(0, ConfigFile.getInstance.OrderFreq, 0));
+                        
                         Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.OrderFreq));
                     }
                     catch (ThreadInterruptedException ex)
@@ -57,7 +57,7 @@ namespace seedsfromzion.Managers
                     try
                     {
                         checkVisaExpirationDate();
-                        Thread.Sleep(new TimeSpan(0, ConfigFile.getInstance.VisaFreq, 0));
+                        Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.VisaFreq));
                     }
                     catch (ThreadInterruptedException ex)
                     {
@@ -66,6 +66,41 @@ namespace seedsfromzion.Managers
                 }
 
             }
+
+            public void HandleUnits()
+            {
+                while (!terminate)
+                {
+                    try
+                    {
+                        checkUnits();
+                        Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.UnitsFreq));
+                    }
+                    catch (ThreadInterruptedException ex)
+                    {
+                        return;
+                    }
+                }
+
+            }
+
+            private void checkUnits()
+            {
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT P.name,P.type,U.units FROM seedsdb.planttypes P, (SELECT plantId,SUM(units) AS units FROM seedsdb.finishedstorage"+
+                " GROUP BY plantId) U WHERE  P.plantId=U.plantId AND U.units<@Units", "@Units", ConfigFile.getInstance.MinUnitsInStorage.ToString());
+                DataTable res = DatabaseAccess.getResultSetFromDb(command);
+                StringBuilder sb = new StringBuilder();
+                if (res.Rows.Count == 0)
+                {
+                    return;
+                }
+                foreach (DataRow row in res.Rows)
+                {
+                    sb.Append(String.Format(row["name"] +" מסוג "+row["type"]+"'"+" - "+row["units"]+ " יחידות "));
+                }
+                notify.Invoke(notify.displayFunc, (String.Format("מצב המלאי עבור הצמחים הבאים ירד מתחת ל {0} יחידות", ConfigFile.getInstance.MinUnitsInStorage)), sb.ToString());
+            }
+
 
             private void checkVisaExpirationDate()
             {
@@ -112,7 +147,7 @@ namespace seedsfromzion.Managers
         {
             threadWorker = new Worker(notifyWind);
             //TODO: control number of threads
-            controller = new Thread[2];
+            controller = new Thread[3];
             terminate = false;
 
         }
@@ -122,6 +157,7 @@ namespace seedsfromzion.Managers
 
             controller[0] = new Thread(threadWorker.HandleDueDate);
             controller[1] = new Thread(threadWorker.HandleVisa);
+            controller[2] = new Thread(threadWorker.HandleUnits);
             foreach (Thread th in controller)
             {
                 th.Start();
