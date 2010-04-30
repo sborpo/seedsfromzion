@@ -8,6 +8,7 @@ namespace seedsfromzion.DataStructures
     public struct ClientInfo
     {
         public int clientId;
+        public String name;
         public String phoneNumber;
         public String email;
        
