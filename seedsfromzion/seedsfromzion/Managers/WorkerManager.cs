@@ -9,6 +9,12 @@ using System.Data;
 
 namespace seedsfromzion.Managers
 {
+    /// <summary>
+    /// WorkerManager class is a manager class, which is part of the control layer
+    /// responsible of the workers data in the system.
+    /// It's main purpose is to handle the connection between the GUI(of the workeres) layer,
+    /// and the db(of the workers) layer.
+    /// </summary>
     public class WorkerManager
     {
         #region Public Methods
