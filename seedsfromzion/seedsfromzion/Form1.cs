@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using seedsfromzion.Backup;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using seedsfromzion.DataAccess;
@@ -41,6 +40,7 @@ namespace seedsfromzion
         {
              routine.checkNotifications();
              int x;
+             routine.performAutomaticBackup();
            //routine.checkNotifications();
            
            
