@@ -5,10 +5,47 @@ using System.Text;
 using System.IO;
 using Ionic.Zip;
 
-namespace seedsfromzion.Backup
+namespace seedsfromzion.DataAccess
 {
     public class Zipper
     {
+        private ZipFile ziper;
+
+        public Zipper() { ziper = new ZipFile(); }
+        public void addZipFolder(String path)
+        {
+            ziper.AddDirectoryByName(path);
+        }
+        public void addDirFilesToDirectory(String srcDir, String path)
+        {
+            string [] files=Directory.GetFiles(srcDir);
+            addFiles(files, path);
+            
+        }
+
+
+        public void addFiles(System.Collections.Generic.IEnumerable<string> files, String path)
+        {
+            
+            foreach (String file in files)
+            {
+                if (path == null)
+                {
+                    ziper.AddFile(file);
+                }
+                else
+                {
+                    ziper.AddFile(file, path);
+                }
+            }
+        }
+        public void addFile(String file, String path)
+        {
+            String[] arr = new String[1];
+            arr[0] = file;
+            addFiles(arr, path);
+        }
+
         public static bool extract(String zipFile, String destPath)
         {
             if (!ZipFile.IsZipFile(zipFile))
@@ -19,25 +56,14 @@ namespace seedsfromzion.Backup
             zip.ExtractAll(destPath);
             return true;
         }
-        public static void zip(String path,String target)
+        public  void zip(String target)
         {
-            String[] paths = new String[1];
-            paths[0] = path;
-            zipCollection(paths, target);
-        }
-        public static void zipCollection(System.Collections.Generic.IEnumerable<string> files, String target)
-        {
-            ZipFile zip = new ZipFile();
-            foreach (String file in files)
-            {
-                zip.AddItem(file);
-            }
             if (File.Exists(target))
             {
                 File.Delete(target);
             }
-            zip.Save(target);
-
+            ziper.Save(target);
         }
+
     }
 }

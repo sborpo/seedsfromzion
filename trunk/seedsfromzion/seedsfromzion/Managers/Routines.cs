@@ -9,6 +9,7 @@ using System.Data;
 using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
+using System.IO;
 
 namespace seedsfromzion.Managers
 {
@@ -174,6 +175,21 @@ namespace seedsfromzion.Managers
             terminate = true;
 
 
+        }
+
+        public void performAutomaticBackup()
+        {
+            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            LinkedList<String> dirsAndFiles= new LinkedList<string>();
+            DataAccess.DatabaseAccess.performDbBackup(executionPath + @"\" + "databaseBackup.sql");
+            string fileName = "Backup_" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".zip";
+            Zipper zipFile = new Zipper();
+            zipFile.addZipFolder(ConfigFile.getInstance.ImagesPath);
+            zipFile.addZipFolder("Database");
+            zipFile.addDirFilesToDirectory(executionPath + @"\" + ConfigFile.getInstance.ImagesPath, ConfigFile.getInstance.ImagesPath);
+            zipFile.addFile(executionPath + @"\" + "databaseBackup.sql","Database");
+            zipFile.zip( executionPath + @"\" + ConfigFile.getInstance.BackupPath + @"\" + fileName);
+            File.Delete("databaseBackup.sql");
         }
     }
 }
