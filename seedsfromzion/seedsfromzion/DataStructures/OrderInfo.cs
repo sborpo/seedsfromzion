@@ -11,5 +11,8 @@ namespace seedsfromzion.DataStructures
         public string[] plantId;
         public double[] units;
         public string[] fromStorageId;
+        public DateTime orderDate;
+        public DateTime dueDate;
+        public char status;
     }
 }
