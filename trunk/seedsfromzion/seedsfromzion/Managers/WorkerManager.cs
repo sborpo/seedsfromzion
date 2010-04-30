@@ -69,8 +69,65 @@ namespace seedsfromzion.Managers
         #endregion general worker table handling
 
         #region hours
-        public void AddWorkerHours(int[] p_id, DateTime p_date, string p_startTime, string p_endTime) { }
-        public void UpdateWorkerHours(int[] p_id, DateTime p_date, string p_startTime, string p_endTime) { }
+        /// <summary>
+        /// adding working hours to the set of workers.
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <param name="p_date"></param>
+        /// <param name="p_startTime"></param>
+        /// <param name="p_endTime"></param>
+        public void AddWorkerHours(int[] p_id, DateTime p_date, string p_startTime, string p_endTime) 
+        {
+            MySqlCommand[] commands = new MySqlCommand[p_id.Length];
+            int i = 0;
+            //iterating over the workers and adding for each of them the hours
+            foreach (int worker in p_id)
+            {
+                if (!checkWorkerExists(worker))
+                {
+                    throw new ArgumentException("worker doesn't exists");
+                }
+                commands[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.workdays " +
+                     "VALUES(@P_WORKERID, @P_DATE, @P_STARTTIME, @P_ENDTIME)",
+                     "@P_WORKERID", worker.ToString(),
+                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date),
+                     "@P_STARTTIME", p_startTime,
+                     "@P_ENDTIME", p_endTime);
+                i++;
+            }
+            //preforming the trasaction:
+            DatabaseAccess.performDMLTransaction(commands);
+        }
+
+        /// <summary>
+        /// updating the working hours for a set of workers.
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <param name="p_date"></param>
+        /// <param name="p_startTime"></param>
+        /// <param name="p_endTime"></param>
+        public void UpdateWorkerHours(int[] p_id, DateTime p_date, string p_startTime, string p_endTime) 
+        {
+            MySqlCommand[] commands = new MySqlCommand[p_id.Length];
+            int i = 0;
+            //iterating over the workers and adding for each of them the hours
+            foreach (int worker in p_id)
+            {
+                if (!checkWorkerExists(worker))
+                {
+                    throw new ArgumentException("worker doesn't exists");
+                }
+                commands[i] = DataAccessUtils.commandBuilder("UPDATE seedsdb.workdays " +
+                     "SET date=@P_DATE, starTIme=@P_STARTTIME, endTime=@P_ENDTIME WHERE workerID=@WORKERID",
+                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date),
+                     "@P_STARTTIME", p_startTime,
+                     "@P_ENDTIME", p_endTime,
+                     "@P_WORKERID", worker.ToString());
+                i++;
+            }
+            //preforming the trasaction:
+            DatabaseAccess.performDMLTransaction(commands);
+        }
         #endregion hours
 
         #region visa
