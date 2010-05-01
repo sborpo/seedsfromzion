@@ -42,7 +42,7 @@ namespace seedsfromzion
              int x;
              routine.performAutomaticBackup();
            //routine.checkNotifications();
-            DevComponents.DotNetBar.Da
+            
            
            
             
@@ -57,6 +57,11 @@ namespace seedsfromzion
         private void button2_Click(object sender, EventArgs e)
         {
             routine.abortChecking();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
