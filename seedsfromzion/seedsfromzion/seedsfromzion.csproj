@@ -82,6 +82,24 @@
     <Compile Include="Form1.designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\BaseForm.designer.cs">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\InheritedForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InheritedForm.designer.cs">
+      <DependentUpon>InheritedForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SeedsFromZion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SeedsFromZion.designer.cs">
+      <DependentUpon>SeedsFromZion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\OrderManager.cs" />
     <Compile Include="Managers\Routines.cs" />
     <Compile Include="Managers\WorkerManager.cs" />
@@ -97,6 +115,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaseForm.he.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InheritedForm.resx">
+      <DependentUpon>InheritedForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SeedsFromZion.resx">
+      <DependentUpon>SeedsFromZion.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,6 +157,42 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\UsersDelete_Layer_11.png" />
+    <None Include="Resources\UsersCreate_Layer_1.png" />
+    <None Include="Resources\Users42_Layer_1.png" />
+    <None Include="Resources\UserRemove-48.png" />
+    <None Include="Resources\UserEnter-42_Layer_1.png" />
+    <None Include="Resources\UserAdd-48.png" />
+    <None Include="Resources\Upload-32_Layer_1.png" />
+    <None Include="Resources\Settings-32_Layer_1.png" />
+    <None Include="Resources\search.png" />
+    <None Include="Resources\Save16_Layer_1.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\salesGraph.png" />
+    <None Include="Resources\removeOrder.png" />
+    <None Include="Resources\Refrigerator_56.png" />
+    <None Include="Resources\PrintHS.png" />
+    <None Include="Resources\Printer42_Layer_1.png" />
+    <None Include="Resources\postage_stamp_48.png" />
+    <None Include="Resources\Plant-64.png" />
+    <None Include="Resources\percent_graph_type1.png" />
+    <None Include="Resources\percent_graph_time.png" />
+    <None Include="Resources\percent_graph_infridge.png" />
+    <None Include="Resources\percent_graph.png" />
+    <None Include="Resources\Money-56_wide.png" />
+    <None Include="Resources\logo2.png" />
+    <None Include="Resources\logo1.png" />
+    <None Include="Resources\HoursUpdate_482.png" />
+    <None Include="Resources\Flowers.png" />
+    <None Include="Resources\FindOrder.png" />
+    <None Include="Resources\File-html-alt-48.png" />
+    <None Include="Resources\Favorites22_Layer_1.png" />
+    <None Include="Resources\emd438_Layer_1.png" />
+    <None Include="Resources\Download-32_Layer_1.png" />
+    <None Include="Resources\delete40_Layer_1.png" />
+    <None Include="Resources\Blue_Flower_delete.png" />
+    <None Include="Resources\Blue_Flower_add3.png" />
+    <None Include="Resources\addOrder_48.png" />
     <None Include="Resources\ico.png" />
     <None Include="Resources\colorStyle.css" />
     <None Include="Resources\blackAndWhiteStyle.css" />
