@@ -168,6 +168,20 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        public System.Collections.Specialized.StringCollection Favorites
+        {
+            get
+            {
+                return Properties.Settings.Default.Favorites;
+            }
+            set
+            {
+                Properties.Settings.Default.Favorites = value;
+                Properties.Settings.Default.Save();
+                
+            }
+        }
+
         public string ConnectionString
         {
             get 
