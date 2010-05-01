@@ -127,4 +127,112 @@
   <data name="ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="addOrder_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addOrder_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue_Flower_add3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue_Flower_add3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Blue_Flower_delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blue_Flower_delete.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete40_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\delete40_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emd438_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emd438_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Favorites22_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Favorites22_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="File_html_alt_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\File-html-alt-48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FindOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FindOrder.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flowers.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="HoursUpdate_482" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HoursUpdate_482.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Money_56_wide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Money-56_wide.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="percent_graph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percent_graph.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="percent_graph_infridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percent_graph_infridge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="percent_graph_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percent_graph_time.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="percent_graph_type1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percent_graph_type1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plant_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plant-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="postage_stamp_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\postage_stamp_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Printer42_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Printer42_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PrintHS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PrintHS.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Refrigerator_56" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refrigerator_56.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="removeOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\removeOrder.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="salesGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salesGraph.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Save16_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save16_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="search" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\search.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Settings_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Settings-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Upload_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Upload-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserAdd_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserAdd-48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserEnter_42_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserEnter-42_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UserRemove_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UserRemove-48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Users42_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Users42_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UsersCreate_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UsersCreate_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UsersDelete_Layer_11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UsersDelete_Layer_11.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
