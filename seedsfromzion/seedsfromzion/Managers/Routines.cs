@@ -10,6 +10,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
+using seedsfromzion.GUI;
 
 namespace seedsfromzion.Managers
 {
@@ -32,9 +33,9 @@ namespace seedsfromzion.Managers
             /// <summary>
             /// the form to which the worker should notify
             /// </summary>
-            private Form1 notify;
+            private seedsFromZion notify;
 
-            public Worker(Form1 notify)
+            public Worker(seedsFromZion notify)
             {
                 this.notify = notify;
             }
@@ -207,7 +208,7 @@ namespace seedsfromzion.Managers
         /// </summary>
         private static bool terminate;
 
-        public Routines(Form1 notifyWind)
+        public Routines(seedsFromZion notifyWind)
         {
             //sets the new Worker with the window 
             //of the notifications

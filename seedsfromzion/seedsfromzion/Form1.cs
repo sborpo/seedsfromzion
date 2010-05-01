@@ -28,7 +28,7 @@ namespace seedsfromzion
             InitializeComponent();
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
-            routine = new Routines(this);
+           // routine = new Routines(this);
                
             
         }

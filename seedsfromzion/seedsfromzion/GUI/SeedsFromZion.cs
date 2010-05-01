@@ -6,14 +6,25 @@ using System.Windows.Forms;
 using System.Data;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Rendering;
+using seedsfromzion.DataAccess;
+using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI
 {
     public partial class seedsFromZion : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        public delegate void displayNotification(String title, String text);
+        public displayNotification displayFunc;
+        Routines routine;
+        private Notification notification;
+
         public seedsFromZion()
         {
             InitializeComponent();
+            notification = new Notification(Screen.GetWorkingArea(this));
+            displayFunc = new displayNotification(notification.showNotification);
+            routine = new Routines(this);
+            routine.checkNotifications();
         }
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
@@ -51,7 +62,7 @@ namespace seedsfromzion.GUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-     
+            routine.abortChecking();
             this.Close();
         }
     }

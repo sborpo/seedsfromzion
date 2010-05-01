@@ -91,6 +91,7 @@
             // 
             this.textBoxX1.AutoCompleteCustomSource.AddRange(new string[] {
             "צמח בר",
+            "צמח",
             "קלונית",
             "פרח",
             "קלינה"});
