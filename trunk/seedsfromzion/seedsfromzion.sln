@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "seedsfromzion", "seedsfromzion\seedsfromzion.csproj", "{555FD608-1EDE-4C01-A088-63469E932B04}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{65DF82C9-ECB4-48B9-BBC2-CA2A2ECC48F9}"
+EndProject
 Global
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
@@ -17,6 +19,8 @@ Global
 		{555FD608-1EDE-4C01-A088-63469E932B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{555FD608-1EDE-4C01-A088-63469E932B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{555FD608-1EDE-4C01-A088-63469E932B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65DF82C9-ECB4-48B9-BBC2-CA2A2ECC48F9}.Debug|Any CPU.ActiveCfg = Debug
+		{65DF82C9-ECB4-48B9-BBC2-CA2A2ECC48F9}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
