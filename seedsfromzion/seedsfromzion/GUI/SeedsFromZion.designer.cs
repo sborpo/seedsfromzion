@@ -98,9 +98,9 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
-            this.systemControl.Controls.Add(this.inventoryPanel);
-            this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
+            this.systemControl.Controls.Add(this.workersPanel);
+            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemControl.ForeColor = System.Drawing.Color.Black;
@@ -134,11 +134,12 @@
             this.inventoryPanel.Controls.Add(this.generalInventoryBar);
             this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryPanel.Location = new System.Drawing.Point(0, 56);
+            this.inventoryPanel.Location = new System.Drawing.Point(0, 61);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
+            this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
             this.inventoryPanel.TabIndex = 1;
+            this.inventoryPanel.Visible = false;
             // 
             // ordersInventoryBar
             // 
@@ -152,10 +153,10 @@
             this.ordersInventoryBar.Location = new System.Drawing.Point(376, 0);
             this.ordersInventoryBar.Name = "ordersInventoryBar";
             this.ordersInventoryBar.ResizeOrderIndex = 1;
-            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
+            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 100);
             this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ordersInventoryBar.TabIndex = 6;
-            this.ordersInventoryBar.Text = "Order Manager";
+            this.ordersInventoryBar.Text = "מנהל בהזמנות";
             this.ordersInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // findOrderButton
@@ -203,10 +204,10 @@
             this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
             this.operationsInventoryBar.Name = "operationsInventoryBar";
             this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 105);
+            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 100);
             this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.operationsInventoryBar.TabIndex = 5;
-            this.operationsInventoryBar.Text = "Operations";
+            this.operationsInventoryBar.Text = "פעלות";
             this.operationsInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // addToFridgeButton
@@ -254,10 +255,10 @@
             this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
             this.generalInventoryBar.Name = "generalInventoryBar";
             this.generalInventoryBar.ResizeOrderIndex = 1;
-            this.generalInventoryBar.Size = new System.Drawing.Size(178, 105);
+            this.generalInventoryBar.Size = new System.Drawing.Size(178, 100);
             this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.generalInventoryBar.TabIndex = 4;
-            this.generalInventoryBar.Text = "General";
+            this.generalInventoryBar.Text = "כללי";
             this.generalInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // findPlantButton
@@ -322,7 +323,7 @@
             this.paymentWorkersBar.Size = new System.Drawing.Size(99, 100);
             this.paymentWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.paymentWorkersBar.TabIndex = 4;
-            this.paymentWorkersBar.Text = "Payments";
+            this.paymentWorkersBar.Text = "תשלומים";
             this.paymentWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // paymentButton
@@ -344,10 +345,10 @@
             this.addUpdateVisaButton});
             this.visaWorkersBar.Location = new System.Drawing.Point(417, 0);
             this.visaWorkersBar.Name = "visaWorkersBar";
-            this.visaWorkersBar.Size = new System.Drawing.Size(72, 100);
+            this.visaWorkersBar.Size = new System.Drawing.Size(113, 100);
             this.visaWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.visaWorkersBar.TabIndex = 3;
-            this.visaWorkersBar.Text = "Visas";
+            this.visaWorkersBar.Text = "אשרות כניסה";
             this.visaWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // addUpdateVisaButton
@@ -375,7 +376,7 @@
             this.generalWorkersBar.Size = new System.Drawing.Size(178, 100);
             this.generalWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.generalWorkersBar.TabIndex = 3;
-            this.generalWorkersBar.Text = "General";
+            this.generalWorkersBar.Text = "כללי";
             this.generalWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // findWorkersButton
@@ -423,7 +424,7 @@
             this.reportWorkersBar.Size = new System.Drawing.Size(125, 100);
             this.reportWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.reportWorkersBar.TabIndex = 2;
-            this.reportWorkersBar.Text = "Reports";
+            this.reportWorkersBar.Text = "דו\"חות ודיווחים";
             this.reportWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // reportButton
@@ -458,7 +459,6 @@
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
             this.statisticsPanel.TabIndex = 3;
-            this.statisticsPanel.Visible = false;
             // 
             // graphsStatisticsBar
             // 
@@ -471,10 +471,10 @@
             this.graphsStatisticsBar.Location = new System.Drawing.Point(3, 0);
             this.graphsStatisticsBar.Name = "graphsStatisticsBar";
             this.graphsStatisticsBar.ResizeOrderIndex = 1;
-            this.graphsStatisticsBar.Size = new System.Drawing.Size(132, 100);
+            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 100);
             this.graphsStatisticsBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.graphsStatisticsBar.TabIndex = 4;
-            this.graphsStatisticsBar.Text = "Graphs";
+            this.graphsStatisticsBar.Text = "גרפים סטטיסטיים";
             this.graphsStatisticsBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // percentageGraphButton
@@ -543,7 +543,6 @@
             // 
             // inventoryTab
             // 
-            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -567,6 +566,7 @@
             // 
             // statisticsTab
             // 
+            this.statisticsTab.Checked = true;
             this.statisticsTab.ImagePaddingHorizontal = 8;
             this.statisticsTab.Name = "statisticsTab";
             this.statisticsTab.Panel = this.statisticsPanel;
@@ -841,9 +841,9 @@
             this.statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(4, 584);
+            this.statusBar.Location = new System.Drawing.Point(4, 580);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1001, 19);
+            this.statusBar.Size = new System.Drawing.Size(1001, 23);
             this.statusBar.Stretch = true;
             this.statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statusBar.TabIndex = 1;
