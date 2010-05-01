@@ -264,26 +264,10 @@ namespace seedsfromzion.Managers
             string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string fileName = "Backup_" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".zip";
             string backupfileLocation = executionPath + @"\" + ConfigFile.getInstance.BackupPath + @"\" + fileName;
-            performBackup(backupfileLocation);
+            seedsfromzion.Managers.SystemManager.performBackup(backupfileLocation);
         }
 
-        /// <summary>
-        /// performs system backup to the given destination
-        /// </summary>
-        /// <param name="destination">the given destination zip file</param>
-        public void performBackup(String destination)
-        {
-            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            LinkedList<String> dirsAndFiles = new LinkedList<string>();
-            DataAccess.DatabaseAccess.performDbBackup(executionPath + @"\" + "databaseBackup.sql");
-            Zipper zipFile = new Zipper();
-            zipFile.addZipFolder(ConfigFile.getInstance.ImagesPath);
-            zipFile.addZipFolder("Database");
-            zipFile.addDirFilesToDirectory(executionPath + @"\" + ConfigFile.getInstance.ImagesPath, ConfigFile.getInstance.ImagesPath);
-            zipFile.addFile(executionPath + @"\" + "databaseBackup.sql", "Database");
-            zipFile.zip(destination);
-            File.Delete("databaseBackup.sql");
-        }
+       
 
     }
 }
