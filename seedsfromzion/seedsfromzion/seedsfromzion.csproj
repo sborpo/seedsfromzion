@@ -103,8 +103,11 @@
     <Compile Include="GUI\SeedsFromZion.designer.cs">
       <DependentUpon>SeedsFromZion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\OrderManager.cs" />
     <Compile Include="Managers\Routines.cs" />
+    <Compile Include="Managers\StatisticsManager.cs" />
+    <Compile Include="Managers\SystemManager.cs" />
     <Compile Include="Managers\WorkerManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

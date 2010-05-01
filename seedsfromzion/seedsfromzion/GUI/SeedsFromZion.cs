@@ -51,6 +51,7 @@ namespace seedsfromzion.GUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
+     
             this.Close();
         }
     }

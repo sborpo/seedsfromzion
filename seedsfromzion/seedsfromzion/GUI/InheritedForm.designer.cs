@@ -79,7 +79,7 @@
             // 
             // labelX1
             // 
-            this.labelX1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.labelX1.BackColor = System.Drawing.Color.Transparent;
             this.labelX1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelX1.Location = new System.Drawing.Point(324, 3);
             this.labelX1.Name = "labelX1";
@@ -103,7 +103,7 @@
             this.textBoxX1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxX1.Location = new System.Drawing.Point(3, 3);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(315, 34);
+            this.textBoxX1.Size = new System.Drawing.Size(315, 29);
             this.textBoxX1.TabIndex = 5;
             this.textBoxX1.Text = "הקלד כאן שם של הצמח";
             // 
@@ -120,7 +120,6 @@
             // 
             this.ClientSize = new System.Drawing.Size(904, 451);
             this.Controls.Add(this.theContainer);
-            this.DoubleBuffered = true;
             this.Name = "InheritedForm";
             this.Text = "InheritedSearchPlantForm";
             this.Load += new System.EventHandler(this.InheritedForm_Load);
