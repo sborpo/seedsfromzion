@@ -42,6 +42,7 @@ namespace seedsfromzion
              int x;
              routine.performAutomaticBackup();
            //routine.checkNotifications();
+            DevComponents.DotNetBar.Da
            
            
             
