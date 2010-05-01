@@ -18,6 +18,8 @@ namespace seedsfromzion.Managers
         /// the function is not leagel there will be no transaction.
         /// also in case the client dose not exist it will be added to the
         /// client database automaticly.
+        /// this function asumes that all the amounts in the order are available
+        /// in the inventory.
         /// </summary>
         /// <param name="clientInfo">the information of the buyer</param>
         /// <param name="orderInfo">the order information</param>
@@ -36,7 +38,7 @@ namespace seedsfromzion.Managers
             }
             
             //adding the new order into the database:
-            MySqlCommand[] addToOrdersFromStorage = new MySqlCommand[orderInfo.plantId.Length];
+            MySqlCommand[] addToOrdersFromStorage = new MySqlCommand[orderInfo.plantId.Length + 1];
             int i = 0;
             foreach (string p_id in orderInfo.plantId)
             {
@@ -44,7 +46,7 @@ namespace seedsfromzion.Managers
                 //TODO: check that the storage id exists.
                 addToOrdersFromStorage[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.ordersfromstorage " +
                      "VALUES(@P_ORDERID, @P_PLANTID, @P_STORAGEID, @P_UNITS)",
-                     "@P_ORDERID", orderInfo.orderId,
+                     "@P_ORDERID", orderInfo.orderId.ToString(),
                      "@P_PLANTID", p_id,
                      "@P_STORAGEID", orderInfo.fromStorageId[i],
                      "@P_UNITS", orderInfo.units[i].ToString());
@@ -53,16 +55,24 @@ namespace seedsfromzion.Managers
 
             MySqlCommand addToOrders = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.orders" +
                                      " VALUES (@P_ORDERID,@P_CLIENTID,@P_ORDERDATE,@P_DUEDATE,@P_STATUS)",
-                                     "@P_ORDERID", orderInfo.orderId,
-                                     "@P_CLIENTID", clientInfo.clientId,
+                                     "@P_ORDERID", orderInfo.orderId.ToString(),
+                                     "@P_CLIENTID", clientInfo.clientId.ToString(),
                                      "@P_ORDERDATE",  String.Format("{0:yyyy-M-d}",orderInfo.orderDate),
                                      "@P_DUEDATE",  String.Format("{0:yyyy-M-d}",orderInfo.dueDate),
                                      "@P_STATUS", orderInfo.status.ToString());
             
             //preforming the trasaction:
+            addToOrdersFromStorage[orderInfo.plantId.Length] = addToOrders;
             DatabaseAccess.performDMLTransaction(addToOrdersFromStorage);
-            DatabaseAccess.performDMLQuery(addToOrders);
-
+            //removing the amounts from the storage:
+         
+            foreach (string p_id in orderInfo.plantId)
+            {
+                //TODO: check that the plant id exist and remove the 
+                // amount from the inventory - Roee
+               
+                
+            }
         }
 
         public OrderInfo findOrder(int orderId, int clientId) 
@@ -81,7 +91,7 @@ namespace seedsfromzion.Managers
             OrderInfo order = new OrderInfo();
             if ((orderFromStorageResult.Rows.Count >= 1) && (ordersResult.Rows.Count >= 1))
             {
-                order.orderId = orderId.ToString();
+                order.orderId = orderId;
                 order.orderDate = DateTime.Parse((string)ordersResult.Rows[0]["orderDate"]).Date;
                 order.dueDate = DateTime.Parse((string)ordersResult.Rows[0]["dueDate"]).Date;
                 order.status = (char)ordersResult.Rows[0]["status"];
@@ -105,19 +115,50 @@ namespace seedsfromzion.Managers
 
        public void updateOrderInfo(int orderId,  OrderInfo orderInfo, ClientInfo clientInfo)
         {
-            return;
+            if ((checkClientExists(clientInfo.clientId)) && (checkOrderExists(orderInfo.orderId)))
+            {
+                OrderInfo tmpOrder = findOrder(orderId, clientInfo.clientId);
+                try
+                {
+                    cancelOrder(orderId);
+                    addOrder(clientInfo, orderInfo);
+                }
+                catch (Exception ex)
+                {
+                    //if we recieved a problem , rollback and throw execption to user
+                    addOrder(clientInfo, tmpOrder);
+                    throw ex;
+                }
+            }
         }
 
        public void cancelOrder(int orderId)
        {
-           return;
+           if (!checkOrderExists(orderId))
+           {
+               throw new ArgumentException("order doesn't exists");
+           }
+           MySqlCommand[] commandArray = new MySqlCommand[2];
+           commandArray[0] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.orders WHERE orderId=@P_ORDERID",
+                                                                "@P_ORDERID", orderId.ToString());
+           commandArray[1] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.ordersfromstorage WHERE orderId=@P_ORDERID",
+                                                                "@P_ORDERID", orderId.ToString());
+           DatabaseAccess.performDMLTransaction(commandArray);
+          
        }
 
         #endregion
 
         #region Private Methods
 
-       private void addOrderInfo(int orderId, int[] plantId, double[] units, String[] fromStorageId)
+       /// <summary>
+       /// is this method really needed???
+       /// </summary>
+       /// <param name="orderId"></param>
+       /// <param name="plantId"></param>
+       /// <param name="units"></param>
+       /// <param name="fromStorageId"></param>
+        private void addOrderInfo(int orderId, int[] plantId, double[] units, String[] fromStorageId)
        {
            return;
        }
@@ -130,7 +171,7 @@ namespace seedsfromzion.Managers
        {
            MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.clients" +
                                      " VALUES (@P_ID,@PNAME,@P_PHONE,@P_EMAIL)", 
-                                     "@P_ID", clientInfo.clientId, 
+                                     "@P_ID", clientInfo.clientId.ToString(), 
                                      "@P_NAME", clientInfo.name, 
                                      "@P_PHONE", clientInfo.phoneNumber, 
                                      "@P_EMAIL", clientInfo.email);
@@ -147,9 +188,9 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="p_orderId">The id that will be checked in the DataBase</param>
         /// <returns>boolean</returns>
-        private bool checkOrderExists(string p_orderId)
+        private bool checkOrderExists(int p_orderId)
         {
-            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE orderId=@p_orderId;", "@p_orderId", p_orderId);            
+            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE orderId=@p_orderId;", "@p_orderId", p_orderId.ToString());            
         }
         /// <summary>
         /// This method checks if the client id transferd to her already exists
@@ -157,9 +198,9 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="p_clientId">The id that will be checked in the DataBase</param>
         /// <returns>boolean</returns>
-        private bool checkClientExists(string p_clientId)
+        private bool checkClientExists(int p_clientId)
         {
-            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE clientId=@p_clientId;", "@p_clientId", p_clientId);            
+            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE clientId=@p_clientId;", "@p_clientId", p_clientId.ToString());            
         }
         #endregion
     }
