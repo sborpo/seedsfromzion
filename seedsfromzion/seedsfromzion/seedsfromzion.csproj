@@ -36,6 +36,7 @@
     <Reference Include="MySql.Data, Version=6.2.2.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -75,7 +76,9 @@
     <Compile Include="DataStructures\ClientInfo.cs" />
     <Compile Include="DataStructures\OrderInfo.cs" />
     <Compile Include="DataStructures\WorkerInfo.cs" />
-    <Compile Include="Deplyoment.cs" />
+    <Compile Include="Deplyoment.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
