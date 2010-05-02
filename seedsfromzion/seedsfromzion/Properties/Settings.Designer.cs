@@ -167,5 +167,17 @@ namespace seedsfromzion.Properties {
                 this["UnitsFrequency"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2012-04-03")]
+        public global::System.DateTime LastBackupDate {
+            get {
+                return ((global::System.DateTime)(this["LastBackupDate"]));
+            }
+            set {
+                this["LastBackupDate"] = value;
+            }
+        }
     }
 }
