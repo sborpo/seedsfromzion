@@ -65,5 +65,11 @@ namespace seedsfromzion.GUI
             routine.abortChecking();
             this.Close();
         }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            SettingsPanel settings = new SettingsPanel();
+            settings.Show();
+        }
     }
 }

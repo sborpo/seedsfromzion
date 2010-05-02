@@ -179,5 +179,17 @@ namespace seedsfromzion.Properties {
                 this["LastBackupDate"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int BackupFrequency {
+            get {
+                return ((int)(this["BackupFrequency"]));
+            }
+            set {
+                this["BackupFrequency"] = value;
+            }
+        }
     }
 }

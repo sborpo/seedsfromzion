@@ -115,6 +115,32 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        public DateTime LastAutomaticBackupDate
+        {
+            get
+            {
+                return Properties.Settings.Default.LastBackupDate;
+            }
+            set
+            {
+                Properties.Settings.Default.LastBackupDate = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
+        public int BackupFrequency
+        {
+            get
+            {
+                return Properties.Settings.Default.BackupFrequency;
+            }
+            set
+            {
+                Properties.Settings.Default.BackupFrequency = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         public int OptimizingFrequency
         {
             get
