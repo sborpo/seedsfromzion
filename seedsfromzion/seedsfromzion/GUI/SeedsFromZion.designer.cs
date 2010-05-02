@@ -747,6 +747,7 @@
             this.settingsButton.Tooltip = "הגדרות...   Ctrl+T";
             this.settingsButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.settingsButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // saveButton
             // 

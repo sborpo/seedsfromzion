@@ -262,12 +262,34 @@ namespace seedsfromzion.Managers
         /// </summary>
         public void performAutomaticBackup()
         {
+            DateTime lastBackup= ConfigFile.getInstance.LastAutomaticBackupDate;
+            //check that the last backup date + backup frequency is less then todays date
+            //if yes return otherwise perform the backup
+            if (lastBackup.AddDays(ConfigFile.getInstance.BackupFrequency).CompareTo(DateTime.Now) < 0)
+            {
+                return;
+            }
             string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string fileName = "Backup_" + DateTime.Now.ToString("yyyy_MM_dd_hh_mm_ss") + ".zip";
             string backupfileLocation = executionPath + @"\" + ConfigFile.getInstance.BackupPath + @"\" + fileName;
             seedsfromzion.Managers.SystemManager.performBackup(backupfileLocation);
+            DateTime time =  DateTime.Now;
+            ConfigFile.getInstance.LastAutomaticBackupDate = new DateTime(time.Year, time.Month, time.Day);
         }
 
+        public void performDbOptimization()
+        {
+            DateTime lastOptimize = ConfigFile.getInstance.LastOptimizationDate;
+            //check that the last optimization date date + optimization frequency is less then todays date
+            //if yes return otherwise perform the optimization
+            if (lastOptimize.AddDays(ConfigFile.getInstance.OptimizingFrequency).CompareTo(DateTime.Now) < 0)
+            {
+                return;
+            }
+            DataAccess.DatabaseAccess.optimizeDb(DateTime.Now.Subtract(new TimeSpan(ConfigFile.getInstance.OptimizingFrequency*30,0,0,0)));
+            DateTime time = DateTime.Now;
+            ConfigFile.getInstance.LastOptimizationDate = new DateTime(time.Year, time.Month, time.Day);
+        }
        
 
     }
