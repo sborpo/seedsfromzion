@@ -17,6 +17,7 @@ namespace seedsfromzion.GUI
     {
         public delegate void ChangedSettingHandler();
         public event ChangedSettingHandler settingsChanged;
+        public event ChangedSettingHandler systemSettingsChanged;
         private Dictionary<int, String> dict;
         public SettingsPanel()
         {
@@ -98,7 +99,7 @@ namespace seedsfromzion.GUI
             }
             else
             {
-                input.MinValue = integerInput1.MaxValue = -1;
+                input.MinValue = -1;
                 input2.MinValue = -1;
                 input.MaxValue = -1;
                 input2.MaxValue = -1;
@@ -194,8 +195,38 @@ namespace seedsfromzion.GUI
 
         private void SettingsPanel_Load(object sender, EventArgs e)
         {
-            //initializeNotificationsData();
+            textBoxX1.Text = ConfigFile.getInstance.MySqlPath;
+            textBoxX2.Text = ConfigFile.getInstance.ImagesPath;
+            textBoxX3.Text = ConfigFile.getInstance.BackupPath;
+            integerInput7.Value = ConfigFile.getInstance.BackupFrequency;
+            integerInput8.Value = ConfigFile.getInstance.OptimizingFrequency;
         }
+
+        private void textBoxX1_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog dig= new FolderBrowserDialog();
+            if (dig.ShowDialog() == DialogResult.OK)
+            {
+                textBoxX1.Text = dig.SelectedPath;
+            }
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            ConfigFile.getInstance.MySqlPath = textBoxX1.Text;
+            ConfigFile.getInstance.ImagesPath=textBoxX2.Text ;
+            ConfigFile.getInstance.BackupPath=  textBoxX3.Text ;
+            ConfigFile.getInstance.BackupFrequency =integerInput7.Value ;
+            ConfigFile.getInstance.OptimizingFrequency =integerInput8.Value ;
+            systemSettingsChanged();
+        }
+
+   
 
 
     }
