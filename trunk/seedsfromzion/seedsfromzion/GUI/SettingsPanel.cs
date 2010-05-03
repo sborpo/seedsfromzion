@@ -29,9 +29,7 @@ namespace seedsfromzion.GUI
             checkBoxX1.Checked = true;
             checkBoxX2.Checked = true;
             checkBoxX3.Checked = true;
-            checkBoxX1.CheckedChanged += new EventHandler(checkBoxX1_CheckedChanged);
-            checkBoxX2.CheckedChanged += new EventHandler(checkBoxX2_CheckedChanged);
-            checkBoxX3.CheckedChanged += new EventHandler(checkBoxX3_CheckedChanged);
+           
             integerInput1.Value = ConfigFile.getInstance.VisaExpireDays;
             integerInput2.Value=ConfigFile.getInstance.VisaFreq;
             integerInput3.Value=ConfigFile.getInstance.MinUnitsInStorage;
@@ -41,65 +39,73 @@ namespace seedsfromzion.GUI
             if (integerInput1.Value == -1)
             {
                 checkBoxX1.Checked = false;
-      
+
+            }
+            else
+            {
+                integerInput1.MinValue = 1;
+                integerInput2.MinValue = 1;
             }
             if (integerInput3.Value == -1)
             {
                 checkBoxX2.Checked = false;
             }
+            else
+            {
+                integerInput3.MinValue = 1;
+                integerInput4.MinValue = 1;
+            }
             if (integerInput5.Value == -1)
             {
                 checkBoxX3.Checked = false;
             }
+            else
+            {
+                integerInput5.MinValue = 1;
+                integerInput6.MinValue = 1;
+            }
+            checkBoxX1.CheckedChanged += new EventHandler(checkBoxX1_CheckedChanged);
+            checkBoxX2.CheckedChanged += new EventHandler(checkBoxX2_CheckedChanged);
+            checkBoxX3.CheckedChanged += new EventHandler(checkBoxX3_CheckedChanged);
 
         }
 
         void checkBoxX3_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxX3.Checked == true)
-            {
-                integerInput5.MinValue = 1;
-                integerInput6.MinValue = 1;
-            }
-            else
-            {
-                integerInput5.MinValue = -1;
-                integerInput6.MinValue = -1;
-                integerInput5.Value = -1;
-                integerInput6.Value = -1;
-            }
+            inputSetterCheckBoxChanged(checkBoxX3, integerInput5, integerInput6);
         }
 
         void checkBoxX2_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxX2.Checked == true)
-            {
-                integerInput3.MinValue = 1;
-                integerInput4.MinValue = 1;
-            }
-            else
-            {
-                integerInput3.MinValue = -1;
-                integerInput4.MinValue = -1;
-                integerInput3.Value = -1;
-                integerInput4.Value = -1;
-            }
+            inputSetterCheckBoxChanged(checkBoxX2, integerInput3, integerInput4);
         }
 
         void checkBoxX1_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkBoxX1.Checked == true)
+            inputSetterCheckBoxChanged(checkBoxX1, integerInput1, integerInput2);
+        }
+
+        private void inputSetterCheckBoxChanged(DevComponents.DotNetBar.Controls.CheckBoxX checkBox, DevComponents.Editors.IntegerInput input,DevComponents.Editors.IntegerInput input2)
+        {
+            if (checkBox.Checked == true)
             {
-                integerInput1.MinValue = 1;
-                integerInput2.MinValue = 1;
+                input.MaxValue = Int32.MaxValue;
+                input2.MaxValue = Int32.MaxValue;
+                input.Value = 1;
+                input2.Value = 1;
+                input.MinValue = 1;
+                input2.MinValue = 1;
             }
             else
             {
-                integerInput1.MinValue = -1;
-                integerInput2.MinValue = -1;
-                integerInput1.Value = -1;
-                integerInput2.Value = -1;
+                input.MinValue = integerInput1.MaxValue = -1;
+                input2.MinValue = -1;
+                input.MaxValue = -1;
+                input2.MaxValue = -1;
+                input.Value = -1;
+                input2.Value = -1;
             }
+
         }
 
         private void initializeFavoritesGrids()
@@ -149,7 +155,7 @@ namespace seedsfromzion.GUI
                 }
                 catch (PlantAlreadyInFavorites ex)
                 {
-                    MessageBox.Show(String.Format(name + " מסוג " + type + "כבר נמצא במועדפים"));
+                   
                 }
 
 
@@ -173,38 +179,13 @@ namespace seedsfromzion.GUI
 
         private void buttonX3_Click(object sender, EventArgs e)
         {
-            if (checkBoxX1.Checked==true)
-            {
-                ConfigFile.getInstance.VisaExpireDays=integerInput1.Value;
-                ConfigFile.getInstance.VisaFreq= integerInput2.Value;
-            }
-            else
-            {
-                ConfigFile.getInstance.VisaExpireDays=-1;
-                ConfigFile.getInstance.VisaFreq= -1;
-            }
-            if (checkBoxX2.Checked == true)
-            {
-                ConfigFile.getInstance.MinUnitsInStorage = integerInput3.Value;
-                ConfigFile.getInstance.UnitsFreq = integerInput4.Value;
-
-            }
-            else
-            {
-                ConfigFile.getInstance.MinUnitsInStorage = -1;
-                ConfigFile.getInstance.UnitsFreq = -1;
-            }
-            if (checkBoxX3.Checked == true)
-            {
-                ConfigFile.getInstance.OrderDueDate = integerInput5.Value;
-                ConfigFile.getInstance.OrderFreq= integerInput6.Value;
-
-            }
-            else
-            {
-                ConfigFile.getInstance.OrderDueDate = -1;
-                ConfigFile.getInstance.OrderFreq = -1;
-            }
+           
+            ConfigFile.getInstance.VisaExpireDays=integerInput1.Value;
+            ConfigFile.getInstance.VisaFreq= integerInput2.Value;
+            ConfigFile.getInstance.MinUnitsInStorage = integerInput3.Value;
+            ConfigFile.getInstance.UnitsFreq = integerInput4.Value;      
+            ConfigFile.getInstance.OrderDueDate = integerInput5.Value;
+            ConfigFile.getInstance.OrderFreq= integerInput6.Value;
             settingsChanged();
             this.Close();
 

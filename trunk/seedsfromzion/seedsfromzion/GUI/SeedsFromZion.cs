@@ -23,6 +23,12 @@ namespace seedsfromzion.GUI
             InitializeComponent();
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
+            initRoutines();
+            
+        }
+
+        private void initRoutines()
+        {
             routine = new Routines(this);
             routine.checkNotifications();
         }
@@ -76,7 +82,7 @@ namespace seedsfromzion.GUI
         void settings_settingsChanged()
         {
             routine.abortChecking();
-            routine.checkNotifications();
+            initRoutines();
         }
     }
 }
