@@ -38,8 +38,8 @@ namespace seedsfromzion.Managers
             char typeStr;
             switch (type)
             {
-                case UserType.ADMIN: typeStr = 'A'; break;
-                default: typeStr = 'B'; break;
+                case UserType.ADMIN: { typeStr = 'A'; break; }
+                default: { typeStr = 'B'; break; }
             }
             string hashedPass = SystemManager.hashPassword(password);
             MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.users VALUES(@Username,@Type,@pass);", "@Username", username, "@Type", typeStr.ToString(), "@pass", hashedPass);
