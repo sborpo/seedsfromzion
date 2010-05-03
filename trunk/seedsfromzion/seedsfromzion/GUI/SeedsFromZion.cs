@@ -76,13 +76,32 @@ namespace seedsfromzion.GUI
         {
             SettingsPanel settings = new SettingsPanel();
             settings.settingsChanged += new SettingsPanel.ChangedSettingHandler(settings_settingsChanged);
+            settings.systemSettingsChanged += new SettingsPanel.ChangedSettingHandler(settings_systemSettingsChanged);
             settings.Show();
+        }
+
+        void settings_systemSettingsChanged()
+        {
+            settings_settingsChanged();
         }
 
         void settings_settingsChanged()
         {
             routine.abortChecking();
             initRoutines();
+        }
+
+        private void createBackUpButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog chooseBackupPath = new SaveFileDialog();
+            chooseBackupPath.InitialDirectory = @"c:\";
+           chooseBackupPath.Filter = "Zip File (*.zip) |*.zip";
+            if (chooseBackupPath.ShowDialog() == DialogResult.OK)
+            {
+                SystemManager.performBackup(chooseBackupPath.FileName);
+                MessageBox.Show("גיבוי הסתיים בהצלחה");
+            }
+
         }
     }
 }
