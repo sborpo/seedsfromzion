@@ -173,6 +173,7 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\OffIcon1602424.png" />
     <None Include="Resources\UsersDelete_Layer_11.png" />
     <None Include="Resources\UsersCreate_Layer_1.png" />
     <None Include="Resources\Users42_Layer_1.png" />

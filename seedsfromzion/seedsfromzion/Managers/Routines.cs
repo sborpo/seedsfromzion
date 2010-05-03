@@ -172,7 +172,7 @@ namespace seedsfromzion.Managers
                     sb.Append((String)row["name"] + "\n");
                 }
                 //display the notification
-                notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
+                notify.Invoke(notify.displayFunc, (String.Format("אשרות העבודה של העובדים הבאים יפגוגו בטווח של עד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
             }
 
             /// <summary>
@@ -200,7 +200,7 @@ namespace seedsfromzion.Managers
                     sb.Append(row["id"] + "  " + row["name"] + "\n");
                 }
                 //display the notification
-                notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בעוד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
+                notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בטווח של עד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
             }
         }
        
