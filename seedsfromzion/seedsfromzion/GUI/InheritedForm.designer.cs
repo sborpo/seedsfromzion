@@ -71,7 +71,8 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(218, 84);
+            this.buttonX1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonX1.Location = new System.Drawing.Point(3, 84);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(100, 35);
             this.buttonX1.TabIndex = 3;
@@ -104,7 +105,7 @@
             this.textBoxX1.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.textBoxX1.Location = new System.Drawing.Point(3, 3);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(315, 29);
+            this.textBoxX1.Size = new System.Drawing.Size(315, 34);
             this.textBoxX1.TabIndex = 5;
             this.textBoxX1.Text = "הקלד כאן שם של הצמח";
             // 
@@ -113,6 +114,8 @@
             this.reflectionLabel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.reflectionLabel1.Location = new System.Drawing.Point(0, 0);
             this.reflectionLabel1.Name = "reflectionLabel1";
+            this.reflectionLabel1.ReflectionEnabled = false;
+            this.reflectionLabel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.reflectionLabel1.Size = new System.Drawing.Size(904, 70);
             this.reflectionLabel1.TabIndex = 1;
             this.reflectionLabel1.Text = "<b><font size=\"+8\"><font color=\"#B02B2C\">חיפוש צמחים</font></font></b>";
@@ -121,6 +124,7 @@
             // 
             this.ClientSize = new System.Drawing.Size(904, 451);
             this.Controls.Add(this.theContainer);
+            this.DoubleBuffered = true;
             this.Name = "InheritedForm";
             this.Text = "InheritedSearchPlantForm";
             this.Load += new System.EventHandler(this.InheritedForm_Load);
