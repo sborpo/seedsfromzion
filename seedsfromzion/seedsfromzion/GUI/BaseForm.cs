@@ -20,5 +20,15 @@ namespace seedsfromzion.GUI
         {
             
         }
+
+        private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
+
+        private void BaseForm_Deactivate(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
