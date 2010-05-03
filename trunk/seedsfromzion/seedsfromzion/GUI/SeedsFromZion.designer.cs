@@ -671,6 +671,7 @@
             this.addNewUserButton.Tooltip = "ניהול משתמשים   Ctrl+Shift+C";
             this.addNewUserButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.addNewUserButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addNewUserButton.Click += new System.EventHandler(this.addNewUserButton_Click);
             // 
             // addNewUserButton1
             // 
