@@ -20,11 +20,7 @@ namespace seedsfromzion.GUI
 
         public seedsFromZion()
         {
-            InitializeComponent();
-            notification = new Notification(Screen.GetWorkingArea(this));
-            displayFunc = new displayNotification(notification.showNotification);
-            initRoutines();
-            
+            InitializeComponent();            
         }
 
         private void initRoutines()
@@ -35,7 +31,9 @@ namespace seedsfromzion.GUI
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
-            
+            //notification = new Notification(Screen.GetWorkingArea(this));
+            //displayFunc = new displayNotification(notification.showNotification);
+            //initRoutines();
         }
 
         private void dotNetBarManager1_MouseEnter(object sender, EventArgs e)
@@ -68,7 +66,7 @@ namespace seedsfromzion.GUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            routine.abortChecking();
+            //routine.abortChecking();
             this.Close();
         }
 
@@ -117,6 +115,19 @@ namespace seedsfromzion.GUI
             initRoutines();
 
            
+        }
+
+        private void systemControl_SelectedRibbonTabChanged(object sender, EventArgs e)
+        {
+            if (this.ActiveMdiChild != null)
+            {
+                this.ActiveMdiChild.Close();
+            }         
+        }
+
+        private void addPlantButton_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
