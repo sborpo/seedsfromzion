@@ -5,6 +5,7 @@ using System.Text;
 using seedsfromzion.DataAccess;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Collections;
 using System.Collections.Specialized;
 namespace seedsfromzion.Managers
 {
@@ -59,9 +60,10 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
-        public static void addToFavorites(int plantId)
+        public static void addToFavorites(string plantId)
         {
             StringCollection strCollection = ConfigFile.getInstance.Favorites;
+           
             if (strCollection.Contains(plantId.ToString()))
             {
                 throw new PlantAlreadyInFavorites();
@@ -71,7 +73,7 @@ namespace seedsfromzion.Managers
            
         }
 
-        public static void removeFromFavorites(int plantId)
+        public static void removeFromFavorites(string plantId)
         {
             StringCollection strCollection = ConfigFile.getInstance.Favorites;
             if (!strCollection.Contains(plantId.ToString()))

@@ -98,9 +98,9 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
+            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
             this.systemControl.Controls.Add(this.workersPanel);
-            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemControl.ForeColor = System.Drawing.Color.Black;
@@ -136,6 +136,7 @@
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.statisticsPanel.Size = new System.Drawing.Size(1001, 108);
             this.statisticsPanel.TabIndex = 3;
+            this.statisticsPanel.Visible = false;
             // 
             // graphsStatisticsBar
             // 
@@ -380,12 +381,11 @@
             this.inventoryPanel.Controls.Add(this.generalInventoryBar);
             this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryPanel.Location = new System.Drawing.Point(0, 61);
+            this.inventoryPanel.Location = new System.Drawing.Point(0, 56);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
+            this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
             this.inventoryPanel.TabIndex = 1;
-            this.inventoryPanel.Visible = false;
             // 
             // ordersInventoryBar
             // 
@@ -399,7 +399,7 @@
             this.ordersInventoryBar.Location = new System.Drawing.Point(376, 0);
             this.ordersInventoryBar.Name = "ordersInventoryBar";
             this.ordersInventoryBar.ResizeOrderIndex = 1;
-            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 100);
+            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
             this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ordersInventoryBar.TabIndex = 6;
             this.ordersInventoryBar.Text = "מנהל בהזמנות";
@@ -450,7 +450,7 @@
             this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
             this.operationsInventoryBar.Name = "operationsInventoryBar";
             this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 100);
+            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 105);
             this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.operationsInventoryBar.TabIndex = 5;
             this.operationsInventoryBar.Text = "פעלות";
@@ -501,7 +501,7 @@
             this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
             this.generalInventoryBar.Name = "generalInventoryBar";
             this.generalInventoryBar.ResizeOrderIndex = 1;
-            this.generalInventoryBar.Size = new System.Drawing.Size(178, 100);
+            this.generalInventoryBar.Size = new System.Drawing.Size(178, 105);
             this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.generalInventoryBar.TabIndex = 4;
             this.generalInventoryBar.Text = "כללי";
@@ -543,6 +543,7 @@
             // 
             // inventoryTab
             // 
+            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -566,7 +567,6 @@
             // 
             // statisticsTab
             // 
-            this.statisticsTab.Checked = true;
             this.statisticsTab.ImagePaddingHorizontal = 8;
             this.statisticsTab.Name = "statisticsTab";
             this.statisticsTab.Panel = this.statisticsPanel;

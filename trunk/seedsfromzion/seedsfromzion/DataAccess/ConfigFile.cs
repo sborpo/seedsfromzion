@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Configuration;
+using System.Collections.Specialized;
 
 namespace seedsfromzion.DataAccess
 {
     class ConfigFile 
     {
         private static ConfigFile file;
-        ConfigFile() { }
+        ConfigFile() {
+        }
 
         public static ConfigFile getInstance
         {
@@ -198,13 +200,18 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
+                if (Properties.Settings.Default.Favorites == null)
+                {
+                    Properties.Settings.Default.Favorites = new StringCollection();
+                    Properties.Settings.Default.Save();
+                }
                 return Properties.Settings.Default.Favorites;
             }
             set
             {
                 Properties.Settings.Default.Favorites = value;
                 Properties.Settings.Default.Save();
-                
+
             }
         }
 

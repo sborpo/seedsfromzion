@@ -69,7 +69,14 @@ namespace seedsfromzion.GUI
         private void settingsButton_Click(object sender, EventArgs e)
         {
             SettingsPanel settings = new SettingsPanel();
+            settings.settingsChanged += new SettingsPanel.ChangedSettingHandler(settings_settingsChanged);
             settings.Show();
+        }
+
+        void settings_settingsChanged()
+        {
+            routine.abortChecking();
+            routine.checkNotifications();
         }
     }
 }

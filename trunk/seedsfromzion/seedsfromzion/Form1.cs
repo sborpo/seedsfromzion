@@ -38,15 +38,7 @@ namespace seedsfromzion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            System.Collections.Specialized.StringCollection str = ConfigFile.getInstance.Favorites;
-
-             //routine.checkNotifications();
-             //int x;
-             //routine.performAutomaticBackup();
-           //routine.checkNotifications();
-            AdminManager.addToFavorites(4);
-            AdminManager.addToFavorites(5);
-            str =ConfigFile.getInstance.Favorites;
+           
             
            
            
