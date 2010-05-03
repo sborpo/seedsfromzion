@@ -16,7 +16,14 @@ namespace seedsfromzion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new seedsfromzion.GUI.seedsFromZion());
+            try
+            {
+                Application.Run(new seedsfromzion.GUI.seedsFromZion());
+            }
+            catch (Exception e)
+            {
+                Application.Run(new seedsfromzion.GUI.SafeMode());
+            }
         }
     }
 }

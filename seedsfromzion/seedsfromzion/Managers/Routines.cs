@@ -64,6 +64,10 @@ namespace seedsfromzion.Managers
                     {   
                         return;
                     }
+                    catch (Exception ex)
+                    {
+                        return;
+                    }
                 }
             }
             /// <summary>
@@ -85,6 +89,10 @@ namespace seedsfromzion.Managers
                         Thread.Sleep(new TimeSpan(ConfigFile.getInstance.VisaFreq, 0, 0));
                     }
                     catch (ThreadInterruptedException ex)
+                    {
+                        return;
+                    }
+                    catch (Exception ex)
                     {
                         return;
                     }
@@ -111,6 +119,10 @@ namespace seedsfromzion.Managers
                         Thread.Sleep(new TimeSpan(ConfigFile.getInstance.UnitsFreq, 0, 0));
                     }
                     catch (ThreadInterruptedException ex)
+                    {
+                        return;
+                    }
+                    catch (Exception ex)
                     {
                         return;
                     }
@@ -288,6 +300,8 @@ namespace seedsfromzion.Managers
             DateTime time =  DateTime.Now;
             ConfigFile.getInstance.LastAutomaticBackupDate = new DateTime(time.Year, time.Month, time.Day);
         }
+
+        
 
         public void performDbOptimization()
         {

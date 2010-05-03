@@ -721,6 +721,7 @@
             this.loadBackUpButton.Tooltip = "לטעון גיבוי...   Ctrl+O";
             this.loadBackUpButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.loadBackUpButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.loadBackUpButton.Click += new System.EventHandler(this.loadBackUpButton_Click);
             // 
             // createBackUpButton
             // 
