@@ -93,15 +93,30 @@ namespace seedsfromzion.GUI
 
         private void createBackUpButton_Click(object sender, EventArgs e)
         {
+            routine.abortChecking();
             SaveFileDialog chooseBackupPath = new SaveFileDialog();
             chooseBackupPath.InitialDirectory = @"c:\";
            chooseBackupPath.Filter = "Zip File (*.zip) |*.zip";
-            if (chooseBackupPath.ShowDialog() == DialogResult.OK)
-            {
-                SystemManager.performBackup(chooseBackupPath.FileName);
-                MessageBox.Show("גיבוי הסתיים בהצלחה");
-            }
+           if (chooseBackupPath.ShowDialog() == DialogResult.OK)
+           {
+               SystemManager.performBackup(chooseBackupPath.FileName);
+               MessageBox.Show("גיבוי הסתיים בהצלחה");
+           }
+           initRoutines();
 
+        }
+
+        private void loadBackUpButton_Click(object sender, EventArgs e)
+        {
+            routine.abortChecking();
+            OpenFileDialog restoreDialog = new OpenFileDialog();
+            if (restoreDialog.ShowDialog()==DialogResult.OK)
+            {
+                SystemManager.performSystemRestore(restoreDialog.FileName);
+            }
+            initRoutines();
+
+           
         }
     }
 }

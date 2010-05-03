@@ -84,5 +84,23 @@ namespace seedsfromzion.Managers
             zipFile.zip(destination);
             File.Delete("databaseBackup.sql");
         }
+
+        public  static  void performSystemRestore(string bakupfile)
+        {
+            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            DirectoryInfo info =Directory.CreateDirectory(executionPath+@"\Temp");
+            Zipper.extract(bakupfile, info.FullName);
+            string databaseFile=info.FullName + @"\Database\databaseBackup.sql";
+            string imagesPath = info.FullName + @"\Images";
+            foreach (string file in Directory.GetFiles(imagesPath))
+            {
+                string fileName = Path.GetFileName(file);
+                File.Copy(file,executionPath+@"\"+ConfigFile.getInstance.ImagesPath+@"\"+fileName,true);
+            }
+            DataAccess.DatabaseAccess.restoreDb(databaseFile);
+            info.Delete(true);
+
+
+        }
     }
 }
