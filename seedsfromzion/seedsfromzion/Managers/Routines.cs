@@ -47,6 +47,10 @@ namespace seedsfromzion.Managers
             /// </summary>
             public void HandleDueDate()
             {
+                if (ConfigFile.getInstance.OrderFreq < 0)
+                {
+                    return;
+                }
                 //if we didn't ask to terminate
                 while (!terminate)
                 {
@@ -54,7 +58,7 @@ namespace seedsfromzion.Managers
                     try
                     {
                         //sleep for a given time
-                        Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.OrderFreq));
+                        Thread.Sleep(new TimeSpan( ConfigFile.getInstance.OrderFreq, 0,0));
                     }
                     catch (ThreadInterruptedException ex)
                     {   
@@ -69,12 +73,16 @@ namespace seedsfromzion.Managers
             /// </summary>
             public void HandleVisa()
             {
+                if (ConfigFile.getInstance.VisaFreq< 0)
+                {
+                    return;
+                }
                 while (!terminate)
                 {
                     try
                     {
                         checkVisaExpirationDate();
-                        Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.VisaFreq));
+                        Thread.Sleep(new TimeSpan(ConfigFile.getInstance.VisaFreq, 0, 0));
                     }
                     catch (ThreadInterruptedException ex)
                     {
@@ -91,12 +99,16 @@ namespace seedsfromzion.Managers
             /// </summary>
             public void HandleUnits()
             {
+                if (ConfigFile.getInstance.UnitsFreq< 0)
+                {
+                    return;
+                }
                 while (!terminate)
                 {
                     try
                     {
                         checkUnits();
-                        Thread.Sleep(new TimeSpan(0, 0, ConfigFile.getInstance.UnitsFreq));
+                        Thread.Sleep(new TimeSpan(ConfigFile.getInstance.UnitsFreq, 0, 0));
                     }
                     catch (ThreadInterruptedException ex)
                     {
