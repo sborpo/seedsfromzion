@@ -224,6 +224,7 @@ namespace seedsfromzion.GUI
             ConfigFile.getInstance.BackupFrequency =integerInput7.Value ;
             ConfigFile.getInstance.OptimizingFrequency =integerInput8.Value ;
             systemSettingsChanged();
+            this.Close();
         }
 
    
