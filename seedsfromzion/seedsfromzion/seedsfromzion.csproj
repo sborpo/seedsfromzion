@@ -83,6 +83,7 @@
     <Compile Include="DataAccess\Zipper.cs" />
     <Compile Include="DataStructures\ClientInfo.cs" />
     <Compile Include="DataStructures\OrderInfo.cs" />
+    <Compile Include="DataStructures\PlantInfo.cs" />
     <Compile Include="DataStructures\WorkerInfo.cs" />
     <Compile Include="Deplyoment.cs">
       <SubType>Component</SubType>
@@ -130,6 +131,7 @@
       <DependentUpon>SystemUsersManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\AdminManager.cs" />
+    <Compile Include="Managers\InventoryManager.cs" />
     <Compile Include="Managers\OrderManager.cs" />
     <Compile Include="Managers\Routines.cs" />
     <Compile Include="Managers\StatisticsManager.cs" />
