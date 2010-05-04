@@ -52,12 +52,24 @@ namespace seedsfromzion.Managers
             DataTable res = DataAccess.DatabaseAccess.getResultSetFromDb(command);
             if (res.Rows.Count == 0)
             { throw new UserNotFound(); }
-            if (((char)res.Rows[0]["type"]).Equals('A'))
+            if (((string)res.Rows[0]["type"]).Equals("A"))
             {
                 throw new CannotDeleteAdmin();
             }
             command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.users WHERE username=@Username", "@Username", username);
             DatabaseAccess.performDMLQuery(command);
+        }
+
+
+        public static void changePassword(string username,string oldPass,string NewPass)
+        {
+            if (SystemManager.checkUser(username, oldPass).Equals(UserType.NoOne))
+            {
+                throw new UserNotFound();
+            }
+            String newPass=SystemManager.hashPassword(NewPass);
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.users SET password=@Pass WHERE username=@Username", "@Pass", newPass,"@Username",username);
+            DataAccess.DatabaseAccess.performDMLQuery(command);
         }
 
         public static void addToFavorites(string plantId)

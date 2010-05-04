@@ -143,5 +143,11 @@ namespace seedsfromzion.GUI
         {
             routine.abortChecking();
         }
+
+        private void addNewUserButton_Click(object sender, EventArgs e)
+        {
+            SystemUsersManager system = new SystemUsersManager();
+            system.Show();
+        }
     }
 }

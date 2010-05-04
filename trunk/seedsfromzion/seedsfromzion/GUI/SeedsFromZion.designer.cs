@@ -132,10 +132,10 @@
             this.statisticsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statisticsPanel.Controls.Add(this.graphsStatisticsBar);
             this.statisticsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticsPanel.Location = new System.Drawing.Point(0, 61);
+            this.statisticsPanel.Location = new System.Drawing.Point(0, 56);
             this.statisticsPanel.Name = "statisticsPanel";
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
+            this.statisticsPanel.Size = new System.Drawing.Size(1001, 108);
             this.statisticsPanel.TabIndex = 3;
             // 
             // graphsStatisticsBar
@@ -149,7 +149,7 @@
             this.graphsStatisticsBar.Location = new System.Drawing.Point(3, 0);
             this.graphsStatisticsBar.Name = "graphsStatisticsBar";
             this.graphsStatisticsBar.ResizeOrderIndex = 1;
-            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 100);
+            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 105);
             this.graphsStatisticsBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.graphsStatisticsBar.TabIndex = 4;
             this.graphsStatisticsBar.Text = "גרפים סטטיסטיים";
@@ -672,6 +672,7 @@
             this.addNewUserButton.Tooltip = "ניהול משתמשים   Ctrl+Shift+C";
             this.addNewUserButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.addNewUserButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addNewUserButton.Click += new System.EventHandler(this.addNewUserButton_Click);
             // 
             // addNewUserButton1
             // 
@@ -847,9 +848,9 @@
             this.statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(4, 580);
+            this.statusBar.Location = new System.Drawing.Point(4, 584);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1001, 23);
+            this.statusBar.Size = new System.Drawing.Size(1001, 19);
             this.statusBar.Stretch = true;
             this.statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statusBar.TabIndex = 1;

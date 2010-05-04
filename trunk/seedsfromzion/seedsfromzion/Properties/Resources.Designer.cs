@@ -330,6 +330,13 @@ namespace seedsfromzion.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap success_icon {
+            get {
+                object obj = ResourceManager.GetObject("success_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Upload_32_Layer_1 {
             get {
                 object obj = ResourceManager.GetObject("Upload_32_Layer_1", resourceCulture);
