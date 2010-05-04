@@ -124,6 +124,12 @@
     <Compile Include="GUI\SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SuccessWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\SuccessWindow.Designer.cs">
+      <DependentUpon>SuccessWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SystemUsersManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,10 @@
       <DependentUpon>SettingsPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\SuccessWindow.resx">
+      <DependentUpon>SuccessWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\SystemUsersManager.resx">
       <DependentUpon>SystemUsersManager.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -203,6 +213,7 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\success_icon.png" />
     <None Include="Resources\OffIcon1602424.png" />
     <None Include="Resources\UsersDelete_Layer_11.png" />
     <None Include="Resources\UsersCreate_Layer_1.png" />

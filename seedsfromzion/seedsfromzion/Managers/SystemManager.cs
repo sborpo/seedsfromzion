@@ -31,8 +31,8 @@ namespace seedsfromzion.Managers
 
         public static bool logIn(string username, string password)
         {
-            string hashedPass = hashPassword(password);
-            UserType uType=checkUser (username, hashedPass);
+           
+            UserType uType=checkUser (username, password);
             if (uType.Equals(UserType.NoOne))
             {
                 return false;
@@ -46,14 +46,15 @@ namespace seedsfromzion.Managers
             logedIn = UserType.NoOne;
         }
 
-        private static UserType checkUser(string username, string pass)
+        public static UserType checkUser(string username, string password)
         {
+           string pass = hashPassword(password);
            MySqlCommand command= DataAccessUtils.commandBuilder("SELECT type FROM seedsdb.users WHERE username=@Username AND password=@Pass;", "@Username", username, "@Pass", pass);
            DataTable res = DatabaseAccess.getResultSetFromDb(command);
            if (res.Rows.Count == 0)
              return  UserType.NoOne;
-           char c = (char)res.Rows[0]["type"];
-           UserType r =(c.Equals('A')) ? UserType.ADMIN : UserType.ORDINARY;
+          string c = (string)res.Rows[0]["type"];
+           UserType r =(c.Equals("A")) ? UserType.ADMIN : UserType.ORDINARY;
            return r;
         }
 
@@ -65,6 +66,12 @@ namespace seedsfromzion.Managers
             SHA1 shaAlgorithm = new SHA1CryptoServiceProvider();
             byte [] answer = shaAlgorithm.ComputeHash(bytePass);
             return encoding.GetString(answer);    
+        }
+
+        public static DataTable getUsers()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT username FROM seedsdb.users ");
+            return DataAccess.DatabaseAccess.getResultSetFromDb(command);
         }
 
         /// <summary>
