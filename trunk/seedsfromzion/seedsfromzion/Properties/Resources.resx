@@ -238,9 +238,6 @@
   <data name="Upload_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Upload-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salesGraph1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salesGraph1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="success_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
