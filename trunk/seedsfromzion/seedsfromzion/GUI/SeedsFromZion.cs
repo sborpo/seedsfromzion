@@ -31,9 +31,9 @@ namespace seedsfromzion.GUI
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
-            //notification = new Notification(Screen.GetWorkingArea(this));
-            //displayFunc = new displayNotification(notification.showNotification);
-            //initRoutines();
+            notification = new Notification(Screen.GetWorkingArea(this));
+            displayFunc = new displayNotification(notification.showNotification);
+            initRoutines();
         }
 
         private void dotNetBarManager1_MouseEnter(object sender, EventArgs e)
@@ -66,7 +66,6 @@ namespace seedsfromzion.GUI
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-            //routine.abortChecking();
             this.Close();
         }
 
@@ -128,6 +127,21 @@ namespace seedsfromzion.GUI
         private void addPlantButton_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void salesGraphButton_Click(object sender, EventArgs e)
+        {
+            //seedsfromzion.Managers.StatisticsManager.salesGraph();
+        }
+
+        private void printButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void seedsFromZion_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            routine.abortChecking();
         }
     }
 }
