@@ -136,6 +136,11 @@
     <Compile Include="GUI\SystemUsersManager.Designer.cs">
       <DependentUpon>SystemUsersManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\WorkerForms\WorkersGeneralForm.cs">
+    </Compile>
+    <Compile Include="GUI\WorkerForms\WorkersGeneralForm.Designer.cs">
+      <DependentUpon>WorkersGeneralForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\InventoryManager.cs" />
     <Compile Include="Managers\OrderManager.cs" />
