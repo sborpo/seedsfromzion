@@ -68,7 +68,7 @@ namespace seedsfromzion.Managers
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
             if (result.Rows.Count == 0)
-                throw new ArgumentException("Plant doesn't exists");
+                return null;
 
             int id = (int)result.Rows[0]["plantId"];
 
