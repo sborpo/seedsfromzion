@@ -27,63 +27,54 @@ namespace seedsfromzion.GUI
         }
         private void initializeNotificationsData()
         {
-            checkBoxX1.Checked = true;
-            checkBoxX2.Checked = true;
-            checkBoxX3.Checked = true;
+            visaOnOff.Checked = true;
+            inventOnOff.Checked = true;
+            clientsOnOff.Checked = true;
            
-            integerInput1.Value = ConfigFile.getInstance.VisaExpireDays;
-            integerInput2.Value=ConfigFile.getInstance.VisaFreq;
-            integerInput3.Value=ConfigFile.getInstance.MinUnitsInStorage;
-            integerInput4.Value=ConfigFile.getInstance.UnitsFreq;
-            integerInput5.Value=ConfigFile.getInstance.OrderDueDate;
-            integerInput6.Value = ConfigFile.getInstance.OrderFreq;
-            if (integerInput1.Value == -1)
+            visaDayesInput.Value = ConfigFile.getInstance.VisaExpireDays;
+            visaFreqInput.Value=ConfigFile.getInstance.VisaFreq;
+            inventInput.Value=ConfigFile.getInstance.MinUnitsInStorage;
+            inventFreqInput.Value=ConfigFile.getInstance.UnitsFreq;
+            clientDaysInput.Value=ConfigFile.getInstance.OrderDueDate;
+            clientFreqInput.Value = ConfigFile.getInstance.OrderFreq;
+            setCheckedInitArgs(visaDayesInput, visaFreqInput, visaOnOff);
+            setCheckedInitArgs(inventInput, inventFreqInput, inventOnOff);
+            setCheckedInitArgs(clientDaysInput, clientFreqInput, clientsOnOff);
+            visaOnOff.CheckedChanged += new EventHandler(checkBoxX1_CheckedChanged);
+            inventOnOff.CheckedChanged += new EventHandler(checkBoxX2_CheckedChanged);
+            clientsOnOff.CheckedChanged += new EventHandler(checkBoxX3_CheckedChanged);
+
+        }
+
+        private void setCheckedInitArgs(DevComponents.Editors.IntegerInput input1,DevComponents.Editors.IntegerInput input2,DevComponents.DotNetBar.Controls.CheckBoxX checkBox)
+        {
+            if (input1.Value == -1)
             {
-                checkBoxX1.Checked = false;
+                checkBox.Checked = false;
+                input1.MaxValue = -1;
+                input2.MaxValue = -1;
 
             }
             else
             {
-                integerInput1.MinValue = 1;
-                integerInput2.MinValue = 1;
+                input1.MinValue = 1;
+                input2.MinValue = 1;
             }
-            if (integerInput3.Value == -1)
-            {
-                checkBoxX2.Checked = false;
-            }
-            else
-            {
-                integerInput3.MinValue = 1;
-                integerInput4.MinValue = 1;
-            }
-            if (integerInput5.Value == -1)
-            {
-                checkBoxX3.Checked = false;
-            }
-            else
-            {
-                integerInput5.MinValue = 1;
-                integerInput6.MinValue = 1;
-            }
-            checkBoxX1.CheckedChanged += new EventHandler(checkBoxX1_CheckedChanged);
-            checkBoxX2.CheckedChanged += new EventHandler(checkBoxX2_CheckedChanged);
-            checkBoxX3.CheckedChanged += new EventHandler(checkBoxX3_CheckedChanged);
-
         }
 
         void checkBoxX3_CheckedChanged(object sender, EventArgs e)
         {
-            inputSetterCheckBoxChanged(checkBoxX3, integerInput5, integerInput6);
+            inputSetterCheckBoxChanged(clientsOnOff, clientDaysInput, clientFreqInput);
         }
 
         void checkBoxX2_CheckedChanged(object sender, EventArgs e)
         {
-            inputSetterCheckBoxChanged(checkBoxX2, integerInput3, integerInput4);
+            inputSetterCheckBoxChanged(inventOnOff, inventInput, inventFreqInput);
         }
 
         void checkBoxX1_CheckedChanged(object sender, EventArgs e)
         {
-            inputSetterCheckBoxChanged(checkBoxX1, integerInput1, integerInput2);
+            inputSetterCheckBoxChanged(visaOnOff, visaDayesInput, visaFreqInput);
         }
 
         private void inputSetterCheckBoxChanged(DevComponents.DotNetBar.Controls.CheckBoxX checkBox, DevComponents.Editors.IntegerInput input,DevComponents.Editors.IntegerInput input2)
@@ -114,10 +105,10 @@ namespace seedsfromzion.GUI
             
             MySqlCommand command = new MySqlCommand("SELECT plantId,name,type FROM seedsdb.planttypes");
             DataTable db = DataAccess.DatabaseAccess.getResultSetFromDb(command);
-            dataGridViewX1.DataSource = db;
-            dataGridViewX1.Columns["name"].HeaderText = "שם הצמח";
-            dataGridViewX1.Columns["type"].HeaderText = "סוג הצמח";
-            dataGridViewX1.Columns["plantId"].Visible = false;
+            systemPlantGrid.DataSource = db;
+            systemPlantGrid.Columns["name"].HeaderText = "שם הצמח";
+            systemPlantGrid.Columns["type"].HeaderText = "סוג הצמח";
+            systemPlantGrid.Columns["plantId"].Visible = false;
             dict = new Dictionary<int,string>();
             foreach (DataRow row in db.Rows)
 	        {
@@ -130,7 +121,7 @@ namespace seedsfromzion.GUI
             {
                 string res;
                 dict.TryGetValue(Int32.Parse(plant),out res);
-                dataGridViewX2.Rows.Add(res,(string)plant);
+                favoritesGrid.Rows.Add(res,(string)plant);
             }
 
 
@@ -139,7 +130,7 @@ namespace seedsfromzion.GUI
 
         private void buttonX1_Click(object sender, EventArgs e)
         {
-            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = dataGridViewX1.SelectedRows;
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = systemPlantGrid.SelectedRows;
             foreach (DataGridViewRow row in selectedRows)
             {
                 
@@ -150,43 +141,43 @@ namespace seedsfromzion.GUI
                 {
                     string plantNameType=String.Format(name + " מסוג " + type);
                     AdminManager.addToFavorites(plantId.ToString() );
-                    dataGridViewX2.Rows.Add(plantNameType ,plantId.ToString());
+                    favoritesGrid.Rows.Add(plantNameType ,plantId.ToString());
 
 
                 }
                 catch (PlantAlreadyInFavorites ex)
                 {
-                   
+                 //Do nothing , it will not add it.  
                 }
 
 
             }
-            dataGridViewX2.Refresh();
+            favoritesGrid.Refresh();
         }
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
-             System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = dataGridViewX2.SelectedRows;
+             System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = favoritesGrid.SelectedRows;
              foreach (DataGridViewRow row in selectedRows)
              {
                  string name = (string)row.Cells[0].Value;
                  string plantId = (string)row.Cells[1].Value;
                  AdminManager.removeFromFavorites(plantId);
                  dict.Remove((int)(UInt32.Parse(plantId)));
-                 dataGridViewX2.Rows.Remove(row);
+                 favoritesGrid.Rows.Remove(row);
              }
-             dataGridViewX2.Refresh();
+             favoritesGrid.Refresh();
         }
 
         private void buttonX3_Click(object sender, EventArgs e)
         {
            
-            ConfigFile.getInstance.VisaExpireDays=integerInput1.Value;
-            ConfigFile.getInstance.VisaFreq= integerInput2.Value;
-            ConfigFile.getInstance.MinUnitsInStorage = integerInput3.Value;
-            ConfigFile.getInstance.UnitsFreq = integerInput4.Value;      
-            ConfigFile.getInstance.OrderDueDate = integerInput5.Value;
-            ConfigFile.getInstance.OrderFreq= integerInput6.Value;
+            ConfigFile.getInstance.VisaExpireDays=visaDayesInput.Value;
+            ConfigFile.getInstance.VisaFreq= visaFreqInput.Value;
+            ConfigFile.getInstance.MinUnitsInStorage = inventInput.Value;
+            ConfigFile.getInstance.UnitsFreq = inventFreqInput.Value;      
+            ConfigFile.getInstance.OrderDueDate = clientDaysInput.Value;
+            ConfigFile.getInstance.OrderFreq= clientFreqInput.Value;
             settingsChanged();
             this.Close();
 
@@ -195,11 +186,11 @@ namespace seedsfromzion.GUI
 
         private void SettingsPanel_Load(object sender, EventArgs e)
         {
-            textBoxX1.Text = ConfigFile.getInstance.MySqlPath;
-            textBoxX2.Text = ConfigFile.getInstance.ImagesPath;
-            textBoxX3.Text = ConfigFile.getInstance.BackupPath;
-            integerInput7.Value = ConfigFile.getInstance.BackupFrequency;
-            integerInput8.Value = ConfigFile.getInstance.OptimizingFrequency;
+            sql.Text = ConfigFile.getInstance.MySqlPath;
+            images.Text = ConfigFile.getInstance.ImagesPath;
+            backups.Text = ConfigFile.getInstance.BackupPath;
+            automaticBackupFreq.Value = ConfigFile.getInstance.BackupFrequency;
+            optimizeFreq.Value = ConfigFile.getInstance.OptimizingFrequency;
         }
 
         private void textBoxX1_Click(object sender, EventArgs e)
@@ -207,7 +198,7 @@ namespace seedsfromzion.GUI
             FolderBrowserDialog dig= new FolderBrowserDialog();
             if (dig.ShowDialog() == DialogResult.OK)
             {
-                textBoxX1.Text = dig.SelectedPath;
+                sql.Text = dig.SelectedPath;
             }
         }
 
@@ -218,11 +209,11 @@ namespace seedsfromzion.GUI
 
         private void buttonX4_Click(object sender, EventArgs e)
         {
-            ConfigFile.getInstance.MySqlPath = textBoxX1.Text;
-            ConfigFile.getInstance.ImagesPath=textBoxX2.Text ;
-            ConfigFile.getInstance.BackupPath=  textBoxX3.Text ;
-            ConfigFile.getInstance.BackupFrequency =integerInput7.Value ;
-            ConfigFile.getInstance.OptimizingFrequency =integerInput8.Value ;
+            ConfigFile.getInstance.MySqlPath = sql.Text;
+            ConfigFile.getInstance.ImagesPath=images.Text ;
+            ConfigFile.getInstance.BackupPath=  backups.Text ;
+            ConfigFile.getInstance.BackupFrequency =automaticBackupFreq.Value ;
+            ConfigFile.getInstance.OptimizingFrequency =optimizeFreq.Value ;
             systemSettingsChanged();
             this.Close();
         }
