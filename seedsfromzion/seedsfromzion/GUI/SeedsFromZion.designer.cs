@@ -157,6 +157,7 @@
             // 
             // percentageGraphButton
             // 
+            this.percentageGraphButton.AutoExpandOnClick = true;
             this.percentageGraphButton.Image = ((System.Drawing.Image)(resources.GetObject("percentageGraphButton.Image")));
             this.percentageGraphButton.ImagePaddingHorizontal = 8;
             this.percentageGraphButton.Name = "percentageGraphButton";
@@ -169,7 +170,6 @@
             this.percentageGraphButton.Tooltip = "בחירת גרף של אחוזי הנביטה";
             this.percentageGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.percentageGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.percentageGraphButton.AutoExpandOnClick = true;
             // 
             // percViaSowDate
             // 
@@ -183,6 +183,7 @@
             this.percViaSowDate.Tooltip = "הצגת גרף אחוזי נביטה לפי תאריך הזריע";
             this.percViaSowDate.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.percViaSowDate.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.percViaSowDate.Click += new System.EventHandler(this.percViaSowDate_Click);
             // 
             // percViaSeedType
             // 
