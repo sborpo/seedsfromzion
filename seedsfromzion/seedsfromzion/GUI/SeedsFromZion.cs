@@ -165,5 +165,6 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
     }
 }
