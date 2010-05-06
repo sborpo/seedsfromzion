@@ -9,6 +9,7 @@ using DevComponents.DotNetBar.Rendering;
 using seedsfromzion.DataAccess;
 using seedsfromzion.Managers;
 using seedsfromzion.GUI.WorkerForms;
+using seedsfromzion.GUI.StatisticsForms;
 
 namespace seedsfromzion.GUI
 {
@@ -132,7 +133,13 @@ namespace seedsfromzion.GUI
 
         private void salesGraphButton_Click(object sender, EventArgs e)
         {
-            //seedsfromzion.Managers.StatisticsManager.salesGraph();
+            SalesGraphFrom salesGraphMDIChild = new SalesGraphFrom();
+            // Set the Parent Form of the Child window.
+            salesGraphMDIChild.MdiParent = this;
+            // Display the new form.
+            //findPlantMDIChild.Dock = DockStyle.Fill;
+            salesGraphMDIChild.Show(); 
+            
         }
 
         private void printButton_Click(object sender, EventArgs e)
