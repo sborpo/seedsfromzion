@@ -3,6 +3,8 @@ using System.Collections;
 using System.ComponentModel;
 using System.Configuration.Install;
 using System.Configuration;
+using System.IO;
+
 
 namespace seedsfromzion
 {
@@ -25,6 +27,13 @@ namespace seedsfromzion
                 section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
                 config.Save();
             }
+            String TargetDirectory = Path.GetDirectoryName(Context.Parameters["AssemblyPath"]);
+            seedsfromzion.Managers.SystemManager.performSystemRestore(TargetDirectory + @"\am.zip");
+        }
+
+        public override void Commit(IDictionary savedState)
+        {
+
         }
     }
 }
