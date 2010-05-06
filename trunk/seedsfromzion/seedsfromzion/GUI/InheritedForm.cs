@@ -14,5 +14,10 @@ namespace seedsfromzion.GUI
         {
             InitializeComponent();
         }
+
+        private void InheritedForm_Load(object sender, EventArgs e)
+        {
+            base.BaseForm_Load(sender, e);
+        }
     }
 }
