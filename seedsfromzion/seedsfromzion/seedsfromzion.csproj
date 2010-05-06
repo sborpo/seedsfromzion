@@ -130,6 +130,12 @@
     <Compile Include="GUI\SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\StatisticsForms\SalesGraphForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StatisticsForms\SalesGraphForm.designer.cs">
+      <DependentUpon>SalesGraphForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SuccessWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,6 +209,10 @@
       <DependentUpon>SettingsPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StatisticsForms\SalesGraphForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SalesGraphForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\SuccessWindow.resx">
       <DependentUpon>SuccessWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -243,6 +253,7 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <None Include="Resources\salesGraph.png" />
     <None Include="Resources\error_icon.png" />
     <None Include="Resources\success_icon.png" />
     <None Include="Resources\OffIcon1602424.png" />
@@ -257,7 +268,6 @@
     <None Include="Resources\search.png" />
     <None Include="Resources\Save16_Layer_1.png" />
     <None Include="Resources\Save.png" />
-    <None Include="Resources\salesGraph.png" />
     <None Include="Resources\removeOrder.png" />
     <None Include="Resources\Refrigerator_56.png" />
     <None Include="Resources\PrintHS.png" />
