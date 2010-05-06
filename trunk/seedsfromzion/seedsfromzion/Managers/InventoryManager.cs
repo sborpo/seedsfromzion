@@ -68,7 +68,7 @@ namespace seedsfromzion.Managers
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
             if (result.Rows.Count == 0)
-                return null;
+                return 1;
 
             int id = (int)result.Rows[0]["plantId"];
 
