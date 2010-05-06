@@ -57,6 +57,7 @@
             this.salesGraphControl.Location = new System.Drawing.Point(4, 4);
             this.salesGraphControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.salesGraphControl.Name = "salesGraphControl";
+            this.salesGraphControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.salesGraphControl.ScrollGrace = 0;
             this.salesGraphControl.ScrollMaxX = 0;
             this.salesGraphControl.ScrollMaxY = 0;
