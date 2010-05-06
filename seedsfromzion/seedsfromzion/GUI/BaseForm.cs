@@ -28,7 +28,7 @@ namespace seedsfromzion.GUI
 
         private void BaseForm_Deactivate(object sender, EventArgs e)
         {
-            this.Close();
+            //this.Close();
         }
     }
 }

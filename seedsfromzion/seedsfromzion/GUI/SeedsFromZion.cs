@@ -8,6 +8,7 @@ using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Rendering;
 using seedsfromzion.DataAccess;
 using seedsfromzion.Managers;
+using seedsfromzion.GUI.WorkerForms;
 
 namespace seedsfromzion.GUI
 {
@@ -148,6 +149,14 @@ namespace seedsfromzion.GUI
         {
             SystemUsersManager system = new SystemUsersManager();
             system.Show();
+        }
+
+        private void addWorkerButton_Click(object sender, EventArgs e)
+        {
+
+            AddWorkerForm form = new AddWorkerForm();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }
