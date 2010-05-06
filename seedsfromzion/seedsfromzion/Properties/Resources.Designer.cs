@@ -148,6 +148,13 @@ namespace seedsfromzion.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap error_icon {
+            get {
+                object obj = ResourceManager.GetObject("error_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap Favorites22_Layer_1 {
             get {
                 object obj = ResourceManager.GetObject("Favorites22_Layer_1", resourceCulture);
