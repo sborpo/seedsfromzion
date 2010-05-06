@@ -23,31 +23,6 @@ namespace seedsfromzion.GUI.StatisticsForms
         }
 
 
-        private PointPairList buildPairListFromGraphData(DataTable dataTable, String xColumnName, String yColumnName)
-        {
-            PointPairList list = new PointPairList();
-            try
-            {
-                //Double[] xArray = this.getArrayFromDataTableByColumn<DateTime, double>(dataTable, xColumnName);
-                //Double[] yArray = this.getArrayFromDataTableByColumn<DateTime, double>(dataTable, yColumnName);
-                for (int i = 0; i < dataTable.Rows.Count; i++)
-                {
-                    DateTime orderDate = (DateTime)dataTable.Rows[i][xColumnName];
-                    int units = (int)(decimal)dataTable.Rows[i][yColumnName];
-                    //int month = orderDate.Month;
-                    //int year = orderDate.Year;
-                    XDate date = new XDate(orderDate);
-                    list.Add((double)date, (double)units);
-                }
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show("Fuck");
-            }
-
-            return list;
-        }
-
         //private T[] getArrayFromDataTableByColumn<S,T>(DataTable dataTable, String columnName)
         //{
         //    T[] array = new T[dataTable.Rows.Count];
@@ -69,7 +44,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.YAxis.Title.Text = "מספר הצמחים";
 
             //set the values of the bars
-            PointPairList list = this.buildPairListFromGraphData(graphData, "orderDate", "units");
+            PointPairList list = FormHelpFuncs.buildPairListFromGraphData<DateTime,decimal>(graphData, "orderDate", "units");
 
             //create the bar
             BarItem myCurve = salesGraphPane.AddBar("Plant 'Plant'", list, Color.Blue);
