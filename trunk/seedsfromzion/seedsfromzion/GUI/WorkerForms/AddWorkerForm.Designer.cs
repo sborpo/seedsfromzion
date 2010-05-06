@@ -120,7 +120,7 @@
             this.Controls.Add(this.textBox_ID);
             this.DoubleBuffered = true;
             this.Name = "AddWorkerForm";
-            this.Text = "AddWorkerForm";
+            this.Text = "הוספת עובד חדש";
             this.ResumeLayout(false);
 
         }
