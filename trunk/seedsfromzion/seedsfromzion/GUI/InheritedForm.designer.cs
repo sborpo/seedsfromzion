@@ -127,7 +127,6 @@
             this.DoubleBuffered = true;
             this.Name = "InheritedForm";
             this.Text = "InheritedSearchPlantForm";
-            this.Load += new System.EventHandler(this.InheritedForm_Load);
             this.theContainer.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
