@@ -18,6 +18,7 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         private void SalesGraphFrom_Load(object sender, EventArgs e)
         {
+            base.BaseForm_Load(sender, e);
             this.salesGraphControl_Load(sender,e);
         }
 
