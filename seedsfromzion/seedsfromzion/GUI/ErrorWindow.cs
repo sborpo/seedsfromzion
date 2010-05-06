@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using System.Text.RegularExpressions;
 
 namespace seedsfromzion.GUI
 {
@@ -14,6 +15,24 @@ namespace seedsfromzion.GUI
         public ErrorWindow()
         {
             InitializeComponent();
+        }
+
+        public ErrorWindow(string message)
+        {
+            InitializeComponent();
+            string[] lines = Regex.Split(message, "\n");
+            textBoxX1.Lines = lines;
+            
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void ErrorWindow_Load(object sender, EventArgs e)
+        {
+            textBoxX1.SelectionLength = 0;
         }
     }
 }
