@@ -30,6 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(seedsFromZion));
             this.systemControl = new DevComponents.DotNetBar.RibbonControl();
+            this.statisticsPanel = new DevComponents.DotNetBar.RibbonPanel();
+            this.graphsStatisticsBar = new DevComponents.DotNetBar.RibbonBar();
+            this.percentageGraphButton = new DevComponents.DotNetBar.ButtonItem();
+            this.percViaSowDate = new DevComponents.DotNetBar.ButtonItem();
+            this.percViaSeedType = new DevComponents.DotNetBar.ButtonItem();
+            this.percViaTimeInFridge = new DevComponents.DotNetBar.ButtonItem();
+            this.salesGraphButton = new DevComponents.DotNetBar.ButtonItem();
             this.workersPanel = new DevComponents.DotNetBar.RibbonPanel();
             this.paymentWorkersBar = new DevComponents.DotNetBar.RibbonBar();
             this.paymentButton = new DevComponents.DotNetBar.ButtonItem();
@@ -42,13 +49,6 @@
             this.reportWorkersBar = new DevComponents.DotNetBar.RibbonBar();
             this.reportButton = new DevComponents.DotNetBar.ButtonItem();
             this.addWorkerHoursButton = new DevComponents.DotNetBar.ButtonItem();
-            this.statisticsPanel = new DevComponents.DotNetBar.RibbonPanel();
-            this.graphsStatisticsBar = new DevComponents.DotNetBar.RibbonBar();
-            this.percentageGraphButton = new DevComponents.DotNetBar.ButtonItem();
-            this.percViaSowDate = new DevComponents.DotNetBar.ButtonItem();
-            this.percViaSeedType = new DevComponents.DotNetBar.ButtonItem();
-            this.percViaTimeInFridge = new DevComponents.DotNetBar.ButtonItem();
-            this.salesGraphButton = new DevComponents.DotNetBar.ButtonItem();
             this.inventoryPanel = new DevComponents.DotNetBar.RibbonPanel();
             this.ordersInventoryBar = new DevComponents.DotNetBar.RibbonBar();
             this.findOrderButton = new DevComponents.DotNetBar.ButtonItem();
@@ -89,8 +89,8 @@
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
             this.systemControl.SuspendLayout();
-            this.workersPanel.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
+            this.workersPanel.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).BeginInit();
             this.SuspendLayout();
@@ -126,6 +126,99 @@
             this.systemControl.TabIndex = 0;
             this.systemControl.Text = "systemControl";
             this.systemControl.SelectedRibbonTabChanged += new System.EventHandler(this.systemControl_SelectedRibbonTabChanged);
+            // 
+            // statisticsPanel
+            // 
+            this.statisticsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.statisticsPanel.Controls.Add(this.graphsStatisticsBar);
+            this.statisticsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statisticsPanel.Location = new System.Drawing.Point(0, 61);
+            this.statisticsPanel.Name = "statisticsPanel";
+            this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
+            this.statisticsPanel.TabIndex = 3;
+            // 
+            // graphsStatisticsBar
+            // 
+            this.graphsStatisticsBar.AutoOverflowEnabled = true;
+            this.graphsStatisticsBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.graphsStatisticsBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.graphsStatisticsBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.percentageGraphButton,
+            this.salesGraphButton});
+            this.graphsStatisticsBar.Location = new System.Drawing.Point(3, 0);
+            this.graphsStatisticsBar.Name = "graphsStatisticsBar";
+            this.graphsStatisticsBar.ResizeOrderIndex = 1;
+            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 100);
+            this.graphsStatisticsBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.graphsStatisticsBar.TabIndex = 4;
+            this.graphsStatisticsBar.Text = "גרפים סטטיסטיים";
+            this.graphsStatisticsBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // percentageGraphButton
+            // 
+            this.percentageGraphButton.Image = ((System.Drawing.Image)(resources.GetObject("percentageGraphButton.Image")));
+            this.percentageGraphButton.ImagePaddingHorizontal = 8;
+            this.percentageGraphButton.Name = "percentageGraphButton";
+            this.percentageGraphButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.percViaSowDate,
+            this.percViaSeedType,
+            this.percViaTimeInFridge});
+            this.percentageGraphButton.SubItemsExpandWidth = 14;
+            this.percentageGraphButton.Tooltip = "בחירת גרף של אחוזי הנביטה";
+            this.percentageGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.percentageGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // percViaSowDate
+            // 
+            this.percViaSowDate.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.percViaSowDate.Image = ((System.Drawing.Image)(resources.GetObject("percViaSowDate.Image")));
+            this.percViaSowDate.ImagePaddingHorizontal = 8;
+            this.percViaSowDate.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.percViaSowDate.Name = "percViaSowDate";
+            this.percViaSowDate.SubItemsExpandWidth = 14;
+            this.percViaSowDate.Text = "אחוזי נביטה לפי תאריך הזריע";
+            this.percViaSowDate.Tooltip = "הצגת גרף אחוזי נביטה לפי תאריך הזריע";
+            this.percViaSowDate.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.percViaSowDate.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // percViaSeedType
+            // 
+            this.percViaSeedType.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.percViaSeedType.Image = ((System.Drawing.Image)(resources.GetObject("percViaSeedType.Image")));
+            this.percViaSeedType.ImagePaddingHorizontal = 8;
+            this.percViaSeedType.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.percViaSeedType.Name = "percViaSeedType";
+            this.percViaSeedType.SubItemsExpandWidth = 14;
+            this.percViaSeedType.Text = "אחוזי נביטה לפי סוג הזרעים";
+            this.percViaSeedType.Tooltip = "הצגת גרף אחוזי נביטה לפי סוג הזרעים";
+            this.percViaSeedType.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.percViaSeedType.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // percViaTimeInFridge
+            // 
+            this.percViaTimeInFridge.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.percViaTimeInFridge.Image = ((System.Drawing.Image)(resources.GetObject("percViaTimeInFridge.Image")));
+            this.percViaTimeInFridge.ImagePaddingHorizontal = 8;
+            this.percViaTimeInFridge.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.percViaTimeInFridge.Name = "percViaTimeInFridge";
+            this.percViaTimeInFridge.SubItemsExpandWidth = 14;
+            this.percViaTimeInFridge.Text = "אחוזי נביטה לפי זמן שהיה במקרר";
+            this.percViaTimeInFridge.Tooltip = "הצגת גרף אחוזי נביטה לפי זמן שהיה במקרר";
+            this.percViaTimeInFridge.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.percViaTimeInFridge.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // salesGraphButton
+            // 
+            this.salesGraphButton.Image = ((System.Drawing.Image)(resources.GetObject("salesGraphButton.Image")));
+            this.salesGraphButton.ImagePaddingHorizontal = 8;
+            this.salesGraphButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.salesGraphButton.Name = "salesGraphButton";
+            this.salesGraphButton.SubItemsExpandWidth = 14;
+            this.salesGraphButton.Tooltip = "בחירת גרף מכירות";
+            this.salesGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.salesGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.salesGraphButton.Click += new System.EventHandler(this.salesGraphButton_Click);
             // 
             // workersPanel
             // 
@@ -281,99 +374,6 @@
             this.addWorkerHoursButton.Tooltip = "דיווח\\עדכון שעות עבודה...";
             this.addWorkerHoursButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.addWorkerHoursButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // statisticsPanel
-            // 
-            this.statisticsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.statisticsPanel.Controls.Add(this.graphsStatisticsBar);
-            this.statisticsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticsPanel.Location = new System.Drawing.Point(0, 61);
-            this.statisticsPanel.Name = "statisticsPanel";
-            this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
-            this.statisticsPanel.TabIndex = 3;
-            // 
-            // graphsStatisticsBar
-            // 
-            this.graphsStatisticsBar.AutoOverflowEnabled = true;
-            this.graphsStatisticsBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.graphsStatisticsBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.graphsStatisticsBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.percentageGraphButton,
-            this.salesGraphButton});
-            this.graphsStatisticsBar.Location = new System.Drawing.Point(3, 0);
-            this.graphsStatisticsBar.Name = "graphsStatisticsBar";
-            this.graphsStatisticsBar.ResizeOrderIndex = 1;
-            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 100);
-            this.graphsStatisticsBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.graphsStatisticsBar.TabIndex = 4;
-            this.graphsStatisticsBar.Text = "גרפים סטטיסטיים";
-            this.graphsStatisticsBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // percentageGraphButton
-            // 
-            this.percentageGraphButton.Image = ((System.Drawing.Image)(resources.GetObject("percentageGraphButton.Image")));
-            this.percentageGraphButton.ImagePaddingHorizontal = 8;
-            this.percentageGraphButton.Name = "percentageGraphButton";
-            this.percentageGraphButton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.percViaSowDate,
-            this.percViaSeedType,
-            this.percViaTimeInFridge});
-            this.percentageGraphButton.SubItemsExpandWidth = 14;
-            this.percentageGraphButton.Tooltip = "בחירת גרף של אחוזי הנביטה";
-            this.percentageGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.percentageGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // percViaSowDate
-            // 
-            this.percViaSowDate.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.percViaSowDate.Image = ((System.Drawing.Image)(resources.GetObject("percViaSowDate.Image")));
-            this.percViaSowDate.ImagePaddingHorizontal = 8;
-            this.percViaSowDate.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.percViaSowDate.Name = "percViaSowDate";
-            this.percViaSowDate.SubItemsExpandWidth = 14;
-            this.percViaSowDate.Text = "אחוזי נביטה לפי תאריך הזריע";
-            this.percViaSowDate.Tooltip = "הצגת גרף אחוזי נביטה לפי תאריך הזריע";
-            this.percViaSowDate.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.percViaSowDate.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // percViaSeedType
-            // 
-            this.percViaSeedType.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.percViaSeedType.Image = ((System.Drawing.Image)(resources.GetObject("percViaSeedType.Image")));
-            this.percViaSeedType.ImagePaddingHorizontal = 8;
-            this.percViaSeedType.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.percViaSeedType.Name = "percViaSeedType";
-            this.percViaSeedType.SubItemsExpandWidth = 14;
-            this.percViaSeedType.Text = "אחוזי נביטה לפי סוג הזרעים";
-            this.percViaSeedType.Tooltip = "הצגת גרף אחוזי נביטה לפי סוג הזרעים";
-            this.percViaSeedType.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.percViaSeedType.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // percViaTimeInFridge
-            // 
-            this.percViaTimeInFridge.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.percViaTimeInFridge.Image = ((System.Drawing.Image)(resources.GetObject("percViaTimeInFridge.Image")));
-            this.percViaTimeInFridge.ImagePaddingHorizontal = 8;
-            this.percViaTimeInFridge.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.percViaTimeInFridge.Name = "percViaTimeInFridge";
-            this.percViaTimeInFridge.SubItemsExpandWidth = 14;
-            this.percViaTimeInFridge.Text = "אחוזי נביטה לפי זמן שהיה במקרר";
-            this.percViaTimeInFridge.Tooltip = "הצגת גרף אחוזי נביטה לפי זמן שהיה במקרר";
-            this.percViaTimeInFridge.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.percViaTimeInFridge.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // salesGraphButton
-            // 
-            this.salesGraphButton.Image = ((System.Drawing.Image)(resources.GetObject("salesGraphButton.Image")));
-            this.salesGraphButton.ImagePaddingHorizontal = 8;
-            this.salesGraphButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.salesGraphButton.Name = "salesGraphButton";
-            this.salesGraphButton.SubItemsExpandWidth = 14;
-            this.salesGraphButton.Tooltip = "בחירת גרף מכירות";
-            this.salesGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.salesGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.salesGraphButton.Click += new System.EventHandler(this.salesGraphButton_Click);
             // 
             // inventoryPanel
             // 
@@ -890,8 +890,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.seedsFromZion_FormClosing);
             this.systemControl.ResumeLayout(false);
             this.systemControl.PerformLayout();
-            this.workersPanel.ResumeLayout(false);
             this.statisticsPanel.ResumeLayout(false);
+            this.workersPanel.ResumeLayout(false);
             this.inventoryPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).EndInit();
             this.ResumeLayout(false);
