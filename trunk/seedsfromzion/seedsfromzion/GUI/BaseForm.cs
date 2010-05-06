@@ -16,7 +16,7 @@ namespace seedsfromzion.GUI
             InitializeComponent();
         }
 
-        public void BaseForm_Load(object sender, EventArgs e)
+        protected void BaseForm_Load(object sender, EventArgs e)
         {
             if (this.MdiParent.ActiveMdiChild != null)
             {
@@ -26,11 +26,7 @@ namespace seedsfromzion.GUI
 
         private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
-        }
 
-        private void BaseForm_Deactivate(object sender, EventArgs e)
-        {
         }
     }
 }
