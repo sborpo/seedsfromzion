@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.salesTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.salesGraphControl = new ZedGraph.ZedGraphControl();
-            this.tableLayoutPanel1.SuspendLayout();
+            this.salesTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // salesTableLayoutPanel
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.salesGraphControl, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(659, 437);
-            this.tableLayoutPanel1.TabIndex = 0;
+            this.salesTableLayoutPanel.ColumnCount = 2;
+            this.salesTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.salesTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.salesTableLayoutPanel.Controls.Add(this.salesGraphControl, 0, 0);
+            this.salesTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.salesTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+            this.salesTableLayoutPanel.Name = "salesTableLayoutPanel";
+            this.salesTableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.salesTableLayoutPanel.RowCount = 1;
+            this.salesTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.salesTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.salesTableLayoutPanel.Size = new System.Drawing.Size(659, 437);
+            this.salesTableLayoutPanel.TabIndex = 0;
             // 
             // salesGraphControl
             // 
@@ -70,20 +70,20 @@
             // SalesGraphFrom
             // 
             this.ClientSize = new System.Drawing.Size(659, 437);
-            this.Controls.Add(this.tableLayoutPanel1);
+            this.Controls.Add(this.salesTableLayoutPanel);
             this.DoubleBuffered = true;
             this.Name = "SalesGraphFrom";
             this.Text = "SalesGraphFrom";
             this.Load += new System.EventHandler(this.SalesGraphFrom_Load);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.salesTableLayoutPanel.ResumeLayout(false);
+            this.salesTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel salesTableLayoutPanel;
         private ZedGraph.ZedGraphControl salesGraphControl;
 
     }
