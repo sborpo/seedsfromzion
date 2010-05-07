@@ -34,16 +34,14 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
             //set the values of the bars
-            PointPairList list = StatisticsManager.buildPairListFromGraphData<DateTime,double>(graphData, "sowingDate", "sproutingPerc");
-
+            Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,Double>(graphData, "sowingDate");
+            Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
+            
             //create the bar
-            BarItem myCurve = growGraphPane.AddBar("Plant 'Plant'", list, Color.Blue);
+            BarItem myCurve = growGraphPane.AddBar("Plant 'Plant'", xArray, yArray, Color.Blue);
 
             // Draw the X tics between the labels instead of at the labels
             growGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
-
-            // Set the XAxis labels
-            //growGraphPane.XAxis.Scale = DateTime;
 
             // Set the XAxis to Date type
             growGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
@@ -55,11 +53,9 @@ namespace seedsfromzion.GUI.StatisticsForms
             // disable the legend
             growGraphPane.Legend.IsVisible = false;
 
-            // expand the range of the Y axis slightly to accommodate the labels
-            //growGraphPane.YAxis.Scale.Max += growGraphPane.YAxis.Scale.MajorStep;
-
             // Create TextObj's to provide labels for each bar
             BarItem.CreateBarLabels(growGraphPane, false, "f2");
+         
 
             //recalculate graph
             growGraphPane.AxisChange();
