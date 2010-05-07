@@ -26,10 +26,13 @@ namespace seedsfromzion.Managers
             MySqlCommand[] commands = new MySqlCommand[2];
             if (checkPlantExists(p_name))
                 throw new ArgumentException("Plant already exists");
+
+            int newId = getNewPlantId();
+
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, pic, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, NULL, @P_PIC, NULL, NULL, NULL)", "@P_NAME", p_name, "@P_PIC", p_pic);
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, P_PRICE, NULL)", "@P_TYPE", p_type, "@P_NAME", p_name, "@P_LIFETIME", p_lifetime.ToString(), "@P_PRICE", p_price.ToString());
+                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)", "@P_TYPE", p_type, "@P_NAME", p_name, "@P_LIFETIME", p_lifetime.ToString(), "@P_PRICE", p_price.ToString(), "@P_ID", newId);
             DatabaseAccess.performDMLTransaction(commands);
         }
 
@@ -74,21 +77,30 @@ namespace seedsfromzion.Managers
 
             return id;
         }
-
+        /*
+        // why do I need this func? I have addToFridge() 
         /// <summary>
-        /// Adds units to a specific plant.
+        /// Adds units of a specific plant to the fridge.
         /// </summary>
-        /// <param name="p_name"></param>
+        /// <param name="p_id"></param>
+        /// <param name="p_arriveDate"></param>
         /// <param name="numOfUnits"></param>
-        public void AddPlantUnits(string p_name, int numOfUnits)
+        /// <param name="location"></param>
+        public void AddPlantUnitsToFridge(int p_id, DateTime p_arriveDate, int numOfUnits, string location)
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants" +
-                "SET countInUnit = countInUnit + @NUM_OF_UNITS WHERE name=@P_NAME",
+            if(!checkPlantExistsByID())
+                throw new ArgumentException("Plant doesn't exists");
+
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.Fridge" +
+                "SET units = units + @NUM_OF_UNITS WHERE plantId=@P_ID",
                 "@NUM_OF_UNITS", numOfUnits.ToString(),
-                "@P_NAME", p_name);
+                "@P_ID", p_id.ToString());
             DatabaseAccess.performDMLQuery(command);
         }
+        */
 
+        /* 
+        // same as previous func..see note
         /// <summary>
         /// Removes units from a specific plant.
         /// </summary>
@@ -96,13 +108,16 @@ namespace seedsfromzion.Managers
         /// <param name="numOfUnits"></param>
         public void RemovePlantUnits(string p_name, int numOfUnits)
         {
+            // check if exists numOfUnits in storage
             MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants" +
                 "SET countInUnit = countInUnit - @NUM_OF_UNITS WHERE name=@P_NAME",
                 "@NUM_OF_UNITS", numOfUnits.ToString(),
                 "@P_NAME", p_name);
             DatabaseAccess.performDMLQuery(command);
         }
+        */
 
+        // bad implementation for sure
         /*public void AddSproutingPercentage(int p_id, DateTime p_arriveDate, DateTime sowDate, DateTime collectDate, int percentage)
         {
             int p_id = FindPlant(p_name, p_type);
@@ -113,11 +128,13 @@ namespace seedsfromzion.Managers
                 "@P_ID", p_id);
 			
         }*/
-
-        public void AddToFridge(int p_id, DateTime p_arriveDate, int numOfUnits, string location)
+        /*
+         // didn't check, but I think it's OK
+        public void AddToFridge(int p_id, DateTime p_arriveDate, double numOfUnits, string location)
         {
             if (!checkPlantExistsByID(p_id))
                 throw new ArgumentException("Plant doesn't exists");
+            
             MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Fridge (plantId, arrivingDate, units, locationInFridge)" +
                 "VALUES(@P_PLANTID,@P_ARRIVEDATE,@P_NUMOFUNITS,@P_LOCATION)",
                 "@P_PLANTID", p_id.ToString(),
@@ -126,7 +143,24 @@ namespace seedsfromzion.Managers
                 "@P_LOCATION", location);
             DatabaseAccess.performDMLQuery(command);
         }
-        #endregion
+        */
+/*
+        // need to check if it's OK, did it under pressure of time
+        public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
+        {
+            if (!checkPlantExistsByID(p_id))
+                throw new ArgumentException("Plant doesn't exists");
+
+            MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Field (plantId, arrivingDate, sowingDate, units, locationInField)" +
+                            "VALUES(@P_PLANTID,@P_ARRIVEDATE,@P_NUMOFUNITS,@P_LOCATION)",
+                            "@P_PLANTID", p_id.ToString(),
+                            "@P_ARRIVEDATE", String.Format("{0:yyyy-M-d}", p_arriveDate),
+                            "@P_SOWINGDATE", String.Format("{0:yyyy-M-d}", p_sowingDate),
+                            "@P_NUMPFUNITS", numOfUnits.ToString(),
+                            "@P_LOCATION", location);
+            DatabaseAccess.performDMLQuery(command);
+        }
+*/
 
         /// <summary>
         /// checks if a specific plant exists in the DB
@@ -142,5 +176,15 @@ namespace seedsfromzion.Managers
         {
             return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.PlantTypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
         }
+
+        public int getNewPlantId()
+        {
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(plantId), 0) FROM seedsdb.PlantTypes");
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+
+            int newId = (int)result.Rows[0]["plantId"] + 1;
+            return newId;
+        }
+        #endregion
     }
 }
