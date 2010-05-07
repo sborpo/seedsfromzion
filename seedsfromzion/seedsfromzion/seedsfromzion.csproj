@@ -273,6 +273,7 @@
   <ItemGroup>
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
+    <Content Include="lib\ZedGraph.dll" />
     <None Include="Resources\salesGraph.png" />
     <None Include="Resources\error_icon.png" />
     <None Include="Resources\success_icon.png" />
