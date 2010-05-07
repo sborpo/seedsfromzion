@@ -143,7 +143,7 @@
             this.addButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.addButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.addButton.Image = global::seedsfromzion.Properties.Resources.addOrderIcon;
-            this.addButton.Location = new System.Drawing.Point(226, 163);
+            this.addButton.Location = new System.Drawing.Point(274, 163);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(28, 23);
             this.addButton.TabIndex = 3;
@@ -151,9 +151,10 @@
             // 
             // labelX2
             // 
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelX2.Location = new System.Drawing.Point(50, 196);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(93, 23);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "פריטים בהזמנה:";
             // 
@@ -217,9 +218,10 @@
             // 
             // labelX3
             // 
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.labelX3.Location = new System.Drawing.Point(51, 163);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(74, 18);
+            this.labelX3.Size = new System.Drawing.Size(92, 18);
             this.labelX3.TabIndex = 6;
             this.labelX3.Text = "יחידות להוספה:";
             // 
@@ -231,7 +233,7 @@
             this.doubleInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput1.Increment = 1;
-            this.doubleInput1.Location = new System.Drawing.Point(131, 163);
+            this.doubleInput1.Location = new System.Drawing.Point(178, 161);
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
             this.doubleInput1.Size = new System.Drawing.Size(80, 20);
