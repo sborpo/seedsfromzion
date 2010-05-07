@@ -29,7 +29,7 @@ namespace seedsfromzion.Managers
             return result;
         }
 
-        static public DataTable getGrowGraphValues()
+        static public DataTable getGrowViaSowGraphValues()
         {
             int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
@@ -39,6 +39,25 @@ namespace seedsfromzion.Managers
             return result;
         }
 
+        static public DataTable getGrowViaTypeGraphValues()
+        {
+            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId = @PLANT_ID",
+                                                "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return result;
+        }
+
+        static public DataTable getGrowViaFridgeGraphValues()
+        {
+            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId = @PLANT_ID",
+                                                "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return result;
+        }
 
         static public PointPairList buildPairListFromGraphData<X, Y>(DataTable dataTable, String xColumnName, String yColumnName)
         {
