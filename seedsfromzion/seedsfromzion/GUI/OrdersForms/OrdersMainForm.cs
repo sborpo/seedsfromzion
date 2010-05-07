@@ -16,37 +16,79 @@ namespace seedsfromzion.GUI.OrdersForms
         public OrdersMainForm()
         {
             InitializeComponent();
+            refreshStorageTable();
         }
 
+        /// <summary>
+        /// Sets the storage table
+        /// </summary>
         public void refreshStorageTable()
         {
+            //TODO: should be a function in manager, do not access to DB from GUI
             //Table : id , name , type, storageId, units, location
             MySqlCommand command = new MySqlCommand("SELECT Plant.plantId AS id ,Plant.name AS name , Plant.type As type , Storage.id AS storageId, Storage.units AS units,Storage.location AS location FROM seedsdb.finishedstorage Storage, seedsdb.planttypes Plant WHERE Storage.plantId=Plant.plantId");
             Storage = DataAccess.DatabaseAccess.getResultSetFromDb(command);
+            displayAllStorage();
+            
+        }
+
+        /// <summary>
+        /// The user typed a plant name to filter
+        /// the method filters the storage Grid View according to the 
+        /// name
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void textBoxX1_TextChanged(object sender, EventArgs e)
+        {
+            if (textBoxX1.Text.Equals(String.Empty))
+            {
+                actEmptyTextBox();
+                return;
+            }
+            DataRow [] filteredRows=Storage.Select("name='" + textBoxX1.Text + "'");
+            refreshStorageView(filteredRows);
+
+        }
+
+        /// <summary>
+        /// handles the situation that the filter box is empty
+        /// </summary>
+        private void actEmptyTextBox()
+        {
+            displayAllStorage();
+        }
+
+        /// <summary>
+        /// Displays the whole storage in the StorageGridView
+        /// </summary>
+        private void displayAllStorage()
+        {
             DataRow[] rows = new DataRow[Storage.Rows.Count];
             for (int i = 0; i < Storage.Rows.Count; i++)
             {
                 rows[i] = Storage.Rows[i];
             }
             refreshStorageView(rows);
-            
         }
 
-        private void textBoxX1_TextChanged(object sender, EventArgs e)
-        {
-            DataRow [] filteredRows=Storage.Select("name='" + textBoxX1.Text + "'");
-            refreshStorageView(filteredRows);
-
-        }
-
+        /// <summary>
+        /// Refreshes the storageGridView
+        /// </summary>
+        /// <param name="filteredRows"></param>
         private void refreshStorageView(DataRow[] filteredRows)
         {
             storageGrid.Rows.Clear();
             foreach (DataRow row in filteredRows)
             {
-                storageGrid.Rows.Add(row["name"], row["type"], row["storageId"], row["units"]);
+                storageGrid.Rows.Add(row["id"],row["name"], row["type"], row["storageId"], row["units"]);
             }
             storageGrid.Refresh();
+        }
+
+        private void OrdersMainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
