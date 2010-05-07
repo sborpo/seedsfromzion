@@ -101,7 +101,7 @@ namespace seedsfromzion.GUI.OrdersForms
             //checking that a row was selected:
             if (selectedRows.Count == 0)
             {
-                new ErrorWindow("לא נבחר צמח להוספה להזמנה");
+                new ErrorWindow("לא נבחר צמח להוספה להזמנה").Show();
                 return;
             }
             //retrieving the amount to be added to the order:
@@ -110,7 +110,7 @@ namespace seedsfromzion.GUI.OrdersForms
             //checking that there is enough amount in storage:
             if ( rowUnits < amount)
             {
-                new ErrorWindow("אין מספיק כמות במלאי להוספה להזמנה");
+                new ErrorWindow("אין מספיק כמות במלאי להוספה להזמנה").Show();
                 return;
             }
             //TODO:: adding the new item to the order
