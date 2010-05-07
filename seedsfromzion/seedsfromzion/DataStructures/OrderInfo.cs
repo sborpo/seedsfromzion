@@ -8,7 +8,7 @@ namespace seedsfromzion.DataStructures
     public struct OrderInfo
     {
         public int orderId;
-        public string[] plantId;
+        public int[] plantId;
         public double[] units;
         public string[] fromStorageId;
         public DateTime orderDate;
