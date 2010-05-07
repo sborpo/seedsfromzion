@@ -10,6 +10,7 @@ using seedsfromzion.DataAccess;
 using seedsfromzion.Managers;
 using seedsfromzion.GUI.WorkerForms;
 using seedsfromzion.GUI.StatisticsForms;
+using seedsfromzion.GUI.OrdersForms;
 
 namespace seedsfromzion.GUI
 {
@@ -186,5 +187,13 @@ namespace seedsfromzion.GUI
             form.Show();
         }
         #endregion
+
+        private void addOrderButton_Click(object sender, EventArgs e)
+        {
+            OrdersMainForm form = new OrdersMainForm();
+            form.MdiParent = this;
+            form.Show();
+
+        }
     }
 }
