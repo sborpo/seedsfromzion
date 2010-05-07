@@ -32,7 +32,7 @@ namespace seedsfromzion.Managers
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, pic, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, NULL, @P_PIC, NULL, NULL, NULL)", "@P_NAME", p_name, "@P_PIC", p_pic);
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)", "@P_TYPE", p_type, "@P_NAME", p_name, "@P_LIFETIME", p_lifetime.ToString(), "@P_PRICE", p_price.ToString(), "@P_ID", newId);
+                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)", "@P_TYPE", p_type, "@P_NAME", p_name, "@P_LIFETIME", p_lifetime.ToString(), "@P_PRICE", p_price.ToString(), "@P_ID", newId.ToString());
             DatabaseAccess.performDMLTransaction(commands);
         }
 
