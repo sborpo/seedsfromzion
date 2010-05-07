@@ -25,18 +25,6 @@ namespace seedsfromzion.GUI.StatisticsForms
         }
 
 
-        //private T[] getArrayFromDataTableByColumn<S,T>(DataTable dataTable, String columnName)
-        //{
-        //    T[] array = new T[dataTable.Rows.Count];
-        //    for (int i = 0; i < dataTable.Rows.Count; i++)
-        //    {
-        //        array [i] = (T)TypeDescriptor.GetConverter(typeof(S)).ConvertTo(dataTable.Rows[i][columnName], typeof(T));
-                
-        //    }
-          
-        //    return array;
-        //}
-
         private void salesGraphControl_Load(object sender, EventArgs e)
         {
             GraphPane salesGraphPane = this.salesGraphControl.GraphPane;
@@ -46,16 +34,15 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.YAxis.Title.Text = "מספר הצמחים";
 
             //set the values of the bars
-            PointPairList list = StatisticsManager.buildPairListFromGraphData<DateTime, decimal>(graphData, "orderDate", "units");
+            Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,double>(graphData, "orderDate");
+            Double[] yArray = StatisticsManager.buildArrayFromGraphData<decimal,double>(graphData, "units");
+            
 
             //create the bar
-            BarItem myCurve = salesGraphPane.AddBar("Plant 'Plant'", list, Color.Blue);
+            BarItem myCurve = salesGraphPane.AddBar("Plant 'Plant'", xArray, yArray, Color.Blue);
 
             // Draw the X tics between the labels instead of at the labels
             salesGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
-
-            // Set the XAxis labels
-            //salesGraphPane.XAxis.Scale = DateTime;
 
             // Set the XAxis to Date type
             salesGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
@@ -66,9 +53,6 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             // disable the legend
             salesGraphPane.Legend.IsVisible = false;
-
-            // expand the range of the Y axis slightly to accommodate the labels
-            //salesGraphPane.YAxis.Scale.Max += salesGraphPane.YAxis.Scale.MajorStep;
 
             // Create TextObj's to provide labels for each bar
             BarItem.CreateBarLabels(salesGraphPane, false, "f0");
