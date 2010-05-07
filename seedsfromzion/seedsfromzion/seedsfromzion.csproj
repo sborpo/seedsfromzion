@@ -133,17 +133,29 @@
     <Compile Include="GUI\SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\StatisticsForms\GrowViaFridgeTimeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StatisticsForms\GrowViaFridgeTimeForm.Designer.cs">
+      <DependentUpon>GrowViaFridgeTimeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StatisticsForms\GrowViaPlantTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\StatisticsForms\GrowViaPlantTypeForm.Designer.cs">
+      <DependentUpon>GrowViaPlantTypeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.designer.cs">
       <DependentUpon>SalesGraphForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\StatisticsForms\GrowViaSowingDateGraph.cs">
+    <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\StatisticsForms\GrowViaSowingDateGraph.Designer.cs">
-      <DependentUpon>GrowViaSowingDateGraph.cs</DependentUpon>
+    <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.Designer.cs">
+      <DependentUpon>GrowViaSowingDateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SuccessWindow.cs">
       <SubType>Form</SubType>
@@ -222,12 +234,20 @@
       <DependentUpon>SettingsPanel.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StatisticsForms\GrowViaFridgeTimeForm.resx">
+      <DependentUpon>GrowViaFridgeTimeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\StatisticsForms\GrowViaPlantTypeForm.resx">
+      <DependentUpon>GrowViaPlantTypeForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\StatisticsForms\SalesGraphForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SalesGraphForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\StatisticsForms\GrowViaSowingDateGraph.resx">
-      <DependentUpon>GrowViaSowingDateGraph.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\StatisticsForms\GrowViaSowingDateForm.resx">
+      <DependentUpon>GrowViaSowingDateForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SuccessWindow.resx">
