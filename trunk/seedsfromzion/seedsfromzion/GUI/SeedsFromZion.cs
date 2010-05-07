@@ -158,12 +158,32 @@ namespace seedsfromzion.GUI
 
         private void percViaSowDate_Click(object sender, EventArgs e)
         {
-            GrowViaSowingDateGraph sowGraphMDIChild = new GrowViaSowingDateGraph();
+            GrowViaSowingDateForm sowGraphMDIChild = new GrowViaSowingDateForm();
             // Set the Parent Form of the Child window.
             sowGraphMDIChild.MdiParent = this;
             // Display the new form.
             sowGraphMDIChild.Show();
         }
+
+        private void percViaSeedType_Click(object sender, EventArgs e)
+        {
+            GrowViaPlantTypeForm typeGraphMDIChild = new GrowViaPlantTypeForm();
+            // Set the Parent Form of the Child window.
+            typeGraphMDIChild.MdiParent = this;
+            // Display the new form.
+            typeGraphMDIChild.Show();
+        }
+
+        private void percViaTimeInFridge_Click(object sender, EventArgs e)
+        {
+            GrowViaFridgeTimeForm fridgeGraphMDIChild = new GrowViaFridgeTimeForm();
+            // Set the Parent Form of the Child window.
+            fridgeGraphMDIChild.MdiParent = this;
+            // Display the new form.
+            fridgeGraphMDIChild.Show();
+        }
+
+
         #endregion
 
         private void printButton_Click(object sender, EventArgs e)
@@ -194,6 +214,6 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
 
-        }
+        }        
     }
 }

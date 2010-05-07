@@ -37,18 +37,6 @@
             this.percViaSeedType = new DevComponents.DotNetBar.ButtonItem();
             this.percViaTimeInFridge = new DevComponents.DotNetBar.ButtonItem();
             this.salesGraphButton = new DevComponents.DotNetBar.ButtonItem();
-            this.workersPanel = new DevComponents.DotNetBar.RibbonPanel();
-            this.paymentWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.paymentButton = new DevComponents.DotNetBar.ButtonItem();
-            this.visaWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.addUpdateVisaButton = new DevComponents.DotNetBar.ButtonItem();
-            this.generalWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.findWorkersButton = new DevComponents.DotNetBar.ButtonItem();
-            this.addWorkerButton = new DevComponents.DotNetBar.ButtonItem();
-            this.removeWorkerButton = new DevComponents.DotNetBar.ButtonItem();
-            this.reportWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.reportButton = new DevComponents.DotNetBar.ButtonItem();
-            this.addWorkerHoursButton = new DevComponents.DotNetBar.ButtonItem();
             this.inventoryPanel = new DevComponents.DotNetBar.RibbonPanel();
             this.ordersInventoryBar = new DevComponents.DotNetBar.RibbonBar();
             this.findOrderButton = new DevComponents.DotNetBar.ButtonItem();
@@ -62,6 +50,18 @@
             this.findPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.addPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.removePlantButton = new DevComponents.DotNetBar.ButtonItem();
+            this.workersPanel = new DevComponents.DotNetBar.RibbonPanel();
+            this.paymentWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.paymentButton = new DevComponents.DotNetBar.ButtonItem();
+            this.visaWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.addUpdateVisaButton = new DevComponents.DotNetBar.ButtonItem();
+            this.generalWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.findWorkersButton = new DevComponents.DotNetBar.ButtonItem();
+            this.addWorkerButton = new DevComponents.DotNetBar.ButtonItem();
+            this.removeWorkerButton = new DevComponents.DotNetBar.ButtonItem();
+            this.reportWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.reportButton = new DevComponents.DotNetBar.ButtonItem();
+            this.addWorkerHoursButton = new DevComponents.DotNetBar.ButtonItem();
             this.inventoryTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.workersTab = new DevComponents.DotNetBar.RibbonTabItem();
             this.statisticsTab = new DevComponents.DotNetBar.RibbonTabItem();
@@ -90,16 +90,16 @@
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
             this.systemControl.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
-            this.workersPanel.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
+            this.workersPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).BeginInit();
             this.SuspendLayout();
             // 
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
-            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
+            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -132,12 +132,11 @@
             this.statisticsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statisticsPanel.Controls.Add(this.graphsStatisticsBar);
             this.statisticsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.statisticsPanel.Location = new System.Drawing.Point(0, 56);
+            this.statisticsPanel.Location = new System.Drawing.Point(0, 61);
             this.statisticsPanel.Name = "statisticsPanel";
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.statisticsPanel.Size = new System.Drawing.Size(1001, 108);
+            this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
             this.statisticsPanel.TabIndex = 3;
-            this.statisticsPanel.Visible = false;
             // 
             // graphsStatisticsBar
             // 
@@ -150,7 +149,7 @@
             this.graphsStatisticsBar.Location = new System.Drawing.Point(3, 0);
             this.graphsStatisticsBar.Name = "graphsStatisticsBar";
             this.graphsStatisticsBar.ResizeOrderIndex = 1;
-            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 105);
+            this.graphsStatisticsBar.Size = new System.Drawing.Size(157, 100);
             this.graphsStatisticsBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.graphsStatisticsBar.TabIndex = 4;
             this.graphsStatisticsBar.Text = "גרפים סטטיסטיים";
@@ -198,6 +197,7 @@
             this.percViaSeedType.Tooltip = "הצגת גרף אחוזי נביטה לפי סוג הזרעים";
             this.percViaSeedType.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.percViaSeedType.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.percViaSeedType.Click += new System.EventHandler(this.percViaSeedType_Click);
             // 
             // percViaTimeInFridge
             // 
@@ -211,6 +211,7 @@
             this.percViaTimeInFridge.Tooltip = "הצגת גרף אחוזי נביטה לפי זמן שהיה במקרר";
             this.percViaTimeInFridge.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.percViaTimeInFridge.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.percViaTimeInFridge.Click += new System.EventHandler(this.percViaTimeInFridge_Click);
             // 
             // salesGraphButton
             // 
@@ -223,6 +224,177 @@
             this.salesGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.salesGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             this.salesGraphButton.Click += new System.EventHandler(this.salesGraphButton_Click);
+            // 
+            // inventoryPanel
+            // 
+            this.inventoryPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.inventoryPanel.Controls.Add(this.ordersInventoryBar);
+            this.inventoryPanel.Controls.Add(this.operationsInventoryBar);
+            this.inventoryPanel.Controls.Add(this.generalInventoryBar);
+            this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.inventoryPanel.Location = new System.Drawing.Point(0, 61);
+            this.inventoryPanel.Name = "inventoryPanel";
+            this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
+            this.inventoryPanel.TabIndex = 1;
+            this.inventoryPanel.Visible = false;
+            // 
+            // ordersInventoryBar
+            // 
+            this.ordersInventoryBar.AutoOverflowEnabled = true;
+            this.ordersInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ordersInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.ordersInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.findOrderButton,
+            this.addOrderButton,
+            this.removeOrderButton});
+            this.ordersInventoryBar.Location = new System.Drawing.Point(376, 0);
+            this.ordersInventoryBar.Name = "ordersInventoryBar";
+            this.ordersInventoryBar.ResizeOrderIndex = 1;
+            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 100);
+            this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.ordersInventoryBar.TabIndex = 6;
+            this.ordersInventoryBar.Text = "מנהל בהזמנות";
+            this.ordersInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // findOrderButton
+            // 
+            this.findOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("findOrderButton.Image")));
+            this.findOrderButton.ImagePaddingHorizontal = 8;
+            this.findOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.findOrderButton.Name = "findOrderButton";
+            this.findOrderButton.SubItemsExpandWidth = 14;
+            this.findOrderButton.Tooltip = "חיפוש הזמנה...";
+            this.findOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.findOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // addOrderButton
+            // 
+            this.addOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("addOrderButton.Image")));
+            this.addOrderButton.ImagePaddingHorizontal = 8;
+            this.addOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addOrderButton.Name = "addOrderButton";
+            this.addOrderButton.SubItemsExpandWidth = 14;
+            this.addOrderButton.Tooltip = "הוספת הזמנה חדשה...";
+            this.addOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addOrderButton.Click += new System.EventHandler(this.addOrderButton_Click);
+            // 
+            // removeOrderButton
+            // 
+            this.removeOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("removeOrderButton.Image")));
+            this.removeOrderButton.ImagePaddingHorizontal = 8;
+            this.removeOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.removeOrderButton.Name = "removeOrderButton";
+            this.removeOrderButton.SubItemsExpandWidth = 14;
+            this.removeOrderButton.Tooltip = "לבטל הזמנה...";
+            this.removeOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.removeOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // operationsInventoryBar
+            // 
+            this.operationsInventoryBar.AutoOverflowEnabled = true;
+            this.operationsInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.operationsInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.operationsInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.addToFridgeButton,
+            this.seedPlantButton,
+            this.collectPlantsbutton});
+            this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
+            this.operationsInventoryBar.Name = "operationsInventoryBar";
+            this.operationsInventoryBar.ResizeOrderIndex = 1;
+            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 100);
+            this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.operationsInventoryBar.TabIndex = 5;
+            this.operationsInventoryBar.Text = "פעלות";
+            this.operationsInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // addToFridgeButton
+            // 
+            this.addToFridgeButton.Image = ((System.Drawing.Image)(resources.GetObject("addToFridgeButton.Image")));
+            this.addToFridgeButton.ImagePaddingHorizontal = 8;
+            this.addToFridgeButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addToFridgeButton.Name = "addToFridgeButton";
+            this.addToFridgeButton.SubItemsExpandWidth = 14;
+            this.addToFridgeButton.Tooltip = "הוספת זרעים חדשים למקרר...";
+            this.addToFridgeButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addToFridgeButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // seedPlantButton
+            // 
+            this.seedPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("seedPlantButton.Image")));
+            this.seedPlantButton.ImagePaddingHorizontal = 8;
+            this.seedPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.seedPlantButton.Name = "seedPlantButton";
+            this.seedPlantButton.SubItemsExpandWidth = 14;
+            this.seedPlantButton.Tooltip = "זריעת צמחים...";
+            this.seedPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.seedPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // collectPlantsbutton
+            // 
+            this.collectPlantsbutton.Image = ((System.Drawing.Image)(resources.GetObject("collectPlantsbutton.Image")));
+            this.collectPlantsbutton.ImagePaddingHorizontal = 8;
+            this.collectPlantsbutton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.collectPlantsbutton.Name = "collectPlantsbutton";
+            this.collectPlantsbutton.SubItemsExpandWidth = 14;
+            this.collectPlantsbutton.Tooltip = "איסוף צמחים...";
+            this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.collectPlantsbutton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // generalInventoryBar
+            // 
+            this.generalInventoryBar.AutoOverflowEnabled = true;
+            this.generalInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.generalInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.generalInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.findPlantButton,
+            this.addPlantButton,
+            this.removePlantButton});
+            this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
+            this.generalInventoryBar.Name = "generalInventoryBar";
+            this.generalInventoryBar.ResizeOrderIndex = 1;
+            this.generalInventoryBar.Size = new System.Drawing.Size(178, 100);
+            this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.generalInventoryBar.TabIndex = 4;
+            this.generalInventoryBar.Text = "כללי";
+            this.generalInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // findPlantButton
+            // 
+            this.findPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("findPlantButton.Image")));
+            this.findPlantButton.ImagePaddingHorizontal = 8;
+            this.findPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.findPlantButton.Name = "findPlantButton";
+            this.findPlantButton.SubItemsExpandWidth = 14;
+            this.findPlantButton.Tooltip = "חיפוש צמח...";
+            this.findPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.findPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.findPlantButton.Click += new System.EventHandler(this.findPlantButton_Click);
+            // 
+            // addPlantButton
+            // 
+            this.addPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("addPlantButton.Image")));
+            this.addPlantButton.ImagePaddingHorizontal = 8;
+            this.addPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addPlantButton.Name = "addPlantButton";
+            this.addPlantButton.SubItemsExpandWidth = 14;
+            this.addPlantButton.Tooltip = "הוספת צמח חדש...";
+            this.addPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addPlantButton.Click += new System.EventHandler(this.addPlantButton_Click);
+            // 
+            // removePlantButton
+            // 
+            this.removePlantButton.Image = ((System.Drawing.Image)(resources.GetObject("removePlantButton.Image")));
+            this.removePlantButton.ImagePaddingHorizontal = 8;
+            this.removePlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.removePlantButton.Name = "removePlantButton";
+            this.removePlantButton.SubItemsExpandWidth = 14;
+            this.removePlantButton.Tooltip = "מחיקת צמח...";
+            this.removePlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.removePlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             // 
             // workersPanel
             // 
@@ -379,179 +551,8 @@
             this.addWorkerHoursButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.addWorkerHoursButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             // 
-            // inventoryPanel
-            // 
-            this.inventoryPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.inventoryPanel.Controls.Add(this.ordersInventoryBar);
-            this.inventoryPanel.Controls.Add(this.operationsInventoryBar);
-            this.inventoryPanel.Controls.Add(this.generalInventoryBar);
-            this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryPanel.Location = new System.Drawing.Point(0, 56);
-            this.inventoryPanel.Name = "inventoryPanel";
-            this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
-            this.inventoryPanel.TabIndex = 1;
-            // 
-            // ordersInventoryBar
-            // 
-            this.ordersInventoryBar.AutoOverflowEnabled = true;
-            this.ordersInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ordersInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.ordersInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.findOrderButton,
-            this.addOrderButton,
-            this.removeOrderButton});
-            this.ordersInventoryBar.Location = new System.Drawing.Point(376, 0);
-            this.ordersInventoryBar.Name = "ordersInventoryBar";
-            this.ordersInventoryBar.ResizeOrderIndex = 1;
-            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
-            this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.ordersInventoryBar.TabIndex = 6;
-            this.ordersInventoryBar.Text = "מנהל בהזמנות";
-            this.ordersInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // findOrderButton
-            // 
-            this.findOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("findOrderButton.Image")));
-            this.findOrderButton.ImagePaddingHorizontal = 8;
-            this.findOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.findOrderButton.Name = "findOrderButton";
-            this.findOrderButton.SubItemsExpandWidth = 14;
-            this.findOrderButton.Tooltip = "חיפוש הזמנה...";
-            this.findOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.findOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // addOrderButton
-            // 
-            this.addOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("addOrderButton.Image")));
-            this.addOrderButton.ImagePaddingHorizontal = 8;
-            this.addOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addOrderButton.Name = "addOrderButton";
-            this.addOrderButton.SubItemsExpandWidth = 14;
-            this.addOrderButton.Tooltip = "הוספת הזמנה חדשה...";
-            this.addOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.addOrderButton.Click += new System.EventHandler(this.addOrderButton_Click);
-            // 
-            // removeOrderButton
-            // 
-            this.removeOrderButton.Image = ((System.Drawing.Image)(resources.GetObject("removeOrderButton.Image")));
-            this.removeOrderButton.ImagePaddingHorizontal = 8;
-            this.removeOrderButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.removeOrderButton.Name = "removeOrderButton";
-            this.removeOrderButton.SubItemsExpandWidth = 14;
-            this.removeOrderButton.Tooltip = "לבטל הזמנה...";
-            this.removeOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.removeOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // operationsInventoryBar
-            // 
-            this.operationsInventoryBar.AutoOverflowEnabled = true;
-            this.operationsInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.operationsInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.operationsInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.addToFridgeButton,
-            this.seedPlantButton,
-            this.collectPlantsbutton});
-            this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
-            this.operationsInventoryBar.Name = "operationsInventoryBar";
-            this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 105);
-            this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.operationsInventoryBar.TabIndex = 5;
-            this.operationsInventoryBar.Text = "פעלות";
-            this.operationsInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // addToFridgeButton
-            // 
-            this.addToFridgeButton.Image = ((System.Drawing.Image)(resources.GetObject("addToFridgeButton.Image")));
-            this.addToFridgeButton.ImagePaddingHorizontal = 8;
-            this.addToFridgeButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addToFridgeButton.Name = "addToFridgeButton";
-            this.addToFridgeButton.SubItemsExpandWidth = 14;
-            this.addToFridgeButton.Tooltip = "הוספת זרעים חדשים למקרר...";
-            this.addToFridgeButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addToFridgeButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // seedPlantButton
-            // 
-            this.seedPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("seedPlantButton.Image")));
-            this.seedPlantButton.ImagePaddingHorizontal = 8;
-            this.seedPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.seedPlantButton.Name = "seedPlantButton";
-            this.seedPlantButton.SubItemsExpandWidth = 14;
-            this.seedPlantButton.Tooltip = "זריעת צמחים...";
-            this.seedPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.seedPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // collectPlantsbutton
-            // 
-            this.collectPlantsbutton.Image = ((System.Drawing.Image)(resources.GetObject("collectPlantsbutton.Image")));
-            this.collectPlantsbutton.ImagePaddingHorizontal = 8;
-            this.collectPlantsbutton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.collectPlantsbutton.Name = "collectPlantsbutton";
-            this.collectPlantsbutton.SubItemsExpandWidth = 14;
-            this.collectPlantsbutton.Tooltip = "איסוף צמחים...";
-            this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.collectPlantsbutton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // generalInventoryBar
-            // 
-            this.generalInventoryBar.AutoOverflowEnabled = true;
-            this.generalInventoryBar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.generalInventoryBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.generalInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.findPlantButton,
-            this.addPlantButton,
-            this.removePlantButton});
-            this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
-            this.generalInventoryBar.Name = "generalInventoryBar";
-            this.generalInventoryBar.ResizeOrderIndex = 1;
-            this.generalInventoryBar.Size = new System.Drawing.Size(178, 105);
-            this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.generalInventoryBar.TabIndex = 4;
-            this.generalInventoryBar.Text = "כללי";
-            this.generalInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // findPlantButton
-            // 
-            this.findPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("findPlantButton.Image")));
-            this.findPlantButton.ImagePaddingHorizontal = 8;
-            this.findPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.findPlantButton.Name = "findPlantButton";
-            this.findPlantButton.SubItemsExpandWidth = 14;
-            this.findPlantButton.Tooltip = "חיפוש צמח...";
-            this.findPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.findPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.findPlantButton.Click += new System.EventHandler(this.findPlantButton_Click);
-            // 
-            // addPlantButton
-            // 
-            this.addPlantButton.Image = ((System.Drawing.Image)(resources.GetObject("addPlantButton.Image")));
-            this.addPlantButton.ImagePaddingHorizontal = 8;
-            this.addPlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addPlantButton.Name = "addPlantButton";
-            this.addPlantButton.SubItemsExpandWidth = 14;
-            this.addPlantButton.Tooltip = "הוספת צמח חדש...";
-            this.addPlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addPlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.addPlantButton.Click += new System.EventHandler(this.addPlantButton_Click);
-            // 
-            // removePlantButton
-            // 
-            this.removePlantButton.Image = ((System.Drawing.Image)(resources.GetObject("removePlantButton.Image")));
-            this.removePlantButton.ImagePaddingHorizontal = 8;
-            this.removePlantButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.removePlantButton.Name = "removePlantButton";
-            this.removePlantButton.SubItemsExpandWidth = 14;
-            this.removePlantButton.Tooltip = "מחיקת צמח...";
-            this.removePlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.removePlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
             // inventoryTab
             // 
-            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -575,6 +576,7 @@
             // 
             // statisticsTab
             // 
+            this.statisticsTab.Checked = true;
             this.statisticsTab.ImagePaddingHorizontal = 8;
             this.statisticsTab.Name = "statisticsTab";
             this.statisticsTab.Panel = this.statisticsPanel;
@@ -853,9 +855,9 @@
             this.statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(4, 584);
+            this.statusBar.Location = new System.Drawing.Point(4, 580);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1001, 19);
+            this.statusBar.Size = new System.Drawing.Size(1001, 23);
             this.statusBar.Stretch = true;
             this.statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statusBar.TabIndex = 1;
@@ -895,8 +897,8 @@
             this.systemControl.ResumeLayout(false);
             this.systemControl.PerformLayout();
             this.statisticsPanel.ResumeLayout(false);
-            this.workersPanel.ResumeLayout(false);
             this.inventoryPanel.ResumeLayout(false);
+            this.workersPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).EndInit();
             this.ResumeLayout(false);
 
