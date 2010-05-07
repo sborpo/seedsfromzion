@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using seedsfromzion.DataStructures;
 using seedsfromzion.DataAccess;
+using seedsfromzion.Managers;
 using MySql.Data.MySqlClient;
 using System.Data;
 
@@ -40,14 +41,20 @@ namespace seedsfromzion.Managers
             //adding the new order into the database:
             MySqlCommand[] addToOrdersFromStorage = new MySqlCommand[orderInfo.plantId.Length + 1];
             int i = 0;
-            foreach (string p_id in orderInfo.plantId)
+            foreach (int p_id in orderInfo.plantId)
             {
                 //TODO: check that the plant id exist - Roee
                 //TODO: check that the storage id exists.
+              /*if (!(OrderManager.checkPlantExistsByID(p_id)))
+                {
+                    throw new ArgumentException("plantId " + p_id.ToString() + " dose not exist");
+                }
+               */
+
                 addToOrdersFromStorage[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.ordersfromstorage " +
                      "VALUES(@P_ORDERID, @P_PLANTID, @P_STORAGEID, @P_UNITS)",
                      "@P_ORDERID", orderInfo.orderId.ToString(),
-                     "@P_PLANTID", p_id,
+                     "@P_PLANTID", p_id.ToString(),
                      "@P_STORAGEID", orderInfo.fromStorageId[i],
                      "@P_UNITS", orderInfo.units[i].ToString());
                 i++;
@@ -66,7 +73,7 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLTransaction(addToOrdersFromStorage);
             //removing the amounts from the storage:
          
-            foreach (string p_id in orderInfo.plantId)
+            foreach (int p_id in orderInfo.plantId)
             {
                 //TODO: check that the plant id exist and remove the 
                 // amount from the inventory - Roee
@@ -95,14 +102,14 @@ namespace seedsfromzion.Managers
                 order.orderDate = DateTime.Parse((string)ordersResult.Rows[0]["orderDate"]).Date;
                 order.dueDate = DateTime.Parse((string)ordersResult.Rows[0]["dueDate"]).Date;
                 order.status = (char)ordersResult.Rows[0]["status"];
-                order.plantId = new string[orderFromStorageResult.Rows.Count];
+                order.plantId = new int[orderFromStorageResult.Rows.Count];
                 order.fromStorageId = new string[orderFromStorageResult.Rows.Count];
                 order.units = new double[orderFromStorageResult.Rows.Count];
 
                
                 for (int index = 0; index < orderFromStorageResult.Rows.Count; index++)
                 {
-                    order.plantId[index] = (string)orderFromStorageResult.Rows[index]["plantId"];
+                    order.plantId[index] = (int)orderFromStorageResult.Rows[index]["plantId"];
                     order.fromStorageId[index] = (string)orderFromStorageResult.Rows[index]["fromStorageId"];
                     order.units[index] = (double)orderFromStorageResult.Rows[index]["units"];
 
