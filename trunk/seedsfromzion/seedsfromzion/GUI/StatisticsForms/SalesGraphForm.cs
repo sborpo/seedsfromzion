@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 
+using seedsfromzion.Managers;
+
 namespace seedsfromzion.GUI.StatisticsForms
 {
     public partial class SalesGraphFrom : seedsfromzion.GUI.BaseForm
@@ -38,13 +40,13 @@ namespace seedsfromzion.GUI.StatisticsForms
         private void salesGraphControl_Load(object sender, EventArgs e)
         {
             GraphPane salesGraphPane = this.salesGraphControl.GraphPane;
-            DataTable graphData = seedsfromzion.Managers.StatisticsManager.getSalesGraphValues();
+            DataTable graphData = StatisticsManager.getSalesGraphValues();
             salesGraphPane.Title.Text = "גרף המכירות";
             salesGraphPane.XAxis.Title.Text = "חודשים";
             salesGraphPane.YAxis.Title.Text = "מספר הצמחים";
 
             //set the values of the bars
-            PointPairList list = FormHelpFuncs.buildPairListFromGraphData<DateTime,decimal>(graphData, "orderDate", "units");
+            PointPairList list = StatisticsManager.buildPairListFromGraphData<DateTime, decimal>(graphData, "orderDate", "units");
 
             //create the bar
             BarItem myCurve = salesGraphPane.AddBar("Plant 'Plant'", list, Color.Blue);
