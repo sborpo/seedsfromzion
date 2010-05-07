@@ -220,7 +220,7 @@
             this.salesGraphButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.salesGraphButton.Name = "salesGraphButton";
             this.salesGraphButton.SubItemsExpandWidth = 14;
-            this.salesGraphButton.Tooltip = "בחירת גרף מכירות";
+            this.salesGraphButton.Tooltip = "גרף מכירות";
             this.salesGraphButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.salesGraphButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             this.salesGraphButton.Click += new System.EventHandler(this.salesGraphButton_Click);
