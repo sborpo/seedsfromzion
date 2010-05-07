@@ -24,6 +24,7 @@ namespace seedsfromzion.GUI
             InitializeComponent();
             initializeFavoritesGrids();
             initializeNotificationsData();
+          
         }
         private void initializeNotificationsData()
         {
