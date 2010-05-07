@@ -112,6 +112,12 @@
     <Compile Include="GUI\InheritedForm.designer.cs">
       <DependentUpon>InheritedForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\OrdersForms\OrdersMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrdersForms\OrdersMainForm.Designer.cs">
+      <DependentUpon>OrdersMainForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SafeMode.cs">
       <SubType>Form</SubType>
     </Compile>
