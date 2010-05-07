@@ -130,7 +130,6 @@
     <Compile Include="GUI\SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\StatisticsForms\FormHelpFuncs.cs" />
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
