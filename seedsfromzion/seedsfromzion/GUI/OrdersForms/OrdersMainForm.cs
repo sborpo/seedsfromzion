@@ -13,10 +13,12 @@ namespace seedsfromzion.GUI.OrdersForms
     public partial class OrdersMainForm : seedsfromzion.GUI.BaseForm
     {
         DataTable Storage;
+        DataTable Order;
         public OrdersMainForm()
         {
             InitializeComponent();
             refreshStorageTable();
+            doubleInput1.MinValue = 0;
         }
 
         /// <summary>
@@ -46,7 +48,7 @@ namespace seedsfromzion.GUI.OrdersForms
                 actEmptyTextBox();
                 return;
             }
-            DataRow [] filteredRows=Storage.Select("name='" + textBoxX1.Text + "'");
+            DataRow[] filteredRows = Storage.Select("name LIKE '" + textBoxX1.Text + "%'");
             refreshStorageView(filteredRows);
 
         }
@@ -89,6 +91,36 @@ namespace seedsfromzion.GUI.OrdersForms
         private void OrdersMainForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+      
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = storageGrid.SelectedRows;
+            //checking that a row was selected:
+            if (selectedRows.Count == 0)
+            {
+                new ErrorWindow("לא נבחר צמח להוספה להזמנה");
+                return;
+            }
+            //retrieving the amount to be added to the order:
+            double amount = doubleInput1.Value;
+            double rowUnits = (double)selectedRows[0].Cells["units"].Value;
+            //checking that there is enough amount in storage:
+            if ( rowUnits < amount)
+            {
+                new ErrorWindow("אין מספיק כמות במלאי להוספה להזמנה");
+                return;
+            }
+            //TODO:: adding the new item to the order
+
+        }
+
+        private void storageGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = storageGrid.SelectedRows;
+            doubleInput1.MaxValue = (double)selectedRows[0].Cells["units"].Value; 
         }
     }
 }
