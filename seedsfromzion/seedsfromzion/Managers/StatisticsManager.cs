@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using System.ComponentModel;
+using System.Collections;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
@@ -14,8 +15,14 @@ namespace seedsfromzion.Managers
 {
     class StatisticsManager
     {
-        //#region private methods
-        //#endregion
+        #region public fields
+        static public Dictionary<string,string> plantTypes = new Dictionary<string,string>()
+        {   
+            {"a","סוג א"},
+            {"b","סוג ב"},
+            {"c","סוג ג"}
+        }; 
+        #endregion
 
         #region public methods
 
@@ -41,10 +48,10 @@ namespace seedsfromzion.Managers
 
         static public DataTable getGrowViaTypeGraphValues()
         {
-            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            string plantName = "Kalonit";//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId = @PLANT_ID",
-                                                "@PLANT_ID", plantId.ToString());
+                DataAccessUtils.commandBuilder("SELECT PT.type AS type, SUM(SPS.sproutingPerc)/COUNT(*) AS sproutingPerc FROM planttypes PT, sproutedstats SPS WHERE PT.name = @PLANT_NAME AND PT.plantId = SPS.plantId GROUP BY type",
+                                                "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
         }
@@ -53,43 +60,42 @@ namespace seedsfromzion.Managers
         {
             int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId = @PLANT_ID",
+                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE SPS.plantId = @PLANT_ID",
                                                 "@PLANT_ID", plantId.ToString());
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
         }
 
-        static public PointPairList buildPairListFromGraphData<X, Y>(DataTable dataTable, String xColumnName, String yColumnName)
+
+        static public S[] buildArrayFromGraphData<T,S>(DataTable dataTable, String columnName)
         {
-            PointPairList list = new PointPairList();
+            S[] array = new S[dataTable.Rows.Count];
             try
             {
                 for (int i = 0; i < dataTable.Rows.Count; i++)
                 {
-                    Object xValue = dataTable.Rows[i][xColumnName];
-                    Y yValue = (Y)dataTable.Rows[i][yColumnName];
-                    double doubleYvalue = (double)TypeDescriptor.GetConverter(typeof(Y)).ConvertTo(yValue, typeof(double));
-                    if (typeof(X).Equals(typeof(DateTime)))
+                    Object value = dataTable.Rows[i][columnName];
+                    
+                    if (typeof(T).Equals(typeof(DateTime)))
                     {
-                        DateTime date = (DateTime)Convert.ChangeType(xValue, typeof(DateTime));
+                        DateTime date = (DateTime)Convert.ChangeType(value, typeof(DateTime));
                         XDate xDate = new XDate(date);
-                        list.Add((double)xDate, (double)doubleYvalue);
+                        array[i] = (S)Convert.ChangeType((double)xDate, typeof(S));
                     }
                     else
                     {
-                        double doubleXvalue = (double)TypeDescriptor.GetConverter(typeof(X)).ConvertTo(xValue, typeof(double));
-                        list.Add((double)doubleXvalue, (double)doubleYvalue);
+                       array[i] = (S)Convert.ChangeType(value, typeof(S)); ;
                     }
                 }
             }
             catch (Exception e)
             {
-                MessageBox.Show("Fuck");
+                MessageBox.Show(e.Message,"Fuck");
             }
 
-            return list;
+            return array;
         }
-
+        
         #endregion
 
     }
