@@ -68,7 +68,7 @@ namespace seedsfromzion.Managers
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
             if (result.Rows.Count == 0)
-                return 1;
+                return -1;
 
             int id = (int)result.Rows[0]["plantId"];
 
@@ -133,12 +133,12 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="p_name"></param>
         /// <returns></returns>
-        private bool checkPlantExists(string p_name)
+        public bool checkPlantExists(string p_name)
         {
             return DataAccessUtils.rowExists("SELECT name FROM seedsdb.Plants WHERE name=@P_NAME;", "@P_NAME", p_name);
         }
 
-        private bool checkPlantExistsByID(int p_id)
+        public bool checkPlantExistsByID(int p_id)
         {
             return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.PlantTypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
         }
