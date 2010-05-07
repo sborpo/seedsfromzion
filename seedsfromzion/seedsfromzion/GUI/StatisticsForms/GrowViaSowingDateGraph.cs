@@ -7,6 +7,8 @@ using System.Text;
 using System.Windows.Forms;
 using ZedGraph;
 
+using seedsfromzion.Managers;
+
 namespace seedsfromzion.GUI.StatisticsForms
 {
     public partial class GrowViaSowingDateGraph : seedsfromzion.GUI.BaseForm
@@ -26,13 +28,13 @@ namespace seedsfromzion.GUI.StatisticsForms
         private void GrowViaSowGraphControl_Load(object sender, EventArgs e)
         {
             GraphPane growGraphPane = this.GrowViaSowGraphControl.GraphPane;
-            DataTable graphData = seedsfromzion.Managers.StatisticsManager.getGrowGraphValues();
+            DataTable graphData = StatisticsManager.getGrowGraphValues();
             growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי תאריך הזריע";
             growGraphPane.XAxis.Title.Text = "תאריך הזריע";
             growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
             //set the values of the bars
-            PointPairList list = FormHelpFuncs.buildPairListFromGraphData<DateTime,double>(graphData, "sowingDate", "sproutingPerc");
+            PointPairList list = StatisticsManager.buildPairListFromGraphData<DateTime,double>(graphData, "sowingDate", "sproutingPerc");
 
             //create the bar
             BarItem myCurve = growGraphPane.AddBar("Plant 'Plant'", list, Color.Blue);
