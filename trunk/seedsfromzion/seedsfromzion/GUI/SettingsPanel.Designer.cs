@@ -162,10 +162,10 @@
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel1.Size = new System.Drawing.Size(673, 508);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(156)))), ((int)(((byte)(187)))));
+            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
             this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.SystemColors.ControlDark;
             this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel1.Style.GradientAngle = 90;
@@ -497,7 +497,7 @@
             this.visaDayesInput.MinValue = -1;
             this.visaDayesInput.Name = "visaDayesInput";
             this.visaDayesInput.ShowUpDown = true;
-            this.visaDayesInput.Size = new System.Drawing.Size(49, 22);
+            this.visaDayesInput.Size = new System.Drawing.Size(49, 20);
             this.visaDayesInput.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -533,7 +533,7 @@
             this.inventInput.MinValue = -1;
             this.inventInput.Name = "inventInput";
             this.inventInput.ShowUpDown = true;
-            this.inventInput.Size = new System.Drawing.Size(49, 22);
+            this.inventInput.Size = new System.Drawing.Size(49, 20);
             this.inventInput.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -569,7 +569,7 @@
             this.clientDaysInput.MinValue = -1;
             this.clientDaysInput.Name = "clientDaysInput";
             this.clientDaysInput.ShowUpDown = true;
-            this.clientDaysInput.Size = new System.Drawing.Size(49, 22);
+            this.clientDaysInput.Size = new System.Drawing.Size(49, 20);
             this.clientDaysInput.TabIndex = 1;
             // 
             // panelEx4
@@ -625,7 +625,7 @@
             this.visaFreqInput.MinValue = -1;
             this.visaFreqInput.Name = "visaFreqInput";
             this.visaFreqInput.ShowUpDown = true;
-            this.visaFreqInput.Size = new System.Drawing.Size(55, 22);
+            this.visaFreqInput.Size = new System.Drawing.Size(55, 20);
             this.visaFreqInput.TabIndex = 0;
             // 
             // labelX7
@@ -661,7 +661,7 @@
             this.inventFreqInput.MinValue = -1;
             this.inventFreqInput.Name = "inventFreqInput";
             this.inventFreqInput.ShowUpDown = true;
-            this.inventFreqInput.Size = new System.Drawing.Size(55, 22);
+            this.inventFreqInput.Size = new System.Drawing.Size(55, 20);
             this.inventFreqInput.TabIndex = 0;
             // 
             // labelX8
@@ -697,7 +697,7 @@
             this.clientFreqInput.MinValue = -1;
             this.clientFreqInput.Name = "clientFreqInput";
             this.clientFreqInput.ShowUpDown = true;
-            this.clientFreqInput.Size = new System.Drawing.Size(56, 22);
+            this.clientFreqInput.Size = new System.Drawing.Size(56, 20);
             this.clientFreqInput.TabIndex = 0;
             // 
             // labelX9
@@ -724,10 +724,10 @@
             this.tabControlPanel2.Name = "tabControlPanel2";
             this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel2.Size = new System.Drawing.Size(673, 508);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(156)))), ((int)(((byte)(187)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
             this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.SystemColors.ControlDark;
             this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel2.Style.GradientAngle = 90;
@@ -794,7 +794,7 @@
             this.sql.Name = "sql";
             this.sql.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.sql.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.sql.Size = new System.Drawing.Size(266, 22);
+            this.sql.Size = new System.Drawing.Size(266, 20);
             this.sql.TabIndex = 5;
             this.sql.Click += new System.EventHandler(this.textBoxX1_Click);
             // 
@@ -848,7 +848,7 @@
             this.images.Location = new System.Drawing.Point(3, 83);
             this.images.Name = "images";
             this.images.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.images.Size = new System.Drawing.Size(266, 22);
+            this.images.Size = new System.Drawing.Size(266, 20);
             this.images.TabIndex = 8;
             // 
             // backups
@@ -861,7 +861,7 @@
             this.backups.Location = new System.Drawing.Point(3, 163);
             this.backups.Name = "backups";
             this.backups.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.backups.Size = new System.Drawing.Size(266, 22);
+            this.backups.Size = new System.Drawing.Size(266, 20);
             this.backups.TabIndex = 9;
             // 
             // tableLayoutPanel9
@@ -908,7 +908,7 @@
             this.automaticBackupFreq.MinValue = 1;
             this.automaticBackupFreq.Name = "automaticBackupFreq";
             this.automaticBackupFreq.ShowUpDown = true;
-            this.automaticBackupFreq.Size = new System.Drawing.Size(51, 22);
+            this.automaticBackupFreq.Size = new System.Drawing.Size(51, 20);
             this.automaticBackupFreq.TabIndex = 2;
             this.automaticBackupFreq.Value = 1;
             // 
@@ -956,7 +956,7 @@
             this.optimizeFreq.MinValue = 6;
             this.optimizeFreq.Name = "optimizeFreq";
             this.optimizeFreq.ShowUpDown = true;
-            this.optimizeFreq.Size = new System.Drawing.Size(52, 22);
+            this.optimizeFreq.Size = new System.Drawing.Size(52, 20);
             this.optimizeFreq.TabIndex = 2;
             this.optimizeFreq.Value = 6;
             // 
@@ -982,8 +982,7 @@
             // 
             this.ClientSize = new System.Drawing.Size(673, 534);
             this.Controls.Add(this.tabControl1);
-            this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SettingsPanel";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
