@@ -250,5 +250,10 @@ namespace seedsfromzion.GUI
 
         }
         #endregion
+
+        private void systemControl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
