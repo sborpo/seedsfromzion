@@ -25,9 +25,42 @@ namespace seedsfromzion.GUI
         public seedsFromZion()
         {
             InitializeComponent();
+         
+            
         }
 
         #region global functions
+
+
+        public void Enable()
+        {
+            this.Enabled = true;
+        }
+
+        public void Disable()
+        {
+            this.Enabled = false;
+        }
+
+        public bool DisplayAdminOptions
+        {
+            set
+            {
+                if (value == false)
+                {
+                    addNewUserButton.Visible = false;
+                    settingsButton.Visible = false;
+                    loadBackUpButton.Visible = false;
+                }
+                else
+                {
+                    addNewUserButton.Visible = true ;
+                    settingsButton.Visible = true;
+                    loadBackUpButton.Visible = true;
+
+                }
+            }
+        }
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
