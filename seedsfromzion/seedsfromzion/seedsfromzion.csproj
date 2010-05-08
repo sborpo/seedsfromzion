@@ -57,6 +57,11 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="VIBlendControls, Version=4.6.0.0, Culture=neutral, PublicKeyToken=6feea38fef5ea0cf, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\VIBlend\Windows Forms Controls v.4.6.0.0\VIBlendControls.dll</HintPath>
+    </Reference>
+    <Reference Include="VIBlendUtilities, Version=4.6.0.0, Culture=neutral, PublicKeyToken=970a5af59bc48043" />
     <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
