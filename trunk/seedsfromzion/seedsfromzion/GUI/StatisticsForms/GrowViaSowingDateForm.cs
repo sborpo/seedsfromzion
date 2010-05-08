@@ -30,6 +30,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             GraphPane growGraphPane = this.GrowViaSowGraphControl.GraphPane;
             DataTable graphData = StatisticsManager.getGrowViaSowGraphValues();
             growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי תאריך הזריע";
+            growGraphPane.Title.FontSpec.FontColor = Color.Navy;
             growGraphPane.XAxis.Title.Text = "תאריך הזריע";
             growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
@@ -60,6 +61,19 @@ namespace seedsfromzion.GUI.StatisticsForms
             //recalculate graph
             growGraphPane.AxisChange();
 
+        }
+
+        private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
+        {
+            DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
+            if (myCHBX.Checked.Equals(false))
+            {
+                this.plantTypeDropText.Enabled = false;
+            }
+            else
+            {
+                this.plantTypeDropText.Enabled = true;
+            }
         }
 
     }

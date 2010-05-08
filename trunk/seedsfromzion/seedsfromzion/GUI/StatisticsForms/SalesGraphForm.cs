@@ -30,6 +30,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             GraphPane salesGraphPane = this.salesGraphControl.GraphPane;
             DataTable graphData = StatisticsManager.getSalesGraphValues();
             salesGraphPane.Title.Text = "גרף המכירות";
+            salesGraphPane.Title.FontSpec.FontColor = Color.Navy;
             salesGraphPane.XAxis.Title.Text = "חודשים";
             salesGraphPane.YAxis.Title.Text = "מספר הצמחים";
 
@@ -59,6 +60,19 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             //recalculate graph
             salesGraphPane.AxisChange();
+        }
+
+        private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
+        {
+            DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
+            if (myCHBX.Checked.Equals(false))
+            {
+                this.plantTypeDropText.Enabled = false;
+            }
+            else
+            {
+                this.plantTypeDropText.Enabled = true;
+            }
         }
 
     }
