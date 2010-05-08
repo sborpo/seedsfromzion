@@ -29,35 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsPanel));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsPanel));
             this.tabControl1 = new DevComponents.DotNetBar.TabControl();
-            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
-            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
-            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.sql = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX16 = new DevComponents.DotNetBar.LabelX();
-            this.labelX13 = new DevComponents.DotNetBar.LabelX();
-            this.labelX15 = new DevComponents.DotNetBar.LabelX();
-            this.labelX14 = new DevComponents.DotNetBar.LabelX();
-            this.images = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.backups = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.labelX18 = new DevComponents.DotNetBar.LabelX();
-            this.automaticBackupFreq = new DevComponents.Editors.IntegerInput();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX19 = new DevComponents.DotNetBar.LabelX();
-            this.labelX20 = new DevComponents.DotNetBar.LabelX();
-            this.optimizeFreq = new DevComponents.Editors.IntegerInput();
-            this.warningBox1 = new DevComponents.DotNetBar.Controls.WarningBox();
-            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel1 = new DevComponents.DotNetBar.TabControlPanel();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
@@ -99,15 +78,30 @@
             this.clientFreqInput = new DevComponents.Editors.IntegerInput();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.tabItem1 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
+            this.buttonX4 = new DevComponents.DotNetBar.ButtonX();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
+            this.sql = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX16 = new DevComponents.DotNetBar.LabelX();
+            this.labelX13 = new DevComponents.DotNetBar.LabelX();
+            this.labelX15 = new DevComponents.DotNetBar.LabelX();
+            this.labelX14 = new DevComponents.DotNetBar.LabelX();
+            this.images = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.backups = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelX17 = new DevComponents.DotNetBar.LabelX();
+            this.labelX18 = new DevComponents.DotNetBar.LabelX();
+            this.automaticBackupFreq = new DevComponents.Editors.IntegerInput();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
+            this.labelX20 = new DevComponents.DotNetBar.LabelX();
+            this.optimizeFreq = new DevComponents.Editors.IntegerInput();
+            this.warningBox1 = new DevComponents.DotNetBar.Controls.WarningBox();
+            this.tabItem2 = new DevComponents.DotNetBar.TabItem(this.components);
             this.balloonTip1 = new DevComponents.DotNetBar.BalloonTip();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabControlPanel2.SuspendLayout();
-            this.tableLayoutPanel8.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.automaticBackupFreq)).BeginInit();
-            this.tableLayoutPanel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.optimizeFreq)).BeginInit();
             this.tabControlPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.favoritesGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.systemPlantGrid)).BeginInit();
@@ -126,6 +120,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventFreqInput)).BeginInit();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.clientFreqInput)).BeginInit();
+            this.tabControlPanel2.SuspendLayout();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.automaticBackupFreq)).BeginInit();
+            this.tableLayoutPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.optimizeFreq)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -147,270 +147,6 @@
             this.tabControl1.Text = "tabControl1";
             this.tabControl1.Click += new System.EventHandler(this.tabControl1_Click);
             // 
-            // tabControlPanel2
-            // 
-            this.tabControlPanel2.Controls.Add(this.buttonX4);
-            this.tabControlPanel2.Controls.Add(this.tableLayoutPanel8);
-            this.tabControlPanel2.Controls.Add(this.warningBox1);
-            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
-            this.tabControlPanel2.Name = "tabControlPanel2";
-            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
-            this.tabControlPanel2.Size = new System.Drawing.Size(673, 508);
-            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(156)))), ((int)(((byte)(187)))));
-            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
-            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.SystemColors.ControlDark;
-            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
-                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
-            this.tabControlPanel2.Style.GradientAngle = 90;
-            this.tabControlPanel2.TabIndex = 2;
-            this.tabControlPanel2.TabItem = this.tabItem2;
-            // 
-            // buttonX4
-            // 
-            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX4.Location = new System.Drawing.Point(22, 473);
-            this.buttonX4.Name = "buttonX4";
-            this.buttonX4.Size = new System.Drawing.Size(132, 23);
-            this.buttonX4.TabIndex = 8;
-            this.buttonX4.Text = "שמור וצא";
-            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
-            // 
-            // tableLayoutPanel8
-            // 
-            this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel8.ColumnCount = 2;
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel8.Controls.Add(this.labelX12, 0, 0);
-            this.tableLayoutPanel8.Controls.Add(this.sql, 1, 0);
-            this.tableLayoutPanel8.Controls.Add(this.labelX16, 0, 4);
-            this.tableLayoutPanel8.Controls.Add(this.labelX13, 0, 1);
-            this.tableLayoutPanel8.Controls.Add(this.labelX15, 0, 3);
-            this.tableLayoutPanel8.Controls.Add(this.labelX14, 0, 2);
-            this.tableLayoutPanel8.Controls.Add(this.images, 1, 1);
-            this.tableLayoutPanel8.Controls.Add(this.backups, 1, 2);
-            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 3);
-            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 4);
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(126, 55);
-            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
-            this.tableLayoutPanel8.RowCount = 5;
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(543, 403);
-            this.tableLayoutPanel8.TabIndex = 7;
-            // 
-            // labelX12
-            // 
-            this.labelX12.BackColor = System.Drawing.Color.Transparent;
-            this.labelX12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX12.Location = new System.Drawing.Point(368, 3);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.SingleLineColor = System.Drawing.Color.Transparent;
-            this.labelX12.Size = new System.Drawing.Size(172, 23);
-            this.labelX12.TabIndex = 1;
-            this.labelX12.Text = "תיקיית מערכת מסד נתונים";
-            // 
-            // sql
-            // 
-            // 
-            // 
-            // 
-            this.sql.Border.Class = "TextBoxBorder";
-            this.sql.Dock = System.Windows.Forms.DockStyle.Top;
-            this.sql.Location = new System.Drawing.Point(3, 3);
-            this.sql.Name = "sql";
-            this.sql.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.sql.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.sql.Size = new System.Drawing.Size(266, 20);
-            this.sql.TabIndex = 5;
-            this.sql.Click += new System.EventHandler(this.textBoxX1_Click);
-            // 
-            // labelX16
-            // 
-            this.labelX16.BackColor = System.Drawing.Color.Transparent;
-            this.labelX16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX16.Location = new System.Drawing.Point(314, 323);
-            this.labelX16.Name = "labelX16";
-            this.labelX16.Size = new System.Drawing.Size(226, 23);
-            this.labelX16.TabIndex = 6;
-            this.labelX16.Text = "תדירות ביצוע אופטימיזציית מסד נתונים";
-            // 
-            // labelX13
-            // 
-            this.labelX13.BackColor = System.Drawing.Color.Transparent;
-            this.labelX13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX13.Location = new System.Drawing.Point(427, 83);
-            this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(113, 23);
-            this.labelX13.TabIndex = 2;
-            this.labelX13.Text = "שם תיקיית התמונות";
-            // 
-            // labelX15
-            // 
-            this.labelX15.BackColor = System.Drawing.Color.Transparent;
-            this.labelX15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX15.Location = new System.Drawing.Point(386, 243);
-            this.labelX15.Name = "labelX15";
-            this.labelX15.Size = new System.Drawing.Size(154, 23);
-            this.labelX15.TabIndex = 4;
-            this.labelX15.Text = "תדירות ביצוע גיבוי אוטומטי";
-            // 
-            // labelX14
-            // 
-            this.labelX14.BackColor = System.Drawing.Color.Transparent;
-            this.labelX14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX14.Location = new System.Drawing.Point(350, 163);
-            this.labelX14.Name = "labelX14";
-            this.labelX14.Size = new System.Drawing.Size(190, 23);
-            this.labelX14.TabIndex = 7;
-            this.labelX14.Text = "שם תיקיית גיבויים";
-            // 
-            // images
-            // 
-            // 
-            // 
-            // 
-            this.images.Border.Class = "TextBoxBorder";
-            this.images.Dock = System.Windows.Forms.DockStyle.Top;
-            this.images.Location = new System.Drawing.Point(3, 83);
-            this.images.Name = "images";
-            this.images.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.images.Size = new System.Drawing.Size(266, 20);
-            this.images.TabIndex = 8;
-            // 
-            // backups
-            // 
-            // 
-            // 
-            // 
-            this.backups.Border.Class = "TextBoxBorder";
-            this.backups.Dock = System.Windows.Forms.DockStyle.Top;
-            this.backups.Location = new System.Drawing.Point(3, 163);
-            this.backups.Name = "backups";
-            this.backups.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.backups.Size = new System.Drawing.Size(266, 20);
-            this.backups.TabIndex = 9;
-            // 
-            // tableLayoutPanel9
-            // 
-            this.tableLayoutPanel9.ColumnCount = 3;
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.774436F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.80451F));
-            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.79699F));
-            this.tableLayoutPanel9.Controls.Add(this.labelX17, 0, 0);
-            this.tableLayoutPanel9.Controls.Add(this.labelX18, 2, 0);
-            this.tableLayoutPanel9.Controls.Add(this.automaticBackupFreq, 1, 0);
-            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 243);
-            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
-            this.tableLayoutPanel9.RowCount = 1;
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(266, 74);
-            this.tableLayoutPanel9.TabIndex = 10;
-            // 
-            // labelX17
-            // 
-            this.labelX17.Location = new System.Drawing.Point(244, 3);
-            this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(19, 23);
-            this.labelX17.TabIndex = 0;
-            this.labelX17.Text = "כל";
-            // 
-            // labelX18
-            // 
-            this.labelX18.Location = new System.Drawing.Point(106, 3);
-            this.labelX18.Name = "labelX18";
-            this.labelX18.Size = new System.Drawing.Size(75, 23);
-            this.labelX18.TabIndex = 1;
-            this.labelX18.Text = "ימים";
-            // 
-            // automaticBackupFreq
-            // 
-            // 
-            // 
-            // 
-            this.automaticBackupFreq.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.automaticBackupFreq.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.automaticBackupFreq.Location = new System.Drawing.Point(187, 3);
-            this.automaticBackupFreq.MinValue = 1;
-            this.automaticBackupFreq.Name = "automaticBackupFreq";
-            this.automaticBackupFreq.ShowUpDown = true;
-            this.automaticBackupFreq.Size = new System.Drawing.Size(51, 20);
-            this.automaticBackupFreq.TabIndex = 2;
-            this.automaticBackupFreq.Value = 1;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 3;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.12048F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.87952F));
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
-            this.tableLayoutPanel10.Controls.Add(this.labelX19, 0, 0);
-            this.tableLayoutPanel10.Controls.Add(this.labelX20, 2, 0);
-            this.tableLayoutPanel10.Controls.Add(this.optimizeFreq, 1, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 323);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 1;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(266, 77);
-            this.tableLayoutPanel10.TabIndex = 11;
-            // 
-            // labelX19
-            // 
-            this.labelX19.Location = new System.Drawing.Point(244, 3);
-            this.labelX19.Name = "labelX19";
-            this.labelX19.Size = new System.Drawing.Size(19, 23);
-            this.labelX19.TabIndex = 0;
-            this.labelX19.Text = "כל";
-            // 
-            // labelX20
-            // 
-            this.labelX20.Location = new System.Drawing.Point(105, 3);
-            this.labelX20.Name = "labelX20";
-            this.labelX20.Size = new System.Drawing.Size(75, 23);
-            this.labelX20.TabIndex = 1;
-            this.labelX20.Text = "חודשים";
-            // 
-            // optimizeFreq
-            // 
-            // 
-            // 
-            // 
-            this.optimizeFreq.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.optimizeFreq.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.optimizeFreq.Location = new System.Drawing.Point(186, 3);
-            this.optimizeFreq.MinValue = 6;
-            this.optimizeFreq.Name = "optimizeFreq";
-            this.optimizeFreq.ShowUpDown = true;
-            this.optimizeFreq.Size = new System.Drawing.Size(52, 20);
-            this.optimizeFreq.TabIndex = 2;
-            this.optimizeFreq.Value = 6;
-            // 
-            // warningBox1
-            // 
-            this.warningBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(219)))), ((int)(((byte)(249)))));
-            this.warningBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.warningBox1.Image = ((System.Drawing.Image)(resources.GetObject("warningBox1.Image")));
-            this.warningBox1.Location = new System.Drawing.Point(1, 1);
-            this.warningBox1.Name = "warningBox1";
-            this.warningBox1.OptionsButtonVisible = false;
-            this.warningBox1.Size = new System.Drawing.Size(671, 33);
-            this.warningBox1.TabIndex = 0;
-            this.warningBox1.Text = "<b>שינוי הגדרות אלה אינו מומלץ לגורמים לא מוסמכים</b>";
-            // 
-            // tabItem2
-            // 
-            this.tabItem2.AttachedControl = this.tabControlPanel2;
-            this.tabItem2.Name = "tabItem2";
-            this.tabItem2.Text = "הגדרות מערכת";
-            // 
             // tabControlPanel1
             // 
             this.tabControlPanel1.Controls.Add(this.labelX11);
@@ -426,10 +162,10 @@
             this.tabControlPanel1.Name = "tabControlPanel1";
             this.tabControlPanel1.Padding = new System.Windows.Forms.Padding(1);
             this.tabControlPanel1.Size = new System.Drawing.Size(673, 508);
-            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(156)))), ((int)(((byte)(187)))));
-            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(233)))), ((int)(((byte)(240)))));
+            this.tabControlPanel1.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel1.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.tabControlPanel1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.SystemColors.ControlDark;
+            this.tabControlPanel1.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
             this.tabControlPanel1.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
                         | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel1.Style.GradientAngle = 90;
@@ -761,7 +497,7 @@
             this.visaDayesInput.MinValue = -1;
             this.visaDayesInput.Name = "visaDayesInput";
             this.visaDayesInput.ShowUpDown = true;
-            this.visaDayesInput.Size = new System.Drawing.Size(49, 20);
+            this.visaDayesInput.Size = new System.Drawing.Size(49, 22);
             this.visaDayesInput.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -797,7 +533,7 @@
             this.inventInput.MinValue = -1;
             this.inventInput.Name = "inventInput";
             this.inventInput.ShowUpDown = true;
-            this.inventInput.Size = new System.Drawing.Size(49, 20);
+            this.inventInput.Size = new System.Drawing.Size(49, 22);
             this.inventInput.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -833,7 +569,7 @@
             this.clientDaysInput.MinValue = -1;
             this.clientDaysInput.Name = "clientDaysInput";
             this.clientDaysInput.ShowUpDown = true;
-            this.clientDaysInput.Size = new System.Drawing.Size(49, 20);
+            this.clientDaysInput.Size = new System.Drawing.Size(49, 22);
             this.clientDaysInput.TabIndex = 1;
             // 
             // panelEx4
@@ -889,7 +625,7 @@
             this.visaFreqInput.MinValue = -1;
             this.visaFreqInput.Name = "visaFreqInput";
             this.visaFreqInput.ShowUpDown = true;
-            this.visaFreqInput.Size = new System.Drawing.Size(55, 20);
+            this.visaFreqInput.Size = new System.Drawing.Size(55, 22);
             this.visaFreqInput.TabIndex = 0;
             // 
             // labelX7
@@ -925,7 +661,7 @@
             this.inventFreqInput.MinValue = -1;
             this.inventFreqInput.Name = "inventFreqInput";
             this.inventFreqInput.ShowUpDown = true;
-            this.inventFreqInput.Size = new System.Drawing.Size(55, 20);
+            this.inventFreqInput.Size = new System.Drawing.Size(55, 22);
             this.inventFreqInput.TabIndex = 0;
             // 
             // labelX8
@@ -961,7 +697,7 @@
             this.clientFreqInput.MinValue = -1;
             this.clientFreqInput.Name = "clientFreqInput";
             this.clientFreqInput.ShowUpDown = true;
-            this.clientFreqInput.Size = new System.Drawing.Size(56, 20);
+            this.clientFreqInput.Size = new System.Drawing.Size(56, 22);
             this.clientFreqInput.TabIndex = 0;
             // 
             // labelX9
@@ -978,24 +714,284 @@
             this.tabItem1.Name = "tabItem1";
             this.tabItem1.Text = "הגדרות משתמש";
             // 
+            // tabControlPanel2
+            // 
+            this.tabControlPanel2.Controls.Add(this.buttonX4);
+            this.tabControlPanel2.Controls.Add(this.tableLayoutPanel8);
+            this.tabControlPanel2.Controls.Add(this.warningBox1);
+            this.tabControlPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel2.Location = new System.Drawing.Point(0, 26);
+            this.tabControlPanel2.Name = "tabControlPanel2";
+            this.tabControlPanel2.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel2.Size = new System.Drawing.Size(673, 508);
+            this.tabControlPanel2.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel2.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel2.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel2.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right)
+                        | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel2.Style.GradientAngle = 90;
+            this.tabControlPanel2.TabIndex = 2;
+            this.tabControlPanel2.TabItem = this.tabItem2;
+            // 
+            // buttonX4
+            // 
+            this.buttonX4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX4.Location = new System.Drawing.Point(22, 473);
+            this.buttonX4.Name = "buttonX4";
+            this.buttonX4.Size = new System.Drawing.Size(132, 23);
+            this.buttonX4.TabIndex = 8;
+            this.buttonX4.Text = "שמור וצא";
+            this.buttonX4.Click += new System.EventHandler(this.buttonX4_Click);
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel8.ColumnCount = 2;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel8.Controls.Add(this.labelX12, 0, 0);
+            this.tableLayoutPanel8.Controls.Add(this.sql, 1, 0);
+            this.tableLayoutPanel8.Controls.Add(this.labelX16, 0, 4);
+            this.tableLayoutPanel8.Controls.Add(this.labelX13, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.labelX15, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.labelX14, 0, 2);
+            this.tableLayoutPanel8.Controls.Add(this.images, 1, 1);
+            this.tableLayoutPanel8.Controls.Add(this.backups, 1, 2);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel9, 1, 3);
+            this.tableLayoutPanel8.Controls.Add(this.tableLayoutPanel10, 1, 4);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(126, 55);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 5;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(543, 403);
+            this.tableLayoutPanel8.TabIndex = 7;
+            // 
+            // labelX12
+            // 
+            this.labelX12.BackColor = System.Drawing.Color.Transparent;
+            this.labelX12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX12.Location = new System.Drawing.Point(368, 3);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.SingleLineColor = System.Drawing.Color.Transparent;
+            this.labelX12.Size = new System.Drawing.Size(172, 23);
+            this.labelX12.TabIndex = 1;
+            this.labelX12.Text = "תיקיית מערכת מסד נתונים";
+            // 
+            // sql
+            // 
+            // 
+            // 
+            // 
+            this.sql.Border.Class = "TextBoxBorder";
+            this.sql.Dock = System.Windows.Forms.DockStyle.Top;
+            this.sql.Location = new System.Drawing.Point(3, 3);
+            this.sql.Name = "sql";
+            this.sql.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.sql.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.sql.Size = new System.Drawing.Size(266, 22);
+            this.sql.TabIndex = 5;
+            this.sql.Click += new System.EventHandler(this.textBoxX1_Click);
+            // 
+            // labelX16
+            // 
+            this.labelX16.BackColor = System.Drawing.Color.Transparent;
+            this.labelX16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX16.Location = new System.Drawing.Point(314, 323);
+            this.labelX16.Name = "labelX16";
+            this.labelX16.Size = new System.Drawing.Size(226, 23);
+            this.labelX16.TabIndex = 6;
+            this.labelX16.Text = "תדירות ביצוע אופטימיזציית מסד נתונים";
+            // 
+            // labelX13
+            // 
+            this.labelX13.BackColor = System.Drawing.Color.Transparent;
+            this.labelX13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX13.Location = new System.Drawing.Point(427, 83);
+            this.labelX13.Name = "labelX13";
+            this.labelX13.Size = new System.Drawing.Size(113, 23);
+            this.labelX13.TabIndex = 2;
+            this.labelX13.Text = "שם תיקיית התמונות";
+            // 
+            // labelX15
+            // 
+            this.labelX15.BackColor = System.Drawing.Color.Transparent;
+            this.labelX15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX15.Location = new System.Drawing.Point(386, 243);
+            this.labelX15.Name = "labelX15";
+            this.labelX15.Size = new System.Drawing.Size(154, 23);
+            this.labelX15.TabIndex = 4;
+            this.labelX15.Text = "תדירות ביצוע גיבוי אוטומטי";
+            // 
+            // labelX14
+            // 
+            this.labelX14.BackColor = System.Drawing.Color.Transparent;
+            this.labelX14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX14.Location = new System.Drawing.Point(350, 163);
+            this.labelX14.Name = "labelX14";
+            this.labelX14.Size = new System.Drawing.Size(190, 23);
+            this.labelX14.TabIndex = 7;
+            this.labelX14.Text = "שם תיקיית גיבויים";
+            // 
+            // images
+            // 
+            // 
+            // 
+            // 
+            this.images.Border.Class = "TextBoxBorder";
+            this.images.Dock = System.Windows.Forms.DockStyle.Top;
+            this.images.Location = new System.Drawing.Point(3, 83);
+            this.images.Name = "images";
+            this.images.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.images.Size = new System.Drawing.Size(266, 22);
+            this.images.TabIndex = 8;
+            // 
+            // backups
+            // 
+            // 
+            // 
+            // 
+            this.backups.Border.Class = "TextBoxBorder";
+            this.backups.Dock = System.Windows.Forms.DockStyle.Top;
+            this.backups.Location = new System.Drawing.Point(3, 163);
+            this.backups.Name = "backups";
+            this.backups.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.backups.Size = new System.Drawing.Size(266, 22);
+            this.backups.TabIndex = 9;
+            // 
+            // tableLayoutPanel9
+            // 
+            this.tableLayoutPanel9.ColumnCount = 3;
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.774436F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.80451F));
+            this.tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.79699F));
+            this.tableLayoutPanel9.Controls.Add(this.labelX17, 0, 0);
+            this.tableLayoutPanel9.Controls.Add(this.labelX18, 2, 0);
+            this.tableLayoutPanel9.Controls.Add(this.automaticBackupFreq, 1, 0);
+            this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 243);
+            this.tableLayoutPanel9.Name = "tableLayoutPanel9";
+            this.tableLayoutPanel9.RowCount = 1;
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(266, 74);
+            this.tableLayoutPanel9.TabIndex = 10;
+            // 
+            // labelX17
+            // 
+            this.labelX17.Location = new System.Drawing.Point(244, 3);
+            this.labelX17.Name = "labelX17";
+            this.labelX17.Size = new System.Drawing.Size(19, 23);
+            this.labelX17.TabIndex = 0;
+            this.labelX17.Text = "כל";
+            // 
+            // labelX18
+            // 
+            this.labelX18.Location = new System.Drawing.Point(106, 3);
+            this.labelX18.Name = "labelX18";
+            this.labelX18.Size = new System.Drawing.Size(75, 23);
+            this.labelX18.TabIndex = 1;
+            this.labelX18.Text = "ימים";
+            // 
+            // automaticBackupFreq
+            // 
+            // 
+            // 
+            // 
+            this.automaticBackupFreq.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.automaticBackupFreq.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.automaticBackupFreq.Location = new System.Drawing.Point(187, 3);
+            this.automaticBackupFreq.MinValue = 1;
+            this.automaticBackupFreq.Name = "automaticBackupFreq";
+            this.automaticBackupFreq.ShowUpDown = true;
+            this.automaticBackupFreq.Size = new System.Drawing.Size(51, 22);
+            this.automaticBackupFreq.TabIndex = 2;
+            this.automaticBackupFreq.Value = 1;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 3;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.12048F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.87952F));
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
+            this.tableLayoutPanel10.Controls.Add(this.labelX19, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.labelX20, 2, 0);
+            this.tableLayoutPanel10.Controls.Add(this.optimizeFreq, 1, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(3, 323);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 1;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(266, 77);
+            this.tableLayoutPanel10.TabIndex = 11;
+            // 
+            // labelX19
+            // 
+            this.labelX19.Location = new System.Drawing.Point(244, 3);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(19, 23);
+            this.labelX19.TabIndex = 0;
+            this.labelX19.Text = "כל";
+            // 
+            // labelX20
+            // 
+            this.labelX20.Location = new System.Drawing.Point(105, 3);
+            this.labelX20.Name = "labelX20";
+            this.labelX20.Size = new System.Drawing.Size(75, 23);
+            this.labelX20.TabIndex = 1;
+            this.labelX20.Text = "חודשים";
+            // 
+            // optimizeFreq
+            // 
+            // 
+            // 
+            // 
+            this.optimizeFreq.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.optimizeFreq.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.optimizeFreq.Location = new System.Drawing.Point(186, 3);
+            this.optimizeFreq.MinValue = 6;
+            this.optimizeFreq.Name = "optimizeFreq";
+            this.optimizeFreq.ShowUpDown = true;
+            this.optimizeFreq.Size = new System.Drawing.Size(52, 22);
+            this.optimizeFreq.TabIndex = 2;
+            this.optimizeFreq.Value = 6;
+            // 
+            // warningBox1
+            // 
+            this.warningBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(219)))), ((int)(((byte)(249)))));
+            this.warningBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.warningBox1.Image = ((System.Drawing.Image)(resources.GetObject("warningBox1.Image")));
+            this.warningBox1.Location = new System.Drawing.Point(1, 1);
+            this.warningBox1.Name = "warningBox1";
+            this.warningBox1.OptionsButtonVisible = false;
+            this.warningBox1.Size = new System.Drawing.Size(671, 33);
+            this.warningBox1.TabIndex = 0;
+            this.warningBox1.Text = "<b>שינוי הגדרות אלה אינו מומלץ לגורמים לא מוסמכים</b>";
+            // 
+            // tabItem2
+            // 
+            this.tabItem2.AttachedControl = this.tabControlPanel2;
+            this.tabItem2.Name = "tabItem2";
+            this.tabItem2.Text = "הגדרות מערכת";
+            // 
             // SettingsPanel
             // 
             this.ClientSize = new System.Drawing.Size(673, 534);
             this.Controls.Add(this.tabControl1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingsPanel";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
             this.Text = "הגדרות";
             this.TitleText = "הגדרות";
             this.Load += new System.EventHandler(this.SettingsPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabControlPanel2.ResumeLayout(false);
-            this.tableLayoutPanel8.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.automaticBackupFreq)).EndInit();
-            this.tableLayoutPanel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.optimizeFreq)).EndInit();
             this.tabControlPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.favoritesGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.systemPlantGrid)).EndInit();
@@ -1014,6 +1010,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.inventFreqInput)).EndInit();
             this.tableLayoutPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.clientFreqInput)).EndInit();
+            this.tabControlPanel2.ResumeLayout(false);
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.automaticBackupFreq)).EndInit();
+            this.tableLayoutPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.optimizeFreq)).EndInit();
             this.ResumeLayout(false);
 
         }
