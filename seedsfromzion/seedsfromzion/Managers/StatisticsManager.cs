@@ -95,7 +95,7 @@ namespace seedsfromzion.Managers
 
             return array;
         }
-        
+
         #endregion
 
     }
