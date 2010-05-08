@@ -16,21 +16,18 @@ namespace seedsfromzion.GUI
 {
     public partial class seedsFromZion : DevComponents.DotNetBar.Office2007RibbonForm
     {
+        #region fields
         public delegate void displayNotification(String title, String text);
         public displayNotification displayFunc;
         Routines routine;
         private Notification notification;
+        #endregion
 
-        
+        #region global functions
         public seedsFromZion()
         {
             InitializeComponent();
-         
-            
         }
-
-        #region global functions
-
 
         public void Enable()
         {
@@ -106,6 +103,7 @@ namespace seedsfromzion.GUI
 
         #endregion
 
+        #region system button functions
         private void settingsButton_Click(object sender, EventArgs e)
         {
             SettingsPanel settings = new SettingsPanel();
@@ -155,10 +153,14 @@ namespace seedsfromzion.GUI
                 SystemManager.performSystemRestore(restoreDialog.FileName);
             }
             initRoutines();
+        }
 
+        private void printButton_Click(object sender, EventArgs e)
+        {
 
         }
 
+        #endregion
 
         #region inventory
 
@@ -219,11 +221,9 @@ namespace seedsfromzion.GUI
 
         #endregion
 
-        private void printButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region tiny menu
+        
+        #endregion
 
         #region workers
         private void addNewUserButton_Click(object sender, EventArgs e)
@@ -241,12 +241,14 @@ namespace seedsfromzion.GUI
         }
         #endregion
 
+        #region orders
         private void addOrderButton_Click(object sender, EventArgs e)
         {
             OrdersMainForm form = new OrdersMainForm();
             form.MdiParent = this;
             form.Show();
 
-        }        
+        }
+        #endregion
     }
 }
