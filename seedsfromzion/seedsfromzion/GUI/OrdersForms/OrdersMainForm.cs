@@ -118,7 +118,15 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("אין מספיק כמות במלאי להוספה להזמנה").Show();
                 return;
             }
+            //TODO: check that the item id is not already in the order;
             //TODO:: adding the new item to the order
+            
+            //adding the new item to the order view:
+            string pname = (string)selectedRows[0].Cells["name"].Value;
+            string ptype = (string)selectedRows[0].Cells["type"].Value;
+            System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells["storageId"].Value;
+            orderGrid.Rows.Add("", pname, ptype, pstorageId.ToString(), amount.ToString());
+            orderGrid.Refresh();
 
         }
 
