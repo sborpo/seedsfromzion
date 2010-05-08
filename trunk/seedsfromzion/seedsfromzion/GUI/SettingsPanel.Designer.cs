@@ -132,8 +132,8 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel2);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -982,8 +982,11 @@
             // 
             this.ClientSize = new System.Drawing.Size(673, 534);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SettingsPanel";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Text = "הגדרות";
+            this.TitleText = "הגדרות";
             this.Load += new System.EventHandler(this.SettingsPanel_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).EndInit();
             this.tabControl1.ResumeLayout(false);

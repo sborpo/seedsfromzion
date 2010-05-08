@@ -103,6 +103,7 @@
             this.storageGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.storageGrid.Size = new System.Drawing.Size(451, 100);
             this.storageGrid.TabIndex = 2;
+            this.storageGrid.SelectionChanged += new System.EventHandler(this.storageGrid_SelectionChanged);
             this.storageGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.storageGrid_CellContentClick);
             // 
             // id
@@ -250,7 +251,6 @@
             this.Controls.Add(this.storageGrid);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.textBoxX1);
-            this.DoubleBuffered = true;
             this.Name = "OrdersMainForm";
             this.Load += new System.EventHandler(this.OrdersMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).EndInit();

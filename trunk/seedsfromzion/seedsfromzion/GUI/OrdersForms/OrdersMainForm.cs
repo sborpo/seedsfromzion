@@ -14,11 +14,14 @@ namespace seedsfromzion.GUI.OrdersForms
     {
         DataTable Storage;
         DataTable Order;
+        bool loading;
         public OrdersMainForm()
         {
+            loading = true;
             InitializeComponent();
             refreshStorageTable();
             doubleInput1.MinValue = 0;
+            loading = false;
         }
 
         /// <summary>
@@ -80,12 +83,14 @@ namespace seedsfromzion.GUI.OrdersForms
         /// <param name="filteredRows"></param>
         private void refreshStorageView(DataRow[] filteredRows)
         {
+            loading = true;
             storageGrid.Rows.Clear();
             foreach (DataRow row in filteredRows)
             {
                 storageGrid.Rows.Add(row["id"],row["name"], row["type"], row["storageId"], row["units"]);
             }
             storageGrid.Refresh();
+            loading = false;
         }
 
         private void OrdersMainForm_Load(object sender, EventArgs e)
@@ -119,7 +124,18 @@ namespace seedsfromzion.GUI.OrdersForms
 
         private void storageGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            //System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = storageGrid.SelectedRows;
+            //doubleInput1.MaxValue = (double)selectedRows[0].Cells["units"].Value; 
+        }
+
+        private void storageGrid_SelectionChanged(object sender, EventArgs e)
+        {
+           
             System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = storageGrid.SelectedRows;
+            if (selectedRows.Count == 0)
+            {
+                return;
+            }
             doubleInput1.MaxValue = (double)selectedRows[0].Cells["units"].Value; 
         }
     }
