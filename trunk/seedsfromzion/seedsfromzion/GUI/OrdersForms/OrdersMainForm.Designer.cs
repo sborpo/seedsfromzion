@@ -48,6 +48,14 @@
             this.orderUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.doubleInput1 = new DevComponents.Editors.DoubleInput();
+            this.buttonOrder = new DevComponents.DotNetBar.ButtonX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.nameBox = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.phoneBoxX = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.emailBoxX = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
@@ -240,9 +248,98 @@
             this.doubleInput1.Size = new System.Drawing.Size(80, 20);
             this.doubleInput1.TabIndex = 7;
             // 
+            // buttonOrder
+            // 
+            this.buttonOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonOrder.Location = new System.Drawing.Point(546, 343);
+            this.buttonOrder.Name = "buttonOrder";
+            this.buttonOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonOrder.TabIndex = 8;
+            this.buttonOrder.Text = "בצע הזמנה";
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+            // 
+            // labelX4
+            // 
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX4.Location = new System.Drawing.Point(547, 22);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 9;
+            this.labelX4.Text = "פרטי המזמין:";
+            // 
+            // labelX5
+            // 
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX5.Location = new System.Drawing.Point(548, 52);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(28, 23);
+            this.labelX5.TabIndex = 10;
+            this.labelX5.Text = "שם:";
+            // 
+            // labelX6
+            // 
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX6.Location = new System.Drawing.Point(546, 81);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(75, 23);
+            this.labelX6.TabIndex = 11;
+            this.labelX6.Text = "מספר טלפון:";
+            // 
+            // labelX7
+            // 
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX7.Location = new System.Drawing.Point(548, 110);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.TabIndex = 12;
+            this.labelX7.Text = "E-Mail:";
+            // 
+            // nameBox
+            // 
+            // 
+            // 
+            // 
+            this.nameBox.Border.Class = "TextBoxBorder";
+            this.nameBox.Location = new System.Drawing.Point(619, 55);
+            this.nameBox.Name = "nameBox";
+            this.nameBox.Size = new System.Drawing.Size(119, 20);
+            this.nameBox.TabIndex = 13;
+            // 
+            // phoneBoxX
+            // 
+            // 
+            // 
+            // 
+            this.phoneBoxX.Border.Class = "TextBoxBorder";
+            this.phoneBoxX.Location = new System.Drawing.Point(619, 84);
+            this.phoneBoxX.Name = "phoneBoxX";
+            this.phoneBoxX.Size = new System.Drawing.Size(119, 20);
+            this.phoneBoxX.TabIndex = 15;
+            // 
+            // emailBoxX
+            // 
+            // 
+            // 
+            // 
+            this.emailBoxX.Border.Class = "TextBoxBorder";
+            this.emailBoxX.Location = new System.Drawing.Point(619, 110);
+            this.emailBoxX.Name = "emailBoxX";
+            this.emailBoxX.Size = new System.Drawing.Size(119, 20);
+            this.emailBoxX.TabIndex = 16;
+            // 
             // OrdersMainForm
             // 
-            this.ClientSize = new System.Drawing.Size(519, 378);
+            this.ClientSize = new System.Drawing.Size(755, 378);
+            this.Controls.Add(this.emailBoxX);
+            this.Controls.Add(this.phoneBoxX);
+            this.Controls.Add(this.nameBox);
+            this.Controls.Add(this.labelX7);
+            this.Controls.Add(this.labelX6);
+            this.Controls.Add(this.labelX5);
+            this.Controls.Add(this.labelX4);
+            this.Controls.Add(this.buttonOrder);
             this.Controls.Add(this.doubleInput1);
             this.Controls.Add(this.labelX3);
             this.Controls.Add(this.orderGrid);
@@ -251,6 +348,7 @@
             this.Controls.Add(this.storageGrid);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.textBoxX1);
+            this.DoubleBuffered = true;
             this.Name = "OrdersMainForm";
             this.Load += new System.EventHandler(this.OrdersMainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).EndInit();
@@ -280,5 +378,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderUnits;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.Editors.DoubleInput doubleInput1;
+        private DevComponents.DotNetBar.ButtonX buttonOrder;
+        private DevComponents.DotNetBar.LabelX labelX4;
+        private DevComponents.DotNetBar.LabelX labelX5;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.Controls.TextBoxX nameBox;
+        private DevComponents.DotNetBar.Controls.TextBoxX phoneBoxX;
+        private DevComponents.DotNetBar.Controls.TextBoxX emailBoxX;
     }
 }

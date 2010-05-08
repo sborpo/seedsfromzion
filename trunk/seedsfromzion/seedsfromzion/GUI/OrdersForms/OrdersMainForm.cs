@@ -19,6 +19,13 @@ namespace seedsfromzion.GUI.OrdersForms
         {
             loading = true;
             InitializeComponent();
+            Order = new DataTable();
+            Order.Clear();
+            Order.Columns.Add("orderId");
+            Order.Columns.Add("orderName");
+            Order.Columns.Add("orderType");
+            Order.Columns.Add("orderStorageId");
+            Order.Columns.Add("orderUnits");
             refreshStorageTable();
             doubleInput1.MinValue = 0;
             loading = false;
@@ -34,6 +41,7 @@ namespace seedsfromzion.GUI.OrdersForms
             MySqlCommand command = new MySqlCommand("SELECT Plant.plantId AS id ,Plant.name AS name , Plant.type As type , Storage.id AS storageId, Storage.units AS units,Storage.location AS location FROM seedsdb.finishedstorage Storage, seedsdb.planttypes Plant WHERE Storage.plantId=Plant.plantId");
             Storage = DataAccess.DatabaseAccess.getResultSetFromDb(command);
             displayAllStorage();
+            
             
         }
 
@@ -118,15 +126,32 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("אין מספיק כמות במלאי להוספה להזמנה").Show();
                 return;
             }
-            //TODO: check that the item id is not already in the order;
-            //TODO:: adding the new item to the order
+            System.Windows.Forms.DataGridViewRowCollection orderRows = orderGrid.Rows;
             
+            //checking that the item is not already in the order:
+            System.UInt32 pid = (System.UInt32)selectedRows[0].Cells["id"].Value;
+            for (int i = 0; i < Order.Rows.Count; i++)
+            {
+                DataRow row = Order.Rows[i];
+                
+                if (pid.ToString().Equals(row["orderId"].ToString()))
+                {
+                    new ErrorWindow("הפריט הנבחר קיים כבר בהזמנה").Show();
+                    return;
+                }
+            }
+                   
             //adding the new item to the order view:
             string pname = (string)selectedRows[0].Cells["name"].Value;
             string ptype = (string)selectedRows[0].Cells["type"].Value;
             System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells["storageId"].Value;
-            orderGrid.Rows.Add("", pname, ptype, pstorageId.ToString(), amount.ToString());
+            orderGrid.Rows.Add(pid.ToString(), pname, ptype, pstorageId.ToString(), amount.ToString());
             orderGrid.Refresh();
+            //adding the new item to the order
+            Order.Rows.Add(pid, pname, ptype, pstorageId, amount.ToString());
+            //refreshing the storage view:
+            refreshStorageTable();
+            
 
         }
 
@@ -145,6 +170,17 @@ namespace seedsfromzion.GUI.OrdersForms
                 return;
             }
             doubleInput1.MaxValue = (double)selectedRows[0].Cells["units"].Value; 
+        }
+
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            if(Order.Rows.Count == 0)
+            {
+                new ErrorWindow("לא נבחר אף פריט להזמנה").Show();
+                return;
+            }
+            DataStructures.ClientInfo clientInfo = new seedsfromzion.DataStructures.ClientInfo();
+            DataStructures.OrderInfo orderInfo = new seedsfromzion.DataStructures.OrderInfo();
         }
     }
 }
