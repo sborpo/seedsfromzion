@@ -106,7 +106,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(342, 204);
+            this.showGraphButton.Location = new System.Drawing.Point(336, 204);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(196, 54);
             // 
@@ -159,7 +159,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantChoisePanel.Controls.Add(this.plantNameTextBox);
             this.plantChoisePanel.Location = new System.Drawing.Point(41, 34);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(497, 142);
+            this.plantChoisePanel.Size = new System.Drawing.Size(491, 142);
             // 
             // 
             // 
@@ -188,7 +188,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.isChosenTypeCHBX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isChosenTypeCHBX.CheckValue = "Y";
             this.isChosenTypeCHBX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.isChosenTypeCHBX.Location = new System.Drawing.Point(474, 90);
+            this.isChosenTypeCHBX.Location = new System.Drawing.Point(468, 90);
             this.isChosenTypeCHBX.Name = "isChosenTypeCHBX";
             this.isChosenTypeCHBX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.isChosenTypeCHBX.Size = new System.Drawing.Size(19, 18);
@@ -208,7 +208,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantTypeDropText.ButtonDropDown.Visible = true;
             this.plantTypeDropText.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.plantTypeDropText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plantTypeDropText.Location = new System.Drawing.Point(-6, 84);
+            this.plantTypeDropText.Location = new System.Drawing.Point(-12, 84);
             this.plantTypeDropText.Name = "plantTypeDropText";
             this.plantTypeDropText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantTypeDropText.Size = new System.Drawing.Size(226, 25);
@@ -223,7 +223,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.planrTypeLabel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.planrTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.planrTypeLabel.ForeColor = System.Drawing.Color.Black;
-            this.planrTypeLabel.Location = new System.Drawing.Point(256, 83);
+            this.planrTypeLabel.Location = new System.Drawing.Point(250, 83);
             this.planrTypeLabel.Name = "planrTypeLabel";
             this.planrTypeLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.planrTypeLabel.Size = new System.Drawing.Size(213, 25);
@@ -243,7 +243,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(256, 34);
+            this.plantNameLabel.Location = new System.Drawing.Point(250, 34);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(213, 25);
@@ -261,7 +261,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantNameTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.plantNameTextBox.Location = new System.Drawing.Point(-3, 34);
+            this.plantNameTextBox.Location = new System.Drawing.Point(-9, 34);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.PromptChar = '|';
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

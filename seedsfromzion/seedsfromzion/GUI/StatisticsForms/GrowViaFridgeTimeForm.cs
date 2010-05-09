@@ -105,15 +105,7 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
         {
-            DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
-            if (myCHBX.Checked.Equals(false))
-            {
-                this.plantTypeDropText.Enabled = false;
-            }
-            else
-            {
-                this.plantTypeDropText.Enabled = true;
-            }
+
         }
     }
 }
