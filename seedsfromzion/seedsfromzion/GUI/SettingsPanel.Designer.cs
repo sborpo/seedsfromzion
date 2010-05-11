@@ -985,7 +985,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SettingsPanel";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RightToLeftLayout = true;
             this.Text = "הגדרות";
             this.TitleText = "הגדרות";
             this.Load += new System.EventHandler(this.SettingsPanel_Load);
