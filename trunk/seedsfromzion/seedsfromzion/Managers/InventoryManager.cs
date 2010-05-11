@@ -29,7 +29,7 @@ namespace seedsfromzion.Managers
 
             int newId = getNewPlantId();
 
-            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, pic, comments, unitType, countInUnit) " +
+            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, NULL, @P_PIC, NULL, NULL, NULL)", "@P_NAME", p_name, "@P_PIC", p_pic);
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
                 "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
@@ -201,10 +201,10 @@ namespace seedsfromzion.Managers
 
         public int getNewPlantId()
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(plantId), 0) FROM seedsdb.PlantTypes");
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(plantId), 0) AS plantId FROM seedsdb.PlantTypes");
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
-            int newId = (int)result.Rows[0]["plantId"] + 1;
+            int newId = (int)Convert.ToInt32(result.Rows[0]["plantId"]) + 1;
             return newId;
         }
         /*
