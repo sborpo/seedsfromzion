@@ -11,6 +11,7 @@ using seedsfromzion.Managers;
 using seedsfromzion.GUI.WorkerForms;
 using seedsfromzion.GUI.StatisticsForms;
 using seedsfromzion.GUI.OrdersForms;
+using seedsfromzion.GUI.InventoryForms;
 
 namespace seedsfromzion.GUI
 {
@@ -254,6 +255,14 @@ namespace seedsfromzion.GUI
         private void systemControl_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addToFridgeButton_Click(object sender, EventArgs e)
+        {
+
+            AddToFridgeForm form = new AddToFridgeForm();
+            form.MdiParent = this;
+            form.Show();
         }
     }
 }
