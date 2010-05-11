@@ -15,8 +15,10 @@ namespace seedsfromzion.GUI.InventoryForms
 
         public AddToFridgeForm()
         {
+           
             InitializeComponent();
             initPlantsTable();
+            plantInput.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             
         }
 
@@ -28,34 +30,38 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void plantInput_TextChanged(object sender, EventArgs e)
         {
-            AutoCompleteStringCollection collection= new AutoCompleteStringCollection();
+            typeCombo.Items.Clear();
+            plantInput.AutoCompleteCustomSource.Clear();
             if (plantInput.Text.Equals(String.Empty))
             {
                 actEmptyTextBox();
                 return;
             }
             DataRow[] filteredRows = plantsTable.Select("name LIKE '" + plantInput.Text + "%'");
+            if ((filteredRows==null) || (filteredRows.Length == 0))
+            {
+                return;
+            }
+            string[] arr = new string[filteredRows.Length];
             for (int i = 0; i < filteredRows.Length; i++)
             {
-                collection.Add((string)filteredRows[i]["name"]);
+                arr[i] =(string)((string)(filteredRows[i]["name"])).Clone();
+                
             }
-            plantInput.AutoCompleteCustomSource = collection;
-            typeCombo.Items.Clear();
+            plantInput.AutoCompleteCustomSource.AddRange(arr);
+            
+            
 
         }
 
         private void actEmptyTextBox()
         {
-            throw new NotImplementedException();
+            
         }
 
         private void typeCombo_Click(object sender, EventArgs e)
         {
-            if (plantInput.Text.Equals(String.Empty))
-            {
-                typeCombo.Items.Clear();
-                return;
-            }
+            typeCombo.Items.Clear();
             DataRow[] filteredRows = plantsTable.Select("name='"+plantInput.Text+ "'");
             for (int i = 0; i < filteredRows.Length; i++)
             {

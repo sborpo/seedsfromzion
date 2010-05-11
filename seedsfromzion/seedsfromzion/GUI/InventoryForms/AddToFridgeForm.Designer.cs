@@ -32,9 +32,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimeInput1 = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.arriveLabel = new DevComponents.DotNetBar.LabelX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.arriveLabel = new DevComponents.DotNetBar.LabelX();
             this.plantInput = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.typeCombo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.units)).BeginInit();
@@ -66,10 +66,10 @@
             this.tableLayoutPanel1.Controls.Add(this.units, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateTimeInput1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX1, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.arriveLabel, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(136, 104);
+            this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.arriveLabel, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(176, 221);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -131,14 +131,13 @@
             this.textBoxX1.Size = new System.Drawing.Size(100, 20);
             this.textBoxX1.TabIndex = 2;
             // 
-            // arriveLabel
+            // labelX3
             // 
-            this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arriveLabel.Location = new System.Drawing.Point(256, 3);
-            this.arriveLabel.Name = "arriveLabel";
-            this.arriveLabel.Size = new System.Drawing.Size(146, 23);
-            this.arriveLabel.TabIndex = 3;
-            this.arriveLabel.Text = "תאריך הכנסה למקרר";
+            this.labelX3.Location = new System.Drawing.Point(327, 135);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.TabIndex = 5;
+            this.labelX3.Text = "labelX3";
             // 
             // labelX2
             // 
@@ -148,22 +147,25 @@
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "יחידות";
             // 
-            // labelX3
+            // arriveLabel
             // 
-            this.labelX3.Location = new System.Drawing.Point(327, 135);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
-            this.labelX3.TabIndex = 5;
-            this.labelX3.Text = "labelX3";
+            this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.arriveLabel.Location = new System.Drawing.Point(256, 3);
+            this.arriveLabel.Name = "arriveLabel";
+            this.arriveLabel.Size = new System.Drawing.Size(146, 23);
+            this.arriveLabel.TabIndex = 3;
+            this.arriveLabel.Text = "תאריך הכנסה למקרר";
             // 
             // plantInput
             // 
             this.plantInput.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.plantInput.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.plantInput.BackColor = System.Drawing.Color.AliceBlue;
             // 
             // 
             // 
             this.plantInput.Border.Class = "TextBoxBorder";
-            this.plantInput.Location = new System.Drawing.Point(154, 43);
+            this.plantInput.Location = new System.Drawing.Point(161, 33);
             this.plantInput.Name = "plantInput";
             this.plantInput.Size = new System.Drawing.Size(131, 20);
             this.plantInput.TabIndex = 2;
@@ -175,7 +177,7 @@
             this.typeCombo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.typeCombo.FormattingEnabled = true;
             this.typeCombo.ItemHeight = 14;
-            this.typeCombo.Location = new System.Drawing.Point(341, 43);
+            this.typeCombo.Location = new System.Drawing.Point(433, 33);
             this.typeCombo.Name = "typeCombo";
             this.typeCombo.Size = new System.Drawing.Size(121, 20);
             this.typeCombo.TabIndex = 3;
@@ -183,7 +185,7 @@
             // 
             // AddToFridgeForm
             // 
-            this.ClientSize = new System.Drawing.Size(593, 367);
+            this.ClientSize = new System.Drawing.Size(593, 432);
             this.Controls.Add(this.typeCombo);
             this.Controls.Add(this.plantInput);
             this.Controls.Add(this.tableLayoutPanel1);
