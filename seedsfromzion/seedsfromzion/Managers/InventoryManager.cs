@@ -156,7 +156,7 @@ namespace seedsfromzion.Managers
             if (!checkPlantExistsByID(p_id))
                 throw new ArgumentException("Plant doesn't exists");
 
-            MySqlCommand[] commands = new MySqlCommand[2];
+            MySqlCommand[] commands = new MySqlCommand[3];
 
             // Insert plant units to field table
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Field (plantId, arrivingDate, sowingDate, units, locationInField)" +
@@ -171,11 +171,17 @@ namespace seedsfromzion.Managers
                             "SET units = units - @P_NUMOFUNITS WHERE plantId = @P_PLANTID",
                             "@P_NUMOFUNITS", numOfUnits.ToString(),
                             "@P_PLANTID", p_id.ToString());
+            // Delete Plants with 0 units in the fridge (after update)
+            commands[2] = new MySqlCommand("DELETE FROM seedsdb.Fridge WHERE units = 0"); 
             DatabaseAccess.performDMLTransaction(commands);
 
-            // Delete Plants with 0 units in the fridge (after update)
-            MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.Fridge WHERE units = 0");
-            DatabaseAccess.performDMLQuery(command);
+            
+        }
+
+        public DataTable getPlantsTable()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT * FROM seedsdb.planttypes");
+            return DatabaseAccess.getResultSetFromDb(command);
         }
 
         /// <summary>

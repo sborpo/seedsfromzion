@@ -71,7 +71,7 @@
             this.sowTableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.sowTableLayoutPanel.RowCount = 1;
             this.sowTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.sowTableLayoutPanel.Size = new System.Drawing.Size(1098, 531);
+            this.sowTableLayoutPanel.Size = new System.Drawing.Size(1028, 531);
             this.sowTableLayoutPanel.TabIndex = 1;
             // 
             // graphicSettingsPanel
@@ -87,10 +87,10 @@
             this.graphicSettingsPanel.Controls.Add(this.plantChoisePanel);
             this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.graphicSettingsPanel.IsShadowEnabled = true;
-            this.graphicSettingsPanel.Location = new System.Drawing.Point(553, 5);
+            this.graphicSettingsPanel.Location = new System.Drawing.Point(518, 5);
             this.graphicSettingsPanel.Name = "graphicSettingsPanel";
             this.graphicSettingsPanel.ShowFocusRectangle = true;
-            this.graphicSettingsPanel.Size = new System.Drawing.Size(540, 521);
+            this.graphicSettingsPanel.Size = new System.Drawing.Size(505, 521);
             // 
             // 
             // 
@@ -119,7 +119,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(313, 389);
+            this.showGraphButton.Location = new System.Drawing.Point(272, 389);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -168,7 +168,7 @@
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
             this.dateChoisePanel.Location = new System.Drawing.Point(63, 209);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(399, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(358, 142);
             // 
             // 
             // 
@@ -205,7 +205,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(399, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(358, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDateLabel
@@ -214,10 +214,10 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(255, 23);
+            this.tillDateLabel.Location = new System.Drawing.Point(215, 23);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tillDateLabel.Size = new System.Drawing.Size(141, 25);
+            this.tillDateLabel.Size = new System.Drawing.Size(140, 25);
             this.tillDateLabel.TabIndex = 8;
             this.tillDateLabel.Text = "עד תאריך:";
             this.tillDateLabel.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -232,7 +232,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(41, 21);
+            this.tillDate.Location = new System.Drawing.Point(17, 23);
             // 
             // 
             // 
@@ -265,7 +265,7 @@
             this.tillDate.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.tillDate.Name = "tillDate";
             this.tillDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tillDate.Size = new System.Drawing.Size(192, 28);
+            this.tillDate.Size = new System.Drawing.Size(192, 24);
             this.tillDate.TabIndex = 7;
             // 
             // fromDate
@@ -278,7 +278,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(41, 92);
+            this.fromDate.Location = new System.Drawing.Point(17, 94);
             // 
             // 
             // 
@@ -311,7 +311,7 @@
             this.fromDate.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.fromDate.Name = "fromDate";
             this.fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.fromDate.Size = new System.Drawing.Size(192, 28);
+            this.fromDate.Size = new System.Drawing.Size(192, 24);
             this.fromDate.TabIndex = 6;
             // 
             // fromDateLabel
@@ -324,10 +324,10 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(255, 94);
+            this.fromDateLabel.Location = new System.Drawing.Point(215, 94);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.fromDateLabel.Size = new System.Drawing.Size(141, 25);
+            this.fromDateLabel.Size = new System.Drawing.Size(140, 25);
             this.fromDateLabel.TabIndex = 9;
             this.fromDateLabel.Text = "מתאריך:";
             this.fromDateLabel.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -340,7 +340,7 @@
             this.plantChoisePanel.Controls.Add(this.tableLayoutPanel1);
             this.plantChoisePanel.Location = new System.Drawing.Point(63, 30);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(399, 142);
+            this.plantChoisePanel.Size = new System.Drawing.Size(358, 142);
             // 
             // 
             // 
@@ -379,7 +379,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(399, 142);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 142);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // isChosenTypeCHBX
@@ -392,7 +392,7 @@
             this.isChosenTypeCHBX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isChosenTypeCHBX.CheckValue = "Y";
             this.isChosenTypeCHBX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.isChosenTypeCHBX.Location = new System.Drawing.Point(374, 74);
+            this.isChosenTypeCHBX.Location = new System.Drawing.Point(333, 74);
             this.isChosenTypeCHBX.Name = "isChosenTypeCHBX";
             this.isChosenTypeCHBX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.isChosenTypeCHBX.Size = new System.Drawing.Size(22, 65);
@@ -411,7 +411,7 @@
             this.plantNameTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.plantNameTextBox.Location = new System.Drawing.Point(42, 23);
+            this.plantNameTextBox.Location = new System.Drawing.Point(16, 23);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.PromptChar = '|';
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -435,10 +435,10 @@
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(251, 23);
+            this.plantNameLabel.Location = new System.Drawing.Point(211, 23);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameLabel.Size = new System.Drawing.Size(117, 25);
+            this.plantNameLabel.Size = new System.Drawing.Size(116, 25);
             this.plantNameLabel.TabIndex = 7;
             this.plantNameLabel.Text = "  שם הצמח:";
             this.plantNameLabel.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -455,7 +455,7 @@
             this.plantTypeDropText.ButtonDropDown.Visible = true;
             this.plantTypeDropText.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.plantTypeDropText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plantTypeDropText.Location = new System.Drawing.Point(42, 94);
+            this.plantTypeDropText.Location = new System.Drawing.Point(16, 94);
             this.plantTypeDropText.Name = "plantTypeDropText";
             this.plantTypeDropText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantTypeDropText.Size = new System.Drawing.Size(189, 25);
@@ -470,10 +470,10 @@
             this.planrTypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.planrTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.planrTypeLabel.ForeColor = System.Drawing.Color.Black;
-            this.planrTypeLabel.Location = new System.Drawing.Point(251, 93);
+            this.planrTypeLabel.Location = new System.Drawing.Point(211, 93);
             this.planrTypeLabel.Name = "planrTypeLabel";
             this.planrTypeLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.planrTypeLabel.Size = new System.Drawing.Size(117, 26);
+            this.planrTypeLabel.Size = new System.Drawing.Size(116, 26);
             this.planrTypeLabel.TabIndex = 8;
             this.planrTypeLabel.Text = "  סוג הצמח:";
             this.planrTypeLabel.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -483,7 +483,7 @@
             this.GrowViaSowGraphControl.AutoSize = true;
             this.GrowViaSowGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrowViaSowGraphControl.Location = new System.Drawing.Point(6, 6);
-            this.GrowViaSowGraphControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GrowViaSowGraphControl.Margin = new System.Windows.Forms.Padding(4);
             this.GrowViaSowGraphControl.Name = "GrowViaSowGraphControl";
             this.GrowViaSowGraphControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GrowViaSowGraphControl.ScrollGrace = 0;
@@ -493,15 +493,14 @@
             this.GrowViaSowGraphControl.ScrollMinX = 0;
             this.GrowViaSowGraphControl.ScrollMinY = 0;
             this.GrowViaSowGraphControl.ScrollMinY2 = 0;
-            this.GrowViaSowGraphControl.Size = new System.Drawing.Size(538, 519);
+            this.GrowViaSowGraphControl.Size = new System.Drawing.Size(503, 519);
             this.GrowViaSowGraphControl.TabIndex = 4;
             this.GrowViaSowGraphControl.Load += new System.EventHandler(this.GrowViaSowGraphControl_Load);
             // 
             // GrowViaSowingDateForm
             // 
-            this.ClientSize = new System.Drawing.Size(1098, 531);
+            this.ClientSize = new System.Drawing.Size(1028, 531);
             this.Controls.Add(this.sowTableLayoutPanel);
-            this.DoubleBuffered = true;
             this.Name = "GrowViaSowingDateForm";
             this.Text = "SalesViaSowingDateGraph";
             this.Load += new System.EventHandler(this.GrowViaSowingDateGraph_Load);
