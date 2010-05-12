@@ -186,10 +186,10 @@
     <Compile Include="GUI\UserAuthentication.Designer.cs">
       <DependentUpon>UserAuthentication.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\WorkerForms\AddVisaForm.cs">
+    <Compile Include="GUI\WorkerForms\Visas\AddVisaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\WorkerForms\AddVisaForm.Designer.cs">
+    <Compile Include="GUI\WorkerForms\Visas\AddVisaForm.Designer.cs">
       <DependentUpon>AddVisaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\AddWorkerForm.cs">
@@ -204,10 +204,10 @@
     <Compile Include="GUI\WorkerForms\FindWorkerForm.Designer.cs">
       <DependentUpon>FindWorkerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\WorkerForms\VisasGeneralForm.cs">
+    <Compile Include="GUI\WorkerForms\Visas\VisasGeneralForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\WorkerForms\VisasGeneralForm.Designer.cs">
+    <Compile Include="GUI\WorkerForms\Visas\VisasGeneralForm.Designer.cs">
       <DependentUpon>VisasGeneralForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Managers\AdminManager.cs" />
@@ -295,6 +295,10 @@
       <DependentUpon>UserAuthentication.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WorkerForms\Visas\AddVisaForm.resx">
+      <DependentUpon>AddVisaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\WorkerForms\AddWorkerForm.resx">
       <DependentUpon>AddWorkerForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -303,7 +307,7 @@
       <DependentUpon>FindWorkerForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\WorkerForms\VisasGeneralForm.resx">
+    <EmbeddedResource Include="GUI\WorkerForms\Visas\VisasGeneralForm.resx">
       <DependentUpon>VisasGeneralForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
