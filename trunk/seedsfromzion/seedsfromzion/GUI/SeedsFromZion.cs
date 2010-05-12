@@ -226,17 +226,25 @@ namespace seedsfromzion.GUI
         
         #endregion
 
-        #region workers
         private void addNewUserButton_Click(object sender, EventArgs e)
         {
             SystemUsersManager system = new SystemUsersManager();
             system.Show();
         }
 
+        #region workers
+
         private void addWorkerButton_Click(object sender, EventArgs e)
         {
 
             AddWorkerForm form = new AddWorkerForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void addUpdateVisaButton_Click(object sender, EventArgs e)
+        {
+            AddVisaForm form = new AddVisaForm();
             form.MdiParent = this;
             form.Show();
         }
@@ -264,5 +272,7 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        
     }
 }
