@@ -198,6 +198,12 @@
     <Compile Include="GUI\WorkerForms\FindWorkerForm.Designer.cs">
       <DependentUpon>FindWorkerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\WorkerForms\VisasGeneralForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WorkerForms\VisasGeneralForm.Designer.cs">
+      <DependentUpon>VisasGeneralForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\InventoryManager.cs" />
     <Compile Include="Managers\OrderManager.cs" />
