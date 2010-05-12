@@ -18,7 +18,12 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void btn_addVisa_Click(object sender, EventArgs e)
         {
-
+            var addForm = new AddVisaForm();
+            addForm.ShowDialog();
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                
+            }
         }
     }
 }
