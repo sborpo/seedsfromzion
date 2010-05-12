@@ -9,16 +9,11 @@ using System.Windows.Forms;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
-    public partial class VisasGeneralForm : BaseForm
+    public partial class AddVisaForm : BaseForm
     {
-        public VisasGeneralForm()
+        public AddVisaForm()
         {
             InitializeComponent();
-        }
-
-        private void btn_addVisa_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
