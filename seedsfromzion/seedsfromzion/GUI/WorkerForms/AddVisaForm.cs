@@ -39,9 +39,9 @@ namespace seedsfromzion.GUI.WorkerForms
             {
                 workerManager.AddVisa(int.Parse(textBox_ID.Text), dateTimeInput.Value, textBox_contact.Text);
             }
-            catch(Exception e)
+            catch(Exception exception)
             {
-                ErrorWindow eroor = new ErrorWindow(e.Message);
+                ErrorWindow eroor = new ErrorWindow(exception.Message);
                 eroor.Show();
                 return;
             }
