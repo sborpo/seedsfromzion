@@ -202,6 +202,22 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
 
         }
+
+        public DataTable GetWorkersAttachedToVisa(int p_visaID)
+        {
+            if (!checkVisaExists(p_visaID))
+            {
+                throw new ArgumentException("visa doesn't exists");
+            }
+            //getting all the workers id which connected to the visa from the workersvisa table
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT workerid FROM seedsdb.workersvisas WHERE visaid=@P_VISAID",
+                @"P_VISAID", p_visaID.ToString());
+            DataTable workersID = DatabaseAccess.getResultSetFromDb(command);
+
+
+
+            return workersID;
+        }
         #endregion visa
 
         #region payments
@@ -227,6 +243,26 @@ namespace seedsfromzion.Managers
         #endregion payments
         #endregion
 
+        #region Properties
+        public DataTable Visas 
+        {
+            get
+            {
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.visas");
+                return DatabaseAccess.getResultSetFromDb(command);
+            }
+        }
+
+        public DataTable Workers
+        {
+            get
+            {
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.workers");
+                return DatabaseAccess.getResultSetFromDb(command);
+            }
+        }
+        #endregion
+
         #region Private Methods
         /// <summary>
         /// checking if a specific worker exists in the DB
@@ -245,7 +281,7 @@ namespace seedsfromzion.Managers
         /// <returns></returns>
         private bool checkVisaExists(int p_ID)
         {
-            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.visas WHERE visaID=@P_ID;", "@P_ID", p_ID.ToString());
+            return DataAccessUtils.rowExists("SELECT visaID FROM seedsdb.visas WHERE visaID=@P_ID;", "@P_ID", p_ID.ToString());
         }
 
         /// <summary>
