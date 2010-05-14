@@ -244,7 +244,7 @@ namespace seedsfromzion.GUI
 
         private void addUpdateVisaButton_Click(object sender, EventArgs e)
         {
-            AddVisaForm form = new AddVisaForm();
+            VisasGeneralForm form = new VisasGeneralForm();
             form.MdiParent = this;
             form.Show();
         }
