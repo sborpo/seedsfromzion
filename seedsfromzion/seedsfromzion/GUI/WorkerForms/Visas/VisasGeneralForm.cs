@@ -22,13 +22,14 @@ namespace seedsfromzion.GUI.WorkerForms
             base.BaseForm_Load(sender, e);
 
             populateVisas();
+            populateWorkers();
 
+            this.dataGridVisas.SelectionChanged += new System.EventHandler(this.dataGridVisas_SelectionChanged);
         }
 
         private void btn_addVisa_Click(object sender, EventArgs e)
         {
             var addForm = new AddVisaForm();
-            addForm.ShowDialog();
             if (addForm.ShowDialog() == DialogResult.OK)
             {
                 populateVisas();
@@ -38,7 +39,38 @@ namespace seedsfromzion.GUI.WorkerForms
         private void populateVisas()
         {
             WorkerManager workerManager = new WorkerManager();
+            dataGridVisas.DataSource = workerManager.Visas;
+            dataGridVisas.Columns["visaID"].HeaderText = "מזהה";
+            dataGridVisas.Columns["visaID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridVisas.Columns["expireDate"].HeaderText = "תאריך תפוגה";
+            dataGridVisas.Columns["expireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridVisas.Columns["contact"].HeaderText = "איש קשר";
+            dataGridVisas.Columns["contact"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridVisas.Refresh();
+        }
 
+        private void populateWorkers()
+        {
+            if (dataGridVisas.SelectedRows.Count <=0)
+            {
+                return;
+            }
+            int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
+            
+            WorkerManager workerManager = new WorkerManager();
+            dataGrid_workers.DataSource = workerManager.GetWorkersAttachedToVisa(visaID);
+            dataGrid_workers.Columns["workerid"].HeaderText = "ת.ז עובד";
+            dataGrid_workers.Columns["workerid"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridVisas.Columns["expireDate"].HeaderText = "תאריך תפוגה";
+            //dataGridVisas.Columns["expireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridVisas.Columns["contact"].HeaderText = "איש קשר";
+            //dataGridVisas.Columns["contact"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridVisas.Refresh();
+        }
+
+        private void dataGridVisas_SelectionChanged(object sender, EventArgs e)
+        {
+            populateWorkers();
         }
 
         
