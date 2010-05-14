@@ -145,10 +145,10 @@ namespace seedsfromzion.GUI.OrdersForms
             string pname = (string)selectedRows[0].Cells["name"].Value;
             string ptype = (string)selectedRows[0].Cells["type"].Value;
             System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells["storageId"].Value;
-            orderGrid.Rows.Add(pid.ToString(), pname, ptype, pstorageId.ToString(), amount.ToString());
+            orderGrid.Rows.Add(pid, pname, ptype, pstorageId, amount);
             orderGrid.Refresh();
             //adding the new item to the order
-            Order.Rows.Add(pid, pname, ptype, pstorageId, amount.ToString());
+            Order.Rows.Add(pid, pname, ptype, pstorageId, amount);
             //refreshing the storage view:
             refreshStorageTable();
             
@@ -165,6 +165,7 @@ namespace seedsfromzion.GUI.OrdersForms
         {
            
             System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = storageGrid.SelectedRows;
+            
             if (selectedRows.Count == 0)
             {
                 return;
@@ -174,13 +175,93 @@ namespace seedsfromzion.GUI.OrdersForms
 
         private void buttonOrder_Click(object sender, EventArgs e)
         {
-            if(Order.Rows.Count == 0)
+            if(Order.Rows.Count == 0)                
             {
                 new ErrorWindow("לא נבחר אף פריט להזמנה").Show();
                 return;
             }
+            if(idBox.Value == 0)                
+            {
+                new ErrorWindow("נא לעדכן ח.פ\\ת.ז של המזמין").Show();
+                return;
+            }
+            if(nameBox.Text == "")                
+            {
+                new ErrorWindow("נא לעדכן את השם של המזמין").Show();
+                return;
+            }
+            if(phoneBoxX.Text == "")                
+            {
+                new ErrorWindow("נא לעדכן את הטלפון של המזמין").Show();
+                return;
+            }
+            if(emailBoxX.Text == "")                
+            {
+                new ErrorWindow("נא לעדכן את האי-מייל של המזמין").Show();
+                return;
+            }
+            if(dateTimeInput.IsEmpty == true)                
+            {
+                new ErrorWindow("נא לעדכן את תאריך האספקה").Show();
+                return;
+            }
             DataStructures.ClientInfo clientInfo = new seedsfromzion.DataStructures.ClientInfo();
             DataStructures.OrderInfo orderInfo = new seedsfromzion.DataStructures.OrderInfo();
+            //setting the client info:
+            clientInfo.clientId         = idBox.Value ;
+            clientInfo.name             = nameBox.Text;
+            clientInfo.phoneNumber      = phoneBoxX.Text;
+            clientInfo.email            = emailBoxX.Text;
+            //setting the order info:
+            orderInfo.dueDate           = dateTimeInput.Value;
+            orderInfo.orderDate         = DateTime.Today;
+            orderInfo.status            = '0';
+            orderInfo.plantId           = new int[Order.Rows.Count];
+            orderInfo.fromStorageId     = new string[Order.Rows.Count];
+            orderInfo.units             = new double[Order.Rows.Count];
+            //TODO:: orderInfo.orderId = Managers.OrderManager.getNextOrderId();
+            for (int i = 0; i < Order.Rows.Count; i++)
+            {
+                orderInfo.plantId[i] = (int)Order.Rows[i][0];
+                orderInfo.fromStorageId[i] = (string)Order.Rows[i][3];
+                orderInfo.units[i] = (double)Order.Rows[i][4];
+            }
+            //TODO: addorder
+
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = orderGrid.SelectedRows;
+            //checking that a row was selected:
+            if (selectedRows.Count == 0)
+            {
+                new ErrorWindow("לא נבחר צמח להסרה").Show();
+                return;
+            }
+            System.UInt32 pid = (System.UInt32)selectedRows[0].Cells[0].Value;            
+            string pname = (string)selectedRows[0].Cells[1].Value;
+            string ptype = (string)selectedRows[0].Cells[2].Value;
+            System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells[3].Value;
+            double rowUnits = (double)selectedRows[0].Cells[4].Value;
+            
+            orderGrid.Rows.Remove(selectedRows[0]);
+            orderGrid.Refresh();
+            //TODO:: removing the item from the order
+            DataTable row = new DataTable();
+            row.Columns.Add("orderId");
+            row.Columns.Add("orderName");
+            row.Columns.Add("orderType");
+            row.Columns.Add("orderStorageId");
+            row.Columns.Add("orderUnits");
+            row.Rows.Add(pid, pname, pstorageId, rowUnits);
+
+            /*row[0][1] = pname;
+            row[0][2] = ptype;
+            row[0][3] = pstorageId;
+            row[0][4] = rowUnits;*/
+            Order.Rows.Remove(row.Rows[0]);
+            
         }
     }
 }
