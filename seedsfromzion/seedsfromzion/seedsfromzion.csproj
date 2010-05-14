@@ -301,6 +301,10 @@
       <DependentUpon>UserAuthentication.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WorkerForms\Payments\PaymentsForm.resx">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\WorkerForms\Visas\AddVisaForm.resx">
       <DependentUpon>AddVisaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
