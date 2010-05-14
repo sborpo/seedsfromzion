@@ -186,6 +186,12 @@
     <Compile Include="GUI\UserAuthentication.Designer.cs">
       <DependentUpon>UserAuthentication.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\WorkerForms\Payments\PaymentsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WorkerForms\Payments\PaymentsForm.Designer.cs">
+      <DependentUpon>PaymentsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\WorkerForms\Visas\AddVisaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,9 +386,6 @@
     <None Include="Resources\ico.png" />
     <None Include="Resources\colorStyle.css" />
     <None Include="Resources\blackAndWhiteStyle.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\WorkerForms\Payments\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
