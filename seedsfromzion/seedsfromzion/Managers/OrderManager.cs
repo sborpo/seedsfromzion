@@ -72,16 +72,32 @@ namespace seedsfromzion.Managers
             addToOrdersFromStorage[orderInfo.plantId.Length] = addToOrders;
             DatabaseAccess.performDMLTransaction(addToOrdersFromStorage);
             //removing the amounts from the storage:
-         
-            foreach (int p_id in orderInfo.plantId)
-            {
-                //TODO: check that the plant id exist and remove the 
-                // amount from the inventory - Roee
-               
-                
-            }
+
+            removeAmountFromStorage(orderInfo);
         }
 
+        public void removeAmountFromStorage(OrderInfo order)
+        {
+            /* TODO:: Roee !!!
+            int orderSize = oldOrder.plantId.Length;
+            for (int i = 0; i < orderSize; i++)
+            {
+                InventoryManager.removePlantsUnits(oldOrder.plantId[i], oldOrder.fromStorageId[i], oldOrder.units[i]);
+            }
+            */
+        }
+        
+        public void returnAmountToStorage(OrderInfo order)
+        {
+          /* TODO:: roee !!!
+           int orderSize = oldOrder.plantId.Length;
+           for (int i = 0; i < orderSize; i++)
+           {
+               InventoryManager.addPlantsUnits(oldOrder.plantId[i], oldOrder.fromStorageId[i], oldOrder.units[i]);
+           }
+        */
+        }
+        
         public OrderInfo findOrder(int orderId, int clientId) 
         {
             //getting the information from the storage DataBase:
@@ -127,7 +143,7 @@ namespace seedsfromzion.Managers
                 OrderInfo tmpOrder = findOrder(orderId, clientInfo.clientId);
                 try
                 {
-                    cancelOrder(orderId);
+                    cancelOrder(orderId, clientInfo.clientId);
                     addOrder(clientInfo, orderInfo);
                 }
                 catch (Exception ex)
@@ -139,12 +155,17 @@ namespace seedsfromzion.Managers
             }
         }
 
-       public void cancelOrder(int orderId)
+       public void cancelOrder(int orderId, int clientId)
        {
            if (!checkOrderExists(orderId))
            {
                throw new ArgumentException("order doesn't exists");
            }
+        
+           //returning the units into the storage:
+           OrderInfo oldOrder = findOrder(orderId, clientId);
+           returnAmountToStorage(oldOrder);
+
            MySqlCommand[] commandArray = new MySqlCommand[2];
            commandArray[0] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.orders WHERE orderId=@P_ORDERID",
                                                                 "@P_ORDERID", orderId.ToString());
@@ -153,6 +174,17 @@ namespace seedsfromzion.Managers
            DatabaseAccess.performDMLTransaction(commandArray);
           
        }
+       public int getNextOrderId()
+       {
+           //getting the maximum order id number:
+           MySqlCommand orderFromStorageCommand = DataAccessUtils.commandBuilder("SELECT MAX(orderId) From seedsdb.orders");
+           DataTable orderFromStorageResult = DatabaseAccess.getResultSetFromDb(orderFromStorageCommand);
+           if (orderFromStorageResult.Rows.Count == 0)
+           {
+               return 1;
+           }
+           return (int)orderFromStorageResult.Rows[0][0];
+        }
 
         #endregion
 
