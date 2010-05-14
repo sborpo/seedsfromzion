@@ -41,11 +41,6 @@
             this.addButton = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.orderGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderStorageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.doubleInput1 = new DevComponents.Editors.DoubleInput();
             this.buttonOrder = new DevComponents.DotNetBar.ButtonX();
@@ -56,9 +51,21 @@
             this.nameBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.phoneBoxX = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.emailBoxX = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.idBox = new DevComponents.Editors.IntegerInput();
+            this.dateTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.removeButton = new DevComponents.DotNetBar.ButtonX();
+            this.porderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderStorageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxX1
@@ -173,7 +180,7 @@
             this.orderGrid.AllowUserToDeleteRows = false;
             this.orderGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orderGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.orderId,
+            this.porderId,
             this.orderName,
             this.orderType,
             this.orderStorageId,
@@ -188,42 +195,11 @@
             this.orderGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.orderGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.orderGrid.Location = new System.Drawing.Point(50, 225);
+            this.orderGrid.MultiSelect = false;
             this.orderGrid.Name = "orderGrid";
             this.orderGrid.ReadOnly = true;
             this.orderGrid.Size = new System.Drawing.Size(451, 150);
             this.orderGrid.TabIndex = 5;
-            // 
-            // orderId
-            // 
-            this.orderId.HeaderText = "Column1";
-            this.orderId.Name = "orderId";
-            this.orderId.ReadOnly = true;
-            this.orderId.Visible = false;
-            // 
-            // orderName
-            // 
-            this.orderName.HeaderText = "שם הצמח";
-            this.orderName.Name = "orderName";
-            this.orderName.ReadOnly = true;
-            this.orderName.Width = 108;
-            // 
-            // orderType
-            // 
-            this.orderType.HeaderText = "סוג";
-            this.orderType.Name = "orderType";
-            this.orderType.ReadOnly = true;
-            // 
-            // orderStorageId
-            // 
-            this.orderStorageId.HeaderText = "מספר המחסן";
-            this.orderStorageId.Name = "orderStorageId";
-            this.orderStorageId.ReadOnly = true;
-            // 
-            // orderUnits
-            // 
-            this.orderUnits.HeaderText = "יחידות";
-            this.orderUnits.Name = "orderUnits";
-            this.orderUnits.ReadOnly = true;
             // 
             // labelX3
             // 
@@ -272,7 +248,7 @@
             // labelX5
             // 
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX5.Location = new System.Drawing.Point(548, 52);
+            this.labelX5.Location = new System.Drawing.Point(546, 91);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(28, 23);
             this.labelX5.TabIndex = 10;
@@ -281,7 +257,7 @@
             // labelX6
             // 
             this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX6.Location = new System.Drawing.Point(546, 81);
+            this.labelX6.Location = new System.Drawing.Point(544, 120);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(75, 23);
             this.labelX6.TabIndex = 11;
@@ -290,7 +266,7 @@
             // labelX7
             // 
             this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX7.Location = new System.Drawing.Point(548, 110);
+            this.labelX7.Location = new System.Drawing.Point(546, 149);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(75, 23);
             this.labelX7.TabIndex = 12;
@@ -302,7 +278,7 @@
             // 
             // 
             this.nameBox.Border.Class = "TextBoxBorder";
-            this.nameBox.Location = new System.Drawing.Point(619, 55);
+            this.nameBox.Location = new System.Drawing.Point(617, 94);
             this.nameBox.Name = "nameBox";
             this.nameBox.Size = new System.Drawing.Size(119, 20);
             this.nameBox.TabIndex = 13;
@@ -313,7 +289,7 @@
             // 
             // 
             this.phoneBoxX.Border.Class = "TextBoxBorder";
-            this.phoneBoxX.Location = new System.Drawing.Point(619, 84);
+            this.phoneBoxX.Location = new System.Drawing.Point(617, 123);
             this.phoneBoxX.Name = "phoneBoxX";
             this.phoneBoxX.Size = new System.Drawing.Size(119, 20);
             this.phoneBoxX.TabIndex = 15;
@@ -324,14 +300,135 @@
             // 
             // 
             this.emailBoxX.Border.Class = "TextBoxBorder";
-            this.emailBoxX.Location = new System.Drawing.Point(619, 110);
+            this.emailBoxX.Location = new System.Drawing.Point(617, 149);
             this.emailBoxX.Name = "emailBoxX";
             this.emailBoxX.Size = new System.Drawing.Size(119, 20);
             this.emailBoxX.TabIndex = 16;
             // 
+            // labelX8
+            // 
+            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX8.Location = new System.Drawing.Point(554, 63);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(49, 23);
+            this.labelX8.TabIndex = 17;
+            this.labelX8.Text = "ח.פ\\ת.ז:";
+            // 
+            // idBox
+            // 
+            // 
+            // 
+            // 
+            this.idBox.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.idBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.idBox.Location = new System.Drawing.Point(618, 65);
+            this.idBox.Name = "idBox";
+            this.idBox.Size = new System.Drawing.Size(118, 20);
+            this.idBox.TabIndex = 18;
+            // 
+            // dateTimeInput
+            // 
+            // 
+            // 
+            // 
+            this.dateTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.dateTimeInput.ButtonDropDown.Visible = true;
+            this.dateTimeInput.Location = new System.Drawing.Point(617, 196);
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.dateTimeInput.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.dateTimeInput.MonthCalendar.DisplayMonth = new System.DateTime(2010, 5, 1, 0, 0, 0, 0);
+            this.dateTimeInput.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dateTimeInput.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
+            this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dateTimeInput.Name = "dateTimeInput";
+            this.dateTimeInput.Size = new System.Drawing.Size(119, 20);
+            this.dateTimeInput.TabIndex = 19;
+            // 
+            // labelX9
+            // 
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX9.Location = new System.Drawing.Point(530, 196);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(81, 25);
+            this.labelX9.TabIndex = 20;
+            this.labelX9.Text = "תאריך אספקה";
+            // 
+            // removeButton
+            // 
+            this.removeButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.removeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.removeButton.DisabledImage = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
+            this.removeButton.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
+            this.removeButton.Location = new System.Drawing.Point(507, 252);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(43, 43);
+            this.removeButton.TabIndex = 21;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
+            // porderId
+            // 
+            this.porderId.HeaderText = "Column1";
+            this.porderId.Name = "porderId";
+            this.porderId.ReadOnly = true;
+            this.porderId.Visible = false;
+            // 
+            // orderName
+            // 
+            this.orderName.HeaderText = "שם הצמח";
+            this.orderName.Name = "orderName";
+            this.orderName.ReadOnly = true;
+            this.orderName.Width = 108;
+            // 
+            // orderType
+            // 
+            this.orderType.HeaderText = "סוג";
+            this.orderType.Name = "orderType";
+            this.orderType.ReadOnly = true;
+            // 
+            // orderStorageId
+            // 
+            this.orderStorageId.HeaderText = "מספר המחסן";
+            this.orderStorageId.Name = "orderStorageId";
+            this.orderStorageId.ReadOnly = true;
+            // 
+            // orderUnits
+            // 
+            this.orderUnits.HeaderText = "יחידות";
+            this.orderUnits.Name = "orderUnits";
+            this.orderUnits.ReadOnly = true;
+            // 
             // OrdersMainForm
             // 
             this.ClientSize = new System.Drawing.Size(755, 378);
+            this.Controls.Add(this.removeButton);
+            this.Controls.Add(this.labelX9);
+            this.Controls.Add(this.dateTimeInput);
+            this.Controls.Add(this.idBox);
+            this.Controls.Add(this.labelX8);
             this.Controls.Add(this.emailBoxX);
             this.Controls.Add(this.phoneBoxX);
             this.Controls.Add(this.nameBox);
@@ -354,6 +451,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.idBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,11 +470,6 @@
         private DevComponents.DotNetBar.ButtonX addButton;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.DataGridViewX orderGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderStorageId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn orderUnits;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.Editors.DoubleInput doubleInput1;
         private DevComponents.DotNetBar.ButtonX buttonOrder;
@@ -386,5 +480,15 @@
         private DevComponents.DotNetBar.Controls.TextBoxX nameBox;
         private DevComponents.DotNetBar.Controls.TextBoxX phoneBoxX;
         private DevComponents.DotNetBar.Controls.TextBoxX emailBoxX;
+        private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.Editors.IntegerInput idBox;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput dateTimeInput;
+        private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.ButtonX removeButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porderId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderStorageId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn orderUnits;
     }
 }
