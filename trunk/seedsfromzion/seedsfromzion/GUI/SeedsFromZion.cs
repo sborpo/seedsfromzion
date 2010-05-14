@@ -248,6 +248,13 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void paymentButton_Click(object sender, EventArgs e)
+        {
+            PaymentsForm form = new PaymentsForm();
+            form.MdiParent = this;
+            form.Show();
+        }
         #endregion
 
         #region orders
@@ -272,7 +279,6 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
-
         
     }
 }
