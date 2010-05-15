@@ -29,6 +29,8 @@ namespace seedsfromzion.Managers
         /// <param name="p_name"></param>
         public void AddWorker(int p_ID, string p_name)
         {
+            int zero = 0;
+
             if (checkWorkerExists(p_ID))
             {
                 throw new ArgumentException("Worker already exists");
@@ -36,25 +38,30 @@ namespace seedsfromzion.Managers
             MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.workers (id, name, phone, comments) " +
                 "VALUES(@P_ID, @P_NAME, NULL, NULL)", "@P_ID", p_ID.ToString(), "@P_NAME", p_name);
             DatabaseAccess.performDMLQuery(command);
+
+            //inserting the worker into the payments table, with 0 payments.
+            command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.payments (workerId, advancedPay, postponedPay) " +
+                "VALUES(@P_ID, @NULL, @NULL2)", "@P_ID", p_ID.ToString(), "@NULL", zero.ToString(), "@NULL2", zero.ToString());
+            DatabaseAccess.performDMLQuery(command);
         }
 
-        public WorkerInfo FindWorker(string p_name)
+        public DataTable FindWorker(string p_name)
         {
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * From seedsdb.workers WHERE name=@P_NAME",
                 "@P_NAME", p_name);
-            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return DatabaseAccess.getResultSetFromDb(command);
+        }
 
-            WorkerInfo worker = new WorkerInfo();
-            if (result.Rows.Count == 1)
-            {
-                worker.ID = (string)result.Rows[0]["id"];
-                worker.Name = (string)result.Rows[0]["name"];
-                worker.Phone = (string)result.Rows[0]["phone"];
-                worker.Comments = (string)result.Rows[0]["comments"];
-                return worker;
-            }
-            /// TODO: consider what to do whan exists more than one worker with the same name.
-            return worker;
+        /// <summary>
+        /// returns the workers properties with the specific id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        public DataTable FindWorker(int p_id)
+        {
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * From seedsdb.workers WHERE id=@P_ID",
+                "@P_ID", p_id.ToString());
+            return DatabaseAccess.getResultSetFromDb(command);
         }
 
         /// <summary>
@@ -261,6 +268,15 @@ namespace seedsfromzion.Managers
                 return DatabaseAccess.getResultSetFromDb(command);
             }
         }
+
+        public DataTable WorkersWithPayments
+        { 
+            get 
+            {
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT id, name, advancedPay, postponedPay FROM seedsdb.workers, seedsdb.payments WHERE id=workerid");
+                return DatabaseAccess.getResultSetFromDb(command);
+            }
+        }
         #endregion
 
         #region Private Methods
@@ -301,7 +317,7 @@ namespace seedsfromzion.Managers
             {
                 paymentType = "advancedPay";
             }
-            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.payments SET "+paymentType+"=@P_PAYMENT WHERE id=@PID",
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.payments SET "+paymentType+"=@P_PAYMENT WHERE workerId=@P_ID",
                 "@P_PAYMENT", p_payment.ToString(), "@P_ID", p_id.ToString());
             DatabaseAccess.performDMLQuery(command);
         }
