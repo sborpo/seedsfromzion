@@ -6,19 +6,21 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
+using seedsfromzion.GUI;
 
 namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class AddToFridgeForm : seedsfromzion.GUI.BaseForm
     {
         private DataTable plantsTable;
+        private DataTable types;
 
         public AddToFridgeForm()
         {
            
             InitializeComponent();
             initPlantsTable();
-            plantInput.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+
             
         }
 
@@ -30,25 +32,33 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void plantInput_TextChanged(object sender, EventArgs e)
         {
-            typeCombo.Items.Clear();
-            plantInput.AutoCompleteCustomSource.Clear();
+
+            dataGridViewX1.Rows.Clear();
             if (plantInput.Text.Equals(String.Empty))
             {
                 actEmptyTextBox();
                 return;
             }
-            DataRow[] filteredRows = plantsTable.Select("name LIKE '" + plantInput.Text + "%'");
+            DataRow[] filteredRows = null;
+            try
+            {
+                 filteredRows = plantsTable.Select("name LIKE '" + plantInput.Text + "%'");
+            }
+            catch (Exception ex)
+            {
+                //gets unauthorized escape characters
+                return;
+            }
+            
             if ((filteredRows==null) || (filteredRows.Length == 0))
             {
                 return;
             }
-            string[] arr = new string[filteredRows.Length];
             for (int i = 0; i < filteredRows.Length; i++)
             {
-                arr[i] =(string)((string)(filteredRows[i]["name"])).Clone();
+                dataGridViewX1.Rows.Add(filteredRows[i]["plantId"], filteredRows[i]["name"], filteredRows[i]["type"]);
                 
             }
-            plantInput.AutoCompleteCustomSource.AddRange(arr);
             
             
 
@@ -59,15 +69,29 @@ namespace seedsfromzion.GUI.InventoryForms
             
         }
 
-        private void typeCombo_Click(object sender, EventArgs e)
+
+
+        private void buttonX1_Click(object sender, EventArgs e)
         {
-            typeCombo.Items.Clear();
-            DataRow[] filteredRows = plantsTable.Select("name='"+plantInput.Text+ "'");
-            for (int i = 0; i < filteredRows.Length; i++)
+            InventoryManager manager = new InventoryManager();
+            if (dataGridViewX1.SelectedRows.Count == 0)
             {
-                typeCombo.Items.Add((string)filteredRows[i]["type"]);
+                new ErrorWindow("לא נבחר צמח להוספה").Show();
             }
+            int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
+            try
+            {
+                manager.AddToFridge(plantId, dateTimeInput1.Value, units.Value, location.Text);
+            }
+            catch (InventoryManager.KeyException ex)
+            {
+                new ErrorWindow("לא ניתן להכניס את אותו הצמח באותו היום למקרר יותר מפעם אחת").Show();
+            }
+            new SuccessWindow().Show();
         }
+
+
+
 
 
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
+using seedsfromzion.GUI;
 
 namespace seedsfromzion
 {
@@ -25,6 +26,9 @@ namespace seedsfromzion
             }
             catch (Exception e)
             {
+
+                new ErrorWindow(e.StackTrace).Show(); 
+            
                 Application.Run(new seedsfromzion.GUI.SafeMode());
             }
         }

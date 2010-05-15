@@ -88,6 +88,9 @@
             this.statusBar = new DevComponents.DotNetBar.Bar();
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem2 = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem3 = new DevComponents.DotNetBar.ButtonItem();
             this.systemControl.SuspendLayout();
             this.workersPanel.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
@@ -98,8 +101,8 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
-            this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Controls.Add(this.inventoryPanel);
+            this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -143,6 +146,7 @@
             this.workersPanel.ShowFocusRectangle = true;
             this.workersPanel.Size = new System.Drawing.Size(1001, 108);
             this.workersPanel.TabIndex = 2;
+            this.workersPanel.Visible = false;
             // 
             // paymentWorkersBar
             // 
@@ -298,7 +302,6 @@
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
             this.inventoryPanel.TabIndex = 1;
-            this.inventoryPanel.Visible = false;
             // 
             // ordersInventoryBar
             // 
@@ -558,6 +561,7 @@
             // 
             // inventoryTab
             // 
+            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -569,7 +573,6 @@
             // 
             // workersTab
             // 
-            this.workersTab.Checked = true;
             this.workersTab.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
             this.workersTab.ImagePaddingHorizontal = 8;
             this.workersTab.Name = "workersTab";
@@ -821,10 +824,15 @@
             // 
             // favoritesButtonMini
             // 
+            this.favoritesButtonMini.AutoExpandOnClick = true;
             this.favoritesButtonMini.Image = ((System.Drawing.Image)(resources.GetObject("favoritesButtonMini.Image")));
             this.favoritesButtonMini.ImagePaddingHorizontal = 8;
             this.favoritesButtonMini.Name = "favoritesButtonMini";
             this.favoritesButtonMini.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlF);
+            this.favoritesButtonMini.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem1,
+            this.buttonItem2,
+            this.buttonItem3});
             this.favoritesButtonMini.Tooltip = "מועדפים...";
             this.favoritesButtonMini.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.favoritesButtonMini.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
@@ -882,6 +890,24 @@
             this.controlContainerItem1.AllowItemResize = true;
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
+            // 
+            // buttonItem1
+            // 
+            this.buttonItem1.ImagePaddingHorizontal = 8;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "New Item";
+            // 
+            // buttonItem2
+            // 
+            this.buttonItem2.ImagePaddingHorizontal = 8;
+            this.buttonItem2.Name = "buttonItem2";
+            this.buttonItem2.Text = "New Item";
+            // 
+            // buttonItem3
+            // 
+            this.buttonItem3.ImagePaddingHorizontal = 8;
+            this.buttonItem3.Name = "buttonItem3";
+            this.buttonItem3.Text = "New Item";
             // 
             // seedsFromZion
             // 
@@ -970,5 +996,8 @@
         private DevComponents.DotNetBar.ButtonItem percViaSowDate;
         private DevComponents.DotNetBar.ButtonItem percViaSeedType;
         private DevComponents.DotNetBar.ButtonItem percViaTimeInFridge;
+        private DevComponents.DotNetBar.ButtonItem buttonItem1;
+        private DevComponents.DotNetBar.ButtonItem buttonItem2;
+        private DevComponents.DotNetBar.ButtonItem buttonItem3;
     }
 }
