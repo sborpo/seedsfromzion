@@ -100,7 +100,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(847, 572);
+            this.ClientSize = new System.Drawing.Size(783, 515);
             this.Controls.Add(this.dataGrid_workers);
             this.Controls.Add(this.btn_addVisa);
             this.Controls.Add(this.dataGridVisas);

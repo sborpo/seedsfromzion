@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.tillDateLabel = new DevComponents.DotNetBar.LabelX();
-            this.tillDate = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.textBox_ID = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBox_contact = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.dateTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tillDateLabel = new DevComponents.DotNetBar.LabelX();
+            this.tillDate = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.btn_Add = new DevComponents.DotNetBar.ButtonX();
             this.btn_cancel = new DevComponents.DotNetBar.ButtonX();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tillDate)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -67,6 +67,26 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(355, 141);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // labelX2
+            // 
+            this.labelX2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelX2.Location = new System.Drawing.Point(238, 50);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(114, 41);
+            this.labelX2.TabIndex = 1;
+            this.labelX2.Text = "איש קשר:";
+            this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX3
+            // 
+            this.labelX3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelX3.Location = new System.Drawing.Point(238, 3);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(114, 41);
+            this.labelX3.TabIndex = 2;
+            this.labelX3.Text = "מספר מזהה:";
+            this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
             // labelX1
             // 
             this.labelX1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -76,6 +96,72 @@
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "תאריך תפוגה:";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // textBox_ID
+            // 
+            // 
+            // 
+            // 
+            this.textBox_ID.Border.Class = "TextBoxBorder";
+            this.textBox_ID.Location = new System.Drawing.Point(83, 3);
+            this.textBox_ID.Name = "textBox_ID";
+            this.textBox_ID.Size = new System.Drawing.Size(149, 20);
+            this.textBox_ID.TabIndex = 3;
+            // 
+            // textBox_contact
+            // 
+            // 
+            // 
+            // 
+            this.textBox_contact.Border.Class = "TextBoxBorder";
+            this.textBox_contact.Location = new System.Drawing.Point(83, 50);
+            this.textBox_contact.Name = "textBox_contact";
+            this.textBox_contact.Size = new System.Drawing.Size(149, 20);
+            this.textBox_contact.TabIndex = 4;
+            // 
+            // dateTimeInput
+            // 
+            // 
+            // 
+            // 
+            this.dateTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.dateTimeInput.ButtonDropDown.Visible = true;
+            this.dateTimeInput.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
+            this.dateTimeInput.Location = new System.Drawing.Point(83, 97);
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.dateTimeInput.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.dateTimeInput.MonthCalendar.DisplayMonth = new System.DateTime(2010, 5, 1, 0, 0, 0, 0);
+            this.dateTimeInput.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.dateTimeInput.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
+            this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.dateTimeInput.Name = "dateTimeInput";
+            this.dateTimeInput.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimeInput.Size = new System.Drawing.Size(149, 20);
+            this.dateTimeInput.TabIndex = 5;
             // 
             // tableLayoutPanel2
             // 
@@ -151,92 +237,6 @@
             this.tillDate.Size = new System.Drawing.Size(192, 20);
             this.tillDate.TabIndex = 7;
             // 
-            // labelX2
-            // 
-            this.labelX2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelX2.Location = new System.Drawing.Point(238, 50);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(114, 41);
-            this.labelX2.TabIndex = 1;
-            this.labelX2.Text = "איש קשר:";
-            this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // labelX3
-            // 
-            this.labelX3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelX3.Location = new System.Drawing.Point(238, 3);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(114, 41);
-            this.labelX3.TabIndex = 2;
-            this.labelX3.Text = "מספר מזהה:";
-            this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // textBox_ID
-            // 
-            // 
-            // 
-            // 
-            this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Location = new System.Drawing.Point(83, 3);
-            this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(149, 20);
-            this.textBox_ID.TabIndex = 3;
-            // 
-            // textBox_contact
-            // 
-            // 
-            // 
-            // 
-            this.textBox_contact.Border.Class = "TextBoxBorder";
-            this.textBox_contact.Location = new System.Drawing.Point(83, 50);
-            this.textBox_contact.Name = "textBox_contact";
-            this.textBox_contact.Size = new System.Drawing.Size(149, 20);
-            this.textBox_contact.TabIndex = 4;
-            // 
-            // dateTimeInput
-            // 
-            // 
-            // 
-            // 
-            this.dateTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.dateTimeInput.ButtonDropDown.Visible = true;
-            this.dateTimeInput.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.dateTimeInput.Location = new System.Drawing.Point(83, 97);
-            // 
-            // 
-            // 
-            this.dateTimeInput.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.dateTimeInput.MonthCalendar.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
-            this.dateTimeInput.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.dateTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.dateTimeInput.MonthCalendar.DisplayMonth = new System.DateTime(2010, 5, 1, 0, 0, 0, 0);
-            this.dateTimeInput.MonthCalendar.MarkedDates = new System.DateTime[0];
-            this.dateTimeInput.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
-            // 
-            // 
-            // 
-            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.dateTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
-            this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
-            this.dateTimeInput.Name = "dateTimeInput";
-            this.dateTimeInput.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dateTimeInput.Size = new System.Drawing.Size(149, 20);
-            this.dateTimeInput.TabIndex = 5;
-            // 
             // btn_Add
             // 
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -267,13 +267,13 @@
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.DoubleBuffered = true;
             this.Name = "AddVisaForm";
             this.Text = "AddVisaForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tillDate)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.ResumeLayout(false);
 
         }
