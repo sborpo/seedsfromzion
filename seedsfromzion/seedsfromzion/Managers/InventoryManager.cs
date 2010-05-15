@@ -9,8 +9,10 @@ using System.Data;
 
 namespace seedsfromzion.Managers
 {
+
     public class InventoryManager
     {
+        public class KeyException : Exception { }
         #region Public Methods
 
         /// <summary>
@@ -149,6 +151,27 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
         */
+
+
+
+
+        public void AddToFridge(int plantId, DateTime arriveDate, double units, string location)
+        {
+            if (!checkPlantExistsByID(plantId))
+                throw new ArgumentException("Plant doesn't exists");
+            bool keyExists=DataAccessUtils.rowExists("SELECT * FROM seedsdb.fridge WHERE plantId=@PlantId AND arrivingDate=@ARRIVE", "@PlantId", plantId.ToString(), "@ARRIVE", String.Format("{0:yyyy-M-d}", arriveDate));
+            if (keyExists)
+            {
+                throw new KeyException();
+            }
+            MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.fridge (plantId, arrivingDate, units, location)" +
+                            "VALUES (@Plant,@ARRIVEDATE,@UNITS,@LOCATION)",
+                            "@Plant", plantId.ToString(),
+                            "@ARRIVEDATE", String.Format("{0:yyyy-M-d}", arriveDate),
+                            "@UNITS", units.ToString(),
+                            "@LOCATION", location);
+            DatabaseAccess.performDMLQuery(command);
+        }
 
         // need to check if it's OK, did it under pressure of time
         public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
