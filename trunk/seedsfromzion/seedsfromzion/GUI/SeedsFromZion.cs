@@ -242,6 +242,13 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        private void findWorkersButton_Click(object sender, EventArgs e)
+        {
+            FindWorkerForm form = new FindWorkerForm();
+            form.MdiParent = this;
+            form.Show();   
+        }
+
         private void addUpdateVisaButton_Click(object sender, EventArgs e)
         {
             VisasGeneralForm form = new VisasGeneralForm();
