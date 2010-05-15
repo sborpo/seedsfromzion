@@ -223,6 +223,7 @@
             this.findWorkersButton.Tooltip = "חיפוש עובדים...";
             this.findWorkersButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.findWorkersButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.findWorkersButton.Click += new System.EventHandler(this.findWorkersButton_Click);
             // 
             // addWorkerButton
             // 
