@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,6 @@
             this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridWorkers.Location = new System.Drawing.Point(41, 46);
-            this.dataGridWorkers.MultiSelect = false;
             this.dataGridWorkers.Name = "dataGridWorkers";
             this.dataGridWorkers.ReadOnly = true;
             this.dataGridWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -57,11 +57,20 @@
             this.dataGridWorkers.Size = new System.Drawing.Size(414, 240);
             this.dataGridWorkers.TabIndex = 6;
             // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(495, 46);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.monthCalendar1.RightToLeftLayout = true;
+            this.monthCalendar1.TabIndex = 8;
+            // 
             // WorkDaysForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 453);
+            this.ClientSize = new System.Drawing.Size(787, 486);
+            this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.dataGridWorkers);
             this.DoubleBuffered = true;
             this.Name = "WorkDaysForm";
@@ -75,5 +84,6 @@
         #endregion
 
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridWorkers;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }
