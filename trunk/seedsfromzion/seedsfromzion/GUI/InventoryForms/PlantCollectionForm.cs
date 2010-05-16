@@ -70,7 +70,7 @@ namespace seedsfromzion.GUI.InventoryForms
             int plantId=(int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value;
             try
             {
-                manager.CollectPlants(plantId, arrive, sow, monthCalendar1.SelectionStart, doubleInput2.Value, doubleInput3.Value, integerInput1.Value, textBoxX1.Text, doubleInput1.Value);
+                manager.CollectPlants(plantId, arrive, sow, dateTimePicker1.Value, doubleInput2.Value, doubleInput3.Value, integerInput1.Value, textBoxX1.Text, doubleInput1.Value);
             }
             catch (InventoryManager.KeyException ex)
             {

@@ -13,17 +13,17 @@ namespace seedsfromzion.DataAccess
         {
             StringBuilder sb= new StringBuilder();
             sb.Append("<table class=\"maintable\"><thead><tr>");
-            foreach (DataColumn col in table.Columns)
+            for (int i=table.Columns.Count-1; i>=0; i--)
             {
-                sb.Append("<th>"+col.ColumnName+"</th>");
+                sb.Append("<th>" + table.Columns[i].ColumnName + "</th>");
             }
             sb.Append("</tr></thead>");
-            foreach (DataRow row in table.Rows)
+            for (int i=table.Rows.Count-1; i>=0; i--)
             {
                 sb.Append("<tr>");
-                foreach (DataColumn col in table.Columns)
+                for (int j=table.Columns.Count-1; j>=0; j--)
                 {
-                    sb.Append("<td>" + row[col].ToString() + "</td>");
+                    sb.Append("<td>" + table.Rows[i][table.Columns[j]].ToString() + "</td>");
                 }
                 sb.Append("</tr>");
             }

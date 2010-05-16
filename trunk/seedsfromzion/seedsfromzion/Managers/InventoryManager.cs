@@ -246,6 +246,8 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
+
+
         // need to check if it's OK, did it under pressure of time
         public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
         {
@@ -280,9 +282,17 @@ namespace seedsfromzion.Managers
             
         }
 
+
+
+
+
+
+
+
+
         public DataTable getFridgeTable()
         {
-            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.units  FROM seedsdb.fridge F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.units,F.location  FROM seedsdb.fridge F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
             return DatabaseAccess.getResultSetFromDb(command);
 
         }

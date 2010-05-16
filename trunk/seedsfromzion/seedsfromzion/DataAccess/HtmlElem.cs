@@ -17,6 +17,7 @@ namespace seedsfromzion.DataAccess
        public void align(HtmlAlign align)
        {
            this.alignment = align;
+
        }
         public abstract String toString();
         
