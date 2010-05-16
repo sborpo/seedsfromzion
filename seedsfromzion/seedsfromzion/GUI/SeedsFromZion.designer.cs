@@ -91,6 +91,7 @@
             this.statusBar = new DevComponents.DotNetBar.Bar();
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
+            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.systemControl.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
             this.workersPanel.SuspendLayout();
@@ -245,6 +246,8 @@
             this.collectPlantsbutton.ImagePaddingHorizontal = 8;
             this.collectPlantsbutton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.collectPlantsbutton.Name = "collectPlantsbutton";
+            this.collectPlantsbutton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.buttonItem4});
             this.collectPlantsbutton.SubItemsExpandWidth = 14;
             this.collectPlantsbutton.Tooltip = "איסוף צמחים...";
             this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
@@ -911,6 +914,13 @@
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
             // 
+            // buttonItem4
+            // 
+            this.buttonItem4.ImagePaddingHorizontal = 8;
+            this.buttonItem4.Name = "buttonItem4";
+            this.buttonItem4.Text = "הכנסת אחוזי נביטה על איסופים קודמים";
+            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
+            // 
             // seedsFromZion
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1001,5 +1011,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem1;
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem buttonItem3;
+        private DevComponents.DotNetBar.ButtonItem buttonItem4;
     }
 }

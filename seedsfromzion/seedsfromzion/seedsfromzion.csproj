@@ -133,6 +133,12 @@
     <Compile Include="GUI\InventoryForms\SowSeedsForm.Designer.cs">
       <DependentUpon>SowSeedsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InventoryForms\UpdateSproutingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InventoryForms\UpdateSproutingForm.Designer.cs">
+      <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\OrdersForms\OrdersMainForm.cs">
       <SubType>Form</SubType>
     </Compile>
