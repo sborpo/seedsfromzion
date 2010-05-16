@@ -249,6 +249,7 @@
             this.collectPlantsbutton.Tooltip = "איסוף צמחים...";
             this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.collectPlantsbutton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.collectPlantsbutton.Click += new System.EventHandler(this.collectPlantsbutton_Click);
             // 
             // generalInventoryBar
             // 

@@ -57,13 +57,18 @@ namespace seedsfromzion.GUI.InventoryForms
             int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
             try
             {
-                manager.AddToFridge(plantId, dateTimeInput1.Value, units.Value, location.Text);
+                manager.AddToFridge(plantId, monthCalendar1.SelectionStart, Math.Round(units.Value,2), location.Text);
             }
             catch (InventoryManager.KeyException ex)
             {
                 new ErrorWindow("לא ניתן להכניס את אותו הצמח באותו היום למקרר יותר מפעם אחת").Show();
             }
             new SuccessWindow().Show();
+        }
+
+        private void labelX1_Click(object sender, EventArgs e)
+        {
+
         }
 
 
