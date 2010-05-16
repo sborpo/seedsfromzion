@@ -31,6 +31,7 @@ namespace seedsfromzion.GUI
         public seedsFromZion()
         {
             InitializeComponent();
+            initFavorites();
         }
 
         private void initFavorites()
@@ -49,8 +50,10 @@ namespace seedsfromzion.GUI
         void seedsFromZion_Click(object sender, EventArgs e)
         {
             ButtonItem clickedButton = sender as ButtonItem;
-           
-            favoriteClicked(Convert.ToInt32(clickedButton.Name));
+            if (favoriteClicked != null)
+            {
+                favoriteClicked(Convert.ToInt32(clickedButton.Name));
+            }
         }
 
         
