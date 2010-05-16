@@ -12,6 +12,7 @@ using seedsfromzion.GUI.WorkerForms;
 using seedsfromzion.GUI.StatisticsForms;
 using seedsfromzion.GUI.OrdersForms;
 using seedsfromzion.GUI.InventoryForms;
+using System.Collections.Specialized;
 
 namespace seedsfromzion.GUI
 {
@@ -19,6 +20,8 @@ namespace seedsfromzion.GUI
     {
         #region fields
         public delegate void displayNotification(String title, String text);
+        public delegate void favoriteClickedHandler(int plantId);
+        public event favoriteClickedHandler favoriteClicked;
         public displayNotification displayFunc;
         Routines routine;
         private Notification notification;
@@ -29,6 +32,28 @@ namespace seedsfromzion.GUI
         {
             InitializeComponent();
         }
+
+        private void initFavorites()
+        {
+            FavoritesHasher hasher = new FavoritesHasher();
+            StringCollection collection = ConfigFile.getInstance.Favorites;
+            ButtonItem[] items = new ButtonItem[collection.Count];
+            for (int i = 0; i < collection.Count; i++)
+			{
+                items[i] = new ButtonItem(collection[i], hasher.hashPlantId(collection[i]));
+                items[i].Click += new EventHandler(seedsFromZion_Click);
+            }
+            this.favoritesButtonMini.SubItems.AddRange(items);
+        }
+
+        void seedsFromZion_Click(object sender, EventArgs e)
+        {
+            ButtonItem clickedButton = sender as ButtonItem;
+           
+            favoriteClicked(Convert.ToInt32(clickedButton.Name));
+        }
+
+        
 
         public void Enable()
         {
@@ -287,14 +312,14 @@ namespace seedsfromzion.GUI
         private void addToFridgeButton_Click(object sender, EventArgs e)
         {
 
-            AddToFridgeForm form = new AddToFridgeForm();
+            AddToFridgeForm form = new AddToFridgeForm(this);
             form.MdiParent = this;
             form.Show();
         }
 
         private void seedPlantButton_Click(object sender, EventArgs e)
         {
-            SowSeedsForm form = new SowSeedsForm();
+            SowSeedsForm form = new SowSeedsForm(this);
             form.MdiParent = this;
             form.Show();
 
@@ -302,7 +327,7 @@ namespace seedsfromzion.GUI
 
         private void collectPlantsbutton_Click(object sender, EventArgs e)
         {
-            PlantCollectionForm form = new PlantCollectionForm();
+            PlantCollectionForm form = new PlantCollectionForm(this);
             form.MdiParent = this;
             form.Show();
         }
