@@ -291,6 +291,13 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        private void addWorkerHoursButton_Click(object sender, EventArgs e)
+        {
+            WorkDaysForm form = new WorkDaysForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         private void removeWorkerButton_Click(object sender, EventArgs e)
         {
 
@@ -349,6 +356,7 @@ namespace seedsfromzion.GUI
             form.Show();
 
         }
+
         
     }
 }
