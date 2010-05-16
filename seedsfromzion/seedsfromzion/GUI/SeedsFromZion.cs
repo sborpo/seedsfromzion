@@ -308,6 +308,14 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void InventoryReports_Click(object sender, EventArgs e)
+        {
+            InventoryReports form = new InventoryReports();
+            form.MdiParent = this;
+            form.Show();
+
+        }
         
     }
 }

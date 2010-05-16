@@ -55,7 +55,7 @@ namespace seedsfromzion.GUI.InventoryForms
         private void buttonX1_Click(object sender, EventArgs e)
         {
             InventoryManager manager = new InventoryManager();
-            if (dataGridViewX1.SelectedRows.Count == 0)
+            if ((dataGridViewX1.SelectedRows == null) || (dataGridViewX1.SelectedRows.Count == 0))
             {
                 new ErrorWindow("לא נבחר צמח מהשדה").Show();
                 return;

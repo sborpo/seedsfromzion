@@ -50,9 +50,15 @@ namespace seedsfromzion.GUI.InventoryForms
         private void buttonX1_Click(object sender, EventArgs e)
         {
             InventoryManager manager = new InventoryManager();
-            if (dataGridViewX1.SelectedRows.Count == 0)
+            if ((dataGridViewX1.SelectedRows==null) || (dataGridViewX1.SelectedRows.Count == 0))
             {
                 new ErrorWindow("לא נבחר צמח להוספה").Show();
+                return;
+            }
+            if (location.Text.Equals(String.Empty))
+            {
+                new ErrorWindow("לא נבחר מיקום במקרר").Show();
+                return;
             }
             int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
             try
@@ -62,6 +68,7 @@ namespace seedsfromzion.GUI.InventoryForms
             catch (InventoryManager.KeyException ex)
             {
                 new ErrorWindow("לא ניתן להכניס את אותו הצמח באותו היום למקרר יותר מפעם אחת").Show();
+                return;
             }
             new SuccessWindow().Show();
         }
