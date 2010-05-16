@@ -12,6 +12,7 @@ namespace seedsfromzion.Managers
 
     public class InventoryManager
     {
+        private const double epsilon = 0.01;
         public class KeyException : Exception { }
         #region Public Methods
 
@@ -178,24 +179,30 @@ namespace seedsfromzion.Managers
         {
             if (!checkPlantExistsByID(p_id))
                 throw new ArgumentException("Plant doesn't exists");
+            string arriveDate= String.Format("{0:yyyy-M-d}", p_arriveDate);
+            string sowDate= String.Format("{0:yyyy-M-d}", p_sowingDate);
+            if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.field WHERE plantId=@PID AND arrivingDate = @ARRDATE AND sowingDate = @SOW", "@PID", p_id.ToString(), "@ARRDATE", arriveDate, "@SOW", sowDate))
+            {
+                throw new KeyException();
+            }
 
             MySqlCommand[] commands = new MySqlCommand[3];
 
             // Insert plant units to field table
-            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Field (plantId, arrivingDate, sowingDate, units, locationInField)" +
-                            "VALUES(@P_PLANTID,@P_ARRIVEDATE,@SOWINGDATE,@P_NUMOFUNITS,@P_LOCATION)",
+            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.field (plantId, arrivingDate, sowingDate, units, location) " +
+                            "VALUES (@P_PLANTID,@P_ARRIVEDATE,@P_SOWINGDATE,@P_NUMOFUNITS,@P_LOCATION)",
                             "@P_PLANTID", p_id.ToString(),
-                            "@P_ARRIVEDATE", String.Format("{0:yyyy-M-d}", p_arriveDate),
-                            "@P_SOWINGDATE", String.Format("{0:yyyy-M-d}", p_sowingDate),
+                            "@P_ARRIVEDATE", arriveDate,
+                            "@P_SOWINGDATE", sowDate,
                             "@P_NUMOFUNITS", numOfUnits.ToString(),
                             "@P_LOCATION", location);
             // Delete the current plant units from the fridge table
-            commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Fridge" +
-                            "SET units = units - @P_NUMOFUNITS WHERE plantId = @P_PLANTID",
-                            "@P_NUMOFUNITS", numOfUnits.ToString(),
-                            "@P_PLANTID", p_id.ToString());
+            commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Fridge " +
+                            "SET units = (units - "+numOfUnits.ToString()+") WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate",
+                            "@P_PLANTID", p_id.ToString(),
+                            "@ArriveDate",arriveDate);
             // Delete Plants with 0 units in the fridge (after update)
-            commands[2] = new MySqlCommand("DELETE FROM seedsdb.Fridge WHERE units = 0"); 
+            commands[2] = new MySqlCommand("DELETE FROM seedsdb.Fridge WHERE units < "+epsilon.ToString()); 
             DatabaseAccess.performDMLTransaction(commands);
 
             

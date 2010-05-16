@@ -294,6 +294,13 @@ namespace seedsfromzion.GUI
             form.Show();
 
         }
+
+        private void collectPlantsbutton_Click(object sender, EventArgs e)
+        {
+            PlantCollectionForm form = new PlantCollectionForm();
+            form.MdiParent = this;
+            form.Show();
+        }
         
     }
 }
