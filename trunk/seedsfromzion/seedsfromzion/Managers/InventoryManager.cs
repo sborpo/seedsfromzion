@@ -201,6 +201,13 @@ namespace seedsfromzion.Managers
             
         }
 
+        public DataTable getFridgeTable()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.units  FROM seedsdb.fridge F, seedsdb.planttypes P");
+            return DatabaseAccess.getResultSetFromDb(command);
+
+        }
+
         public DataTable getPlantsTable()
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM seedsdb.planttypes");

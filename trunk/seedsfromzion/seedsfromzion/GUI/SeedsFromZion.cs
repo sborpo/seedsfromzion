@@ -286,6 +286,14 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void seedPlantButton_Click(object sender, EventArgs e)
+        {
+            SowSeedsForm form = new SowSeedsForm();
+            form.MdiParent = this;
+            form.Show();
+
+        }
         
     }
 }
