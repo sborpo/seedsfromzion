@@ -120,6 +120,7 @@
     <Compile Include="GUI\InventoryForms\AddToFridgeForm.Designer.cs">
       <DependentUpon>AddToFridgeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InventoryForms\InventoryUtils.cs" />
     <Compile Include="GUI\InventoryForms\SowSeedsForm.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -32,36 +32,12 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void plantInput_TextChanged(object sender, EventArgs e)
         {
-
-            dataGridViewX1.Rows.Clear();
             if (plantInput.Text.Equals(String.Empty))
             {
-                actEmptyTextBox();
+                dataGridViewX1.Rows.Clear();
                 return;
             }
-            DataRow[] filteredRows = null;
-            try
-            {
-                 filteredRows = plantsTable.Select("name LIKE '" + plantInput.Text + "%'");
-            }
-            catch (Exception ex)
-            {
-                //gets unauthorized escape characters
-                return;
-            }
-            
-            if ((filteredRows==null) || (filteredRows.Length == 0))
-            {
-                return;
-            }
-            for (int i = 0; i < filteredRows.Length; i++)
-            {
-                dataGridViewX1.Rows.Add(filteredRows[i]["plantId"], filteredRows[i]["name"], filteredRows[i]["type"]);
-                
-            }
-            
-            
-
+            InventoryUtils.FilterTable(plantsTable, dataGridViewX1, "name LIKE '" + plantInput.Text + "%'", "plantId", "name", "type");
         }
 
         private void actEmptyTextBox()
