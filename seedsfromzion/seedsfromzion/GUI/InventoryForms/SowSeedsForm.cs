@@ -63,7 +63,7 @@ namespace seedsfromzion.GUI.InventoryForms
             }
             try
             {
-                manager.SowSeeds((int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value, (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value, monthCalendar1.SelectionStart, doubleInput1.Value, textBoxX1.Text);
+                manager.SowSeeds((int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value, (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value, dateTimePicker1.Value, doubleInput1.Value, textBoxX1.Text);
             }
             catch (InventoryManager.KeyException ex)
             {

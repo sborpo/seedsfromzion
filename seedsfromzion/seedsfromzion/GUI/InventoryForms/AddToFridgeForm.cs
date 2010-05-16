@@ -63,7 +63,7 @@ namespace seedsfromzion.GUI.InventoryForms
             int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
             try
             {
-                manager.AddToFridge(plantId, monthCalendar1.SelectionStart, Math.Round(units.Value,2), location.Text);
+                manager.AddToFridge(plantId, dateTimePicker1.Value, Math.Round(units.Value,2), location.Text);
             }
             catch (InventoryManager.KeyException ex)
             {

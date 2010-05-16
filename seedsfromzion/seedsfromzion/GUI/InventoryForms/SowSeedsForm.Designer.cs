@@ -43,9 +43,9 @@
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -144,12 +144,13 @@
             // 
             this.doubleInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.doubleInput1.Dock = System.Windows.Forms.DockStyle.Top;
             this.doubleInput1.Increment = 1;
-            this.doubleInput1.Location = new System.Drawing.Point(110, 202);
+            this.doubleInput1.Location = new System.Drawing.Point(3, 38);
             this.doubleInput1.MinValue = 0.1;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(80, 20);
+            this.doubleInput1.Size = new System.Drawing.Size(187, 20);
             this.doubleInput1.TabIndex = 4;
             this.doubleInput1.Value = 0.1;
             // 
@@ -165,7 +166,7 @@
             // labelX3
             // 
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(307, 202);
+            this.labelX3.Location = new System.Drawing.Point(307, 38);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 6;
@@ -208,7 +209,7 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(222, 452);
+            this.buttonX1.Location = new System.Drawing.Point(222, 299);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(102, 23);
             this.buttonX1.TabIndex = 7;
@@ -223,30 +224,22 @@
             this.tableLayoutPanel1.Controls.Add(this.doubleInput1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.monthCalendar1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelX4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX1, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(27, 174);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.61111F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51.38889F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(385, 268);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(385, 101);
             this.tableLayoutPanel1.TabIndex = 8;
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 9);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 7;
-            this.monthCalendar1.TitleBackColor = System.Drawing.SystemColors.ControlDarkDark;
             // 
             // labelX4
             // 
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.Location = new System.Drawing.Point(307, 242);
+            this.labelX4.Location = new System.Drawing.Point(307, 75);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 8;
@@ -258,10 +251,18 @@
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Location = new System.Drawing.Point(110, 242);
+            this.textBoxX1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.textBoxX1.Location = new System.Drawing.Point(3, 75);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(80, 20);
+            this.textBoxX1.Size = new System.Drawing.Size(187, 20);
             this.textBoxX1.TabIndex = 9;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(187, 20);
+            this.dateTimePicker1.TabIndex = 10;
             // 
             // SowSeedsForm
             // 
@@ -294,8 +295,8 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
