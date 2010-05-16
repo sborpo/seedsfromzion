@@ -1,4 +1,4 @@
-﻿namespace seedsfromzion.GUI.WorkerForms.WorkDays
+﻿namespace seedsfromzion.GUI.WorkerForms
 {
     partial class WorkDaysForm
     {
@@ -28,11 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.dataGridWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dataGridWorkers
+            // 
+            this.dataGridWorkers.AllowUserToAddRows = false;
+            this.dataGridWorkers.AllowUserToDeleteRows = false;
+            this.dataGridWorkers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGridWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridWorkers.Location = new System.Drawing.Point(41, 46);
+            this.dataGridWorkers.MultiSelect = false;
+            this.dataGridWorkers.Name = "dataGridWorkers";
+            this.dataGridWorkers.ReadOnly = true;
+            this.dataGridWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridWorkers.Size = new System.Drawing.Size(414, 240);
+            this.dataGridWorkers.TabIndex = 6;
+            // 
+            // WorkDaysForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(770, 453);
+            this.Controls.Add(this.dataGridWorkers);
+            this.DoubleBuffered = true;
+            this.Name = "WorkDaysForm";
             this.Text = "WorkDaysForm";
+            this.Load += new System.EventHandler(this.WorkDaysForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridWorkers;
     }
 }

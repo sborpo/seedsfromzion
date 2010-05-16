@@ -287,6 +287,7 @@
             this.addWorkerHoursButton.Tooltip = "דיווח\\עדכון שעות עבודה...";
             this.addWorkerHoursButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.addWorkerHoursButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addWorkerHoursButton.Click += new System.EventHandler(this.addWorkerHoursButton_Click);
             // 
             // inventoryPanel
             // 
