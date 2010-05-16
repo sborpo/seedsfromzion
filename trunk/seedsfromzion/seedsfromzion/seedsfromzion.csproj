@@ -242,6 +242,12 @@
     <Compile Include="GUI\WorkerForms\Visas\VisasGeneralForm.Designer.cs">
       <DependentUpon>VisasGeneralForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\WorkerForms\WorkDays\WorkDaysForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WorkerForms\WorkDays\WorkDaysForm.Designer.cs">
+      <DependentUpon>WorkDaysForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Managers\AdminManager.cs" />
     <Compile Include="Managers\InventoryManager.cs" />
     <Compile Include="Managers\OrderManager.cs" />
