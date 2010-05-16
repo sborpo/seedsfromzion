@@ -13,10 +13,16 @@ namespace seedsfromzion.GUI.InventoryForms
     {
 
         DataTable fieldTable;
-        public PlantCollectionForm()
+        public PlantCollectionForm(seedsFromZion mainForm)
         {
             InitializeComponent();
             initFieldTable();
+            mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
+        }
+
+        void mainForm_favoriteClicked(int plantId)
+        {
+            throw new NotImplementedException();
         }
 
         private void initFieldTable()
