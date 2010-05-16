@@ -108,6 +108,7 @@
     <Compile Include="GUI\ErrorWindow.Designer.cs">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FavoritesHasher.cs" />
     <Compile Include="GUI\InheritedForm.cs">
       <SubType>Form</SubType>
     </Compile>
