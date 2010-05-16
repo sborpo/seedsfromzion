@@ -174,6 +174,23 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
+
+        public void CollectPlants(int pid,DateTime p_arriveDate, DateTime p_sowindDate, DateTime p_collectionDate,double units,int storageNum,string location)
+        {
+            if (!checkPlantExistsByID(pid))
+                throw new ArgumentException("Plant doesn't exists");
+            string arriveDate = String.Format("{0:yyyy-M-d}", p_arriveDate);
+            string sowDate = String.Format("{0:yyyy-M-d}", p_sowingDate);
+            string collectDate = String.Format("{0:yyyy-M-d}", p_collectionDate);
+            if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.finishedstorage WHERE plantId=@PID AND id = @ID ","@PID", pid.ToString(), "@ID", storageNum))
+            {
+                throw new KeyException();
+            }
+
+
+        }
+
+
         // need to check if it's OK, did it under pressure of time
         public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
         {
@@ -219,6 +236,14 @@ namespace seedsfromzion.Managers
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM seedsdb.planttypes");
             return DatabaseAccess.getResultSetFromDb(command);
+        }
+
+        public DataTable getFieldTable()
+        {
+
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.sowingDate, F.units  FROM seedsdb.field F, seedsdb.planttypes P");
+            return DatabaseAccess.getResultSetFromDb(command);
+
         }
 
         /// <summary>
@@ -270,5 +295,7 @@ namespace seedsfromzion.Managers
         }
         */
         #endregion
+
+       
     }
 }
