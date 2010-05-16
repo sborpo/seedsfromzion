@@ -27,7 +27,7 @@ namespace seedsfromzion.GUI.InventoryForms
 
         void mainForm_favoriteClicked(int plantId)
         {
-            throw new NotImplementedException();
+            InventoryUtils.FilterTable(plantsTable, dataGridViewX1, "plantId =" + plantId.ToString(), "plantId", "name", "type");
         }
 
 

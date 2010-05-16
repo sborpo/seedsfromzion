@@ -22,7 +22,7 @@ namespace seedsfromzion.GUI.InventoryForms
 
         void mainForm_favoriteClicked(int plantId)
         {
-            throw new NotImplementedException();
+            InventoryUtils.FilterTable(fridgeTable, dataGridViewX1, "plantId = "+ plantId.ToString(), "plantId", "name", "type", "arrivingDate", "units");
         }
 
         private void initFridgeTable()
