@@ -15,14 +15,21 @@ namespace seedsfromzion.GUI.InventoryForms
         private DataTable plantsTable;
         private DataTable types;
 
-        public AddToFridgeForm()
+        public AddToFridgeForm(seedsFromZion mainForm)
         {
            
             InitializeComponent();
             initPlantsTable();
+            mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
 
             
         }
+
+        void mainForm_favoriteClicked(int plantId)
+        {
+            throw new NotImplementedException();
+        }
+
 
         private void initPlantsTable()
         {
