@@ -262,6 +262,11 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void removeWorkerButton_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
 
         #region orders
