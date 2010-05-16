@@ -13,10 +13,16 @@ namespace seedsfromzion.GUI.InventoryForms
     public partial class SowSeedsForm : seedsfromzion.GUI.BaseForm
     {
         DataTable fridgeTable;
-        public SowSeedsForm()
+        public SowSeedsForm(seedsFromZion mainForm)
         {
             InitializeComponent();
             initFridgeTable();
+            mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
+        }
+
+        void mainForm_favoriteClicked(int plantId)
+        {
+            throw new NotImplementedException();
         }
 
         private void initFridgeTable()
