@@ -55,6 +55,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("לא נבחר צמח מהמקרר").Show();
                 return;
             }
+            if (textBoxX1.Text.Equals(String.Empty))
+            {
+                new ErrorWindow("יש להכניס את המיקום בשדה").Show();
+                return;
+            }
             try
             {
                 manager.SowSeeds((int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value, (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value, monthCalendar1.SelectionStart, doubleInput1.Value, textBoxX1.Text);

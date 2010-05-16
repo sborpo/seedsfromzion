@@ -51,5 +51,35 @@ namespace seedsfromzion.GUI.InventoryForms
             doubleInput2.MaxValue = units;
             doubleInput2.Value = units;
         }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            InventoryManager manager = new InventoryManager();
+            if (dataGridViewX1.SelectedRows.Count == 0)
+            {
+                new ErrorWindow("לא נבחר צמח מהשדה").Show();
+                return;
+            }
+            if (textBoxX1.Text.Equals(String.Empty))
+            {
+                new ErrorWindow("יש להכניס את המיקום במחסן").Show();
+                return;
+            }
+            DateTime arrive = (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value;
+            DateTime sow = (DateTime)dataGridViewX1.SelectedRows[0].Cells[4].Value;
+            int plantId=(int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value;
+            try
+            {
+                manager.CollectPlants(plantId, arrive, sow, monthCalendar1.SelectionStart, doubleInput2.Value, doubleInput3.Value, integerInput1.Value, textBoxX1.Text, doubleInput1.Value);
+            }
+            catch (InventoryManager.KeyException ex)
+            {
+                new ErrorWindow("צמח זה כבר הוכנס היום למחסן").Show();
+                return;
+            }
+            initFieldTable();
+
+            new SuccessWindow().Show();
+        }
     }
 }

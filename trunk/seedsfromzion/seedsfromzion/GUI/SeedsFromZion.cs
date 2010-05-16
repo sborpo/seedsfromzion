@@ -301,6 +301,13 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        private void buttonItem4_Click(object sender, EventArgs e)
+        {
+            UpdateSproutingForm form = new UpdateSproutingForm();
+            form.MdiParent = this;
+            form.Show();
+        }
         
     }
 }

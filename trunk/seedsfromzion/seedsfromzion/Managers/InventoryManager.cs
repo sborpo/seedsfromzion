@@ -175,19 +175,60 @@ namespace seedsfromzion.Managers
         }
 
 
-        public void CollectPlants(int pid,DateTime p_arriveDate, DateTime p_sowindDate, DateTime p_collectionDate,double units,int storageNum,string location)
+        public void CollectPlants(int pid,DateTime p_arriveDate, DateTime p_sowingDate, DateTime p_collectionDate,double units,double grown , int storageNum,string location,double sproute)
         {
             if (!checkPlantExistsByID(pid))
                 throw new ArgumentException("Plant doesn't exists");
             string arriveDate = String.Format("{0:yyyy-M-d}", p_arriveDate);
             string sowDate = String.Format("{0:yyyy-M-d}", p_sowingDate);
             string collectDate = String.Format("{0:yyyy-M-d}", p_collectionDate);
-            if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.finishedstorage WHERE plantId=@PID AND id = @ID ","@PID", pid.ToString(), "@ID", storageNum))
+            if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.sproutedstats WHERE plantId=@PID AND arrivingDate = @Arrive AND sowindDate=@Sow AND collectionDate = @Collect ", "@PID", pid.ToString(), "@Arrive", arriveDate, "@Sow", sowDate, "@Collect", collectDate))
             {
                 throw new KeyException();
             }
-
-
+            MySqlCommand[] commands = new MySqlCommand[4];
+            if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.finishedstorage WHERE plantId=@Plant AND id=@StorageId", "@Plant", pid.ToString(), "@StorageId", storageNum.ToString()))
+            {
+                commands[0] = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage " +
+                            "SET units = (units + " + grown.ToString() + ") WHERE plantId =@P_PLANTID AND id=@StorageId",
+                            "@P_PLANTID", pid.ToString(),
+                            "@StorageId", storageNum.ToString());
+            }
+            else
+            {
+                commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.finishedstorage(plantId, id, units, location) " +
+                              " VALUES (@PLANTID,@STORAGE,@UNITS,@LOCATION)",
+                              "@PLANTID", pid.ToString(),
+                              "@STORAGE", storageNum.ToString(),
+                              "@UNITS", grown.ToString(),
+                              "@LOCATION", location);
+            }
+            commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.field " +
+                            "SET units = (units - " + units.ToString() + ") WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate AND sowingDate=@SowingDate" ,
+                            "@P_PLANTID", pid.ToString(),
+                            "@ArriveDate", arriveDate,
+                            "@SowingDate",sowDate);
+            commands[2] = new MySqlCommand("DELETE FROM seedsdb.field WHERE units < " + epsilon.ToString());
+            if (sproute < 0)
+            {
+                commands[3] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.sproutedstats(plantId, arrivingDate, sowindDate, collectionDate,sproutingPerc) " +
+                                  " VALUES (@PLANTID,@Arrive,@Sow,@Collect,@Sprout)",
+                                  "@PLANTID", pid.ToString(),
+                                  "@Arrive", arriveDate,
+                                  "@Sow", sowDate,
+                                  "@Collect", collectDate,
+                                  "@Sprout", sproute.ToString());
+            }
+            else
+            {
+                commands[3] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.sproutedstats(plantId, arrivingDate, sowindDate, collectionDate) " +
+                                 " VALUES (@PLANTID,@Arrive,@Sow,@Collect)",
+                                 "@PLANTID", pid.ToString(),
+                                 "@Arrive", arriveDate,
+                                 "@Sow", sowDate,
+                                 "@Collect", collectDate);
+            }
+            DatabaseAccess.performDMLTransaction(commands);
         }
 
 

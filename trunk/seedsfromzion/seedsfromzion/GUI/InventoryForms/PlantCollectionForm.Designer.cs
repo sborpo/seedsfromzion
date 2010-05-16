@@ -44,6 +44,8 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.integerInput1 = new DevComponents.Editors.IntegerInput();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.expandablePanel1 = new DevComponents.DotNetBar.ExpandablePanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -146,8 +148,10 @@
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(14, 35);
+            this.dataGridViewX1.MultiSelect = false;
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
+            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewX1.Size = new System.Drawing.Size(523, 80);
             this.dataGridViewX1.TabIndex = 0;
             this.dataGridViewX1.SelectionChanged += new System.EventHandler(this.dataGridViewX1_SelectionChanged);
@@ -200,12 +204,15 @@
             this.tableLayoutPanel1.Controls.Add(this.monthCalendar1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.integerInput1, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelX7, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.textBoxX2, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 172);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 84.92063F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.07936F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 267);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 28F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(321, 294);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // labelX2
@@ -231,7 +238,7 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(118, 229);
+            this.integerInput1.Location = new System.Drawing.Point(118, 228);
             this.integerInput1.MinValue = 1;
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.ShowUpDown = true;
@@ -242,11 +249,32 @@
             // labelX3
             // 
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(243, 229);
+            this.labelX3.Location = new System.Drawing.Point(243, 228);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 3;
             this.labelX3.Text = "מספר המחסן";
+            // 
+            // labelX7
+            // 
+            this.labelX7.BackColor = System.Drawing.Color.Transparent;
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX7.Location = new System.Drawing.Point(243, 268);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.TabIndex = 4;
+            this.labelX7.Text = "מיקום במחסן";
+            // 
+            // textBoxX2
+            // 
+            // 
+            // 
+            // 
+            this.textBoxX2.Border.Class = "TextBoxBorder";
+            this.textBoxX2.Location = new System.Drawing.Point(98, 268);
+            this.textBoxX2.Name = "textBoxX2";
+            this.textBoxX2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX2.TabIndex = 5;
             // 
             // expandablePanel1
             // 
@@ -255,7 +283,7 @@
             this.expandablePanel1.Controls.Add(this.tableLayoutPanel2);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.expandablePanel1.Expanded = false;
-            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(3, 3, 230, 64);
+            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(3, 3, 230, 60);
             this.expandablePanel1.Location = new System.Drawing.Point(3, 3);
             this.expandablePanel1.Name = "expandablePanel1";
             this.expandablePanel1.Size = new System.Drawing.Size(230, 26);
@@ -288,7 +316,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(230, 30);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(230, 31);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // labelX4
@@ -309,6 +337,7 @@
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput1.Increment = 1;
             this.doubleInput1.Location = new System.Drawing.Point(32, 3);
+            this.doubleInput1.MaxValue = 100;
             this.doubleInput1.MinValue = -1;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
@@ -325,7 +354,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 91);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(236, 67);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel4
@@ -339,7 +368,7 @@
             this.tableLayoutPanel4.Controls.Add(this.labelX6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput2, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput3, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 458);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 472);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -405,6 +434,7 @@
             this.buttonX1.Size = new System.Drawing.Size(75, 23);
             this.buttonX1.TabIndex = 5;
             this.buttonX1.Text = "אסוף";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // PlantCollectionForm
             // 
@@ -458,5 +488,7 @@
         private DevComponents.Editors.DoubleInput doubleInput2;
         private DevComponents.Editors.DoubleInput doubleInput3;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
     }
 }
