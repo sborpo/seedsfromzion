@@ -288,7 +288,18 @@ namespace seedsfromzion.Managers
 
 
 
+        public DataRow findPlantById(string plantId)
+        {
+            MySqlCommand command = new MySqlCommand("SELECT name ,type FROM seedsdb.planttypes WHERE plantId= "+plantId);
+            DataTable res=DatabaseAccess.getResultSetFromDb(command);
+            if (res.Rows.Count == 0)
+            {
+                return null;
+            }
+            return res.Rows[0];
 
+
+        }
 
         public DataTable getFridgeTable()
         {
