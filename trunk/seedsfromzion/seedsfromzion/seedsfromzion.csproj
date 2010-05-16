@@ -120,6 +120,12 @@
     <Compile Include="GUI\InventoryForms\AddToFridgeForm.Designer.cs">
       <DependentUpon>AddToFridgeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\InventoryForms\InventoryReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\InventoryForms\InventoryReports.Designer.cs">
+      <DependentUpon>InventoryReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\InventoryForms\InventoryUtils.cs" />
     <Compile Include="GUI\InventoryForms\PlantCollectionForm.cs">
       <SubType>Form</SubType>
@@ -282,6 +288,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\InventoryForms\SowSeedsForm.resx">
       <DependentUpon>SowSeedsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\InventoryForms\UpdateSproutingForm.resx">
+      <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\OrdersForms\OrdersMainForm.resx">

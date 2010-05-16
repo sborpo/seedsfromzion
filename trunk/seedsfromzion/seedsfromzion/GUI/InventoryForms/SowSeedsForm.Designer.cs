@@ -258,9 +258,9 @@
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Location = new System.Drawing.Point(90, 242);
+            this.textBoxX1.Location = new System.Drawing.Point(110, 242);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX1.Size = new System.Drawing.Size(80, 20);
             this.textBoxX1.TabIndex = 9;
             // 
             // SowSeedsForm

@@ -39,6 +39,7 @@
             this.addToFridgeButton = new DevComponents.DotNetBar.ButtonItem();
             this.seedPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.collectPlantsbutton = new DevComponents.DotNetBar.ButtonItem();
+            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
             this.generalInventoryBar = new DevComponents.DotNetBar.RibbonBar();
             this.findPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.addPlantButton = new DevComponents.DotNetBar.ButtonItem();
@@ -91,7 +92,7 @@
             this.statusBar = new DevComponents.DotNetBar.Bar();
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
-            this.buttonItem4 = new DevComponents.DotNetBar.ButtonItem();
+            this.InventoryReports = new DevComponents.DotNetBar.ButtonItem();
             this.systemControl.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
             this.workersPanel.SuspendLayout();
@@ -155,7 +156,7 @@
             this.findOrderButton,
             this.addOrderButton,
             this.removeOrderButton});
-            this.ordersInventoryBar.Location = new System.Drawing.Point(376, 0);
+            this.ordersInventoryBar.Location = new System.Drawing.Point(484, 0);
             this.ordersInventoryBar.Name = "ordersInventoryBar";
             this.ordersInventoryBar.ResizeOrderIndex = 1;
             this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
@@ -206,11 +207,12 @@
             this.operationsInventoryBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.addToFridgeButton,
             this.seedPlantButton,
-            this.collectPlantsbutton});
+            this.collectPlantsbutton,
+            this.InventoryReports});
             this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
             this.operationsInventoryBar.Name = "operationsInventoryBar";
             this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(195, 105);
+            this.operationsInventoryBar.Size = new System.Drawing.Size(303, 105);
             this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.operationsInventoryBar.TabIndex = 5;
             this.operationsInventoryBar.Text = "פעלות";
@@ -253,6 +255,13 @@
             this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.collectPlantsbutton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             this.collectPlantsbutton.Click += new System.EventHandler(this.collectPlantsbutton_Click);
+            // 
+            // buttonItem4
+            // 
+            this.buttonItem4.ImagePaddingHorizontal = 8;
+            this.buttonItem4.Name = "buttonItem4";
+            this.buttonItem4.Text = "הכנסת אחוזי נביטה על איסופים קודמים";
+            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
             // 
             // generalInventoryBar
             // 
@@ -914,12 +923,15 @@
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
             // 
-            // buttonItem4
+            // InventoryReports
             // 
-            this.buttonItem4.ImagePaddingHorizontal = 8;
-            this.buttonItem4.Name = "buttonItem4";
-            this.buttonItem4.Text = "הכנסת אחוזי נביטה על איסופים קודמים";
-            this.buttonItem4.Click += new System.EventHandler(this.buttonItem4_Click);
+            this.InventoryReports.Image = global::seedsfromzion.Properties.Resources.File_html_alt_48;
+            this.InventoryReports.ImagePaddingHorizontal = 8;
+            this.InventoryReports.Name = "InventoryReports";
+            this.InventoryReports.SubItemsExpandWidth = 14;
+            this.InventoryReports.Text = "fdsfsdf";
+            this.InventoryReports.Tooltip = "דוח\"ות מלאי";
+            this.InventoryReports.Click += new System.EventHandler(this.InventoryReports_Click);
             // 
             // seedsFromZion
             // 
@@ -1012,5 +1024,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem2;
         private DevComponents.DotNetBar.ButtonItem buttonItem3;
         private DevComponents.DotNetBar.ButtonItem buttonItem4;
+        private DevComponents.DotNetBar.ButtonItem InventoryReports;
     }
 }

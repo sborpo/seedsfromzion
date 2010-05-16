@@ -175,6 +175,12 @@ namespace seedsfromzion.Managers
         }
 
 
+        public DataTable getSproutingNullable()
+        {
+            MySqlCommand command = new MySqlCommand("SELECT S.plantId, T.name , T.type ,S.arrivingDate,S.sowindDate,S.collectionDate FROM seedsdb.sproutedstats S,seedsdb.planttypes T WHERE sproutingPerc is NULL AND S.plantId=T.plantId");
+            return DatabaseAccess.getResultSetFromDb(command); 
+        }
+
         public void CollectPlants(int pid,DateTime p_arriveDate, DateTime p_sowingDate, DateTime p_collectionDate,double units,double grown , int storageNum,string location,double sproute)
         {
             if (!checkPlantExistsByID(pid))
@@ -231,6 +237,14 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLTransaction(commands);
         }
 
+        public void UpdateSproutingPercentage(int pid, DateTime arrive, DateTime sow, DateTime collect, double sowing)
+        {
+            string arriveDate = String.Format("{0:yyyy-M-d}",arrive);
+            string sowDate = String.Format("{0:yyyy-M-d}", sow);
+            string collectDate = String.Format("{0:yyyy-M-d}", collect);
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.sproutedstats SET sproutingPerc=@Perc WHERE plantId=@PID AND arrivingDate = @Arrive AND sowindDate=@Sow AND collectionDate = @Collect ","@Perc",sowing.ToString(), "@PID", pid.ToString(), "@Arrive", arriveDate, "@Sow", sowDate, "@Collect", collectDate);
+            DatabaseAccess.performDMLQuery(command);
+        }
 
         // need to check if it's OK, did it under pressure of time
         public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
@@ -268,7 +282,7 @@ namespace seedsfromzion.Managers
 
         public DataTable getFridgeTable()
         {
-            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.units  FROM seedsdb.fridge F, seedsdb.planttypes P");
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.units  FROM seedsdb.fridge F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
             return DatabaseAccess.getResultSetFromDb(command);
 
         }
@@ -282,7 +296,7 @@ namespace seedsfromzion.Managers
         public DataTable getFieldTable()
         {
 
-            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.sowingDate, F.units  FROM seedsdb.field F, seedsdb.planttypes P");
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.sowingDate, F.units  FROM seedsdb.field F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
             return DatabaseAccess.getResultSetFromDb(command);
 
         }
