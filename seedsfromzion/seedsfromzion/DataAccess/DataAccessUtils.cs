@@ -7,6 +7,9 @@ using System.Data;
 
 namespace seedsfromzion.DataAccess
 {
+    /// <summary>
+    /// This class is an auxilary class for constructing queries.
+    /// </summary>
     public class DataAccessUtils
     {
         /// <summary>
@@ -21,6 +24,8 @@ namespace seedsfromzion.DataAccess
         /// <returns></returns>
         public static  MySqlCommand commandBuilder(String query,params string[] paramsValues)
         {
+            //if the array length is not even , so there is no match between
+            //parameters names and values
             if (paramsValues.Length%2!=0)
             {
                 return null;
@@ -28,6 +33,7 @@ namespace seedsfromzion.DataAccess
             MySqlCommand command= new MySqlCommand(query);
             for (int i=0; i<paramsValues.Length-1; i+=2)
             {
+                  //sets the parameters to the command
                   MySqlParameter parameter = new MySqlParameter();
                   parameter.ParameterName=paramsValues[i];
                   parameter.Value=paramsValues[i+1];
