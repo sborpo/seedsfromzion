@@ -398,6 +398,7 @@
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
     <Content Include="lib\ZedGraph.dll" />
+    <None Include="Resources\logout.png" />
     <None Include="Resources\addOrderIcon.png" />
     <None Include="Resources\addOrder_30.jpg" />
     <None Include="Resources\salesGraph.png" />
