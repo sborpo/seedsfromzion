@@ -72,6 +72,7 @@
             this.systemButtonContainer = new DevComponents.DotNetBar.ItemContainer();
             this.systemButtons = new DevComponents.DotNetBar.ItemContainer();
             this.identificationButton = new DevComponents.DotNetBar.ButtonItem();
+            this.disconnectButton = new DevComponents.DotNetBar.ButtonItem();
             this.addNewUserButton = new DevComponents.DotNetBar.ButtonItem();
             this.addNewUserButton1 = new DevComponents.DotNetBar.ButtonItem();
             this.removeUserButton = new DevComponents.DotNetBar.ButtonItem();
@@ -676,6 +677,7 @@
             this.systemButtons.Name = "systemButtons";
             this.systemButtons.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.identificationButton,
+            this.disconnectButton,
             this.addNewUserButton,
             this.systemMngButton,
             this.saveButton,
@@ -694,6 +696,16 @@
             this.identificationButton.Tooltip = "כניסה למערכת...   Ctrl+E";
             this.identificationButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.identificationButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            // 
+            // disconnectButton
+            // 
+            this.disconnectButton.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
+            this.disconnectButton.Image = global::seedsfromzion.Properties.Resources.logout;
+            this.disconnectButton.ImagePaddingHorizontal = 20;
+            this.disconnectButton.Name = "disconnectButton";
+            this.disconnectButton.Text = "התנתק";
+            this.disconnectButton.Tooltip = "התנתק מהמערכת";
+            this.disconnectButton.Click += new System.EventHandler(this.disconnectButton_Click);
             // 
             // addNewUserButton
             // 
@@ -999,5 +1011,6 @@
         private DevComponents.DotNetBar.ButtonItem percViaTimeInFridge;
         private DevComponents.DotNetBar.ButtonItem buttonItem4;
         private DevComponents.DotNetBar.ButtonItem InventoryReports;
+        private DevComponents.DotNetBar.ButtonItem disconnectButton;
     }
 }

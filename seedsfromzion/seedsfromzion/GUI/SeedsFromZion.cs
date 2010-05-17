@@ -31,9 +31,10 @@ namespace seedsfromzion.GUI
         public seedsFromZion()
         {
             InitializeComponent();
-           
+
         }
 
+        #region Favorites Managment
         /// <summary>
         /// this method initializes the favorites in the star button
         /// according to the config file.
@@ -67,8 +68,9 @@ namespace seedsfromzion.GUI
                 favoriteClicked(Convert.ToInt32(clickedButton.Name));
             }
         }
+        #endregion
 
-        
+        #region LogIn Managment
         /// <summary>
         /// unlocks the Main Form
         /// </summary>
@@ -82,6 +84,29 @@ namespace seedsfromzion.GUI
         public void Disable()
         {
             this.Enabled = false;
+        }
+
+        /// <summary>
+        /// This method change hides\reaveles the buttons of LogOut and Login
+        /// alternaly according to the login status
+        /// </summary>
+        public bool DisplayLogOut
+        {
+            set
+            {
+                if (value == true)
+                {
+                    identificationButton.Visible = false;
+                    disconnectButton.Visible = true;
+
+                }
+                else
+                {
+                    identificationButton.Visible = true;
+                    disconnectButton.Visible = false;
+                }
+            }
+            
         }
 
         public bool DisplayAdminOptions
@@ -103,6 +128,13 @@ namespace seedsfromzion.GUI
                 }
             }
         }
+
+        private void disconnectButton_Click(object sender, EventArgs e)
+        {
+            //TODO: should close the current MDI forms
+            new UserAuthentication(this).Show();
+        }
+        #endregion
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
@@ -375,6 +407,8 @@ namespace seedsfromzion.GUI
         {
 
         }
+
+       
 
 
 
