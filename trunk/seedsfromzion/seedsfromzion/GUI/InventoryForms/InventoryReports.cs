@@ -24,6 +24,11 @@ namespace seedsfromzion.GUI.InventoryForms
         public void buttonX1_Click(object sender, EventArgs e)
         {
             Report r = new Report();
+            if ((!checkBoxX1.Checked) && (!checkBoxX2.Checked) && (!checkBoxX3.Checked))
+            {
+                new ErrorWindow("לא נבחרו דוחות להצגה");
+                return;
+            }
             if (checkBoxX1.Checked)
             {
                 generateFridgeStatus(r);
@@ -52,11 +57,31 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void generateWarehouseStatus(Report r)
         {
-           
+            InventoryManager manager = new InventoryManager();
+            DataTable table = manager.getFinishedStorageTable();
+            table.Columns[0].ColumnName = "מזהה הצמח";
+            table.Columns[1].ColumnName = "שם הצמח";
+            table.Columns[2].ColumnName = "סוג הצמח";
+            table.Columns[3].ColumnName = "מספר מחסן";
+            table.Columns[4].ColumnName = "יחידות";
+            table.Columns[5].ColumnName = "מיקום במחסן";
+            InventoryStatus(r, "מצב המחסנים", table);
+
         }
 
         private void generateFieldStatus(Report r)
         {
+            InventoryManager manager = new InventoryManager();
+            DataTable table = manager.getFieldTable();
+            table.Columns[0].ColumnName = "מזהה הצמח";
+            table.Columns[1].ColumnName = "שם הצמח";
+            table.Columns[2].ColumnName = "סוג הצמח";
+            table.Columns[3].ColumnName = "תאריך הגעה למקרר";
+            table.Columns[4].ColumnName = "תאריך זריעה";
+            table.Columns[5].ColumnName = "יחידות";
+            table.Columns[6].ColumnName = "מיקום בשדה";
+            InventoryStatus(r, "מצב השדה", table);
+
             
         }
 
@@ -70,10 +95,16 @@ namespace seedsfromzion.GUI.InventoryForms
             table.Columns[3].ColumnName = "תאריך הגעה למקרר";
             table.Columns[4].ColumnName = "יחידות";
             table.Columns[5].ColumnName = "מיקום במקרר";
-            HtmlTable htmlTable = new HtmlTable(table);
+            InventoryStatus(r, "מצב המקרר", table);
+
+        }
+
+        private void InventoryStatus(Report r, string headingStr, DataTable inventory)
+        {
+            HtmlTable htmlTable = new HtmlTable(inventory);
             htmlTable.align(HtmlAlign.center);
             r.append(new HtmlEndLine(4));
-            HtmlHeading heading=new HtmlHeading("מצב המקרר");
+            HtmlHeading heading = new HtmlHeading(headingStr);
             heading.align(HtmlAlign.center);
             r.append(heading);
             r.append(new HtmlEndLine(2));

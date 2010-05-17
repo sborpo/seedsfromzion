@@ -317,11 +317,18 @@ namespace seedsfromzion.Managers
         public DataTable getFieldTable()
         {
 
-            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.sowingDate, F.units  FROM seedsdb.field F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.arrivingDate,F.sowingDate, F.units ,F.location FROM seedsdb.field F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
             return DatabaseAccess.getResultSetFromDb(command);
 
         }
 
+        public DataTable getFinishedStorageTable()
+        {
+
+            MySqlCommand command = new MySqlCommand("SELECT P.plantId,P.name,P.type,F.id,F.units, F.location FROM seedsdb.finishedstorage F, seedsdb.planttypes P WHERE P.plantId=F.plantId");
+            return DatabaseAccess.getResultSetFromDb(command);
+
+        }
         /// <summary>
         /// checks if a specific plant exists in the DB
         /// </summary>
