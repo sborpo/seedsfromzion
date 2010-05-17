@@ -31,9 +31,13 @@ namespace seedsfromzion.GUI
         public seedsFromZion()
         {
             InitializeComponent();
-            initFavorites();
+           
         }
 
+        /// <summary>
+        /// this method initializes the favorites in the star button
+        /// according to the config file.
+        /// </summary>
         private void initFavorites()
         {
             FavoritesHasher hasher = new FavoritesHasher();
@@ -47,22 +51,34 @@ namespace seedsfromzion.GUI
             this.favoritesButtonMini.SubItems.AddRange(items);
         }
 
+        /// <summary>
+        /// Favorites Item Clicked Handler , triggers this function
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void seedsFromZion_Click(object sender, EventArgs e)
         {
+            //cast to the Button Item
             ButtonItem clickedButton = sender as ButtonItem;
             if (favoriteClicked != null)
             {
+                //shoot the event that the favorite plant was clicked with
+                //it's plantId (stored in clickedButton.Name)
                 favoriteClicked(Convert.ToInt32(clickedButton.Name));
             }
         }
 
         
-
+        /// <summary>
+        /// unlocks the Main Form
+        /// </summary>
         public void Enable()
         {
             this.Enabled = true;
         }
-
+        /// <summary>
+        /// Locks the Main Form
+        /// </summary>
         public void Disable()
         {
             this.Enabled = false;
@@ -90,9 +106,12 @@ namespace seedsfromzion.GUI
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
+            //new UserAuthentication(this).Show();
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
             initRoutines();
+            initFavorites();
+            
         }
 
         private void systemControl_SelectedRibbonTabChanged(object sender, EventArgs e)
@@ -192,6 +211,44 @@ namespace seedsfromzion.GUI
         #endregion
 
         #region inventory
+
+        private void addToFridgeButton_Click(object sender, EventArgs e)
+        {
+
+            AddToFridgeForm form = new AddToFridgeForm(this);
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void seedPlantButton_Click(object sender, EventArgs e)
+        {
+            SowSeedsForm form = new SowSeedsForm(this);
+            form.MdiParent = this;
+            form.Show();
+
+        }
+
+        private void collectPlantsbutton_Click(object sender, EventArgs e)
+        {
+            PlantCollectionForm form = new PlantCollectionForm(this);
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void buttonItem4_Click(object sender, EventArgs e)
+        {
+            UpdateSproutingForm form = new UpdateSproutingForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
+        private void InventoryReports_Click(object sender, EventArgs e)
+        {
+            InventoryReports form = new InventoryReports();
+            form.MdiParent = this;
+            form.Show();
+
+        }
 
         private void findPlantButton_Click(object sender, EventArgs e)
         {
@@ -319,43 +376,7 @@ namespace seedsfromzion.GUI
 
         }
 
-        private void addToFridgeButton_Click(object sender, EventArgs e)
-        {
 
-            AddToFridgeForm form = new AddToFridgeForm(this);
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void seedPlantButton_Click(object sender, EventArgs e)
-        {
-            SowSeedsForm form = new SowSeedsForm(this);
-            form.MdiParent = this;
-            form.Show();
-
-        }
-
-        private void collectPlantsbutton_Click(object sender, EventArgs e)
-        {
-            PlantCollectionForm form = new PlantCollectionForm(this);
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void buttonItem4_Click(object sender, EventArgs e)
-        {
-            UpdateSproutingForm form = new UpdateSproutingForm();
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void InventoryReports_Click(object sender, EventArgs e)
-        {
-            InventoryReports form = new InventoryReports();
-            form.MdiParent = this;
-            form.Show();
-
-        }
 
         
     }
