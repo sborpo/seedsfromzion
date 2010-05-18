@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2, Version=7.9.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -75,6 +76,7 @@
     <Compile Include="DataAccess\IDatabaseAccess.cs" />
     <Compile Include="DataAccess\Notification.cs" />
     <Compile Include="DataAccess\NotificationWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="DataAccess\NotificationWindow.designer.cs">
       <DependentUpon>NotificationWindow.cs</DependentUpon>
@@ -95,128 +97,159 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\BaseForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\BaseForm.designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ErrorWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\ErrorWindow.Designer.cs">
       <DependentUpon>ErrorWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FavoritesHasher.cs" />
     <Compile Include="GUI\InheritedForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InheritedForm.designer.cs">
       <DependentUpon>InheritedForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InventoryForms\AddToFridgeForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InventoryForms\AddToFridgeForm.Designer.cs">
       <DependentUpon>AddToFridgeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InventoryForms\InventoryReports.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InventoryForms\InventoryReports.Designer.cs">
       <DependentUpon>InventoryReports.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InventoryForms\InventoryUtils.cs" />
     <Compile Include="GUI\InventoryForms\PlantCollectionForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InventoryForms\PlantCollectionForm.Designer.cs">
       <DependentUpon>PlantCollectionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InventoryForms\SowSeedsForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InventoryForms\SowSeedsForm.Designer.cs">
       <DependentUpon>SowSeedsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\InventoryForms\UpdateSproutingForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\InventoryForms\UpdateSproutingForm.Designer.cs">
       <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\OrdersForms\OrdersMainForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\OrdersForms\OrdersMainForm.Designer.cs">
       <DependentUpon>OrdersMainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\OrdersForms\SearchOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\OrdersForms\SearchOrderForm.Designer.cs">
+      <DependentUpon>SearchOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\SafeMode.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\SafeMode.Designer.cs">
       <DependentUpon>SafeMode.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SeedsFromZion.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\SeedsFromZion.designer.cs">
       <DependentUpon>SeedsFromZion.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SettingsPanel.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\SettingsPanel.Designer.cs">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaFridgeTimeForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaFridgeTimeForm.Designer.cs">
       <DependentUpon>GrowViaFridgeTimeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaPlantTypeForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaPlantTypeForm.Designer.cs">
       <DependentUpon>GrowViaPlantTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.designer.cs">
       <DependentUpon>SalesGraphForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.Designer.cs">
       <DependentUpon>GrowViaSowingDateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SuccessWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\SuccessWindow.Designer.cs">
       <DependentUpon>SuccessWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SystemUsersManager.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\SystemUsersManager.Designer.cs">
       <DependentUpon>SystemUsersManager.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\UserAuthentication.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\UserAuthentication.Designer.cs">
       <DependentUpon>UserAuthentication.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\Payments\PaymentsForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\Payments\PaymentsForm.Designer.cs">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\Visas\AddVisaForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\Visas\AddVisaForm.Designer.cs">
       <DependentUpon>AddVisaForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\AddWorkerForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\AddWorkerForm.Designer.cs">
       <DependentUpon>AddWorkerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\FindWorkerForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\FindWorkerForm.Designer.cs">
       <DependentUpon>FindWorkerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\Visas\VisasGeneralForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\Visas\VisasGeneralForm.Designer.cs">
       <DependentUpon>VisasGeneralForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\WorkerForms\WorkDays\WorkDaysForm.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\WorkerForms\WorkDays\WorkDaysForm.Designer.cs">
       <DependentUpon>WorkDaysForm.cs</DependentUpon>
@@ -281,6 +314,10 @@
     <EmbeddedResource Include="GUI\OrdersForms\OrdersMainForm.resx">
       <DependentUpon>OrdersMainForm.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\OrdersForms\SearchOrderForm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SearchOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\SafeMode.resx">
       <DependentUpon>SafeMode.cs</DependentUpon>
