@@ -358,6 +358,7 @@
             this.idBox.Name = "idBox";
             this.idBox.Size = new System.Drawing.Size(118, 20);
             this.idBox.TabIndex = 18;
+            this.idBox.ValueChanged += new System.EventHandler(this.idBox_TextChanged);
             // 
             // dateTimeInput
             // 
