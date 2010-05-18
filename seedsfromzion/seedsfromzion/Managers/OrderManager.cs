@@ -12,6 +12,8 @@ namespace seedsfromzion.Managers
 {
     class OrderManager
     {
+        static int lastOrderId = 1;
+        
         #region Public Methods
         /// <summary>
         /// adding a new order to the database.
@@ -35,21 +37,30 @@ namespace seedsfromzion.Managers
             if (!checkClientExists(clientInfo.clientId))
             {
                 //in case it dose not exist, adding it to the clients DataBase
-                addClientInfo(clientInfo);
+                //*******************
+                //* TBD !!!!!!!!!!!!*
+                //*******************
+                //addClientInfo(clientInfo);
             }
             
             //adding the new order into the database:
             MySqlCommand[] addToOrdersFromStorage = new MySqlCommand[orderInfo.plantId.Length + 1];
             int i = 0;
+            InventoryManager invManager = new InventoryManager();
             foreach (int p_id in orderInfo.plantId)
             {
-                //TODO: check that the plant id exist - Roee
-                //TODO: check that the storage id exists.
-              /*if (!(OrderManager.checkPlantExistsByID(p_id)))
+             
+                //checking that the plant id exist
+                if (!(invManager.checkPlantExistsByID(p_id)))
                 {
                     throw new ArgumentException("plantId " + p_id.ToString() + " dose not exist");
                 }
-               */
+                //checking that the storage id exists.
+                if (!(invManager.checkStorageExistsByID(orderInfo.fromStorageId[i])))
+                {
+                    throw new ArgumentException("storage " + orderInfo.fromStorageId[i] + " dose not exist");
+                }
+             
 
                 addToOrdersFromStorage[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.ordersfromstorage " +
                      "VALUES(@P_ORDERID, @P_PLANTID, @P_STORAGEID, @P_UNITS)",
@@ -78,24 +89,23 @@ namespace seedsfromzion.Managers
 
         public void removeAmountFromStorage(OrderInfo order)
         {
-            /* TODO:: Roee !!!
-            int orderSize = oldOrder.plantId.Length;
+            InventoryManager invManager = new InventoryManager();
+            int orderSize = order.plantId.Length;
             for (int i = 0; i < orderSize; i++)
             {
-                InventoryManager.removePlantsUnits(oldOrder.plantId[i], oldOrder.fromStorageId[i], oldOrder.units[i]);
+                invManager.removePlantUnits((int)order.plantId[i], order.fromStorageId[i], (double)order.units[i]);
             }
-            */
+            
         }
         
         public void returnAmountToStorage(OrderInfo order)
         {
-          /* TODO:: roee !!!
-           int orderSize = oldOrder.plantId.Length;
-           for (int i = 0; i < orderSize; i++)
-           {
-               InventoryManager.addPlantsUnits(oldOrder.plantId[i], oldOrder.fromStorageId[i], oldOrder.units[i]);
-           }
-        */
+            InventoryManager invManager = new InventoryManager();
+            int orderSize = order.plantId.Length;
+            for (int i = 0; i < orderSize; i++)
+            {
+                invManager.returnPlantUnits((int)order.plantId[i], order.fromStorageId[i], (double)order.units[i]);
+            }
         }
         
         public OrderInfo findOrder(int orderId, int clientId) 
@@ -115,18 +125,21 @@ namespace seedsfromzion.Managers
             if ((orderFromStorageResult.Rows.Count >= 1) && (ordersResult.Rows.Count >= 1))
             {
                 order.orderId = orderId;
-                order.orderDate = DateTime.Parse((string)ordersResult.Rows[0]["orderDate"]).Date;
-                order.dueDate = DateTime.Parse((string)ordersResult.Rows[0]["dueDate"]).Date;
-                order.status = (char)ordersResult.Rows[0]["status"];
-                order.plantId = new int[orderFromStorageResult.Rows.Count];
+                order.orderDate = ((DateTime)ordersResult.Rows[0]["orderDate"]).Date;
+                order.dueDate = ((DateTime)ordersResult.Rows[0]["dueDate"]).Date;
+                /*******************
+                 * TBD!!!!!        *
+                 *******************/
+                order.status = '0';// (System.Char)ordersResult.Rows[0]["status"];
+                order.plantId = new System.UInt32[orderFromStorageResult.Rows.Count];
                 order.fromStorageId = new string[orderFromStorageResult.Rows.Count];
                 order.units = new double[orderFromStorageResult.Rows.Count];
 
                
                 for (int index = 0; index < orderFromStorageResult.Rows.Count; index++)
                 {
-                    order.plantId[index] = (int)orderFromStorageResult.Rows[index]["plantId"];
-                    order.fromStorageId[index] = (string)orderFromStorageResult.Rows[index]["fromStorageId"];
+                    order.plantId[index] = (System.UInt32)orderFromStorageResult.Rows[index]["plantId"];
+                    order.fromStorageId[index] = ((System.UInt32)orderFromStorageResult.Rows[index]["storageId"]).ToString();
                     order.units[index] = (double)orderFromStorageResult.Rows[index]["units"];
 
                 }
@@ -176,14 +189,19 @@ namespace seedsfromzion.Managers
        }
        public int getNextOrderId()
        {
+           
            //getting the maximum order id number:
-           MySqlCommand orderFromStorageCommand = DataAccessUtils.commandBuilder("SELECT MAX(orderId) From seedsdb.orders");
+           MySqlCommand orderFromStorageCommand = DataAccessUtils.commandBuilder("SELECT MAX(orderId) As max From seedsdb.orders");
            DataTable orderFromStorageResult = DatabaseAccess.getResultSetFromDb(orderFromStorageCommand);
            if (orderFromStorageResult.Rows.Count == 0)
            {
                return 1;
            }
-           return (int)orderFromStorageResult.Rows[0][0];
+           DataRow row = orderFromStorageResult.Rows[0];
+           System.UInt32 incSize = 1;
+           return (int)(((System.UInt32)row[0]) + incSize) ;
+           
+         
         }
 
         #endregion
@@ -229,7 +247,7 @@ namespace seedsfromzion.Managers
         /// <returns>boolean</returns>
         private bool checkOrderExists(int p_orderId)
         {
-            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE orderId=@p_orderId;", "@p_orderId", p_orderId.ToString());            
+            return DataAccessUtils.rowExists("SELECT orderId FROM seedsdb.ordersfromstorage WHERE orderId=@p_orderId;", "@p_orderId", p_orderId.ToString());            
         }
         /// <summary>
         /// This method checks if the client id transferd to her already exists
@@ -239,7 +257,7 @@ namespace seedsfromzion.Managers
         /// <returns>boolean</returns>
         private bool checkClientExists(int p_clientId)
         {
-            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.ordersfromstorage WHERE clientId=@p_clientId;", "@p_clientId", p_clientId.ToString());            
+            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.clients WHERE id=@p_clientId;", "@p_clientId", p_clientId.ToString());            
         }
         #endregion
     }
