@@ -36,12 +36,12 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.showGraphButton = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.plantChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.isChosenTypeCHBX = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.plantNameTextBox = new DevComponents.DotNetBar.Controls.MaskedTextBoxAdv();
             this.plantNameLabel = new DevComponents.DotNetBar.LabelX();
-            this.plantTypeDropText = new DevComponents.DotNetBar.Controls.TextBoxDropDown();
             this.planrTypeLabel = new DevComponents.DotNetBar.LabelX();
             this.GrowViaFridgeGraphControl = new ZedGraph.ZedGraphControl();
+            this.plantNameTextBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.fridgeTableLayoutPanel.SuspendLayout();
             this.graphicSettingsPanel.SuspendLayout();
             this.plantChoisePanel.SuspendLayout();
@@ -108,7 +108,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(297, 204);
+            this.showGraphButton.Location = new System.Drawing.Point(280, 204);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -148,6 +148,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.showGraphButton.StyleMouseOver.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotText;
             this.showGraphButton.TabIndex = 15;
             this.showGraphButton.Text = "הצג גרף";
+            this.showGraphButton.Click += new System.EventHandler(this.showGraphButton_Click);
             // 
             // plantChoisePanel
             // 
@@ -157,7 +158,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantChoisePanel.Controls.Add(this.tableLayoutPanel1);
             this.plantChoisePanel.Location = new System.Drawing.Point(40, 30);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(406, 142);
+            this.plantChoisePanel.Size = new System.Drawing.Size(389, 142);
             // 
             // 
             // 
@@ -185,10 +186,10 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.0854F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.9146F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
-            this.tableLayoutPanel1.Controls.Add(this.isChosenTypeCHBX, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.plantNameTextBox, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.plantTypeDropBox, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.isChosenTypeCHBX, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.plantNameLabel, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.plantTypeDropText, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.planrTypeLabel, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
@@ -196,8 +197,26 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(406, 142);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(389, 142);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // plantTypeDropBox
+            // 
+            this.plantTypeDropBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantTypeDropBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.plantTypeDropBox.DisplayMember = "Text";
+            this.plantTypeDropBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.plantTypeDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.plantTypeDropBox.FormattingEnabled = true;
+            this.plantTypeDropBox.ItemHeight = 22;
+            this.plantTypeDropBox.Location = new System.Drawing.Point(36, 92);
+            this.plantTypeDropBox.Name = "plantTypeDropBox";
+            this.plantTypeDropBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.plantTypeDropBox.Size = new System.Drawing.Size(189, 28);
+            this.plantTypeDropBox.TabIndex = 17;
+            this.plantTypeDropBox.WatermarkText = "בחר סוג הצמח";
+            this.plantTypeDropBox.DropDown += new System.EventHandler(this.plantTypeDropBox_TextChanged);
             // 
             // isChosenTypeCHBX
             // 
@@ -209,35 +228,13 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.isChosenTypeCHBX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isChosenTypeCHBX.CheckValue = "Y";
             this.isChosenTypeCHBX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.isChosenTypeCHBX.Location = new System.Drawing.Point(381, 74);
+            this.isChosenTypeCHBX.Location = new System.Drawing.Point(364, 74);
             this.isChosenTypeCHBX.Name = "isChosenTypeCHBX";
             this.isChosenTypeCHBX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.isChosenTypeCHBX.Size = new System.Drawing.Size(22, 65);
             this.isChosenTypeCHBX.TabIndex = 12;
             this.isChosenTypeCHBX.Text = " ";
             this.isChosenTypeCHBX.CheckedChanged += new System.EventHandler(this.isChosenTypeCHBX_CheckedChanged);
-            // 
-            // plantNameTextBox
-            // 
-            this.plantNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            // 
-            // 
-            // 
-            this.plantNameTextBox.BackgroundStyle.Class = "TextBoxBorder";
-            this.plantNameTextBox.ButtonClear.Visible = true;
-            this.plantNameTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plantNameTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.plantNameTextBox.Location = new System.Drawing.Point(47, 23);
-            this.plantNameTextBox.Name = "plantNameTextBox";
-            this.plantNameTextBox.PromptChar = '|';
-            this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(189, 25);
-            this.plantNameTextBox.TabIndex = 6;
-            this.plantNameTextBox.Text = "";
-            this.plantNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.plantNameTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.plantNameTextBox.WatermarkText = "     הכנס שם של צמח";
             // 
             // plantNameLabel
             // 
@@ -252,7 +249,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(259, 23);
+            this.plantNameLabel.Location = new System.Drawing.Point(242, 23);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(116, 25);
@@ -260,34 +257,13 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantNameLabel.Text = "  שם הצמח:";
             this.plantNameLabel.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // plantTypeDropText
-            // 
-            this.plantTypeDropText.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.plantTypeDropText.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.plantTypeDropText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            // 
-            // 
-            // 
-            this.plantTypeDropText.BackgroundStyle.Class = "TextBoxBorder";
-            this.plantTypeDropText.ButtonDropDown.Visible = true;
-            this.plantTypeDropText.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.plantTypeDropText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.plantTypeDropText.Location = new System.Drawing.Point(47, 94);
-            this.plantTypeDropText.Name = "plantTypeDropText";
-            this.plantTypeDropText.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantTypeDropText.Size = new System.Drawing.Size(189, 25);
-            this.plantTypeDropText.TabIndex = 9;
-            this.plantTypeDropText.Text = "";
-            this.plantTypeDropText.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.plantTypeDropText.WatermarkText = "הכנס סוג של צמח";
-            // 
             // planrTypeLabel
             // 
             this.planrTypeLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.planrTypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.planrTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.planrTypeLabel.ForeColor = System.Drawing.Color.Black;
-            this.planrTypeLabel.Location = new System.Drawing.Point(259, 93);
+            this.planrTypeLabel.Location = new System.Drawing.Point(242, 93);
             this.planrTypeLabel.Name = "planrTypeLabel";
             this.planrTypeLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.planrTypeLabel.Size = new System.Drawing.Size(116, 26);
@@ -300,7 +276,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaFridgeGraphControl.AutoSize = true;
             this.GrowViaFridgeGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrowViaFridgeGraphControl.Location = new System.Drawing.Point(6, 6);
-            this.GrowViaFridgeGraphControl.Margin = new System.Windows.Forms.Padding(4);
+            this.GrowViaFridgeGraphControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GrowViaFridgeGraphControl.Name = "GrowViaFridgeGraphControl";
             this.GrowViaFridgeGraphControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GrowViaFridgeGraphControl.ScrollGrace = 0;
@@ -314,10 +290,29 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaFridgeGraphControl.TabIndex = 4;
             this.GrowViaFridgeGraphControl.Load += new System.EventHandler(this.GrowViaFridgeGraphControl_Load);
             // 
+            // plantNameTextBox
+            // 
+            this.plantNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.plantNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            // 
+            // 
+            // 
+            this.plantNameTextBox.Border.Class = "TextBoxBorder";
+            this.plantNameTextBox.Location = new System.Drawing.Point(36, 21);
+            this.plantNameTextBox.Name = "plantNameTextBox";
+            this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.plantNameTextBox.Size = new System.Drawing.Size(189, 28);
+            this.plantNameTextBox.TabIndex = 16;
+            this.plantNameTextBox.WatermarkText = "הכנס סוג של הצמח";
+            this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
+            this.plantNameTextBox.TextChanged += new System.EventHandler(this.plantNameTextBox_TextChanged);
+            // 
             // GrowViaFridgeTimeForm
             // 
             this.ClientSize = new System.Drawing.Size(1028, 580);
             this.Controls.Add(this.fridgeTableLayoutPanel);
+            this.DoubleBuffered = true;
             this.Name = "GrowViaFridgeTimeForm";
             this.Text = "FridgeTime";
             this.Load += new System.EventHandler(this.GrowViaFridgeTime_Load);
@@ -339,9 +334,9 @@ namespace seedsfromzion.GUI.StatisticsForms
         private DevComponents.DotNetBar.Ribbon.RibbonClientPanel plantChoisePanel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevComponents.DotNetBar.Controls.CheckBoxX isChosenTypeCHBX;
-        private DevComponents.DotNetBar.Controls.MaskedTextBoxAdv plantNameTextBox;
         private DevComponents.DotNetBar.LabelX plantNameLabel;
-        private DevComponents.DotNetBar.Controls.TextBoxDropDown plantTypeDropText;
         private DevComponents.DotNetBar.LabelX planrTypeLabel;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx plantTypeDropBox;
+        private DevComponents.DotNetBar.Controls.TextBoxX plantNameTextBox;
     }
 }
