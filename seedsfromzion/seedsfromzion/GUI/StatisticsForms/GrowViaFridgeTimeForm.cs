@@ -21,21 +21,37 @@ namespace seedsfromzion.GUI.StatisticsForms
         private void GrowViaFridgeTime_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
-            this.GrowViaFridgeGraphControl_Load(sender, e);
+            this.GrowViaFridgeGraphControl_Start(sender, e);
+            StatisticsManager.initPlantNames();
+            StatisticsManager.initPlantTypes();
+        }
+
+        private void GrowViaFridgeGraphControl_Start(object sender, EventArgs e)
+        {
+            GraphPane growGraphPane = this.GrowViaFridgeGraphControl.GraphPane;
+            growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי זמן שהיה במקרר";
+            growGraphPane.Title.FontSpec.FontColor = Color.Navy;
+            growGraphPane.XAxis.Title.Text = "זמן שהיה  במקרר";
+            growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
+
+            //set background color
+            growGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
+
         }
 
         private void GrowViaFridgeGraphControl_Load(object sender, EventArgs e)
         {
             GraphPane growGraphPane = this.GrowViaFridgeGraphControl.GraphPane;
             DataTable graphData = StatisticsManager.getGrowViaFridgeGraphValues();
-            growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי זמן שהיה במקרר";
-            growGraphPane.Title.FontSpec.FontColor = Color.Navy;
-            growGraphPane.XAxis.Title.Text = "זמן שהיה  במקרר";
-            growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
             //set the values of the bars
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<decimal,Double>(graphData, "fridgeTime");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
+
+            if (xArray.Length.Equals(0))
+            {
+                throw new Exception("Zero length data was received");
+            }
 
             Double[] xSortedArray = (Double[])xArray.Clone();
             Array.Sort<double>(xSortedArray);
@@ -60,9 +76,6 @@ namespace seedsfromzion.GUI.StatisticsForms
             curve.Line.SmoothTension = 0.1F;
             curve.Symbol.Fill = new Fill(Color.White);
             curve.Symbol.Size = 7;
-
-            //set background color
-            growGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
 
             // disable the legend
             growGraphPane.Legend.IsVisible = false;
@@ -101,6 +114,7 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             //recalculate graph
             growGraphPane.AxisChange();
+            this.GrowViaFridgeGraphControl.Refresh();
         }
 
         private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
@@ -108,12 +122,97 @@ namespace seedsfromzion.GUI.StatisticsForms
             DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
             if (myCHBX.Checked.Equals(false))
             {
-                this.plantTypeDropText.Enabled = false;
+                this.plantTypeDropBox.Enabled = false;
             }
             else
             {
-                this.plantTypeDropText.Enabled = true;
+                this.plantTypeDropBox.Enabled = true;
             }
         }
+
+        private void showGraphButton_Click(object sender, EventArgs e)
+        {
+            string plantName = this.plantNameTextBox.Text;
+            string plantType = this.plantTypeDropBox.Text;
+
+            //check if all data was entered
+            if (plantName.Length <= 0)
+            {
+                new ErrorWindow("שם של הצמח ריק").Show();
+                return;
+            }
+            if (isChosenTypeCHBX.Enabled && plantType.Length <= 0)
+            {
+                //throw new KeyNotFoundException("פרטים חסרים...");
+                new ErrorWindow("אנא בחרו סוג הצמח").Show();
+                return;
+            }
+
+            int plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
+
+            //if no such plant name
+            if (plantId.Equals(-1))
+            {
+                //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
+                new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
+                return;
+            }
+
+
+           // this.salesGraphControl_Load(plantId);
+        }
+
+
+        private void plantNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.plantNameTextBox.Text.Length > 0)
+                {
+                    DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                    if (rows.Length > 0)
+                    {
+                        String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+
+                        this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
+                        this.plantNameTextBox.Refresh();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
+                e.Handled = true;
+        }
+
+        private void plantTypeDropBox_TextChanged(object sender, EventArgs e)
+        {
+            //MAYBE TO IMPLEMENT THE CHOISE OF THE APPROPRIATE TYPE
+            this.plantTypeDropBox.Items.Clear();
+            if (this.plantNameTextBox.Text.Length > 0)
+            {
+                this.plantTypeDropBox.BeginUpdate();
+                DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                if (rows.Length > 0)
+                {
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
+
+                    //foreach(string name in names)
+                    //{
+                    //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
+                    //}
+                    this.plantTypeDropBox.Items.AddRange(names);
+                }
+                this.plantTypeDropBox.EndUpdate();
+            }
+        }
+
+
     }
 }
