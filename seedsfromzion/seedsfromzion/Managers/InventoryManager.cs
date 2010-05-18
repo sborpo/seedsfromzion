@@ -107,24 +107,40 @@ namespace seedsfromzion.Managers
         }
         */
 
-        /* 
-        // same as previous func..see note
+         
+        
         /// <summary>
-        /// Removes units from a specific plant.
+        /// remove units from the storage because of an order
         /// </summary>
-        /// <param name="p_name"></param>
+        /// <param name="p_plantId"></param>
+        /// <param name="p_storageId"></param>
         /// <param name="numOfUnits"></param>
-        public void RemovePlantUnits(string p_name, int numOfUnits)
+        public void removePlantUnits(int p_plantId,string p_storageId, double numOfUnits)
         {
             // check if exists numOfUnits in storage
-            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants" +
-                "SET countInUnit = countInUnit - @NUM_OF_UNITS WHERE name=@P_NAME",
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage" +
+                " SET units=units-@NUM_OF_UNITS WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
                 "@NUM_OF_UNITS", numOfUnits.ToString(),
-                "@P_NAME", p_name);
+                "@P_PLANTID", p_plantId.ToString(),
+                "P_STORAGEID", p_storageId);
             DatabaseAccess.performDMLQuery(command);
         }
-        */
-
+        /// <summary>
+        /// returning the amount to the storage(because an order has been cancel
+        /// </summary>
+        /// <param name="p_plantId"></param>
+        /// <param name="p_storageId"></param>
+        /// <param name="numOfUnits"></param>
+        public void returnPlantUnits(int p_plantId, string p_storageId, double numOfUnits)
+        {
+            // check if exists numOfUnits in storage
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage" +
+                " SET units=units+@NUM_OF_UNITS WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
+                "@NUM_OF_UNITS", numOfUnits.ToString(),
+                "@P_PLANTID", p_plantId.ToString(),
+                "P_STORAGEID", p_storageId);
+            DatabaseAccess.performDMLQuery(command);
+        }
         // bad implementation for sure
         /*public void AddSproutingPercentage(int p_id, DateTime p_arriveDate, DateTime sowDate, DateTime collectDate, int percentage)
         {
@@ -338,12 +354,24 @@ namespace seedsfromzion.Managers
         {
             return DataAccessUtils.rowExists("SELECT name FROM seedsdb.Plants WHERE name=@P_NAME;", "@P_NAME", p_name);
         }
-
+        /// <summary>
+        /// check if plant exist in the DB by id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
         public bool checkPlantExistsByID(int p_id)
         {
             return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.PlantTypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
         }
-
+        /// <summary>
+        /// check if a storage exist in the DB by id
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <returns></returns>
+        public bool checkStorageExistsByID(string p_id)
+        {
+            return DataAccessUtils.rowExists("SELECT id FROM seedsdb.finishedstorage WHERE id=@P_ID", "@P_ID", p_id);
+        }
         public int getNewPlantId()
         {
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(plantId), 0) AS plantId FROM seedsdb.PlantTypes");
