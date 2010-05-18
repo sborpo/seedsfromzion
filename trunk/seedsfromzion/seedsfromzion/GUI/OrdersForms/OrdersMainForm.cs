@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
 using MySql.Data.MySqlClient;
+using seedsfromzion.DataStructures;
 
 namespace seedsfromzion.GUI.OrdersForms
 {
@@ -294,6 +295,29 @@ namespace seedsfromzion.GUI.OrdersForms
             row[0][4] = rowUnits;*/
             Order.Rows.Remove(row.Rows[0]);
             
+        }
+
+        private void idBox_TextChanged(object sender, EventArgs e)
+        {
+            OrderManager orderMgr = new OrderManager();
+
+            if (orderMgr.checkClientExists(idBox.Value))
+            {
+                ClientInfo client = orderMgr.findClient(idBox.Value);
+                nameBox.Text = client.name;
+                phoneBoxX.Text = client.phoneNumber;
+                emailBoxX.Text = client.email;
+            }
+            else
+            {
+                nameBox.Text = "";
+                phoneBoxX.Text = "";
+                emailBoxX.Text = "";
+            }
+            nameBox.Refresh();
+            phoneBoxX.Refresh();
+            emailBoxX.Refresh();
+
         }
     }
 }
