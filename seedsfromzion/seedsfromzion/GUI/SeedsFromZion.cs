@@ -408,6 +408,13 @@ namespace seedsfromzion.GUI
 
         }
 
+        private void findOrderButton_Click(object sender, EventArgs e)
+        {
+            SearchOrderForm form = new SearchOrderForm();
+            form.MdiParent = this;
+            form.Show();
+        }
+
        
 
 
