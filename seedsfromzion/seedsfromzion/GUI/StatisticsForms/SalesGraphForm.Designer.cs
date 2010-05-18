@@ -39,13 +39,13 @@
             this.fromDateLabel = new DevComponents.DotNetBar.LabelX();
             this.plantChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.plantNameTextBox = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.isChosenTypeCHBX = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.plantNameLabel = new DevComponents.DotNetBar.LabelX();
             this.planrTypeLabel = new DevComponents.DotNetBar.LabelX();
             this.sowTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.salesGraphControl = new ZedGraph.ZedGraphControl();
-            this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.plantNameTextBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.graphicSettingsPanel.SuspendLayout();
             this.dateChoisePanel.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -101,7 +101,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(284, 383);
+            this.showGraphButton.Location = new System.Drawing.Point(312, 382);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -149,9 +149,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
-            this.dateChoisePanel.Location = new System.Drawing.Point(65, 207);
+            this.dateChoisePanel.Location = new System.Drawing.Point(41, 206);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(368, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(420, 142);
             // 
             // 
             // 
@@ -188,7 +188,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(368, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(420, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDateLabel
@@ -197,7 +197,7 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(221, 23);
+            this.tillDateLabel.Location = new System.Drawing.Point(273, 23);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDateLabel.Size = new System.Drawing.Size(144, 25);
@@ -215,7 +215,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(23, 21);
+            this.tillDate.Location = new System.Drawing.Point(54, 21);
             // 
             // 
             // 
@@ -261,7 +261,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(23, 92);
+            this.fromDate.Location = new System.Drawing.Point(54, 92);
             // 
             // 
             // 
@@ -307,7 +307,7 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(221, 94);
+            this.fromDateLabel.Location = new System.Drawing.Point(273, 94);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDateLabel.Size = new System.Drawing.Size(144, 25);
@@ -321,9 +321,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.plantChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.plantChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.plantChoisePanel.Location = new System.Drawing.Point(65, 30);
+            this.plantChoisePanel.Location = new System.Drawing.Point(41, 29);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(368, 142);
+            this.plantChoisePanel.Size = new System.Drawing.Size(420, 142);
             // 
             // 
             // 
@@ -362,8 +362,43 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(368, 142);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(420, 142);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // plantNameTextBox
+            // 
+            this.plantNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.plantNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            // 
+            // 
+            // 
+            this.plantNameTextBox.Border.Class = "TextBoxBorder";
+            this.plantNameTextBox.Location = new System.Drawing.Point(55, 21);
+            this.plantNameTextBox.Name = "plantNameTextBox";
+            this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.plantNameTextBox.Size = new System.Drawing.Size(189, 28);
+            this.plantNameTextBox.TabIndex = 17;
+            this.plantNameTextBox.WatermarkText = "הכנס סוג של הצמח";
+            this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
+            this.plantNameTextBox.TextChanged += new System.EventHandler(this.plantNameTextBox_TextChanged);
+            // 
+            // plantTypeDropBox
+            // 
+            this.plantTypeDropBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantTypeDropBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.plantTypeDropBox.DisplayMember = "Text";
+            this.plantTypeDropBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.plantTypeDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.plantTypeDropBox.FormattingEnabled = true;
+            this.plantTypeDropBox.ItemHeight = 22;
+            this.plantTypeDropBox.Location = new System.Drawing.Point(55, 92);
+            this.plantTypeDropBox.Name = "plantTypeDropBox";
+            this.plantTypeDropBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.plantTypeDropBox.Size = new System.Drawing.Size(189, 28);
+            this.plantTypeDropBox.TabIndex = 18;
+            this.plantTypeDropBox.WatermarkText = "בחר סוג הצמח";
+            this.plantTypeDropBox.DropDown += new System.EventHandler(this.plantTypeDropBox_TextChanged);
             // 
             // isChosenTypeCHBX
             // 
@@ -375,7 +410,7 @@
             this.isChosenTypeCHBX.CheckState = System.Windows.Forms.CheckState.Checked;
             this.isChosenTypeCHBX.CheckValue = "Y";
             this.isChosenTypeCHBX.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.isChosenTypeCHBX.Location = new System.Drawing.Point(343, 74);
+            this.isChosenTypeCHBX.Location = new System.Drawing.Point(395, 74);
             this.isChosenTypeCHBX.Name = "isChosenTypeCHBX";
             this.isChosenTypeCHBX.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.isChosenTypeCHBX.Size = new System.Drawing.Size(22, 65);
@@ -396,7 +431,7 @@
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(218, 23);
+            this.plantNameLabel.Location = new System.Drawing.Point(270, 23);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(119, 25);
@@ -410,7 +445,7 @@
             this.planrTypeLabel.BackColor = System.Drawing.Color.Transparent;
             this.planrTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.planrTypeLabel.ForeColor = System.Drawing.Color.Black;
-            this.planrTypeLabel.Location = new System.Drawing.Point(218, 93);
+            this.planrTypeLabel.Location = new System.Drawing.Point(270, 93);
             this.planrTypeLabel.Name = "planrTypeLabel";
             this.planrTypeLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.planrTypeLabel.Size = new System.Drawing.Size(119, 26);
@@ -453,41 +488,6 @@
             this.salesGraphControl.ScrollMinY2 = 0;
             this.salesGraphControl.Size = new System.Drawing.Size(503, 564);
             this.salesGraphControl.TabIndex = 4;
-            // 
-            // plantTypeDropBox
-            // 
-            this.plantTypeDropBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.plantTypeDropBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.plantTypeDropBox.DisplayMember = "Text";
-            this.plantTypeDropBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.plantTypeDropBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.plantTypeDropBox.FormattingEnabled = true;
-            this.plantTypeDropBox.ItemHeight = 22;
-            this.plantTypeDropBox.Location = new System.Drawing.Point(23, 92);
-            this.plantTypeDropBox.Name = "plantTypeDropBox";
-            this.plantTypeDropBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantTypeDropBox.Size = new System.Drawing.Size(189, 28);
-            this.plantTypeDropBox.TabIndex = 18;
-            this.plantTypeDropBox.WatermarkText = "בחר סוג הצמח";
-            this.plantTypeDropBox.DropDown += new System.EventHandler(this.plantTypeDropBox_TextChanged);
-            // 
-            // plantNameTextBox
-            // 
-            this.plantNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.plantNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.plantNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            // 
-            // 
-            // 
-            this.plantNameTextBox.Border.Class = "TextBoxBorder";
-            this.plantNameTextBox.Location = new System.Drawing.Point(23, 21);
-            this.plantNameTextBox.Name = "plantNameTextBox";
-            this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(189, 28);
-            this.plantNameTextBox.TabIndex = 17;
-            this.plantNameTextBox.WatermarkText = "הכנס סוג של הצמח";
-            this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
-            this.plantNameTextBox.TextChanged += new System.EventHandler(this.plantNameTextBox_TextChanged);
             // 
             // SalesGraphFrom
             // 
