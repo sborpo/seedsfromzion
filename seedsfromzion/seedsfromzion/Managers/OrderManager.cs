@@ -34,14 +34,13 @@ namespace seedsfromzion.Managers
                 throw new ArgumentException("Order already exists");
             }
             //checking that if client exists
-            if (!checkClientExists(clientInfo.clientId))
+            if (checkClientExists(clientInfo.clientId))
             {
-                //in case it dose not exist, adding it to the clients DataBase
-                //*******************
-                //* TBD !!!!!!!!!!!!*
-                //*******************
-                //addClientInfo(clientInfo);
+                //in case it exist, deleting the old client information from the DataBase
+                removeClient(clientInfo.clientId);
             }
+            //adding the client information:
+            addClientInfo(clientInfo);
             
             //adding the new order into the database:
             MySqlCommand[] addToOrdersFromStorage = new MySqlCommand[orderInfo.plantId.Length + 1];
@@ -149,6 +148,26 @@ namespace seedsfromzion.Managers
             return order;
         }
 
+        public ClientInfo findClient( int clientId)
+        {
+
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT Clients.id AS id ,Clients.name AS name ," +
+                                                         "Clients.phone As phone , Clients.email AS email FROM seedsdb.clients Clients"+
+                                                         " WHERE Clients.id=@P_ID",
+                                                         "@P_ID", clientId.ToString());
+            DataTable result = DataAccess.DatabaseAccess.getResultSetFromDb(command);
+            ClientInfo client = new ClientInfo();                
+
+            if (result.Rows.Count >= 1)
+            {
+                client.clientId = clientId;
+                client.name = (string)result.Rows[0]["name"];
+                client.phoneNumber = (string)result.Rows[0]["phone"];
+                client.email = (string)result.Rows[0]["email"];              
+            }
+            return client;
+        }
+
        public void updateOrderInfo(int orderId,  OrderInfo orderInfo, ClientInfo clientInfo)
         {
             if ((checkClientExists(clientInfo.clientId)) && (checkOrderExists(orderInfo.orderId)))
@@ -187,6 +206,20 @@ namespace seedsfromzion.Managers
            DatabaseAccess.performDMLTransaction(commandArray);
           
        }
+
+       public void removeClient(int clientId)
+       {
+           if (!checkClientExists(clientId))
+           {
+               throw new ArgumentException("client doesn't exists");
+           }
+
+           MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.clients WHERE id=@P_ID",
+                                                                "@P_ID", clientId.ToString());
+           
+           DatabaseAccess.performDMLQuery(command);
+       }
+
        public int getNextOrderId()
        {
            
@@ -227,7 +260,7 @@ namespace seedsfromzion.Managers
        private void addClientInfo(ClientInfo clientInfo)
        {
            MySqlCommand command = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.clients" +
-                                     " VALUES (@P_ID,@PNAME,@P_PHONE,@P_EMAIL)", 
+                                     " VALUES (@P_ID,@P_NAME,@P_PHONE,@P_EMAIL)", 
                                      "@P_ID", clientInfo.clientId.ToString(), 
                                      "@P_NAME", clientInfo.name, 
                                      "@P_PHONE", clientInfo.phoneNumber, 
@@ -235,10 +268,10 @@ namespace seedsfromzion.Managers
                                                                  
                                                                  
                                                                  
-            DatabaseAccess.performDMLQuery(command);
-
-           
+            DatabaseAccess.performDMLQuery(command);           
        }
+
+
         /// <summary>
         /// This method checks if the order id transferd to her already exists
         /// in the orders DataBase.
@@ -255,7 +288,7 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="p_clientId">The id that will be checked in the DataBase</param>
         /// <returns>boolean</returns>
-        private bool checkClientExists(int p_clientId)
+        public bool checkClientExists(int p_clientId)
         {
             return DataAccessUtils.rowExists("SELECT id FROM seedsdb.clients WHERE id=@p_clientId;", "@p_clientId", p_clientId.ToString());            
         }
