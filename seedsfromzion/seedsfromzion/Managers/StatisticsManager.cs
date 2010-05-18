@@ -16,22 +16,63 @@ namespace seedsfromzion.Managers
     class StatisticsManager
     {
         #region public fields
-        static public Dictionary<string,string> plantTypes = new Dictionary<string,string>()
-        {   
-            {"a","סוג א"},
-            {"b","סוג ב"},
-            {"c","סוג ג"}
-        }; 
+        static public DataTable plantNames;
+        static public DataTable plantTypes;
+        //static public Dictionary<string,string> plantTypes = new Dictionary<string,string>()
+        //{   
+        //    {"a","סוג א"},
+        //    {"b","סוג ב"},
+        //    {"c","סוג ג"}
+        //}; 
         #endregion
 
-        #region public methods
+        #region public global methods
 
-        static public DataTable getSalesGraphValues()
+        static public void initPlantNames()
         {
-            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            //plantNames = getWholeColumnFromTable("plants", "name");
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T ");
+            plantNames = DatabaseAccess.getResultSetFromDb(command);
+        }
+
+        static public void initPlantTypes()
+        {
+            //plantTypes = getWholeColumnFromTable("planttypes", "type");
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT T.name AS name, T.type AS type FROM seedsdb.planttypes T ");
+            plantTypes = DatabaseAccess.getResultSetFromDb(command);
+        }
+
+        //static public DataTable getWholeColumnFromTable(string tableName, string columnName)
+        //{
+        //    MySqlCommand command =
+        //        DataAccessUtils.commandBuilder("SELECT T.@COLUMN_NAME1 AS @COLUMN_NAME2 FROM seedsdb.@TABLE_NAME T ",
+        //                                        "@COLUMN_NAME1", columnName, "@COLUMN_NAME2", columnName, "@TABLE_NAME", tableName);
+        //    DataTable result = DatabaseAccess.getResultSetFromDb(command);
+        //    return result;
+        //}
+
+        #endregion
+
+
+        #region statistics methods
+        static public DataTable getSalesGraphValues(int plantId)
+        {
+            //int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command = 
                 DataAccessUtils.commandBuilder("SELECT O.orderDate AS orderDate,SUM(OFS.units) AS units FROM seedsdb.orders O ,seedsdb.ordersfromstorage OFS WHERE O.orderId = OFS.orderId AND OFS.plantId = @PLANT_ID GROUP BY YEAR(orderDate),MONTH(orderDate)",
                                                 "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return result;
+        }
+
+        static public DataTable getSalesGraphValues(string plantName)
+        {
+            //int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT O.orderDate AS orderDate,SUM(OFS.units) AS units FROM seedsdb.orders O ,seedsdb.ordersfromstorage OFS WHERE O.orderId = OFS.orderId AND OFS.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME) GROUP BY YEAR(orderDate),MONTH(orderDate)",
+                                                "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
         }
@@ -48,7 +89,7 @@ namespace seedsfromzion.Managers
 
         static public DataTable getGrowViaTypeGraphValues()
         {
-            string plantName = "Kalonit";//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            string plantName = "קלונית";//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT PT.type AS type, SUM(SPS.sproutingPerc)/COUNT(*) AS sproutingPerc FROM planttypes PT, sproutedstats SPS WHERE PT.name = @PLANT_NAME AND PT.plantId = SPS.plantId GROUP BY type",
                                                 "@PLANT_NAME", plantName);
@@ -67,33 +108,32 @@ namespace seedsfromzion.Managers
         }
 
 
-        static public S[] buildArrayFromGraphData<T,S>(DataTable dataTable, String columnName)
+        static public S[] buildArrayFromGraphData<T, S>(DataRow[] dataRowArr, String columnName)
         {
-            S[] array = new S[dataTable.Rows.Count];
-            try
+            S[] array = new S[dataRowArr.Length];
+            for (int i = 0; i < dataRowArr.Length; i++)
             {
-                for (int i = 0; i < dataTable.Rows.Count; i++)
+                Object value = dataRowArr[i][columnName];
+
+                if (typeof(T).Equals(typeof(DateTime)))
                 {
-                    Object value = dataTable.Rows[i][columnName];
-                    
-                    if (typeof(T).Equals(typeof(DateTime)))
-                    {
-                        DateTime date = (DateTime)Convert.ChangeType(value, typeof(DateTime));
-                        XDate xDate = new XDate(date);
-                        array[i] = (S)Convert.ChangeType((double)xDate, typeof(S));
-                    }
-                    else
-                    {
-                       array[i] = (S)Convert.ChangeType(value, typeof(S)); ;
-                    }
+                    DateTime date = (DateTime)Convert.ChangeType(value, typeof(DateTime));
+                    XDate xDate = new XDate(date);
+                    array[i] = (S)Convert.ChangeType((double)xDate, typeof(S));
+                }
+                else
+                {
+                    array[i] = (S)Convert.ChangeType(value, typeof(S)); ;
                 }
             }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message,"Fuck");
-            }
+            
 
             return array;
+        }
+
+        static public S[] buildArrayFromGraphData<T,S>(DataTable dataTable, String columnName)
+        {
+            return buildArrayFromGraphData<T,S>(dataTable.Select(), columnName);
         }
 
         #endregion
