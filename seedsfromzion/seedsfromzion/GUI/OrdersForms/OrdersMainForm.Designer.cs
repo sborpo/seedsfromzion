@@ -41,6 +41,11 @@
             this.addButton = new DevComponents.DotNetBar.ButtonX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.orderGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.porderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderStorageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orderUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.doubleInput1 = new DevComponents.Editors.DoubleInput();
             this.buttonOrder = new DevComponents.DotNetBar.ButtonX();
@@ -56,11 +61,6 @@
             this.dateTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.removeButton = new DevComponents.DotNetBar.ButtonX();
-            this.porderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderStorageId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.orderUnits = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
@@ -198,8 +198,41 @@
             this.orderGrid.MultiSelect = false;
             this.orderGrid.Name = "orderGrid";
             this.orderGrid.ReadOnly = true;
+            this.orderGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGrid.Size = new System.Drawing.Size(451, 150);
             this.orderGrid.TabIndex = 5;
+            // 
+            // porderId
+            // 
+            this.porderId.HeaderText = "Column1";
+            this.porderId.Name = "porderId";
+            this.porderId.ReadOnly = true;
+            this.porderId.Visible = false;
+            // 
+            // orderName
+            // 
+            this.orderName.HeaderText = "שם הצמח";
+            this.orderName.Name = "orderName";
+            this.orderName.ReadOnly = true;
+            this.orderName.Width = 108;
+            // 
+            // orderType
+            // 
+            this.orderType.HeaderText = "סוג";
+            this.orderType.Name = "orderType";
+            this.orderType.ReadOnly = true;
+            // 
+            // orderStorageId
+            // 
+            this.orderStorageId.HeaderText = "מספר המחסן";
+            this.orderStorageId.Name = "orderStorageId";
+            this.orderStorageId.ReadOnly = true;
+            // 
+            // orderUnits
+            // 
+            this.orderUnits.HeaderText = "יחידות";
+            this.orderUnits.Name = "orderUnits";
+            this.orderUnits.ReadOnly = true;
             // 
             // labelX3
             // 
@@ -388,38 +421,6 @@
             this.removeButton.Size = new System.Drawing.Size(43, 43);
             this.removeButton.TabIndex = 21;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
-            // 
-            // porderId
-            // 
-            this.porderId.HeaderText = "Column1";
-            this.porderId.Name = "porderId";
-            this.porderId.ReadOnly = true;
-            this.porderId.Visible = false;
-            // 
-            // orderName
-            // 
-            this.orderName.HeaderText = "שם הצמח";
-            this.orderName.Name = "orderName";
-            this.orderName.ReadOnly = true;
-            this.orderName.Width = 108;
-            // 
-            // orderType
-            // 
-            this.orderType.HeaderText = "סוג";
-            this.orderType.Name = "orderType";
-            this.orderType.ReadOnly = true;
-            // 
-            // orderStorageId
-            // 
-            this.orderStorageId.HeaderText = "מספר המחסן";
-            this.orderStorageId.Name = "orderStorageId";
-            this.orderStorageId.ReadOnly = true;
-            // 
-            // orderUnits
-            // 
-            this.orderUnits.HeaderText = "יחידות";
-            this.orderUnits.Name = "orderUnits";
-            this.orderUnits.ReadOnly = true;
             // 
             // OrdersMainForm
             // 

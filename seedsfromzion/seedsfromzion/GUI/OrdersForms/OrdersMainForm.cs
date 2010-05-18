@@ -130,11 +130,13 @@ namespace seedsfromzion.GUI.OrdersForms
             
             //checking that the item is not already in the order:
             System.UInt32 pid = (System.UInt32)selectedRows[0].Cells["id"].Value;
+            System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells["storageId"].Value;
             for (int i = 0; i < Order.Rows.Count; i++)
             {
                 DataRow row = Order.Rows[i];
                 
-                if (pid.ToString().Equals(row["orderId"].ToString()))
+                if( (pid.ToString().Equals(row["orderId"].ToString())) &&
+                    (pstorageId.ToString().Equals(row["orderStorageId"].ToString())))
                 {
                     new ErrorWindow("הפריט הנבחר קיים כבר בהזמנה").Show();
                     return;
@@ -144,7 +146,7 @@ namespace seedsfromzion.GUI.OrdersForms
             //adding the new item to the order view:
             string pname = (string)selectedRows[0].Cells["name"].Value;
             string ptype = (string)selectedRows[0].Cells["type"].Value;
-            System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells["storageId"].Value;
+            
             orderGrid.Rows.Add(pid, pname, ptype, pstorageId, amount);
             orderGrid.Refresh();
             //adding the new item to the order
@@ -205,6 +207,7 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("נא לעדכן את תאריך האספקה").Show();
                 return;
             }
+            OrderManager orderManager = new OrderManager();
             DataStructures.ClientInfo clientInfo = new seedsfromzion.DataStructures.ClientInfo();
             DataStructures.OrderInfo orderInfo = new seedsfromzion.DataStructures.OrderInfo();
             //setting the client info:
@@ -213,20 +216,49 @@ namespace seedsfromzion.GUI.OrdersForms
             clientInfo.phoneNumber      = phoneBoxX.Text;
             clientInfo.email            = emailBoxX.Text;
             //setting the order info:
+            orderInfo.orderId           = orderManager.getNextOrderId();
             orderInfo.dueDate           = dateTimeInput.Value;
             orderInfo.orderDate         = DateTime.Today;
             orderInfo.status            = '0';
-            orderInfo.plantId           = new int[Order.Rows.Count];
+            orderInfo.plantId           = new System.UInt32[Order.Rows.Count];
             orderInfo.fromStorageId     = new string[Order.Rows.Count];
             orderInfo.units             = new double[Order.Rows.Count];
             //TODO:: orderInfo.orderId = Managers.OrderManager.getNextOrderId();
-            for (int i = 0; i < Order.Rows.Count; i++)
+          for (int i = 0; i < Order.Rows.Count; i++)
             {
-                orderInfo.plantId[i] = (int)Order.Rows[i][0];
+                orderInfo.plantId[i] = System.UInt32.Parse((string)Order.Rows[i][0]);
                 orderInfo.fromStorageId[i] = (string)Order.Rows[i][3];
-                orderInfo.units[i] = (double)Order.Rows[i][4];
+                orderInfo.units[i] = double.Parse((string)Order.Rows[i][4]);
             }
-            //TODO: addorder
+          
+          try
+          {
+              orderManager.addOrder( clientInfo, orderInfo);
+              new SuccessWindow().Show();
+              clearAfterAddingOrder();
+          }
+          catch (ArgumentException ex)
+          {
+              new ErrorWindow(ex.ToString()).Show();
+              return;
+          }  
+
+        }
+
+        private void clearAfterAddingOrder()
+        {
+            Order.Clear();
+            Storage.Clear();
+            refreshStorageTable();
+            orderGrid.Rows.Clear();
+            idBox.Value = 0;
+            idBox.Refresh();
+            nameBox.Text = "";
+            nameBox.Refresh();
+            phoneBoxX.Text = "";
+            phoneBoxX.Refresh();
+            emailBoxX.Text = "";
+            emailBoxX.Refresh();
 
         }
 
