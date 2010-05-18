@@ -81,7 +81,19 @@ namespace seedsfromzion.Managers
             if (result.Rows.Count == 0)
                 return -1;
 
-            int id = (int)result.Rows[0]["plantId"];
+            int id = -1;
+            try
+            {
+                Object ob = result.Rows[0]["plantId"];
+                id = (int)Convert.ChangeType(ob, typeof(int)); ;
+                return id;
+            }
+            catch (Exception ex)
+            {
+                Console.Beep();
+            }
+
+            return -1;
 
             return id;
         }
