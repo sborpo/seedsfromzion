@@ -7,12 +7,22 @@ using System.Collections.Specialized;
 
 namespace seedsfromzion.DataAccess
 {
-    class ConfigFile 
+    /// <summary>
+    /// This class gives the access to the Settings File of the
+    /// application.
+    /// It is a singleton class.
+    /// </summary>
+    class ConfigFile
     {
+        //the singelton field
         private static ConfigFile file;
-        ConfigFile() {
+        ConfigFile()
+        {
         }
 
+        /// <summary>
+        /// Singleton method for getting the object
+        /// </summary>
         public static ConfigFile getInstance
         {
             get
@@ -24,6 +34,11 @@ namespace seedsfromzion.DataAccess
                 return file;
             }
         }
+
+        /// <summary>
+        /// Sets and gets the frequency in hours that the system
+        /// should check for expired visa notifications
+        /// </summary>
         public int VisaFreq
         {
             get
@@ -38,6 +53,10 @@ namespace seedsfromzion.DataAccess
 
         }
 
+        /// <summary>
+        /// Sets and gets the frequency in hours that the system
+        /// should check for incoming customers notification
+        /// </summary>
         public int OrderFreq
         {
             get
@@ -52,6 +71,10 @@ namespace seedsfromzion.DataAccess
 
         }
 
+        /// <summary>
+        /// Sets and gets the frequency in hours that the system
+        /// should check for low inventory count of units notification
+        /// </summary>
         public int UnitsFreq
         {
             get
@@ -65,6 +88,10 @@ namespace seedsfromzion.DataAccess
             }
 
         }
+
+        /// <summary>
+        /// Sets and gets the images path where the plants photos are stored 
+        /// </summary>
         public string ImagesPath
         {
             get
@@ -78,6 +105,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the automatic backups path.
+        /// </summary>
         public string BackupPath
         {
             get
@@ -91,6 +121,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the MySql DMBS installation folder
+        /// </summary>
         public string MySqlPath
         {
             get
@@ -104,6 +137,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the last Database optimization date
+        /// </summary>
         public DateTime LastOptimizationDate
         {
             get
@@ -117,6 +153,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the last Database Automatic Backup Date
+        /// </summary>
         public DateTime LastAutomaticBackupDate
         {
             get
@@ -130,6 +169,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the backup frequency of the system in days
+        /// </summary>
         public int BackupFrequency
         {
             get
@@ -143,6 +185,9 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the optimization frequency of the system in days
+        /// </summary>
         public int OptimizingFrequency
         {
             get
@@ -156,6 +201,10 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the number of days that the system notifies the user
+        /// before visa expiration.
+        /// </summary>
         public int VisaExpireDays
         {
             get
@@ -169,6 +218,10 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the number of days that the system notifies the user
+        /// before customers come to take their order
+        /// </summary>
         public int OrderDueDate
         {
             get
@@ -183,6 +236,10 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the units treshold , which below it , the system will notify 
+        /// that the inventory status is low.
+        /// </summary>
         public int MinUnitsInStorage
         {
             get
@@ -196,6 +253,10 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Sets and gets the favorite plants of the system.
+        /// Is stores a string list of plant ids.
+        /// </summary>
         public System.Collections.Specialized.StringCollection Favorites
         {
             get
@@ -215,12 +276,18 @@ namespace seedsfromzion.DataAccess
             }
         }
 
+        /// <summary>
+        /// Gets the connection string to the DBMS. 
+        /// the connection string is decrypted before it returned
+        /// to the user.
+        /// </summary>
         public string ConnectionString
         {
-            get 
+            get
             {
-        
+                //open the configuration file
                 Configuration config = ConfigurationManager.OpenExeConfiguration(System.Reflection.Assembly.GetExecutingAssembly().Location);
+                //get the connection string section
                 ConnectionStringsSection section = config.GetSection("connectionStrings") as ConnectionStringsSection;
                 if (section.SectionInformation.IsProtected)
                 {
