@@ -35,40 +35,73 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Title.Text = "תאריך הזריע";
             growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
+            // Set the XAxis to Date type
+            growGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
+            growGraphPane.XAxis.Scale.Format = "yyyy-MMM-dd";
+            growGraphPane.XAxis.Scale.MajorStep = 1;
+            growGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
+            // tilt the x axis labels to an angle of 65 degrees
+            growGraphPane.XAxis.Scale.FontSpec.Angle = 65;
+            growGraphPane.XAxis.Scale.FontSpec.Size = 9;
+            growGraphPane.XAxis.Scale.IsVisible = false;
+
+            growGraphPane.YAxis.Type = AxisType.Linear;
+            growGraphPane.YAxis.Scale.FormatAuto = true;
+            growGraphPane.YAxis.Scale.IsVisible = false;
+
             //set background color
             growGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
         }
 
-        private void GrowViaSowGraphControl_Load(object sender, EventArgs e)
+        private void GrowViaSowGraphControl_Load(string plantName, int plantId)
         {
             GraphPane growGraphPane = this.GrowViaSowGraphControl.GraphPane;
-            DataTable graphData = StatisticsManager.getGrowViaSowGraphValues();
+            DataTable graphData;
+            if (plantId.Equals(-1))
+            {
+                graphData = StatisticsManager.getGrowViaSowGraphValues(plantName);
+            }
+            else
+            {
+                graphData = StatisticsManager.getGrowViaSowGraphValues(plantId);
+            }
+            growGraphPane.CurveList.Clear();
+            growGraphPane.GraphObjList.Clear();
+            if (graphData.Rows.Count.Equals(0))
+            {
+                new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
+                return;
+            }
 
             //set the values of the bars
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,Double>(graphData, "sowingDate");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
+            StatisticsManager.sortData(ref xArray, ref yArray);
+            StatisticsManager.filterDates(ref xArray, ref yArray, this.fromDate, this.tillDate);
 
             if (xArray.Length.Equals(0))
             {
-                throw new Exception("Zero length data was received");
+                new ErrorWindow("אין מידע עבור צמח בתאריכים שנבחרו").Show();
+                return;
             }
 
             //create the bar
-            BarItem myCurve = growGraphPane.AddBar("Plant 'Plant'", xArray, yArray, Color.Blue);
+            BarItem myCurve = growGraphPane.AddBar("'שם הצמח: "+ "'" + plantName , xArray, yArray, Color.Blue);
 
             // Draw the X tics between the labels instead of at the labels
             growGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
 
-            // Set the XAxis to Date type
-            growGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
-            growGraphPane.XAxis.Scale.Format = "yyyy-MMM-dd";
-
             // disable the legend
-            growGraphPane.Legend.IsVisible = false;
+            growGraphPane.Legend.IsVisible = true;
 
             // Create TextObj's to provide labels for each bar
             BarItem.CreateBarLabels(growGraphPane, false, "f2");
-         
+
+            StatisticsManager.rotateBarLables(growGraphPane);
+
+            //set visible scales
+            growGraphPane.XAxis.Scale.IsVisible = true;
+            growGraphPane.YAxis.Scale.IsVisible = true;
 
             //recalculate graph
             growGraphPane.AxisChange();
@@ -99,25 +132,37 @@ namespace seedsfromzion.GUI.StatisticsForms
                 new ErrorWindow("שם של הצמח ריק").Show();
                 return;
             }
-            if (isChosenTypeCHBX.Enabled && plantType.Length <= 0)
+           
+            int plantId = -1;
+            if (this.plantTypeDropBox.Enabled.Equals(true))
             {
-                //throw new KeyNotFoundException("פרטים חסרים...");
-                new ErrorWindow("אנא בחרו סוג הצמח").Show();
+                if (plantType.Length <= 0)
+                {
+                    //throw new KeyNotFoundException("פרטים חסרים...");
+                    new ErrorWindow("אנא בחרו סוג הצמח").Show();
+                    return;
+                }
+                else
+                {
+                    plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
+                    //if no such plant name
+                    if (plantId.Equals(-1))
+                    {
+                        //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
+                        new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
+                        return;
+                    }
+                }
+            }
+
+            if ((this.fromDate.LockUpdateChecked.Equals(true) && this.fromDate.IsEmpty) ||
+                (this.tillDate.LockUpdateChecked.Equals(true) && this.tillDate.IsEmpty))
+            {
+                new ErrorWindow("אנא בחרו תאריכים או בטלו אותם").Show();
                 return;
             }
 
-            int plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
-
-            //if no such plant name
-            if (plantId.Equals(-1))
-            {
-                //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
-                new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
-                return;
-            }
-
-
-            //this.salesGraphControl_Load(plantId);
+            this.GrowViaSowGraphControl_Load(plantName, plantId);
         }
 
 

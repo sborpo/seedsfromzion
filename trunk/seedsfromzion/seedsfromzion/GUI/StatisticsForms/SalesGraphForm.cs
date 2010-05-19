@@ -76,6 +76,20 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.XAxis.Title.Text = "חודשים";
             salesGraphPane.YAxis.Title.Text = "מספר הצמחים";
 
+            // Set the XAxis to Date type
+            salesGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
+            salesGraphPane.XAxis.Scale.Format = "yyyy-MMM";
+            salesGraphPane.XAxis.Scale.MajorStep = 1;
+            salesGraphPane.XAxis.Scale.MajorUnit = DateUnit.Month;
+            // tilt the x axis labels to an angle of 65 degrees
+            salesGraphPane.XAxis.Scale.FontSpec.Angle = 65;
+            salesGraphPane.XAxis.Scale.FontSpec.Size = 9;
+            salesGraphPane.XAxis.Scale.IsVisible = false;
+
+            salesGraphPane.YAxis.Type = AxisType.Linear;
+            salesGraphPane.YAxis.Scale.FormatAuto = true;
+            salesGraphPane.YAxis.Scale.IsVisible = false;
+
             //set background color
             salesGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
         }
@@ -94,6 +108,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
             salesGraphPane.CurveList.Clear();
             salesGraphPane.GraphObjList.Clear();
+  
             if (graphData.Rows.Count.Equals(0))
             {
                 new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
@@ -103,24 +118,34 @@ namespace seedsfromzion.GUI.StatisticsForms
             //set the values of the bars
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,double>(graphData, "orderDate");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<decimal,double>(graphData, "units");
-            
+            StatisticsManager.sortData(ref xArray, ref yArray);
+            StatisticsManager.filterDates(ref xArray, ref yArray, this.fromDate, this.tillDate);
+
+            //check if there is any data
+            if (xArray.Length.Equals(0))
+            {
+                new ErrorWindow("אין מידע עבור צמח בתאריכים שנבחרו").Show();
+                return;
+            }
 
             //create the bar
-            BarItem myCurve = salesGraphPane.AddBar("Plant 'Plant'", xArray, yArray, Color.Blue);
+            BarItem myCurve = salesGraphPane.AddBar("'שם הצמח: " + "'" + plantName, xArray, yArray, Color.Blue);
 
             // Draw the X tics between the labels instead of at the labels
             salesGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
 
-            // Set the XAxis to Date type
-            salesGraphPane.XAxis.Type = AxisType.DateAsOrdinal;
-            salesGraphPane.XAxis.Scale.Format = "yyyy-MMM";
-
-
             // disable the legend
-            salesGraphPane.Legend.IsVisible = false;
+            salesGraphPane.Legend.IsVisible = true;
 
             // Create TextObj's to provide labels for each bar
             BarItem.CreateBarLabels(salesGraphPane, false, "f0");
+
+            StatisticsManager.rotateBarLables(salesGraphPane);
+            
+
+            //set visible scales
+            salesGraphPane.XAxis.Scale.IsVisible = true;
+            salesGraphPane.YAxis.Scale.IsVisible = true;
 
             //recalculate graph
             salesGraphPane.AxisChange();
@@ -171,7 +196,14 @@ namespace seedsfromzion.GUI.StatisticsForms
                         return;
                     }
                 }
-            }            
+            }
+
+            if ((this.fromDate.LockUpdateChecked.Equals(true) && this.fromDate.IsEmpty) ||
+                (this.tillDate.LockUpdateChecked.Equals(true) && this.tillDate.IsEmpty))
+            {
+                new ErrorWindow("אנא בחרו תאריכים או בטלו אותם").Show();
+                return;
+            }
            
             this.salesGraphControl_Load(plantName, plantId);
         }
