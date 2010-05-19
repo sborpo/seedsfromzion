@@ -301,7 +301,7 @@ namespace seedsfromzion.GUI
         #region statistics
         private void salesGraphButton_Click(object sender, EventArgs e)
         {
-            SalesGraphFrom salesGraphMDIChild = new SalesGraphFrom();
+            SalesGraphFrom salesGraphMDIChild = new SalesGraphFrom(this);
             // Set the Parent Form of the Child window.
             salesGraphMDIChild.MdiParent = this;
             // Display the new form.
@@ -311,7 +311,7 @@ namespace seedsfromzion.GUI
 
         private void percViaSowDate_Click(object sender, EventArgs e)
         {
-            GrowViaSowingDateForm sowGraphMDIChild = new GrowViaSowingDateForm();
+            GrowViaSowingDateForm sowGraphMDIChild = new GrowViaSowingDateForm(this);
             // Set the Parent Form of the Child window.
             sowGraphMDIChild.MdiParent = this;
             // Display the new form.
@@ -320,7 +320,7 @@ namespace seedsfromzion.GUI
 
         private void percViaSeedType_Click(object sender, EventArgs e)
         {
-            GrowViaPlantTypeForm typeGraphMDIChild = new GrowViaPlantTypeForm();
+            GrowViaPlantTypeForm typeGraphMDIChild = new GrowViaPlantTypeForm(this);
             // Set the Parent Form of the Child window.
             typeGraphMDIChild.MdiParent = this;
             // Display the new form.
@@ -329,7 +329,7 @@ namespace seedsfromzion.GUI
 
         private void percViaTimeInFridge_Click(object sender, EventArgs e)
         {
-            GrowViaFridgeTimeForm fridgeGraphMDIChild = new GrowViaFridgeTimeForm();
+            GrowViaFridgeTimeForm fridgeGraphMDIChild = new GrowViaFridgeTimeForm(this);
             // Set the Parent Form of the Child window.
             fridgeGraphMDIChild.MdiParent = this;
             // Display the new form.
