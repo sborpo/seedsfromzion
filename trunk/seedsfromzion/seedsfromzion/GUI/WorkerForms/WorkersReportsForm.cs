@@ -16,11 +16,13 @@ namespace seedsfromzion.GUI.WorkerForms
         public WorkersReportsForm()
         {
             InitializeComponent();
+            comboBoxEx1.SelectedIndex = 0;
         }
 
         private void btn_save_Click(object sender, EventArgs e)
         {
             Report r = new Report();
+            generateWorkerReport(r);
             r.ReportColor = (comboBoxEx1.SelectedIndex == 0) ? Report.ReportStyle.Color : Report.ReportStyle.BlackWhite;
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.InitialDirectory = @"c:\";
@@ -38,7 +40,7 @@ namespace seedsfromzion.GUI.WorkerForms
         private void generateWorkerReport(Report r)
         {
             WorkerManager manager = new WorkerManager();
-            DataTable table = manager.Workers();
+            DataTable table = manager.Workers;
             table.Columns[0].ColumnName = "ת.ז";
             table.Columns[1].ColumnName = "שם";
             table.Columns[2].ColumnName = "טלפון";
