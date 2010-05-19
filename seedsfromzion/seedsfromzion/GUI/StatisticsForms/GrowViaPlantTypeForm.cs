@@ -13,9 +13,19 @@ namespace seedsfromzion.GUI.StatisticsForms
 {
     public partial class GrowViaPlantTypeForm : seedsfromzion.GUI.BaseForm
     {
-        public GrowViaPlantTypeForm()
+        public GrowViaPlantTypeForm(seedsFromZion mainForm)
         {
             InitializeComponent();
+            mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
+        }
+
+        void mainForm_favoriteClicked(int plantId)
+        {
+            if (this.Created)
+            {
+                string plantName = StatisticsManager.getNameById(plantId);
+                this.plantNameTextBox.Text = plantName;
+            }
         }
 
         private void GrowViaPlantTypeForm_Load(object sender, EventArgs e)

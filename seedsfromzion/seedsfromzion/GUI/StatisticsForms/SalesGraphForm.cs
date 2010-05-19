@@ -13,9 +13,22 @@ namespace seedsfromzion.GUI.StatisticsForms
 {
     public partial class SalesGraphFrom : seedsfromzion.GUI.BaseForm
     {
-        public SalesGraphFrom()
+        private int selectedFavotitePlantId = -1;
+
+        public SalesGraphFrom(seedsFromZion mainForm)
         {
             InitializeComponent();
+            mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
+        }
+
+        void mainForm_favoriteClicked(int plantId)
+        {
+            if (this.Created)
+            {
+                selectedFavotitePlantId = plantId;
+                string plantName = StatisticsManager.getNameById(plantId);
+                this.plantNameTextBox.Text = plantName;
+            }
         }
 
         private void SalesGraphFrom_Load(object sender, EventArgs e)
@@ -211,23 +224,23 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         private void plantNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            if (selectedFavotitePlantId > 0)
             {
-                if (this.plantNameTextBox.Text.Length > 0)
-                {
-                    DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                    if (rows.Length > 0)
-                    {
-                        String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-
-                        this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
-                        this.plantNameTextBox.Refresh();
-                    }
-                }
+                plantTypeDropBox_TextChanged(sender, e);
+                string plantType = StatisticsManager.getTypeById(selectedFavotitePlantId);
+                this.plantTypeDropBox.SelectedIndex = this.plantTypeDropBox.Items.IndexOf(plantType);
+                selectedFavotitePlantId = -1;
             }
-            catch (Exception ex)
+            else if (this.plantNameTextBox.Text.Length > 0)
             {
-                MessageBox.Show(ex.Message);
+                DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                if (rows.Length > 0)
+                {
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+
+                    this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
+                    this.plantNameTextBox.Refresh();
+                }
             }
         }
 
