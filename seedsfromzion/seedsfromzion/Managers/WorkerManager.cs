@@ -143,6 +143,24 @@ namespace seedsfromzion.Managers
             //preforming the trasaction:
             DatabaseAccess.performDMLTransaction(commands);
         }
+
+        /// <summary>
+        /// returns the hours the p_id worker workes on p_date
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <param name="p_date"></param>
+        public DataTable GetWorkerHours(int p_id, DateTime p_date)
+        {
+            if (!this.checkWorkerExists(p_id))
+            {
+                throw new ArgumentException("worker doesnwt exists");
+            }
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT startTime, endTime FROM seedsdb.workdays " +
+                "WHERE workerId=@P_ID, date=@P_DATE",
+                "@P_ID", p_id.ToString(),
+                "@P_DATE", String.Format("{0:yyyy-M-d}", p_date));
+            return DatabaseAccess.getResultSetFromDb(command);
+        }
         #endregion hours
 
         #region visa
@@ -210,6 +228,11 @@ namespace seedsfromzion.Managers
 
         }
 
+        /// <summary>
+        /// returns dateTable attached of workers attached to visas
+        /// </summary>
+        /// <param name="p_visaID"></param>
+        /// <returns></returns>
         public DataTable GetWorkersAttachedToVisa(int p_visaID)
         {
             if (!checkVisaExists(p_visaID))
@@ -220,6 +243,7 @@ namespace seedsfromzion.Managers
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT workerid FROM seedsdb.workersvisas WHERE visaid=@P_VISAID",
                 @"P_VISAID", p_visaID.ToString());
             DataTable workersID = DatabaseAccess.getResultSetFromDb(command);
+            
 
 
 
