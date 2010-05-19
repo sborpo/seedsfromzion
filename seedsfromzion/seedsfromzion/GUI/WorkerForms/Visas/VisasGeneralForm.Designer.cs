@@ -30,11 +30,15 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridVisas = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.btn_addVisa = new DevComponents.DotNetBar.ButtonX();
             this.dataGrid_workers = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dataGrid_allWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.btn_attachWorkerToVisa = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridVisas
@@ -96,11 +100,48 @@
             this.dataGrid_workers.Size = new System.Drawing.Size(369, 152);
             this.dataGrid_workers.TabIndex = 2;
             // 
+            // dataGrid_allWorkers
+            // 
+            this.dataGrid_allWorkers.AllowUserToAddRows = false;
+            this.dataGrid_allWorkers.AllowUserToDeleteRows = false;
+            this.dataGrid_allWorkers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.dataGrid_allWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_allWorkers.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGrid_allWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGrid_allWorkers.Location = new System.Drawing.Point(439, 266);
+            this.dataGrid_allWorkers.MultiSelect = false;
+            this.dataGrid_allWorkers.Name = "dataGrid_allWorkers";
+            this.dataGrid_allWorkers.ReadOnly = true;
+            this.dataGrid_allWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGrid_allWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrid_allWorkers.Size = new System.Drawing.Size(369, 152);
+            this.dataGrid_allWorkers.TabIndex = 3;
+            // 
+            // btn_attachWorkerToVisa
+            // 
+            this.btn_attachWorkerToVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_attachWorkerToVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_attachWorkerToVisa.Image = global::seedsfromzion.Properties.Resources.addOrderIcon;
+            this.btn_attachWorkerToVisa.Location = new System.Drawing.Point(439, 442);
+            this.btn_attachWorkerToVisa.Name = "btn_attachWorkerToVisa";
+            this.btn_attachWorkerToVisa.Size = new System.Drawing.Size(41, 36);
+            this.btn_attachWorkerToVisa.TabIndex = 4;
+            this.btn_attachWorkerToVisa.Click += new System.EventHandler(this.btn_addWorkerToVisa_Click);
+            // 
             // VisasGeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(783, 515);
+            this.ClientSize = new System.Drawing.Size(811, 515);
+            this.Controls.Add(this.btn_attachWorkerToVisa);
+            this.Controls.Add(this.dataGrid_allWorkers);
             this.Controls.Add(this.dataGrid_workers);
             this.Controls.Add(this.btn_addVisa);
             this.Controls.Add(this.dataGridVisas);
@@ -109,6 +150,7 @@
             this.Load += new System.EventHandler(this.VisasGeneralForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -118,5 +160,7 @@
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridVisas;
         private DevComponents.DotNetBar.ButtonX btn_addVisa;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGrid_workers;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGrid_allWorkers;
+        private DevComponents.DotNetBar.ButtonX btn_attachWorkerToVisa;
     }
 }
