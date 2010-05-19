@@ -40,5 +40,23 @@ namespace seedsfromzion.GUI.WorkerForms
 
 
         private WorkerManager m_manager = new WorkerManager();
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            if (dataGridWorkers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int workerID = (int)((uint)dataGridWorkers.SelectedRows[0].Cells["id"].Value);
+            DateTime date = e.Start;
+
+            var hours = m_manager.GetWorkerHours(workerID, date);
+            if (hours.Rows.Count != 1)
+            {
+                dataGridView_hours.DataSource = null;
+                return;
+            }
+            dataGridView_hours.DataSource = hours;
+        }
     }
 }
