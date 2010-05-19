@@ -34,23 +34,41 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Title.Text = "זמן שהיה  במקרר";
             growGraphPane.YAxis.Title.Text = "אחוזי הנביטה";
 
+            // Set the XAxis to Date type
+            growGraphPane.XAxis.Type = AxisType.Linear;
+            growGraphPane.XAxis.Scale.IsVisible = false;
+
+            growGraphPane.YAxis.Type = AxisType.Linear;
+            growGraphPane.YAxis.Scale.FormatAuto = true;
+            growGraphPane.YAxis.Scale.IsVisible = false;
+
             //set background color
             growGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
 
         }
 
-        private void GrowViaFridgeGraphControl_Load(object sender, EventArgs e)
+        private void GrowViaFridgeGraphControl_Load(string plantName, int plantId)
         {
             GraphPane growGraphPane = this.GrowViaFridgeGraphControl.GraphPane;
-            DataTable graphData = StatisticsManager.getGrowViaFridgeGraphValues();
-
+            DataTable graphData;
+            if (plantId.Equals(-1))
+            {
+                graphData = StatisticsManager.getGrowViaFridgeGraphValues(plantName);
+            }
+            else
+            {
+                graphData = StatisticsManager.getGrowViaFridgeGraphValues(plantId);
+            }
+            growGraphPane.CurveList.Clear();
+            growGraphPane.GraphObjList.Clear();
             //set the values of the bars
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<decimal,Double>(graphData, "fridgeTime");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
 
-            if (xArray.Length.Equals(0))
+            if (graphData.Rows.Count.Equals(0))
             {
-                throw new Exception("Zero length data was received");
+                new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
+                return;
             }
 
             Double[] xSortedArray = (Double[])xArray.Clone();
@@ -68,24 +86,24 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
 
             // Add a curve
-            LineItem curve = growGraphPane.AddCurve("Plant 'plant'", xSortedArray, ySortedArray, Color.Blue, SymbolType.Circle);
+            LineItem curve = growGraphPane.AddCurve("'שם הצמח: " + "'" + plantName, xSortedArray, ySortedArray, Color.Blue, SymbolType.Circle);
             curve.Line.Width = 2.0F;
             curve.Line.IsAntiAlias = true;
             // activate the cardinal spline smoothing
             curve.Line.IsSmooth = true;
             curve.Line.SmoothTension = 0.1F;
-            curve.Symbol.Fill = new Fill(Color.White);
+            curve.Symbol.Fill = new Fill(Color.Honeydew);
             curve.Symbol.Size = 7;
 
             // disable the legend
-            growGraphPane.Legend.IsVisible = false;
+            growGraphPane.Legend.IsVisible = true;
 
             // Create TextObj's to provide labels for each bar
             //BarItem.CreateBarLabels(growGraphPane, false, "f2");
 
             // Offset Y space between point and label
             // NOTE:  This offset is in Y scale units, so it depends on your actual data
-            const double yOffset = 0.1;
+            const double yOffset = 0;
             const int xOffset = 0;
 
             // Loop to add text labels to the points
@@ -96,13 +114,14 @@ namespace seedsfromzion.GUI.StatisticsForms
 
                 string str = "(" + pt.X.ToString("f0") + " , " + pt.Y.ToString("f2") + ")";
                 // Create a text label from the Y data value
-                TextObj text = new TextObj(str, pt.X - xOffset, pt.Y + yOffset,
-                    CoordType.AxisXYScale, AlignH.Left, AlignV.Center);
+                TextObj text = new TextObj(str, pt.X + xOffset, pt.Y + yOffset,
+                    CoordType.AxisXYScale, AlignH.Left, AlignV.Bottom);
                 text.ZOrder = ZOrder.A_InFront;
+                text.FontSpec.Size = 8;
                 // Hide the border and the fill
                 text.FontSpec.Border.IsVisible = false;
                 text.FontSpec.Fill.IsVisible = false;
-                //text.FontSpec.Fill = new Fill( Color.FromArgb( 100, Color.White ) );
+                //text.FontSpec.Fill = new Fill( Color.FromArgb( 100, Color.GreenYellow ) );
                 // Rotate the text to 90 degrees
                 text.FontSpec.Angle = 0;
 
@@ -111,6 +130,10 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             // Leave some extra space on top for the labels to fit within the chart rect
             //growGraphPane.YAxis.Scale.MaxGrace = 0.2;
+
+            //set visible scales
+            growGraphPane.XAxis.Scale.IsVisible = true;
+            growGraphPane.YAxis.Scale.IsVisible = true;
 
             //recalculate graph
             growGraphPane.AxisChange();
@@ -141,25 +164,28 @@ namespace seedsfromzion.GUI.StatisticsForms
                 new ErrorWindow("שם של הצמח ריק").Show();
                 return;
             }
-            if (isChosenTypeCHBX.Enabled && plantType.Length <= 0)
+            int plantId = -1;
+            if (this.plantTypeDropBox.Enabled.Equals(true))
             {
-                //throw new KeyNotFoundException("פרטים חסרים...");
-                new ErrorWindow("אנא בחרו סוג הצמח").Show();
-                return;
+                if (plantType.Length <= 0)
+                {
+                    //throw new KeyNotFoundException("פרטים חסרים...");
+                    new ErrorWindow("אנא בחרו סוג הצמח").Show();
+                    return;
+                }
+                else
+                {
+                    plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
+                    //if no such plant name
+                    if (plantId.Equals(-1))
+                    {
+                        //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
+                        new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
+                        return;
+                    }
+                }
             }
-
-            int plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
-
-            //if no such plant name
-            if (plantId.Equals(-1))
-            {
-                //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
-                new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
-                return;
-            }
-
-
-           // this.salesGraphControl_Load(plantId);
+            this.GrowViaFridgeGraphControl_Load(plantName,plantId);
         }
 
 
@@ -193,7 +219,6 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         private void plantTypeDropBox_TextChanged(object sender, EventArgs e)
         {
-            //MAYBE TO IMPLEMENT THE CHOISE OF THE APPROPRIATE TYPE
             this.plantTypeDropBox.Items.Clear();
             if (this.plantNameTextBox.Text.Length > 0)
             {
@@ -202,11 +227,6 @@ namespace seedsfromzion.GUI.StatisticsForms
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
-
-                    //foreach(string name in names)
-                    //{
-                    //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
-                    //}
                     this.plantTypeDropBox.Items.AddRange(names);
                 }
                 this.plantTypeDropBox.EndUpdate();
