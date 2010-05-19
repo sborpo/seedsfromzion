@@ -391,6 +391,13 @@ namespace seedsfromzion.GUI
         {
 
         }
+
+        private void reportButton_Click(object sender, EventArgs e)
+        {
+            WorkersReportsForm form = new WorkersReportsForm();
+            form.MdiParent = this;
+            form.Show();
+        }
         #endregion
 
         #region orders
@@ -414,11 +421,6 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
-
-       
-
-
-
-        
+  
     }
 }

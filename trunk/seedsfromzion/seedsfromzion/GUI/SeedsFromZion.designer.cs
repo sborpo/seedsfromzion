@@ -30,18 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(seedsFromZion));
             this.systemControl = new DevComponents.DotNetBar.RibbonControl();
-            this.workersPanel = new DevComponents.DotNetBar.RibbonPanel();
-            this.paymentWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.paymentButton = new DevComponents.DotNetBar.ButtonItem();
-            this.visaWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.addUpdateVisaButton = new DevComponents.DotNetBar.ButtonItem();
-            this.generalWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.findWorkersButton = new DevComponents.DotNetBar.ButtonItem();
-            this.addWorkerButton = new DevComponents.DotNetBar.ButtonItem();
-            this.removeWorkerButton = new DevComponents.DotNetBar.ButtonItem();
-            this.reportWorkersBar = new DevComponents.DotNetBar.RibbonBar();
-            this.reportButton = new DevComponents.DotNetBar.ButtonItem();
-            this.addWorkerHoursButton = new DevComponents.DotNetBar.ButtonItem();
             this.inventoryPanel = new DevComponents.DotNetBar.RibbonPanel();
             this.ordersInventoryBar = new DevComponents.DotNetBar.RibbonBar();
             this.findOrderButton = new DevComponents.DotNetBar.ButtonItem();
@@ -57,6 +45,18 @@
             this.findPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.addPlantButton = new DevComponents.DotNetBar.ButtonItem();
             this.removePlantButton = new DevComponents.DotNetBar.ButtonItem();
+            this.workersPanel = new DevComponents.DotNetBar.RibbonPanel();
+            this.paymentWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.paymentButton = new DevComponents.DotNetBar.ButtonItem();
+            this.visaWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.addUpdateVisaButton = new DevComponents.DotNetBar.ButtonItem();
+            this.generalWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.findWorkersButton = new DevComponents.DotNetBar.ButtonItem();
+            this.addWorkerButton = new DevComponents.DotNetBar.ButtonItem();
+            this.removeWorkerButton = new DevComponents.DotNetBar.ButtonItem();
+            this.reportWorkersBar = new DevComponents.DotNetBar.RibbonBar();
+            this.reportButton = new DevComponents.DotNetBar.ButtonItem();
+            this.addWorkerHoursButton = new DevComponents.DotNetBar.ButtonItem();
             this.statisticsPanel = new DevComponents.DotNetBar.RibbonPanel();
             this.graphsStatisticsBar = new DevComponents.DotNetBar.RibbonBar();
             this.percentageGraphButton = new DevComponents.DotNetBar.ButtonItem();
@@ -92,8 +92,8 @@
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
             this.systemControl.SuspendLayout();
-            this.workersPanel.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
+            this.workersPanel.SuspendLayout();
             this.statisticsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).BeginInit();
             this.SuspendLayout();
@@ -101,8 +101,8 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
-            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Controls.Add(this.workersPanel);
+            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,166 +131,6 @@
             this.systemControl.SelectedRibbonTabChanged += new System.EventHandler(this.systemControl_SelectedRibbonTabChanged);
             this.systemControl.Click += new System.EventHandler(this.systemControl_Click);
             // 
-            // workersPanel
-            // 
-            this.workersPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.workersPanel.Controls.Add(this.paymentWorkersBar);
-            this.workersPanel.Controls.Add(this.visaWorkersBar);
-            this.workersPanel.Controls.Add(this.generalWorkersBar);
-            this.workersPanel.Controls.Add(this.reportWorkersBar);
-            this.workersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.workersPanel.Location = new System.Drawing.Point(0, 56);
-            this.workersPanel.Name = "workersPanel";
-            this.workersPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.workersPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.workersPanel.ShowFocusRectangle = true;
-            this.workersPanel.Size = new System.Drawing.Size(1001, 108);
-            this.workersPanel.TabIndex = 2;
-            this.workersPanel.Visible = false;
-            // 
-            // paymentWorkersBar
-            // 
-            this.paymentWorkersBar.AutoOverflowEnabled = true;
-            this.paymentWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.paymentWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.paymentButton});
-            this.paymentWorkersBar.Location = new System.Drawing.Point(314, 0);
-            this.paymentWorkersBar.Name = "paymentWorkersBar";
-            this.paymentWorkersBar.Size = new System.Drawing.Size(99, 100);
-            this.paymentWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.paymentWorkersBar.TabIndex = 4;
-            this.paymentWorkersBar.Text = "תשלומים";
-            this.paymentWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // paymentButton
-            // 
-            this.paymentButton.Image = ((System.Drawing.Image)(resources.GetObject("paymentButton.Image")));
-            this.paymentButton.ImagePaddingHorizontal = 8;
-            this.paymentButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.paymentButton.Name = "paymentButton";
-            this.paymentButton.SubItemsExpandWidth = 14;
-            this.paymentButton.Tooltip = "ניהול משכורות...";
-            this.paymentButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.paymentButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
-            // 
-            // visaWorkersBar
-            // 
-            this.visaWorkersBar.AutoOverflowEnabled = true;
-            this.visaWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.visaWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.addUpdateVisaButton});
-            this.visaWorkersBar.Location = new System.Drawing.Point(417, 0);
-            this.visaWorkersBar.Name = "visaWorkersBar";
-            this.visaWorkersBar.Size = new System.Drawing.Size(113, 100);
-            this.visaWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.visaWorkersBar.TabIndex = 3;
-            this.visaWorkersBar.Text = "אשרות כניסה";
-            this.visaWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // addUpdateVisaButton
-            // 
-            this.addUpdateVisaButton.Image = ((System.Drawing.Image)(resources.GetObject("addUpdateVisaButton.Image")));
-            this.addUpdateVisaButton.ImagePaddingHorizontal = 8;
-            this.addUpdateVisaButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addUpdateVisaButton.Name = "addUpdateVisaButton";
-            this.addUpdateVisaButton.SubItemsExpandWidth = 14;
-            this.addUpdateVisaButton.Tooltip = "הוספת\\עדכון אשרות כניסה...";
-            this.addUpdateVisaButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addUpdateVisaButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.addUpdateVisaButton.Click += new System.EventHandler(this.addUpdateVisaButton_Click);
-            // 
-            // generalWorkersBar
-            // 
-            this.generalWorkersBar.AutoOverflowEnabled = true;
-            this.generalWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.generalWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.findWorkersButton,
-            this.addWorkerButton,
-            this.removeWorkerButton});
-            this.generalWorkersBar.Location = new System.Drawing.Point(3, 0);
-            this.generalWorkersBar.Name = "generalWorkersBar";
-            this.generalWorkersBar.ResizeOrderIndex = 1;
-            this.generalWorkersBar.Size = new System.Drawing.Size(178, 100);
-            this.generalWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.generalWorkersBar.TabIndex = 3;
-            this.generalWorkersBar.Text = "כללי";
-            this.generalWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // findWorkersButton
-            // 
-            this.findWorkersButton.Image = ((System.Drawing.Image)(resources.GetObject("findWorkersButton.Image")));
-            this.findWorkersButton.ImagePaddingHorizontal = 8;
-            this.findWorkersButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.findWorkersButton.Name = "findWorkersButton";
-            this.findWorkersButton.SubItemsExpandWidth = 14;
-            this.findWorkersButton.Tooltip = "חיפוש עובדים...";
-            this.findWorkersButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.findWorkersButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.findWorkersButton.Click += new System.EventHandler(this.findWorkersButton_Click);
-            // 
-            // addWorkerButton
-            // 
-            this.addWorkerButton.Image = ((System.Drawing.Image)(resources.GetObject("addWorkerButton.Image")));
-            this.addWorkerButton.ImagePaddingHorizontal = 8;
-            this.addWorkerButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addWorkerButton.Name = "addWorkerButton";
-            this.addWorkerButton.SubItemsExpandWidth = 14;
-            this.addWorkerButton.Tooltip = "הוספת עובד חדש...";
-            this.addWorkerButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addWorkerButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.addWorkerButton.Click += new System.EventHandler(this.addWorkerButton_Click);
-            // 
-            // removeWorkerButton
-            // 
-            this.removeWorkerButton.Image = ((System.Drawing.Image)(resources.GetObject("removeWorkerButton.Image")));
-            this.removeWorkerButton.ImagePaddingHorizontal = 8;
-            this.removeWorkerButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.removeWorkerButton.Name = "removeWorkerButton";
-            this.removeWorkerButton.SubItemsExpandWidth = 14;
-            this.removeWorkerButton.Tooltip = "מחיקת עובד...";
-            this.removeWorkerButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.removeWorkerButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.removeWorkerButton.Click += new System.EventHandler(this.removeWorkerButton_Click);
-            // 
-            // reportWorkersBar
-            // 
-            this.reportWorkersBar.AutoOverflowEnabled = true;
-            this.reportWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
-            this.reportWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.reportButton,
-            this.addWorkerHoursButton});
-            this.reportWorkersBar.Location = new System.Drawing.Point(185, 0);
-            this.reportWorkersBar.Name = "reportWorkersBar";
-            this.reportWorkersBar.Size = new System.Drawing.Size(125, 100);
-            this.reportWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
-            this.reportWorkersBar.TabIndex = 2;
-            this.reportWorkersBar.Text = "דו\"חות ודיווחים";
-            this.reportWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
-            // 
-            // reportButton
-            // 
-            this.reportButton.Image = ((System.Drawing.Image)(resources.GetObject("reportButton.Image")));
-            this.reportButton.ImagePaddingHorizontal = 8;
-            this.reportButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.reportButton.Name = "reportButton";
-            this.reportButton.SubItemsExpandWidth = 14;
-            this.reportButton.Tooltip = "ליצור דו\"ח...";
-            this.reportButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.reportButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
-            // addWorkerHoursButton
-            // 
-            this.addWorkerHoursButton.Image = ((System.Drawing.Image)(resources.GetObject("addWorkerHoursButton.Image")));
-            this.addWorkerHoursButton.ImagePaddingHorizontal = 8;
-            this.addWorkerHoursButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.addWorkerHoursButton.Name = "addWorkerHoursButton";
-            this.addWorkerHoursButton.SubItemsExpandWidth = 14;
-            this.addWorkerHoursButton.Tooltip = "דיווח\\עדכון שעות עבודה...";
-            this.addWorkerHoursButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.addWorkerHoursButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.addWorkerHoursButton.Click += new System.EventHandler(this.addWorkerHoursButton_Click);
-            // 
             // inventoryPanel
             // 
             this.inventoryPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
@@ -304,6 +144,7 @@
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
             this.inventoryPanel.TabIndex = 1;
+            this.inventoryPanel.Visible = false;
             // 
             // ordersInventoryBar
             // 
@@ -485,6 +326,166 @@
             this.removePlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.removePlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             // 
+            // workersPanel
+            // 
+            this.workersPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.workersPanel.Controls.Add(this.paymentWorkersBar);
+            this.workersPanel.Controls.Add(this.visaWorkersBar);
+            this.workersPanel.Controls.Add(this.generalWorkersBar);
+            this.workersPanel.Controls.Add(this.reportWorkersBar);
+            this.workersPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.workersPanel.Location = new System.Drawing.Point(0, 56);
+            this.workersPanel.Name = "workersPanel";
+            this.workersPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.workersPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.workersPanel.ShowFocusRectangle = true;
+            this.workersPanel.Size = new System.Drawing.Size(1001, 108);
+            this.workersPanel.TabIndex = 2;
+            // 
+            // paymentWorkersBar
+            // 
+            this.paymentWorkersBar.AutoOverflowEnabled = true;
+            this.paymentWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.paymentWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.paymentButton});
+            this.paymentWorkersBar.Location = new System.Drawing.Point(314, 0);
+            this.paymentWorkersBar.Name = "paymentWorkersBar";
+            this.paymentWorkersBar.Size = new System.Drawing.Size(99, 100);
+            this.paymentWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.paymentWorkersBar.TabIndex = 4;
+            this.paymentWorkersBar.Text = "תשלומים";
+            this.paymentWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // paymentButton
+            // 
+            this.paymentButton.Image = ((System.Drawing.Image)(resources.GetObject("paymentButton.Image")));
+            this.paymentButton.ImagePaddingHorizontal = 8;
+            this.paymentButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.paymentButton.Name = "paymentButton";
+            this.paymentButton.SubItemsExpandWidth = 14;
+            this.paymentButton.Tooltip = "ניהול משכורות...";
+            this.paymentButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.paymentButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.paymentButton.Click += new System.EventHandler(this.paymentButton_Click);
+            // 
+            // visaWorkersBar
+            // 
+            this.visaWorkersBar.AutoOverflowEnabled = true;
+            this.visaWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.visaWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.addUpdateVisaButton});
+            this.visaWorkersBar.Location = new System.Drawing.Point(417, 0);
+            this.visaWorkersBar.Name = "visaWorkersBar";
+            this.visaWorkersBar.Size = new System.Drawing.Size(113, 100);
+            this.visaWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.visaWorkersBar.TabIndex = 3;
+            this.visaWorkersBar.Text = "אשרות כניסה";
+            this.visaWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // addUpdateVisaButton
+            // 
+            this.addUpdateVisaButton.Image = ((System.Drawing.Image)(resources.GetObject("addUpdateVisaButton.Image")));
+            this.addUpdateVisaButton.ImagePaddingHorizontal = 8;
+            this.addUpdateVisaButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addUpdateVisaButton.Name = "addUpdateVisaButton";
+            this.addUpdateVisaButton.SubItemsExpandWidth = 14;
+            this.addUpdateVisaButton.Tooltip = "הוספת\\עדכון אשרות כניסה...";
+            this.addUpdateVisaButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addUpdateVisaButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addUpdateVisaButton.Click += new System.EventHandler(this.addUpdateVisaButton_Click);
+            // 
+            // generalWorkersBar
+            // 
+            this.generalWorkersBar.AutoOverflowEnabled = true;
+            this.generalWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.generalWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.findWorkersButton,
+            this.addWorkerButton,
+            this.removeWorkerButton});
+            this.generalWorkersBar.Location = new System.Drawing.Point(3, 0);
+            this.generalWorkersBar.Name = "generalWorkersBar";
+            this.generalWorkersBar.ResizeOrderIndex = 1;
+            this.generalWorkersBar.Size = new System.Drawing.Size(178, 100);
+            this.generalWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.generalWorkersBar.TabIndex = 3;
+            this.generalWorkersBar.Text = "כללי";
+            this.generalWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // findWorkersButton
+            // 
+            this.findWorkersButton.Image = ((System.Drawing.Image)(resources.GetObject("findWorkersButton.Image")));
+            this.findWorkersButton.ImagePaddingHorizontal = 8;
+            this.findWorkersButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.findWorkersButton.Name = "findWorkersButton";
+            this.findWorkersButton.SubItemsExpandWidth = 14;
+            this.findWorkersButton.Tooltip = "חיפוש עובדים...";
+            this.findWorkersButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.findWorkersButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.findWorkersButton.Click += new System.EventHandler(this.findWorkersButton_Click);
+            // 
+            // addWorkerButton
+            // 
+            this.addWorkerButton.Image = ((System.Drawing.Image)(resources.GetObject("addWorkerButton.Image")));
+            this.addWorkerButton.ImagePaddingHorizontal = 8;
+            this.addWorkerButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addWorkerButton.Name = "addWorkerButton";
+            this.addWorkerButton.SubItemsExpandWidth = 14;
+            this.addWorkerButton.Tooltip = "הוספת עובד חדש...";
+            this.addWorkerButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addWorkerButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addWorkerButton.Click += new System.EventHandler(this.addWorkerButton_Click);
+            // 
+            // removeWorkerButton
+            // 
+            this.removeWorkerButton.Image = ((System.Drawing.Image)(resources.GetObject("removeWorkerButton.Image")));
+            this.removeWorkerButton.ImagePaddingHorizontal = 8;
+            this.removeWorkerButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.removeWorkerButton.Name = "removeWorkerButton";
+            this.removeWorkerButton.SubItemsExpandWidth = 14;
+            this.removeWorkerButton.Tooltip = "מחיקת עובד...";
+            this.removeWorkerButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.removeWorkerButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.removeWorkerButton.Click += new System.EventHandler(this.removeWorkerButton_Click);
+            // 
+            // reportWorkersBar
+            // 
+            this.reportWorkersBar.AutoOverflowEnabled = true;
+            this.reportWorkersBar.HorizontalItemAlignment = DevComponents.DotNetBar.eHorizontalItemsAlignment.Center;
+            this.reportWorkersBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.reportButton,
+            this.addWorkerHoursButton});
+            this.reportWorkersBar.Location = new System.Drawing.Point(185, 0);
+            this.reportWorkersBar.Name = "reportWorkersBar";
+            this.reportWorkersBar.Size = new System.Drawing.Size(125, 100);
+            this.reportWorkersBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.reportWorkersBar.TabIndex = 2;
+            this.reportWorkersBar.Text = "דו\"חות ודיווחים";
+            this.reportWorkersBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
+            // 
+            // reportButton
+            // 
+            this.reportButton.Image = ((System.Drawing.Image)(resources.GetObject("reportButton.Image")));
+            this.reportButton.ImagePaddingHorizontal = 8;
+            this.reportButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.reportButton.Name = "reportButton";
+            this.reportButton.SubItemsExpandWidth = 14;
+            this.reportButton.Tooltip = "ליצור דו\"ח...";
+            this.reportButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.reportButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.reportButton.Click += new System.EventHandler(this.reportButton_Click);
+            // 
+            // addWorkerHoursButton
+            // 
+            this.addWorkerHoursButton.Image = ((System.Drawing.Image)(resources.GetObject("addWorkerHoursButton.Image")));
+            this.addWorkerHoursButton.ImagePaddingHorizontal = 8;
+            this.addWorkerHoursButton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.addWorkerHoursButton.Name = "addWorkerHoursButton";
+            this.addWorkerHoursButton.SubItemsExpandWidth = 14;
+            this.addWorkerHoursButton.Tooltip = "דיווח\\עדכון שעות עבודה...";
+            this.addWorkerHoursButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.addWorkerHoursButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.addWorkerHoursButton.Click += new System.EventHandler(this.addWorkerHoursButton_Click);
+            // 
             // statisticsPanel
             // 
             this.statisticsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
@@ -586,7 +587,6 @@
             // 
             // inventoryTab
             // 
-            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -598,6 +598,7 @@
             // 
             // workersTab
             // 
+            this.workersTab.Checked = true;
             this.workersTab.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
             this.workersTab.ImagePaddingHorizontal = 8;
             this.workersTab.Name = "workersTab";
@@ -941,8 +942,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.seedsFromZion_FormClosing);
             this.systemControl.ResumeLayout(false);
             this.systemControl.PerformLayout();
-            this.workersPanel.ResumeLayout(false);
             this.inventoryPanel.ResumeLayout(false);
+            this.workersPanel.ResumeLayout(false);
             this.statisticsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.statusBar)).EndInit();
             this.ResumeLayout(false);
