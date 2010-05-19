@@ -8,6 +8,7 @@ using System.Collections;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+using DevComponents.Editors.DateTimeAdv;
 using seedsfromzion.DataAccess;
 using ZedGraph;
 
@@ -52,6 +53,74 @@ namespace seedsfromzion.Managers
         //    DataTable result = DatabaseAccess.getResultSetFromDb(command);
         //    return result;
         //}
+        static public void rotateBarLables(GraphPane pane)
+        {
+            Scale sc = pane.YAxis.Scale;
+            //Double offset = (sc.Max - sc.Min) * 0.5;
+            foreach(Object ob in pane.GraphObjList)
+            {
+                if(typeof(TextObj).Equals(ob.GetType()))
+                {
+                    TextObj textObj = ob as TextObj;
+                    textObj.FontSpec.Angle = 0;
+                    //textObj.Location.Y += offset;
+                    textObj.Location.AlignH = AlignH.Center;
+                    textObj.Location.AlignV = AlignV.Bottom;
+                }
+            }
+        }
+
+        static public void filterDates(ref Double[] dateArr,ref Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate)
+        {
+            if (!fromDate.LockUpdateChecked && !tillDate.LockUpdateChecked)
+            {
+                return;
+            }
+            DateTime from = fromDate.Value;
+            DateTime till = tillDate.Value;
+            Double[] resultDates = new Double[dateArr.Length];
+            Double[] resultValues = new Double[dateArr.Length];
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < dateArr.Length; i++)
+            {
+                DateTime date = DateTime.FromOADate(dateArr[i]);
+                if (date.CompareTo(from) >= 0)
+                {
+                    if (tillDate.LockUpdateChecked)
+                    {
+                        if (date.CompareTo(till) <= 0)
+                        {
+                            list.Add(i);
+                        }
+                    }
+                    else 
+                    {
+                        list.Add(i);
+                    }
+                }
+            }
+
+            int[] indexes = (int[])list.ToArray(typeof(int));
+            for (int i = 0; i < indexes.Length; i++)
+            {
+                resultDates[i] = dateArr[indexes[i]];
+                resultValues[i] = valArr[indexes[i]];
+            }
+
+            Array.Resize<double>(ref resultDates, list.Count);
+            Array.Resize<double>(ref resultValues, list.Count);
+            dateArr = resultDates;
+            valArr = resultValues;
+            
+        }
+
+        static public void sortData(ref Double[] dateArr, ref Double[] valArr)
+        {
+            Double[] resultDates = dateArr;
+            Double[] resultValues = valArr;
+            
+            Array.Sort(dateArr,valArr);
+        }
 
         #endregion
 
@@ -59,7 +128,6 @@ namespace seedsfromzion.Managers
         #region statistics methods
         static public DataTable getSalesGraphValues(int plantId)
         {
-            //int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command = 
                 DataAccessUtils.commandBuilder("SELECT O.orderDate AS orderDate,SUM(OFS.units) AS units FROM seedsdb.orders O ,seedsdb.ordersfromstorage OFS WHERE O.orderId = OFS.orderId AND OFS.plantId = @PLANT_ID GROUP BY YEAR(orderDate),MONTH(orderDate)",
                                                 "@PLANT_ID", plantId.ToString());
@@ -69,7 +137,6 @@ namespace seedsfromzion.Managers
 
         static public DataTable getSalesGraphValues(string plantName)
         {
-            //int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT O.orderDate AS orderDate,SUM(OFS.units) AS units FROM seedsdb.orders O ,seedsdb.ordersfromstorage OFS WHERE O.orderId = OFS.orderId AND OFS.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME) GROUP BY YEAR(orderDate),MONTH(orderDate)",
                                                 "@PLANT_NAME", plantName);
@@ -77,9 +144,8 @@ namespace seedsfromzion.Managers
             return result;
         }
 
-        static public DataTable getGrowViaSowGraphValues()
+        static public DataTable getGrowViaSowGraphValues(int plantId)
         {
-            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId = @PLANT_ID",
                                                 "@PLANT_ID", plantId.ToString());
@@ -87,9 +153,17 @@ namespace seedsfromzion.Managers
             return result;
         }
 
-        static public DataTable getGrowViaTypeGraphValues()
+        static public DataTable getGrowViaSowGraphValues(string plantName)
         {
-            string plantName = "קלונית";//////////////////////CHANGE THIS TO THE PLANT ID FOUND
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE SP.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
+                                                "@PLANT_NAME", plantName);
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return result;
+        }
+
+        static public DataTable getGrowViaTypeGraphValues(string plantName)
+        {
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT PT.type AS type, SUM(SPS.sproutingPerc)/COUNT(*) AS sproutingPerc FROM planttypes PT, sproutedstats SPS WHERE PT.name = @PLANT_NAME AND PT.plantId = SPS.plantId GROUP BY type",
                                                 "@PLANT_NAME", plantName);
@@ -97,12 +171,20 @@ namespace seedsfromzion.Managers
             return result;
         }
 
-        static public DataTable getGrowViaFridgeGraphValues()
+        static public DataTable getGrowViaFridgeGraphValues(int plantId)
         {
-            int plantId = 222;//////////////////////CHANGE THIS TO THE PLANT ID FOUND
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE SPS.plantId = @PLANT_ID",
                                                 "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            return result;
+        }
+
+        static public DataTable getGrowViaFridgeGraphValues(string plantName)
+        {
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE SPS.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
+                                                "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
         }
