@@ -23,6 +23,7 @@ namespace seedsfromzion.GUI.WorkerForms
 
             populateVisas();
             populateWorkers();
+            populateAllWorkers();
 
             this.dataGridVisas.SelectionChanged += new System.EventHandler(this.dataGridVisas_SelectionChanged);
         }
@@ -51,12 +52,12 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void populateWorkers()
         {
-            if (dataGridVisas.SelectedRows.Count <=0)
+            if (dataGridVisas.SelectedRows.Count <= 0)
             {
                 return;
             }
             int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
-            
+
             WorkerManager workerManager = new WorkerManager();
             dataGrid_workers.DataSource = workerManager.GetWorkersAttachedToVisa(visaID);
             dataGrid_workers.Columns["workerid"].HeaderText = "ת.ז עובד";
@@ -68,11 +69,45 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridVisas.Refresh();
         }
 
+        private void populateAllWorkers()
+        {
+            WorkerManager workerManager = new WorkerManager();
+            dataGrid_allWorkers.DataSource = workerManager.Workers;
+            dataGrid_allWorkers.Columns["id"].HeaderText = "ת.ז";
+            dataGrid_allWorkers.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_allWorkers.Columns["name"].HeaderText = "שם";
+            dataGrid_allWorkers.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_allWorkers.Columns["phone"].HeaderText = "טלפון";
+            dataGrid_allWorkers.Columns["phone"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_allWorkers.Columns["comments"].HeaderText = "הערות";
+            dataGrid_allWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
         private void dataGridVisas_SelectionChanged(object sender, EventArgs e)
         {
             populateWorkers();
         }
 
-        
+        private void btn_addWorkerToVisa_Click(object sender, EventArgs e)
+        {
+            if (dataGridVisas.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
+
+            if (dataGrid_allWorkers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int workerId = (int)((uint)dataGrid_allWorkers.SelectedRows[0].Cells["id"].Value);
+
+            WorkerManager workerManager = new WorkerManager();
+            workerManager.AttachWorkerToVisa(workerId, visaID);
+
+            populateWorkers();
+        }
+
+
     }
 }
