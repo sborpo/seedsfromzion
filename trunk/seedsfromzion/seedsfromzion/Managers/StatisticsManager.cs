@@ -122,6 +122,25 @@ namespace seedsfromzion.Managers
             Array.Sort(dateArr,valArr);
         }
 
+        static public string getNameById(int plantId)
+        {
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT PT.name AS name FROM seedsdb.planttypes PT WHERE PT.plantId = @PLANT_ID",
+                                                "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            string plantName = (string)result.Rows[0][0];
+            return plantName;
+        }
+
+        static public string getTypeById(int plantId)
+        {
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT PT.type AS type FROM seedsdb.planttypes PT WHERE PT.plantId = @PLANT_ID",
+                                                "@PLANT_ID", plantId.ToString());
+            DataTable result = DatabaseAccess.getResultSetFromDb(command);
+            string plantType = (string)result.Rows[0][0];
+            return plantType;
+        }
         #endregion
 
 
