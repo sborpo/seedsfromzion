@@ -8,9 +8,16 @@ using System.IO;
 
 namespace seedsfromzion
 {
+    /// <summary>
+    /// This class gives an opportunity to change the deplyoment procedure
+    /// </summary>
     [RunInstaller(true)]
     public class Deplyoment : Installer
     {
+        /// <summary>
+        /// performs connection string encryption on installation and constructs the DB
+        /// </summary>
+        /// <param name="savedState"></param>
         public override void Install(IDictionary savedState)
         {
             base.Install(savedState);
@@ -28,12 +35,10 @@ namespace seedsfromzion
                 config.Save();
             }
             String TargetDirectory = Path.GetDirectoryName(Context.Parameters["AssemblyPath"]);
+            //construct a clean DB from backup file
             seedsfromzion.Managers.SystemManager.performSystemRestore(TargetDirectory + @"\am.zip");
         }
 
-        public override void Commit(IDictionary savedState)
-        {
 
-        }
     }
 }
