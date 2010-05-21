@@ -8,12 +8,15 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using seedsfromzion.DataStructures;
 using seedsfromzion.Managers;
+using seedsfromzion.GUI.InventoryForms;
 
 namespace seedsfromzion.GUI.OrdersForms
 {
     public partial class SearchOrderForm : seedsfromzion.GUI.BaseForm
     {
         DataTable Orders;
+        OrderInfo m_selectedOrder;
+        ClientInfo m_selectedClient;
         bool loading;
         public SearchOrderForm()
         {
@@ -110,8 +113,9 @@ namespace seedsfromzion.GUI.OrdersForms
             OrderManager orderManager = new OrderManager();
             System.UInt32 orderId = (System.UInt32)selectedRows[0].Cells["orderId"].Value;
             System.UInt32 clientId = (System.UInt32)selectedRows[0].Cells["clientId"].Value;
-            OrderInfo selectedOrder = orderManager.findOrder((int)orderId, (int)clientId);//(double)selectedRows[0].Cells["units"].Value;
-            displayOrder(selectedOrder);
+            m_selectedOrder = orderManager.findOrder((int)orderId, (int)clientId);//(double)selectedRows[0].Cells["units"].Value;
+            m_selectedClient = orderManager.findClient((int)clientId);
+            displayOrder(m_selectedOrder);
         }
 
         private void displayOrder(OrderInfo order)
@@ -149,6 +153,21 @@ namespace seedsfromzion.GUI.OrdersForms
             refreshOrderTable();
             new SuccessWindow().Show();
             return;
+        }
+
+        private void editOrder_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = orderGrid.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                new ErrorWindow("לא נבחרה הזמנה לעריכה").Show();
+                return;
+            }
+
+            OrdersMainForm form = new OrdersMainForm(m_selectedOrder, m_selectedClient);
+            form.MdiParent = this.MdiParent;
+            form.Show();
         }
 
     }

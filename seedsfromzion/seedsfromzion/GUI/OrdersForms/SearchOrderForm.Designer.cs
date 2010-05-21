@@ -42,6 +42,7 @@
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.units = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.editOrder = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).BeginInit();
             this.SuspendLayout();
@@ -183,9 +184,22 @@
             this.buttonX1.Text = "בטל הזמנה";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
+            // editOrder
+            // 
+            this.editOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.editOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.editOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.editOrder.Location = new System.Drawing.Point(541, 484);
+            this.editOrder.Name = "editOrder";
+            this.editOrder.Size = new System.Drawing.Size(91, 28);
+            this.editOrder.TabIndex = 7;
+            this.editOrder.Text = "ערוך הזמנה";
+            this.editOrder.Click += new System.EventHandler(this.editOrder_Click);
+            // 
             // SearchOrderForm
             // 
             this.ClientSize = new System.Drawing.Size(798, 517);
+            this.Controls.Add(this.editOrder);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.detailsGrid);
             this.Controls.Add(this.labelX2);
@@ -214,5 +228,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn units;
         private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.ButtonX editOrder;
     }
 }
