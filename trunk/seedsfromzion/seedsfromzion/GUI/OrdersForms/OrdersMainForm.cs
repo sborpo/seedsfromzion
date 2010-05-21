@@ -16,6 +16,9 @@ namespace seedsfromzion.GUI.OrdersForms
         DataTable Storage;
         DataTable Order;
         bool loading;
+        bool bOrderExist;
+        OrderInfo oldOrder;
+
         public OrdersMainForm()
         {
             loading = true;
@@ -30,6 +33,48 @@ namespace seedsfromzion.GUI.OrdersForms
             refreshStorageTable();
             doubleInput1.MinValue = 0;
             loading = false;
+            bOrderExist = false;
+        }
+        public OrdersMainForm(OrderInfo orderInfo, ClientInfo clientInfo)
+        {
+            loading = true;
+            InitializeComponent();
+            Order = new DataTable();
+            Order.Clear();
+            Order.Columns.Add("orderId");
+            Order.Columns.Add("orderName");
+            Order.Columns.Add("orderType");
+            Order.Columns.Add("orderStorageId");
+            Order.Columns.Add("orderUnits");
+            refreshStorageTable();
+            doubleInput1.MinValue = 0;
+            loading = false;
+            bOrderExist = true;
+            oldOrder = orderInfo;
+
+            //setting the client info:
+            idBox.Value = clientInfo.clientId;
+            nameBox.Text = clientInfo.name;
+            phoneBoxX.Text = clientInfo.phoneNumber;
+            emailBoxX.Text = clientInfo.email;
+            //setting the due date:
+            dateTimeInput.Value = orderInfo.dueDate;
+
+            InventoryManager invManager = new InventoryManager();
+            for (int i = 0; i < orderInfo.plantId.Length; i++)
+            {
+                DataRow row = invManager.findPlantById(orderInfo.plantId[i].ToString());
+
+                orderGrid.Rows.Add(orderInfo.plantId[i], (string)row["name"],
+                                    (string)row["type"],orderInfo.fromStorageId[i],
+                                    orderInfo.units[i]);             
+                
+                //adding the new item to the order
+                Order.Rows.Add(orderInfo.plantId[i], (string)row["name"],
+                                    (string)row["type"], orderInfo.fromStorageId[i],
+                                    orderInfo.units[i]);               
+            }
+            orderGrid.Refresh();
         }
 
         /// <summary>
@@ -216,15 +261,13 @@ namespace seedsfromzion.GUI.OrdersForms
             clientInfo.name             = nameBox.Text;
             clientInfo.phoneNumber      = phoneBoxX.Text;
             clientInfo.email            = emailBoxX.Text;
-            //setting the order info:
-            orderInfo.orderId           = orderManager.getNextOrderId();
-            orderInfo.dueDate           = dateTimeInput.Value;
-            orderInfo.orderDate         = DateTime.Today;
-            orderInfo.status            = '0';
+            //setting the order info:        
+            orderInfo.dueDate           = dateTimeInput.Value;                        
             orderInfo.plantId           = new System.UInt32[Order.Rows.Count];
             orderInfo.fromStorageId     = new string[Order.Rows.Count];
             orderInfo.units             = new double[Order.Rows.Count];
-            //TODO:: orderInfo.orderId = Managers.OrderManager.getNextOrderId();
+            // setting the parameters that might be from an old order:
+            
           for (int i = 0; i < Order.Rows.Count; i++)
             {
                 orderInfo.plantId[i] = System.UInt32.Parse((string)Order.Rows[i][0]);
@@ -234,7 +277,21 @@ namespace seedsfromzion.GUI.OrdersForms
           
           try
           {
-              orderManager.addOrder( clientInfo, orderInfo);
+              if (bOrderExist == false)
+              {
+                  orderInfo.orderId = orderManager.getNextOrderId();
+                  orderInfo.orderDate = DateTime.Today;
+                  orderInfo.status = '0';
+                  orderManager.addOrder(clientInfo, orderInfo);
+              }
+              else   //(bOrderExist == true)
+              {
+                  orderInfo.orderId = oldOrder.orderId;
+                  orderInfo.orderDate = oldOrder.orderDate;
+                  orderInfo.status = oldOrder.status;
+                  orderManager.updateOrderInfo(orderInfo.orderId, orderInfo, clientInfo);
+              }
+              
               new SuccessWindow().Show();
               clearAfterAddingOrder();
           }
