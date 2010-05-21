@@ -66,7 +66,7 @@ namespace seedsfromzion.GUI.OrdersForms
                 DataRow row = invManager.findPlantById(orderInfo.plantId[i].ToString());
 
                 orderGrid.Rows.Add(orderInfo.plantId[i], (string)row["name"],
-                                    (string)row["type"],orderInfo.fromStorageId[i],
+                                    (string)row["type"],System.UInt32.Parse(orderInfo.fromStorageId[i]),
                                     orderInfo.units[i]);             
                 
                 //adding the new item to the order
@@ -82,7 +82,7 @@ namespace seedsfromzion.GUI.OrdersForms
         /// </summary>
         public void refreshStorageTable()
         {
-            //TODO: should be a function in manager, do not access to DB from GUI
+           
             //Table : id , name , type, storageId, units, location
             MySqlCommand command = new MySqlCommand("SELECT Plant.plantId AS id ,Plant.name AS name , Plant.type As type , Storage.id AS storageId, Storage.units AS units,Storage.location AS location FROM seedsdb.finishedstorage Storage, seedsdb.planttypes Plant WHERE Storage.plantId=Plant.plantId");
             Storage = DataAccess.DatabaseAccess.getResultSetFromDb(command);
@@ -334,23 +334,20 @@ namespace seedsfromzion.GUI.OrdersForms
             string ptype = (string)selectedRows[0].Cells[2].Value;
             System.UInt32 pstorageId = (System.UInt32)selectedRows[0].Cells[3].Value;
             double rowUnits = (double)selectedRows[0].Cells[4].Value;
-            
+            //removing the item from the order
+            Order.Rows.RemoveAt(selectedRows[0].Index);
+            //removing the item from the order grid
             orderGrid.Rows.Remove(selectedRows[0]);
             orderGrid.Refresh();
-            //TODO:: removing the item from the order
-            DataTable row = new DataTable();
+            
+           /* DataTable row = new DataTable();
             row.Columns.Add("orderId");
             row.Columns.Add("orderName");
             row.Columns.Add("orderType");
             row.Columns.Add("orderStorageId");
             row.Columns.Add("orderUnits");
             row.Rows.Add(pid, pname, pstorageId, rowUnits);
-
-            /*row[0][1] = pname;
-            row[0][2] = ptype;
-            row[0][3] = pstorageId;
-            row[0][4] = rowUnits;*/
-            Order.Rows.Remove(row.Rows[0]);
+            */
             
         }
 
