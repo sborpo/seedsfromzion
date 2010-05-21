@@ -39,7 +39,7 @@ namespace seedsfromzion.GUI.OrdersForms
         /// </summary>
         public void refreshOrderTable()
         {
-            //TODO: should be a function in manager, do not access to DB from GUI
+            
             //Table : id , name , type, storageId, units, location
             MySqlCommand command = new MySqlCommand("SELECT Orders.orderId AS orderId ,Orders.clientId AS clientId , Orders.orderDate As orderDate , Orders.dueDate AS dueDate FROM seedsdb.orders Orders");
             Orders = DataAccess.DatabaseAccess.getResultSetFromDb(command);
@@ -140,7 +140,7 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("לא נבחרה הזמנה לביטול").Show();
                 return;
             }
-            //TODO: print confiramtion window!!
+          
 
             OrderManager orderManager = new OrderManager();
             System.UInt32 orderId = (System.UInt32)selectedRows[0].Cells["orderId"].Value;
