@@ -22,6 +22,7 @@ namespace seedsfromzion.GUI.WorkerForms
             base.BaseForm_Load(sender, e);
 
             populateWorekres();
+            populateHours();
         }
 
         private void populateWorekres()
@@ -37,26 +38,59 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
-
-
-        private WorkerManager m_manager = new WorkerManager();
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void populateHours()
         {
             if (dataGridWorkers.SelectedRows.Count <= 0)
             {
                 return;
             }
             int workerID = (int)((uint)dataGridWorkers.SelectedRows[0].Cells["id"].Value);
-            DateTime date = e.Start;
+            DateTime date = monthCalendar.SelectionStart;
 
             var hours = m_manager.GetWorkerHours(workerID, date);
-            if (hours.Rows.Count != 1)
+
+            dataGridView_hours.DataSource = hours;
+            dataGridView_hours.Columns["startTime"].HeaderText = "התחלה";
+            dataGridView_hours.Columns["startTime"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView_hours.Columns["endTime"].HeaderText = "סיום";
+            dataGridView_hours.Columns["endTime"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+
+
+        private WorkerManager m_manager = new WorkerManager();
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            populateHours();   
+        }
+
+        private void btn_update_hours_Click(object sender, EventArgs e)
+        {
+            if (dataGridWorkers.SelectedRows.Count <= 0)
             {
-                dataGridView_hours.DataSource = null;
                 return;
             }
-            dataGridView_hours.DataSource = hours;
+            int[] workersId = new int[dataGridWorkers.SelectedRows.Count];
+
+            for (int i = 0; i < dataGridWorkers.SelectedRows.Count; i++)
+            {
+                workersId[i] = (int)((uint)dataGridWorkers.SelectedRows[i].Cells["id"].Value);
+            }
+
+
+            DateTime date = monthCalendar.SelectionStart;
+
+            //check if there is already working hours in this date
+
+            m_manager.AddWorkerHours(workersId, date, dateTime_start.Value.TimeOfDay.ToString(), dateTime_end.Value.TimeOfDay.ToString());
+
+            populateHours();
+        }
+
+        private void dataGridWorkers_SelectionChanged(object sender, EventArgs e)
+        {
+            populateHours();
         }
     }
 }

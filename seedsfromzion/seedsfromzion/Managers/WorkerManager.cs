@@ -102,12 +102,25 @@ namespace seedsfromzion.Managers
                 {
                     throw new ArgumentException("worker doesn't exists");
                 }
-                commands[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.workdays " +
-                     "VALUES(@P_WORKERID, @P_DATE, @P_STARTTIME, @P_ENDTIME)",
-                     "@P_WORKERID", worker.ToString(),
-                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date),
+                //check if there is already working hours this date
+                if (GetWorkerHours(worker, p_date).Rows.Count == 1)
+                {
+                    commands[i] = DataAccessUtils.commandBuilder("UPDATE seedsdb.workdays " +
+                     "SET startTime=@P_STARTTIME, endTime=@P_ENDTIME WHERE workerID=@P_WORKERID AND date=@P_DATE",
                      "@P_STARTTIME", p_startTime,
-                     "@P_ENDTIME", p_endTime);
+                     "@P_ENDTIME", p_endTime,
+                     "@P_WORKERID", worker.ToString(),
+                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date));
+                }
+                else
+                {
+                    commands[i] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.workdays " +
+                         "VALUES(@P_WORKERID, @P_DATE, @P_STARTTIME, @P_ENDTIME)",
+                         "@P_WORKERID", worker.ToString(),
+                         "@P_DATE", String.Format("{0:yyyy-M-d}", p_date),
+                         "@P_STARTTIME", p_startTime,
+                         "@P_ENDTIME", p_endTime);
+                }
                 i++;
             }
             //preforming the trasaction:
@@ -133,11 +146,11 @@ namespace seedsfromzion.Managers
                     throw new ArgumentException("worker doesn't exists");
                 }
                 commands[i] = DataAccessUtils.commandBuilder("UPDATE seedsdb.workdays " +
-                     "SET date=@P_DATE, starTIme=@P_STARTTIME, endTime=@P_ENDTIME WHERE workerID=@WORKERID",
-                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date),
+                     "SET starTIme=@P_STARTTIME, endTime=@P_ENDTIME WHERE workerID=@WORKERID AND date=@P_DATE",
                      "@P_STARTTIME", p_startTime,
                      "@P_ENDTIME", p_endTime,
-                     "@P_WORKERID", worker.ToString());
+                     "@P_WORKERID", worker.ToString(),
+                     "@P_DATE", String.Format("{0:yyyy-M-d}", p_date));
                 i++;
             }
             //preforming the trasaction:
@@ -156,7 +169,7 @@ namespace seedsfromzion.Managers
                 throw new ArgumentException("worker doesnwt exists");
             }
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT startTime, endTime FROM seedsdb.workdays " +
-                "WHERE workerId=@P_ID, date=@P_DATE",
+                "WHERE workerId=@P_ID AND date=@P_DATE",
                 "@P_ID", p_id.ToString(),
                 "@P_DATE", String.Format("{0:yyyy-M-d}", p_date));
             return DatabaseAccess.getResultSetFromDb(command);
