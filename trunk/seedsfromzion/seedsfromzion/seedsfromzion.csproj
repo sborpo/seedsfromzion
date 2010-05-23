@@ -146,6 +146,7 @@
     <Compile Include="GUI\InventoryForms\UpdateSproutingForm.Designer.cs">
       <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\OrdersForms\EmailSender.cs" />
     <Compile Include="GUI\OrdersForms\OrdersMainForm.cs">
       <SubType>Form</SubType>
     </Compile>

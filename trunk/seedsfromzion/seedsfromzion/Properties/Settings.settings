@@ -44,5 +44,11 @@
     <Setting Name="BackupFrequency" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>
     </Setting>
+    <Setting Name="emailUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">sseedsfromzion@gmail.com</Value>
+    </Setting>
+    <Setting Name="emailPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)">qazwsxedc</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
