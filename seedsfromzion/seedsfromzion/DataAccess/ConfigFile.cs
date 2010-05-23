@@ -54,6 +54,42 @@ namespace seedsfromzion.DataAccess
         }
 
         /// <summary>
+        /// Sets and gets the gmail username through which 
+        /// an email will be sent about order confirmation
+        /// </summary>
+        public String EmailUsername
+        {
+            get
+            {
+                return Properties.Settings.Default.emailUser;
+            }
+            set
+            {
+                Properties.Settings.Default.emailUser = value;
+                Properties.Settings.Default.Save();
+            }
+
+        }
+
+        /// <summary>
+        /// Sets and gets the gmail username password through which 
+        /// an email will be sent about order confirmation
+        /// </summary>
+        public String EmailPassword
+        {
+            get
+            {
+                return Properties.Settings.Default.emailPassword;
+            }
+            set
+            {
+                Properties.Settings.Default.emailPassword = value;
+                Properties.Settings.Default.Save();
+            }
+
+        }
+
+        /// <summary>
         /// Sets and gets the frequency in hours that the system
         /// should check for incoming customers notification
         /// </summary>

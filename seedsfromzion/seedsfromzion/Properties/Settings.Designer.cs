@@ -188,5 +188,29 @@ namespace seedsfromzion.Properties {
                 this["BackupFrequency"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("sseedsfromzion@gmail.com")]
+        public string emailUser {
+            get {
+                return ((string)(this["emailUser"]));
+            }
+            set {
+                this["emailUser"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("qazwsxedc")]
+        public string emailPassword {
+            get {
+                return ((string)(this["emailPassword"]));
+            }
+            set {
+                this["emailPassword"] = value;
+            }
+        }
     }
 }

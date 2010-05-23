@@ -192,6 +192,8 @@ namespace seedsfromzion.GUI
             backups.Text = ConfigFile.getInstance.BackupPath;
             automaticBackupFreq.Value = ConfigFile.getInstance.BackupFrequency;
             optimizeFreq.Value = ConfigFile.getInstance.OptimizingFrequency;
+            emailUsername.Text = ConfigFile.getInstance.EmailUsername;
+            emailPass.Text = ConfigFile.getInstance.EmailPassword;
         }
 
         private void textBoxX1_Click(object sender, EventArgs e)
@@ -215,6 +217,8 @@ namespace seedsfromzion.GUI
             ConfigFile.getInstance.BackupPath=  backups.Text ;
             ConfigFile.getInstance.BackupFrequency =automaticBackupFreq.Value ;
             ConfigFile.getInstance.OptimizingFrequency =optimizeFreq.Value ;
+            ConfigFile.getInstance.EmailUsername = emailUsername.Text;
+            ConfigFile.getInstance.EmailPassword = emailPass.Text;
             systemSettingsChanged();
             this.Close();
         }
