@@ -218,7 +218,7 @@ namespace seedsfromzion.GUI
            if (chooseBackupPath.ShowDialog() == DialogResult.OK)
            {
                SystemManager.performBackup(chooseBackupPath.FileName);
-               MessageBox.Show("גיבוי הסתיים בהצלחה");
+               new SuccessWindow().Show();
            }
            initRoutines();
 
