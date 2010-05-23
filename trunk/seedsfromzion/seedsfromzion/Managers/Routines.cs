@@ -170,7 +170,7 @@ namespace seedsfromzion.Managers
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.VisaExpireDays));
                 MySqlCommand command = DataAccessUtils.commandBuilder("SELECT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS "
-                + "WHERE VS.expireDate<@Date AND VS.visaId=WS.visaId AND W.id=WS.workerId", "@Date", date);
+                + "WHERE VS.expireDate>=@Date AND VS.visaId=WS.visaId AND W.id=WS.workerId", "@Date", date);
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
                 //check if we have such kind of workers
@@ -199,7 +199,7 @@ namespace seedsfromzion.Managers
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.OrderDueDate));
                 MySqlCommand command = DataAccessUtils.commandBuilder("SELECT id,name FROM seedsdb.Orders O, seedsdb.Clients C "
-                + "WHERE O.dueDate<@Date AND C.id=O.clientId", "@Date", date);
+                + "WHERE O.dueDate>=@Date AND C.id=O.clientId", "@Date", date);
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
                 //check if we have suck kind of orders
