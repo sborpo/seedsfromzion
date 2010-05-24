@@ -61,6 +61,7 @@
             this.dateTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.removeButton = new DevComponents.DotNetBar.ButtonX();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
@@ -423,9 +424,21 @@
             this.removeButton.TabIndex = 21;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.checkBox1.Location = new System.Drawing.Point(529, 317);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(226, 20);
+            this.checkBox1.TabIndex = 22;
+            this.checkBox1.Text = "שלח  את פרטי ההזמנה למייל הלקוח";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // OrdersMainForm
             // 
-            this.ClientSize = new System.Drawing.Size(755, 378);
+            this.ClientSize = new System.Drawing.Size(767, 378);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.labelX9);
             this.Controls.Add(this.dateTimeInput);
@@ -456,6 +469,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.idBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -492,5 +506,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderType;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderStorageId;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderUnits;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
