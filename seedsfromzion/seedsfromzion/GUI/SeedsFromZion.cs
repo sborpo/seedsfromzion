@@ -294,7 +294,9 @@ namespace seedsfromzion.GUI
 
         private void addPlantButton_Click(object sender, EventArgs e)
         {
-
+            AddNewPlant form = new AddNewPlant();
+            form.MdiParent = this;
+            form.Show();
         }
         #endregion
 
