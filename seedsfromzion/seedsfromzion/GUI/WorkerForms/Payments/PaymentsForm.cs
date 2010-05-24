@@ -26,12 +26,14 @@ namespace seedsfromzion.GUI.WorkerForms
         {
             WorkerManager workerManager = new WorkerManager();
             dataGrid_workers.DataSource = workerManager.WorkersWithPayments;
-            //dataGridVisas.Columns["visaID"].HeaderText = "מזהה";
-            //dataGridVisas.Columns["visaID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dataGridVisas.Columns["expireDate"].HeaderText = "תאריך תפוגה";
-            //dataGridVisas.Columns["expireDate"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dataGridVisas.Columns["contact"].HeaderText = "איש קשר";
-            //dataGridVisas.Columns["contact"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_workers.Columns["id"].HeaderText = "ת.ז";
+            dataGrid_workers.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_workers.Columns["name"].HeaderText = "שם";
+            dataGrid_workers.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_workers.Columns["advancedPay"].HeaderText = "מקדמה";
+            dataGrid_workers.Columns["advancedPay"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_workers.Columns["postponedPay"].HeaderText = "דחוי";
+            dataGrid_workers.Columns["postponedPay"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGrid_workers.Refresh();
         }
 
