@@ -291,7 +291,12 @@ namespace seedsfromzion.GUI.OrdersForms
                   orderInfo.status = oldOrder.status;
                   orderManager.updateOrderInfo(orderInfo.orderId, orderInfo, clientInfo);
               }
-              
+              //in case we need to send mail to the client.
+              if (checkBox1.Checked == true)
+              {
+
+                  EmailSender.Send(orderInfo.orderId, clientInfo);
+              }
               new SuccessWindow().Show();
               clearAfterAddingOrder();
           }
