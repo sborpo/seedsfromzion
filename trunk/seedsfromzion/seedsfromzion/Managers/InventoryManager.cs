@@ -24,20 +24,27 @@ namespace seedsfromzion.Managers
         /// <param name="p_pic"></param>
         /// <param name="p_price"></param>
         /// <param name="p_lifetime"></param>
-        public void AddPlant(string p_name, string p_type, string p_pic, int p_price, int p_lifetime)
+        public void AddPlant(PlantInfo planInfo , double p_price, double p_lifetime)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
-            if (checkPlantExists(p_name))
+            if (checkPlantExists(planInfo))
                 throw new ArgumentException("Plant already exists");
 
             int newId = getNewPlantId();
 
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
-                "VALUES(@P_NAME, NULL, @P_PIC, NULL, NULL, NULL)", "@P_NAME", p_name, "@P_PIC", p_pic);
+                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,'ב' , @P_COUNT)", 
+                "@P_NAME",planInfo.Name,
+                "@P_FOREIGN", planInfo.ForeignName,
+                "@P_COMMENTS", planInfo.Comments, 
+                "@P_PIC", planInfo.Picture,
+                /*"@P_UNIT_TYPE",planInfo.UnitType.ToString() ,          \"@P_UNIT_TYPE\"*/
+                "@P_COUNT",planInfo.CountInUnit.ToString());
+
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
-                "@P_TYPE", p_type,
-                "@P_NAME", p_name,
+                "VALUES('a', @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
+                /*"@P_TYPE", planInfo.UnitType.ToString(),      \"@P_TYPE\"*/
+                "@P_NAME", planInfo.Name,
                 "@P_LIFETIME", p_lifetime.ToString(),
                 "@P_PRICE", p_price.ToString(),
                 "@P_ID", newId.ToString());
@@ -50,7 +57,7 @@ namespace seedsfromzion.Managers
         /// <param name="p_name"></param>
         public PlantInfo FindPlant(string p_name)
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.Plants WHERE name=@P_NAME",
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.Plants WHERE name=\"@P_NAME\"",
                 "@P_NAME", p_name);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
@@ -362,9 +369,11 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="p_name"></param>
         /// <returns></returns>
-        public bool checkPlantExists(string p_name)
+        public bool checkPlantExists(PlantInfo plantInfo)
         {
-            return DataAccessUtils.rowExists("SELECT name FROM seedsdb.Plants WHERE name=@P_NAME;", "@P_NAME", p_name);
+            return DataAccessUtils.rowExists("SELECT name FROM seedsdb.planttypes WHERE name=\"@P_NAME\" AND type='@P_TYPE'", 
+                "@P_NAME", plantInfo.Name,
+                "@P_TYPE", plantInfo.UnitType.ToString());
         }
         /// <summary>
         /// check if plant exist in the DB by id
@@ -373,7 +382,7 @@ namespace seedsfromzion.Managers
         /// <returns></returns>
         public bool checkPlantExistsByID(int p_id)
         {
-            return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.PlantTypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
+            return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.planttypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
         }
         /// <summary>
         /// check if a storage exist in the DB by id
