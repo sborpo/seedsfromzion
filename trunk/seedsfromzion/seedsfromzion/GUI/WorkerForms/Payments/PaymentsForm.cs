@@ -19,6 +19,7 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void PaymentsForm_Load(object sender, EventArgs e)
         {
+            this.BaseForm_Load(sender, e);
             populateWorkers();
         }
 
