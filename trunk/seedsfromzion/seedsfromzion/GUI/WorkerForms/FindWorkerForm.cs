@@ -40,7 +40,7 @@ namespace seedsfromzion.GUI.WorkerForms
             int res;
             if (!int.TryParse(textBox_ID.Text, out res))
             {
-                MessageBox.Show("יש להכניס תעודת זהות תקינה");
+                new ErrorWindow(" יש להזין תעודת זהות ת.ז תקינה").Show();
                 return;
             }
 
