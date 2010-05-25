@@ -19,10 +19,17 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void btn_Add_Click(object sender, EventArgs e)
         {
+            int visaID;
             #region field validation
             if (String.IsNullOrEmpty(textBox_ID.Text))
             {
                 ErrorWindow eroor = new ErrorWindow("יש להכניס מספר מזהה");
+                eroor.Show();
+                return;
+            }
+            else if(!int.TryParse(textBox_ID.Text, visaID))
+            {
+                ErrorWindow eroor = new ErrorWindow("יש להזין מספר מזהה תקין");
                 eroor.Show();
                 return;
             }

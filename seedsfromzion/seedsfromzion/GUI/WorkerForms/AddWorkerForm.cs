@@ -19,20 +19,26 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void btn_addWorker_Click(object sender, EventArgs e)
         {
+            int workerID;
             #region field validation
             if (String.IsNullOrEmpty(textBox_ID.Text))
             {
-                MessageBox.Show("יש להכניס תעודת זהות");
+                new ErrorWindow("יש להזין תעודת זהות").Show();
+                return;
+            }
+            else if (!int.TryParse(textBox_ID.Text, workerID))
+            {
+                new ErrorWindow("יש להזין תעודת זהות תקינה").Show();
                 return;
             }
             if (String.IsNullOrEmpty(textBox_firstName.Text))
             {
-                MessageBox.Show("יש להכניס שם פרטי");
+                new ErrorWindow("יש להכניס שם פרטי").Show();
                 return;
             }
             if (String.IsNullOrEmpty(textBox_lastName.Text))
             {
-                MessageBox.Show("יש להכניס שם משפחה");
+                new ErrorWindow("יש להכניס שם משפחה").Show();
                 return;
             } 
             #endregion
@@ -45,7 +51,8 @@ namespace seedsfromzion.GUI.WorkerForms
             }
             catch (ArgumentException)
             {
-                MessageBox.Show("עובד בעל אותה ת.ז כבר נמצא במערכת");
+                new ErrorWindow("עובד בעל אותה ת.ז כבר נמצא במערכת").Show();
+                return;
             }
         }
 
