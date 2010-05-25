@@ -26,7 +26,7 @@ namespace seedsfromzion.GUI.WorkerForms
                 new ErrorWindow("יש להזין תעודת זהות").Show();
                 return;
             }
-            else if (!int.TryParse(textBox_ID.Text, workerID))
+            else if (!int.TryParse(textBox_ID.Text,out workerID))
             {
                 new ErrorWindow("יש להזין תעודת זהות תקינה").Show();
                 return;

@@ -27,7 +27,7 @@ namespace seedsfromzion.GUI.WorkerForms
                 eroor.Show();
                 return;
             }
-            else if(!int.TryParse(textBox_ID.Text, visaID))
+            else if(!int.TryParse(textBox_ID.Text, out visaID))
             {
                 ErrorWindow eroor = new ErrorWindow("יש להזין מספר מזהה תקין");
                 eroor.Show();
