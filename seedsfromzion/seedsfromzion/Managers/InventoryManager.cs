@@ -351,8 +351,36 @@ namespace seedsfromzion.Managers
 
 
 
+        //NOW WORKING ON IT
+        public void updatePlantDetails(PlantInfo info, double price, double lifetime)
+        {
+            MySqlCommand[] commands = new MySqlCommand[2];
+            if (checkPlantExists(planInfo))
+                throw new ArgumentException("Plant already exists");
 
+            int newId = getNewPlantId();
+            string pictureName = planInfo.Picture;
+            string newPictureName = copyThePicture(pictureName, newId);
 
+            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
+                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,'ב' , @P_COUNT)",
+                "@P_NAME", planInfo.Name,
+                "@P_FOREIGN", planInfo.ForeignName,
+                "@P_COMMENTS", planInfo.Comments,
+                "@P_PIC", newPictureName,
+                /*"@P_UNIT_TYPE",planInfo.UnitType.ToString() ,          \"@P_UNIT_TYPE\"*/
+                "@P_COUNT", planInfo.CountInUnit.ToString());
+
+            commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
+                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
+                "@P_TYPE", planInfo.UnitType.ToString(),
+                "@P_NAME", planInfo.Name,
+                "@P_LIFETIME", p_lifetime.ToString(),
+                "@P_PRICE", p_price.ToString(),
+                "@P_ID", newId.ToString());
+            DatabaseAccess.performDMLTransaction(commands);
+
+        }
 
         public DataRow findPlantById(string plantId)
         {
@@ -376,7 +404,7 @@ namespace seedsfromzion.Managers
 
         public DataTable getFullPlantsTable(string plantName)
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT T.plantId,T.name, T.type , T.lifetime, T.price,P.foreignName,P.picture,P.comments,P.unitType,P.countInUnit,P.comments FROM seedsdb.planttypes T, seedsdb.plants P WHERE P.plantId=T.PlantId AND P.name=@Name","@Name",plantName);
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT T.plantId,T.name, T.type , T.lifetime, T.price,P.foreignName,P.picture,P.comments,P.unitType,P.countInUnit FROM seedsdb.planttypes T, seedsdb.plants P WHERE P.name=T.name AND P.name=@Name","@Name",plantName);
             return DatabaseAccess.getResultSetFromDb(command);
         }
 

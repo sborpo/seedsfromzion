@@ -7,7 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
 using seedsfromzion.DataStructures;
-
+using seedsfromzion.DataAccess;
 namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class AddNewPlant : seedsfromzion.GUI.BaseForm
@@ -15,6 +15,38 @@ namespace seedsfromzion.GUI.InventoryForms
         private class IllegalParams : Exception { }
 
         private string picture = "NO_PICTURE";
+
+        public AddNewPlant(PlantInfo info,string type,double priceArg,double lifeTimeArg )
+        {
+            InitializeComponent();
+            name.Text=info.Name;
+            name.ReadOnly = true;
+            foreignName.Text = info.ForeignName;
+            integerInput1.Value = info.CountInUnit;
+            price.Value = priceArg;
+            lifeTime.Value = lifeTimeArg;
+            comments.Text = info.Comments;
+            comboBoxEx1.Text = type;
+            comboBoxEx1.Enabled = false;
+            addPlantTypePanel.Visible = false;
+            buttonX1.Text = "ערוך צמח";
+            buttonX1.Click -= new EventHandler(buttonX1_Click);
+            buttonX1.Click += new EventHandler(updateClick);
+            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string pictureName = info.Picture;
+            if (pictureName != "NO_PICTURE")
+            {
+                pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName);
+                picture = pictureName;
+            }
+            addPlantPanel.Text = "עדכון צמח";
+            
+            
+
+            
+            
+
+        }
         public AddNewPlant()
         {
             InitializeComponent();
@@ -29,38 +61,74 @@ namespace seedsfromzion.GUI.InventoryForms
 
         }
 
-        private void buttonX1_Click(object sender, EventArgs e)
+
+        private void updateClick(object sender, EventArgs e)
         {
             InventoryManager invMgr = new InventoryManager();
             PlantInfo plantInfo = new PlantInfo();
+            try
+            {
+                checkPlantParams();
+            }
+            catch (IllegalParams ex)
+            {
+                return;
+            }
+            plantInfo.Name = name.Text;
+            plantInfo.ForeignName = foreignName.Text;
+            plantInfo.UnitType = comboBoxEx1.SelectedItem.ToString();
+            plantInfo.CountInUnit = integerInput1.Value;
+            plantInfo.Comments = comments.Text;
+            plantInfo.Picture = picture;
+            invMgr.AddPlant(plantInfo, price.Value, lifeTime.Value);
+            new SuccessWindow().Show();
+
+        }
+
+        private void checkPlantParams()
+        {
             if (name.Text == "")
             {
                 new ErrorWindow("לא הוזן שם לצמח").Show();
-                return;
+                throw new IllegalParams();
             }
             if (foreignName.Text == "")
             {
                 new ErrorWindow("לא הוזן שם לועזי לצמח").Show();
-                return;
+                throw new IllegalParams();
             }
             if (comboBoxEx1.SelectedItem == null)
             {
                 new ErrorWindow("לא הוזן איכות לצמח").Show();
-                return;
+                throw new IllegalParams();
             }
             if (integerInput1.Value == 0)
             {
                 new ErrorWindow("לא הוזן שם מספר יחידות ליחידת משקל").Show();
-                return;
+                throw new IllegalParams();
             }
             if (price.Value == 0.0)
             {
                 new ErrorWindow("לא הוזן מחיר ליחידת משקל").Show();
-                return;
+                throw new IllegalParams();
             }
             if (lifeTime.Value == 0.0)
             {
                 new ErrorWindow("לא הוזן אורך חיים בחודשים").Show();
+                throw new IllegalParams();
+            }
+        }
+
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            InventoryManager invMgr = new InventoryManager();
+            PlantInfo plantInfo = new PlantInfo();
+            try
+            {
+                checkPlantParams();
+            }
+            catch (IllegalParams ex)
+            {
                 return;
             }
             plantInfo.Name          = name.Text;
