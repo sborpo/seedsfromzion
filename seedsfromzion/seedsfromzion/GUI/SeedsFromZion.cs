@@ -284,7 +284,7 @@ namespace seedsfromzion.GUI
 
         private void findPlantButton_Click(object sender, EventArgs e)
         {
-            InheritedForm findPlantMDIChild = new InheritedForm();
+            FindPlant findPlantMDIChild = new FindPlant();
             // Set the Parent Form of the Child window.
             findPlantMDIChild.MdiParent = this;
             // Display the new form.

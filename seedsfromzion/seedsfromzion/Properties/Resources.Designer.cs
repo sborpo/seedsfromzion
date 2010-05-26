@@ -211,6 +211,13 @@ namespace seedsfromzion.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap image_missing {
+            get {
+                object obj = ResourceManager.GetObject("image_missing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap logo1 {
             get {
                 object obj = ResourceManager.GetObject("logo1", resourceCulture);
