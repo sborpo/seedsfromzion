@@ -17,6 +17,31 @@ namespace seedsfromzion.GUI.InventoryForms
         public FindPlant()
         {
             InitializeComponent();
+
+           
+            
+        }
+
+        void mainForm_deletePlantClicked()
+        {
+            if (dataGridViewX1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            int plantid = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells["plantId"].Value);
+            string name = (string)(dataGridViewX1.SelectedRows[0].Cells["name"].Value);
+            InventoryManager manager = new InventoryManager();
+            if (manager.IsPlantIsUsed(plantid))
+            {
+                new ErrorWindow("לא ניתן למחוק צמח אשר נמצא כעת בשימוש במערכת");
+                return;
+            }
+            manager.removePlant(plantid, name);
+            new SuccessWindow().Show();
+            actEmptyBox();
+           
+
+
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
@@ -80,7 +105,7 @@ namespace seedsfromzion.GUI.InventoryForms
         private void actEmptyBox()
         {
             initPlantInfo();
-           
+            textBoxX1.Text = "";
             dataGridViewX1.DataSource = null;
             dataGridViewX1.Refresh();
         }
@@ -92,7 +117,6 @@ namespace seedsfromzion.GUI.InventoryForms
             unitstype.Text = "";
             integerInput1.Value = 0;
             comments.Text = "";
-            pictureBox1.Image = Properties.Resources.image_missing;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -121,7 +145,15 @@ namespace seedsfromzion.GUI.InventoryForms
             AddNewPlant updateForm = new AddNewPlant(info, type, price, lifetime);
             updateForm.MdiParent = this.MdiParent;
             updateForm.Show();
+            pictureBox1.Image.Dispose();
+            this.Close();
             
+        }
+
+        private void FindPlant_Load(object sender, EventArgs e)
+        {
+            seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
+            mainForm.deletePlantClicked += new seedsFromZion.deletePlantClickedHandler(mainForm_deletePlantClicked);
         }
     }
 }

@@ -266,6 +266,7 @@
             this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.labelX1);
             this.Name = "FindPlant";
+            this.Load += new System.EventHandler(this.FindPlant_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupPanel1.ResumeLayout(false);

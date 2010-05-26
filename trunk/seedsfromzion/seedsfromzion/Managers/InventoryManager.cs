@@ -25,7 +25,7 @@ namespace seedsfromzion.Managers
         /// <param name="p_pic"></param>
         /// <param name="p_price"></param>
         /// <param name="p_lifetime"></param>
-        public void AddPlant(PlantInfo planInfo , double p_price, double p_lifetime)
+        public void AddPlant(PlantInfo planInfo ,string type, double p_price, double p_lifetime)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
             if (checkPlantExists(planInfo))
@@ -36,17 +36,17 @@ namespace seedsfromzion.Managers
             string newPictureName=copyThePicture(pictureName,newId);
 
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
-                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,'ב' , @P_COUNT)", 
+                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,@P_UNIT_TYPE , @P_COUNT)", 
                 "@P_NAME",planInfo.Name,
                 "@P_FOREIGN", planInfo.ForeignName,
                 "@P_COMMENTS", planInfo.Comments, 
                 "@P_PIC", newPictureName,
-                /*"@P_UNIT_TYPE",planInfo.UnitType.ToString() ,          \"@P_UNIT_TYPE\"*/
+                "@P_UNIT_TYPE",planInfo.UnitType.ToString() ,         
                 "@P_COUNT",planInfo.CountInUnit.ToString());
 
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
                 "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
-                "@P_TYPE", planInfo.UnitType.ToString(),     
+                "@P_TYPE", type,     
                 "@P_NAME", planInfo.Name,
                 "@P_LIFETIME", p_lifetime.ToString(),
                 "@P_PRICE", p_price.ToString(),
@@ -56,9 +56,14 @@ namespace seedsfromzion.Managers
 
         private string copyThePicture(string pictureName, int newId)
         {
+            if (pictureName == "NO_PICTURE")
+            {
+                return pictureName;
+            }
             string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string imagesPath = executionPath + @"\" +ConfigFile.getInstance.ImagesPath+@"\"+ newId.ToString();
             File.Copy(pictureName, imagesPath, true);
+            File.SetAttributes(imagesPath, FileAttributes.Normal);
             return newId.ToString();
             
         }
@@ -112,8 +117,32 @@ namespace seedsfromzion.Managers
         /// <param name="p_name"></param>
         public int FindPlant(string p_name, char p_type)
         {
+           return innerFindPlant(p_name, p_type.ToString());
+        }
+
+        /// <summary>
+        /// Finds plant according to the given name and type.
+        /// Overrloaded To Previous
+        /// </summary>
+        /// <param name="p_name"></param>
+        /// <param name="p_type"></param>
+        /// <returns></returns>
+        public int FindPlant(string p_name, string p_type)
+        {
+            return innerFindPlant(p_name, p_type);
+        }
+
+        /// <summary>
+        /// Private function which finds the plantId of a given plant
+        /// name and a type. if it wasn't found return -1
+        /// </summary>
+        /// <param name="p_name"></param>
+        /// <param name="p_type"></param>
+        /// <returns></returns>
+        private int innerFindPlant(string p_name, string p_type)
+        {
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT plantId FROM seedsdb.PlantTypes WHERE name=@P_NAME AND type=@P_TYPE",
-                "@P_NAME", p_name, "@P_TYPE", p_type.ToString());
+            "@P_NAME", p_name, "@P_TYPE", p_type.ToString());
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
             if (result.Rows.Count == 0)
@@ -135,6 +164,9 @@ namespace seedsfromzion.Managers
 
             return id;
         }
+
+
+
         /*
         // why do I need this func? I have addToFridge() 
         /// <summary>
@@ -351,34 +383,60 @@ namespace seedsfromzion.Managers
 
 
 
-        //NOW WORKING ON IT
-        public void updatePlantDetails(PlantInfo info, double price, double lifetime)
+       /// <summary>
+       /// Updates a given plant name and type to the new properties 
+       /// that was passed with the parameters
+       /// </summary>
+       /// <param name="info"></param>
+       /// <param name="type"></param>
+       /// <param name="price"></param>
+       /// <param name="lifetime"></param>
+        public void updatePlantDetails(PlantInfo planInfo,string type, double price, double lifetime,out String pictureN)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
-            if (checkPlantExists(planInfo))
-                throw new ArgumentException("Plant already exists");
-
-            int newId = getNewPlantId();
+            //get the plantId
+            int id=FindPlant(planInfo.Name, type);
+            //Update the picture
             string pictureName = planInfo.Picture;
-            string newPictureName = copyThePicture(pictureName, newId);
-
-            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
-                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,'ב' , @P_COUNT)",
-                "@P_NAME", planInfo.Name,
+            string newPictureName = copyThePicture(pictureName, id);
+            pictureN = newPictureName;
+            //update the Plants Table
+            commands[0] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants SET  foreignName=@P_FOREIGN, picture=@P_PIC, comments=@P_COMMENTS, unitType=@P_UNIT_TYPE, countInUnit=@P_COUNT " +
+                " WHERE name=@P_NAME",
                 "@P_FOREIGN", planInfo.ForeignName,
-                "@P_COMMENTS", planInfo.Comments,
                 "@P_PIC", newPictureName,
-                /*"@P_UNIT_TYPE",planInfo.UnitType.ToString() ,          \"@P_UNIT_TYPE\"*/
-                "@P_COUNT", planInfo.CountInUnit.ToString());
-
-            commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
-                "@P_TYPE", planInfo.UnitType.ToString(),
+                "@P_COMMENTS", planInfo.Comments,
+                "@P_UNIT_TYPE",planInfo.UnitType.ToString() ,         
+                "@P_COUNT", planInfo.CountInUnit.ToString(),
+                "@P_NAME", planInfo.Name);
+            //Update the Plant Types Table
+            commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.PlantTypes SET  lifetime=@P_LIFETIME, price=@P_PRICE  " +
+                " WHERE name=@P_NAME AND type=@P_TYPE",
+                "@P_LIFETIME", lifetime.ToString(),
+                "@P_PRICE",price.ToString(),
                 "@P_NAME", planInfo.Name,
-                "@P_LIFETIME", p_lifetime.ToString(),
-                "@P_PRICE", p_price.ToString(),
-                "@P_ID", newId.ToString());
+                "@P_TYPE", planInfo.UnitType.ToString());
             DatabaseAccess.performDMLTransaction(commands);
+
+        }
+
+        public void removePlant(int plantId,string name)
+        {
+            MySqlCommand [] commands = new MySqlCommand[2];
+            commands[0]= DataAccessUtils.commandBuilder("DELETE FROM seedsdb.planttypes WHERE plantId=@Plant","@Plant",plantId.ToString());
+            commands[1]=DataAccessUtils.commandBuilder("DELETE FROM seedsdb.plants WHERE NOT EXISTS (SELECT * FROM seedsdb.planttypes WHERE seedsdb.plants.name=seedsdb.planttypes.name)");
+            DatabaseAccess.performDMLTransaction(commands);
+        }
+
+        /// <summary>
+        /// Checks whenever the plant exists in the Fridge,Field Or Finished Storage
+        /// If yes , return true , otherwise returns false
+        /// </summary>
+        /// <param name="plantId"></param>
+        /// <returns></returns>
+        public bool IsPlantIsUsed(int plantId)
+        {
+            return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.fridge WHERE plantId=@Plant UNION SELECT plantId FROM seedsdb.field WHERE plantId=@Plant UNION SELECT plantId FROM seedsdb.finishedstorage WHERE plantId=@Plant UNION (SELECT OS.plantId FROM seedsdb.ordersfromstorage OS,seedsdb.orders O WHERE OS.orderId=O.orderId AND OS.plantId=@Plant AND O.status='0')", "@Plant", plantId.ToString());
 
         }
 
