@@ -6,6 +6,7 @@ using seedsfromzion.DataAccess;
 using MySql.Data.MySqlClient;
 using seedsfromzion.DataStructures;
 using System.Data;
+using System.IO;
 
 namespace seedsfromzion.Managers
 {
@@ -31,24 +32,54 @@ namespace seedsfromzion.Managers
                 throw new ArgumentException("Plant already exists");
 
             int newId = getNewPlantId();
+            string pictureName = planInfo.Picture;
+            string newPictureName=copyThePicture(pictureName,newId);
 
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,'ב' , @P_COUNT)", 
                 "@P_NAME",planInfo.Name,
                 "@P_FOREIGN", planInfo.ForeignName,
                 "@P_COMMENTS", planInfo.Comments, 
-                "@P_PIC", planInfo.Picture,
+                "@P_PIC", newPictureName,
                 /*"@P_UNIT_TYPE",planInfo.UnitType.ToString() ,          \"@P_UNIT_TYPE\"*/
                 "@P_COUNT",planInfo.CountInUnit.ToString());
 
             commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES('a', @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
-                /*"@P_TYPE", planInfo.UnitType.ToString(),      \"@P_TYPE\"*/
+                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
+                "@P_TYPE", planInfo.UnitType.ToString(),     
                 "@P_NAME", planInfo.Name,
                 "@P_LIFETIME", p_lifetime.ToString(),
                 "@P_PRICE", p_price.ToString(),
                 "@P_ID", newId.ToString());
             DatabaseAccess.performDMLTransaction(commands);
+        }
+
+        private string copyThePicture(string pictureName, int newId)
+        {
+            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string imagesPath = executionPath + @"\" +ConfigFile.getInstance.ImagesPath+@"\"+ newId.ToString();
+            File.Copy(pictureName, imagesPath, true);
+            return newId.ToString();
+            
+        }
+
+        public void AddPlantType(string plantName,string plantType, double lifetime, double price)
+        {
+            PlantInfo info = new PlantInfo();
+            info.Name = plantName;
+            info.UnitType = plantType;
+            if (checkPlantExists(info))
+                throw new ArgumentException("Plant already exists");
+            int newId = getNewPlantId();
+            MySqlCommand command= DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
+                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
+                "@P_TYPE", plantType,    
+                "@P_NAME", plantName,
+                "@P_LIFETIME",lifetime.ToString(),
+                "@P_PRICE", price.ToString(),
+                "@P_ID", newId.ToString());
+            DatabaseAccess.performDMLQuery(command);
+
         }
 
         /// <summary>
@@ -57,7 +88,7 @@ namespace seedsfromzion.Managers
         /// <param name="p_name"></param>
         public PlantInfo FindPlant(string p_name)
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.Plants WHERE name=\"@P_NAME\"",
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * FROM seedsdb.Plants WHERE name=@P_NAME",
                 "@P_NAME", p_name);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
@@ -68,10 +99,10 @@ namespace seedsfromzion.Managers
 
             plant.Name = (string)result.Rows[0]["name"];
             plant.ForeignName = (string)result.Rows[0]["foreignName"];
-            plant.Picture = (string)result.Rows[0]["picture"];
+            plant.Picture = (result.Rows[0]["picture"] == null) ? "NULL" : (string)result.Rows[0]["picture"];
             plant.Comments = (string)result.Rows[0]["comments"];
-            plant.UnitType = (char)result.Rows[0]["unitType"];
-            plant.CountInUnit = (int)result.Rows[0]["countInUnit"];
+            plant.UnitType = result.Rows[0]["unitType"].ToString();
+            plant.CountInUnit =   (int)Int32.Parse( result.Rows[0]["countInUnit"].ToString());
             return plant;
         }
 
@@ -343,6 +374,12 @@ namespace seedsfromzion.Managers
 
         }
 
+        public DataTable getFullPlantsTable(string plantName)
+        {
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT T.plantId,T.name, T.type , T.lifetime, T.price,P.foreignName,P.picture,P.comments,P.unitType,P.countInUnit,P.comments FROM seedsdb.planttypes T, seedsdb.plants P WHERE P.plantId=T.PlantId AND P.name=@Name","@Name",plantName);
+            return DatabaseAccess.getResultSetFromDb(command);
+        }
+
         public DataTable getPlantsTable()
         {
             MySqlCommand command = new MySqlCommand("SELECT * FROM seedsdb.planttypes");
@@ -371,7 +408,7 @@ namespace seedsfromzion.Managers
         /// <returns></returns>
         public bool checkPlantExists(PlantInfo plantInfo)
         {
-            return DataAccessUtils.rowExists("SELECT name FROM seedsdb.planttypes WHERE name=\"@P_NAME\" AND type='@P_TYPE'", 
+            return DataAccessUtils.rowExists("SELECT name FROM seedsdb.planttypes WHERE name=@P_NAME AND type=@P_TYPE", 
                 "@P_NAME", plantInfo.Name,
                 "@P_TYPE", plantInfo.UnitType.ToString());
         }

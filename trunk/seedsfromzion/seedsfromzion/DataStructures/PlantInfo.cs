@@ -9,9 +9,9 @@ namespace seedsfromzion.DataStructures
     {
         public string Name;
         public string ForeignName;
-        public string Picture; // check correct type
+        public string Picture; 
         public string Comments;
-        public char UnitType;
+        public string UnitType;
         public int CountInUnit;
     }
 }

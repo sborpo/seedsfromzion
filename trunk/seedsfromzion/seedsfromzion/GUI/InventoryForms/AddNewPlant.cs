@@ -12,13 +12,20 @@ namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class AddNewPlant : seedsfromzion.GUI.BaseForm
     {
+        private class IllegalParams : Exception { }
+
+        private string picture = "NO_PICTURE";
         public AddNewPlant()
         {
             InitializeComponent();
 
-            comboBoxEx1.Items.Add('א');
-            comboBoxEx1.Items.Add('ב');
-            comboBoxEx1.Items.Add('ג');
+            comboBoxEx1.Items.Add("א");
+            comboBoxEx1.Items.Add("ב");
+            comboBoxEx1.Items.Add("ג");
+            typeType.Items.Add("א");
+            typeType.Items.Add("ב");
+            typeType.Items.Add("ג");
+
 
         }
 
@@ -58,16 +65,18 @@ namespace seedsfromzion.GUI.InventoryForms
             }
             plantInfo.Name          = name.Text;
             plantInfo.ForeignName   = foreignName.Text;
-            plantInfo.UnitType      = (char)(comboBoxEx1.SelectedItem);
+            plantInfo.UnitType      = comboBoxEx1.SelectedItem.ToString();
             plantInfo.CountInUnit   = integerInput1.Value;
             plantInfo.Comments      = comments.Text;
+            plantInfo.Picture = picture;
+
             try
             {
                 invMgr.AddPlant(plantInfo, price.Value, lifeTime.Value);
                 new SuccessWindow().Show();
                 ClearFields();
             }
-            catch (Exception ex)
+            catch (ArgumentException ex)
             {
                 new ErrorWindow("הצמח כבר קיים במערכת").Show();
                 return;
@@ -92,6 +101,86 @@ namespace seedsfromzion.GUI.InventoryForms
             lifeTime.Refresh();
             comments.Refresh();
             
+        }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dig = new OpenFileDialog();
+            if (dig.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox1.Image = Image.FromFile(dig.FileName);
+                picture = dig.FileName;
+            }
+           
+        }
+
+        private void price_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                verifyPlantTypeParams();
+            }
+            catch (IllegalParams ex)
+            {
+                return;
+            }
+            InventoryManager manager = new InventoryManager();
+            PlantInfo info ;
+            try
+            {
+                info = manager.FindPlant(typePlantName.Text);
+            }
+            catch (ArgumentException ex)
+            {
+                new ErrorWindow("שם הצמח אינו נמצא במערכת , לכן לא ניתן להוסיף" + "\n" + "לו סוג כלשהו").Show();
+                return;
+            }
+            try
+            {
+                manager.AddPlantType(typePlantName.Text, typeType.SelectedItem.ToString(), typeLife.Value, typePrice.Value);
+            }
+            catch (ArgumentException ex)
+            {
+                new ErrorWindow("שם הצמח והסוג הזה כבר נמצאים במערכת").Show();
+                return;
+            }
+            new SuccessWindow().Show();
+
+            
+
+
+
+        }
+
+        private void verifyPlantTypeParams()
+        {
+            if (typePlantName.Text == "")
+            {
+                new ErrorWindow("לא הוזן שם לצמח").Show();
+                throw new IllegalParams();
+            }
+            if (typeType.SelectedItem == null)
+            {
+                new ErrorWindow("לא הוזן איכות לצמח").Show();
+                throw new IllegalParams();
+            }
+            if (typePrice.Value == 0.0)
+            {
+                new ErrorWindow("לא הוזן מחיר ליחידת משקל").Show();
+                throw new IllegalParams();
+            }
+            if (typeLife.Value == 0.0)
+            {
+                new ErrorWindow("לא הוזן אורך חיים בחודשים").Show();
+                throw new IllegalParams();
+            }
+
+           
         }
     }
 }
