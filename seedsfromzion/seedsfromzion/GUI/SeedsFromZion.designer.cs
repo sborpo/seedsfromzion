@@ -324,6 +324,7 @@
             this.removePlantButton.Tooltip = "מחיקת צמח...";
             this.removePlantButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.removePlantButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.removePlantButton.Click += new System.EventHandler(this.removePlantButton_Click);
             // 
             // workersPanel
             // 

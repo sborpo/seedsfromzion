@@ -244,6 +244,18 @@ namespace seedsfromzion.GUI
 
         #region inventory
 
+        #region Delete Plant Handler
+        public delegate void deletePlantClickedHandler();
+        public event deletePlantClickedHandler deletePlantClicked;
+        private void removePlantButton_Click(object sender, EventArgs e)
+        {
+            if (deletePlantClicked != null)
+            {
+                deletePlantClicked();
+            }
+        }
+        #endregion
+
         private void addToFridgeButton_Click(object sender, EventArgs e)
         {
 
@@ -423,6 +435,8 @@ namespace seedsfromzion.GUI
             form.MdiParent = this;
             form.Show();
         }
+
+        
   
     }
 }

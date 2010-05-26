@@ -56,6 +56,8 @@
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.typePlantName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.plantUnitType = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTime)).BeginInit();
@@ -114,6 +116,7 @@
             this.foreignName.Border.Class = "TextBoxBorder";
             this.foreignName.Location = new System.Drawing.Point(268, 48);
             this.foreignName.Name = "foreignName";
+            this.foreignName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.foreignName.Size = new System.Drawing.Size(133, 20);
             this.foreignName.TabIndex = 5;
             // 
@@ -171,7 +174,7 @@
             // 
             this.labelX5.BackColor = System.Drawing.Color.Transparent;
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX5.Location = new System.Drawing.Point(447, 197);
+            this.labelX5.Location = new System.Drawing.Point(447, 233);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(45, 23);
             this.labelX5.TabIndex = 10;
@@ -179,7 +182,7 @@
             // 
             // comments
             // 
-            this.comments.Location = new System.Drawing.Point(198, 199);
+            this.comments.Location = new System.Drawing.Point(198, 235);
             this.comments.MaximumSize = new System.Drawing.Size(420, 80);
             this.comments.Multiline = true;
             this.comments.Name = "comments";
@@ -263,6 +266,8 @@
             // 
             this.addPlantPanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.addPlantPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.addPlantPanel.Controls.Add(this.plantUnitType);
+            this.addPlantPanel.Controls.Add(this.labelX11);
             this.addPlantPanel.Controls.Add(this.buttonX2);
             this.addPlantPanel.Controls.Add(this.comments);
             this.addPlantPanel.Controls.Add(this.labelX1);
@@ -450,6 +455,27 @@
             this.typePlantName.Size = new System.Drawing.Size(142, 20);
             this.typePlantName.TabIndex = 16;
             // 
+            // labelX11
+            // 
+            this.labelX11.BackColor = System.Drawing.Color.Transparent;
+            this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX11.Location = new System.Drawing.Point(417, 196);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(75, 23);
+            this.labelX11.TabIndex = 18;
+            this.labelX11.Text = "סוג היחידות:";
+            // 
+            // plantUnitType
+            // 
+            // 
+            // 
+            // 
+            this.plantUnitType.Border.Class = "TextBoxBorder";
+            this.plantUnitType.Location = new System.Drawing.Point(270, 198);
+            this.plantUnitType.Name = "plantUnitType";
+            this.plantUnitType.Size = new System.Drawing.Size(131, 20);
+            this.plantUnitType.TabIndex = 19;
+            // 
             // AddNewPlant
             // 
             this.ClientSize = new System.Drawing.Size(1028, 597);
@@ -499,5 +525,7 @@
         private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.Controls.ComboBoxEx typeType;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.Controls.TextBoxX plantUnitType;
     }
 }

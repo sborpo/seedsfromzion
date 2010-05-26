@@ -15,48 +15,65 @@ namespace seedsfromzion.GUI.InventoryForms
         private class IllegalParams : Exception { }
 
         private string picture = "NO_PICTURE";
+        private string executionPath;
+        
 
+        /// <summary>
+        /// This c'tor of the class should give the option
+        /// of Updating plant details. It gets the plant details
+        /// through the arguments , and give an option to the user
+        /// to update the plant's details
+        /// </summary>
+        /// <param name="info"></param>
+        /// <param name="type"></param>
+        /// <param name="priceArg"></param>
+        /// <param name="lifeTimeArg"></param>
         public AddNewPlant(PlantInfo info,string type,double priceArg,double lifeTimeArg )
         {
             InitializeComponent();
+            executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            #region set the properties from the arguments
             name.Text=info.Name;
-            name.ReadOnly = true;
             foreignName.Text = info.ForeignName;
             integerInput1.Value = info.CountInUnit;
             price.Value = priceArg;
             lifeTime.Value = lifeTimeArg;
             comments.Text = info.Comments;
-            comboBoxEx1.Text = type;
+            plantUnitType.Text = info.UnitType;
+            comboBoxEx1.Items.Add(type);
+            comboBoxEx1.SelectedIndex = 0;
+            if (info.Picture != "NO_PICTURE")
+            {
+                pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + info.Picture);
+                picture = info.Picture;
+            }
+            #endregion
+            #region set display properties to fit plant update
+            name.ReadOnly = true;
             comboBoxEx1.Enabled = false;
             addPlantTypePanel.Visible = false;
             buttonX1.Text = "ערוך צמח";
             buttonX1.Click -= new EventHandler(buttonX1_Click);
             buttonX1.Click += new EventHandler(updateClick);
-            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            
             string pictureName = info.Picture;
-            if (pictureName != "NO_PICTURE")
-            {
-                pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName);
-                picture = pictureName;
-            }
             addPlantPanel.Text = "עדכון צמח";
-            
-            
-
-            
-            
-
+            #endregion
         }
+
+        /// <summary>
+        /// C'tor of the class
+        /// </summary>
         public AddNewPlant()
         {
             InitializeComponent();
-
             comboBoxEx1.Items.Add("א");
             comboBoxEx1.Items.Add("ב");
             comboBoxEx1.Items.Add("ג");
             typeType.Items.Add("א");
             typeType.Items.Add("ב");
             typeType.Items.Add("ג");
+            executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
 
         }
@@ -65,7 +82,6 @@ namespace seedsfromzion.GUI.InventoryForms
         private void updateClick(object sender, EventArgs e)
         {
             InventoryManager invMgr = new InventoryManager();
-            PlantInfo plantInfo = new PlantInfo();
             try
             {
                 checkPlantParams();
@@ -74,14 +90,26 @@ namespace seedsfromzion.GUI.InventoryForms
             {
                 return;
             }
+            PlantInfo plantInfo = plantInfoSetter();
+            pictureBox1.Image.Dispose();
+            pictureBox1.Image = null;
+            String Newpicture;
+            invMgr.updatePlantDetails(plantInfo, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
+            pictureBox1.Image = Image.FromFile(executionPath+@"\"+ConfigFile.getInstance.ImagesPath+@"\"+Newpicture);
+            new SuccessWindow().Show();
+
+        }
+
+        private PlantInfo plantInfoSetter()
+        {
+            PlantInfo plantInfo = new PlantInfo();
             plantInfo.Name = name.Text;
             plantInfo.ForeignName = foreignName.Text;
-            plantInfo.UnitType = comboBoxEx1.SelectedItem.ToString();
+            plantInfo.UnitType = plantUnitType.Text;
             plantInfo.CountInUnit = integerInput1.Value;
             plantInfo.Comments = comments.Text;
             plantInfo.Picture = picture;
-            invMgr.AddPlant(plantInfo, price.Value, lifeTime.Value);
-            new SuccessWindow().Show();
+            return plantInfo;
 
         }
 
@@ -107,6 +135,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("לא הוזן שם מספר יחידות ליחידת משקל").Show();
                 throw new IllegalParams();
             }
+            if (plantUnitType.Text=="")
+            {
+                new ErrorWindow("לא הוזן סוג היחידות").Show();
+                throw new IllegalParams();
+            }
             if (price.Value == 0.0)
             {
                 new ErrorWindow("לא הוזן מחיר ליחידת משקל").Show();
@@ -122,7 +155,7 @@ namespace seedsfromzion.GUI.InventoryForms
         private void buttonX1_Click(object sender, EventArgs e)
         {
             InventoryManager invMgr = new InventoryManager();
-            PlantInfo plantInfo = new PlantInfo();
+           
             try
             {
                 checkPlantParams();
@@ -131,16 +164,10 @@ namespace seedsfromzion.GUI.InventoryForms
             {
                 return;
             }
-            plantInfo.Name          = name.Text;
-            plantInfo.ForeignName   = foreignName.Text;
-            plantInfo.UnitType      = comboBoxEx1.SelectedItem.ToString();
-            plantInfo.CountInUnit   = integerInput1.Value;
-            plantInfo.Comments      = comments.Text;
-            plantInfo.Picture = picture;
-
+            PlantInfo plantInfo = plantInfoSetter();
             try
             {
-                invMgr.AddPlant(plantInfo, price.Value, lifeTime.Value);
+                invMgr.AddPlant(plantInfo,comboBoxEx1.SelectedItem.ToString(), price.Value, lifeTime.Value);
                 new SuccessWindow().Show();
                 ClearFields();
             }
@@ -168,6 +195,7 @@ namespace seedsfromzion.GUI.InventoryForms
             price.Refresh();
             lifeTime.Refresh();
             comments.Refresh();
+            plantUnitType.Refresh();
             
         }
 
