@@ -271,6 +271,7 @@
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.groupPanel1);
             this.Name = "SowSeedsForm";
+            this.Load += new System.EventHandler(this.SowSeedsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).EndInit();
             this.groupPanel1.ResumeLayout(false);

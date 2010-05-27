@@ -11,7 +11,7 @@ namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class PlantCollectionForm : seedsfromzion.GUI.BaseForm
     {
-
+        seedsFromZion mainForm;
         DataTable fieldTable;
         public PlantCollectionForm(seedsFromZion mainForm)
         {
@@ -86,6 +86,17 @@ namespace seedsfromzion.GUI.InventoryForms
             initFieldTable();
 
             new SuccessWindow().Show();
+        }
+
+        private void PlantCollectionForm_Load(object sender, EventArgs e)
+        {
+            mainForm = (seedsFromZion)this.MdiParent;
+            this.FormClosing += new FormClosingEventHandler(PlantCollectionForm_FormClosing);
+        }
+
+        void PlantCollectionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.favoriteClicked -= mainForm_favoriteClicked;
         }
     }
 }

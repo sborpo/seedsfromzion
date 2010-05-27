@@ -13,15 +13,23 @@ namespace seedsfromzion.GUI.InventoryForms
     public partial class AddToFridgeForm : seedsfromzion.GUI.BaseForm
     {
         private DataTable plantsTable;
+        seedsFromZion mainForm;
 
         public AddToFridgeForm(seedsFromZion mainForm)
         {
            
             InitializeComponent();
             initPlantsTable();
+            this.mainForm = mainForm;
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
+            this.FormClosing += new FormClosingEventHandler(AddToFridgeForm_FormClosing);
 
             
+        }
+
+        void AddToFridgeForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.favoriteClicked -= mainForm_favoriteClicked;
         }
 
         void mainForm_favoriteClicked(int plantId)
