@@ -217,6 +217,12 @@ namespace seedsfromzion.GUI.StatisticsForms
                 new ErrorWindow("אנא בחרו תאריכים או בטלו אותם").Show();
                 return;
             }
+
+            if(this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
+            {
+                new ErrorWindow("תעריכים בסדר הפוך!").Show();
+                return;
+            }
            
             this.salesGraphControl_Load(plantName, plantId);
         }
