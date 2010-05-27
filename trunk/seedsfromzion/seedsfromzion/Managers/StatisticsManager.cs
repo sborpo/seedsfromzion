@@ -27,6 +27,30 @@ namespace seedsfromzion.Managers
         //}; 
         #endregion
 
+        #region helper class
+
+        private class DateMean
+        {
+            double value;
+            int count;
+            int year;
+
+            public DateMean(int year)
+            {
+                count = 0;
+                this.year = year;
+                this.value = 0;
+            }
+
+            public void updateValue(double value)
+            {
+                count++;
+                this.value = (this.value + value) / count;
+            }
+        }
+
+        #endregion
+
         #region public global methods
 
         static public void initPlantNames()
@@ -107,11 +131,127 @@ namespace seedsfromzion.Managers
                 resultValues[i] = valArr[indexes[i]];
             }
 
+            //resize the arrays to fit data
             Array.Resize<double>(ref resultDates, list.Count);
             Array.Resize<double>(ref resultValues, list.Count);
+            
+            //make the prediction if it is possible
+            if (DateTime.Now.CompareTo(till) < 0 || DateTime.Now.CompareTo(from) < 0)
+            {
+                //makePrediction(ref resultDates, ref resultValues, from, till);
+            }
+
             dateArr = resultDates;
             valArr = resultValues;
             
+        }
+
+        static private void makePrediction(ref Double[] resultDates, ref Double[] resultValues, DateTime fromDate, DateTime tillDate)
+        {
+            DateTime roofDate = DateTime.MinValue;
+            if(fromDate.CompareTo(DateTime.Now) > 0)
+            {
+                roofDate = fromDate;
+            }
+            if (tillDate.CompareTo(DateTime.Now) > 0)
+            {
+                roofDate = tillDate;
+            }
+            if (roofDate.CompareTo(DateTime.Now) <= 0)
+            {
+                return;
+
+            }
+            DateTime[] predictDates = getDatesToPredict(DateTime.Now, roofDate);
+
+            Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory = buildMonthYearHistory(resultDates, resultValues);
+
+            int size = resultDates.Length + predictDates.Length;
+            Double[] allDates = new Double[size];
+            Double[] allValues = new Double[size];
+
+            for (int i = 0; i < size; i++)
+            {
+                if (i < resultDates.Length)
+                {
+                    allDates[i] = resultDates[i];
+                    allValues[i] = resultValues[i];
+                }
+                else
+                {
+                    int predDateIndex = i - resultDates.Length;
+                    allDates[i] = (double)Convert.ChangeType(predictDates[predDateIndex], typeof(double));
+                    allValues[i] = proccessPredictionForDate(predictDates[predDateIndex], monthYearsHistory);
+                }
+            }
+
+            resultDates = allDates;
+            resultValues= allValues;
+
+        }
+
+        static private double proccessPredictionForDate(DateTime date, Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory)
+        {
+            int year = date.Year;
+            int month = date.Month;
+
+            Dictionary<int, DateMean> dataForMonth;
+
+            if (monthYearsHistory.ContainsKey(month))
+            {
+                monthYearsHistory.TryGetValue(month, out dataForMonth);
+            }
+            return 0;
+        }
+
+        static private Dictionary<int, Dictionary<int, DateMean>> buildMonthYearHistory(Double[] resultDates, Double[] resultValues)
+        {
+            Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory = new Dictionary<int, Dictionary<int, DateMean>>();
+            Dictionary<int, DateMean> yearsValues;
+            DateMean theDateMeanVal;
+            for (int i = 0; i < resultDates.Length; i++)
+            {
+                DateTime date = DateTime.FromOADate(resultDates[i]);
+                int month = date.Month;
+                int year = date.Year;
+                double value = resultValues[i];
+                
+                //create the key if not exists
+                if (!monthYearsHistory.ContainsKey(month))
+                {
+                    Dictionary<int, DateMean> newDict = new Dictionary<int, DateMean>();
+                    monthYearsHistory.Add(month, newDict);
+                }
+
+                monthYearsHistory.TryGetValue(month,out yearsValues); 
+
+                if (!yearsValues.ContainsKey(year))
+                {
+                    DateMean dateMean = new DateMean(year);
+                    yearsValues.Add(year, dateMean);
+                }
+
+                yearsValues.TryGetValue(year, out theDateMeanVal);
+
+                theDateMeanVal.updateValue(value);
+
+            }
+
+            return monthYearsHistory;
+        }
+
+        static private DateTime[] getDatesToPredict(DateTime fromDate, DateTime toDate)
+        {
+            List<DateTime> predictMonths = new List<DateTime>();
+            DateTime currDate = fromDate.AddMonths(1);
+            
+            while (currDate.Month <= toDate.Month)
+            {
+                predictMonths.Add(currDate);
+                currDate = currDate.AddMonths(1);
+            }
+
+            return predictMonths.ToArray();
         }
 
         static public void sortData(ref Double[] dateArr, ref Double[] valArr)
