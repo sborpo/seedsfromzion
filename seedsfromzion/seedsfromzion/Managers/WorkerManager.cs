@@ -45,6 +45,27 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
+        /// <summary>
+        /// Adding a new worker to the workers table in the DB.
+        /// </summary>
+        /// <param name="p_ID"></param>
+        /// <param name="p_name"></param>
+        /// <param name="p_phone"></param>
+        /// <param name="p_comments"></param>
+        public void AddWorker(int p_ID, string p_name, string p_phone, string p_comments)
+        {
+            //first add the worker id and name to the DB
+            AddWorker(p_ID, p_name);
+
+            //now add worker phone and comments about the worker
+            MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.workers " +
+                     "SET phone=@P_PHONE, comments=@P_COMMENTS WHERE id=@P_ID",
+                     "@P_PHONE", p_phone,
+                     "@P_COMMENTS", p_comments,
+                     "@P_ID", p_ID.ToString());
+            DatabaseAccess.performDMLQuery(command);
+        }
+
         public DataTable FindWorker(string p_name)
         {
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * From seedsdb.workers WHERE name=@P_NAME",
