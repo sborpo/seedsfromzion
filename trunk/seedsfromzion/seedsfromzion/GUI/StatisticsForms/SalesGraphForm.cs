@@ -200,7 +200,7 @@ namespace seedsfromzion.GUI.StatisticsForms
                 }
                 else
                 {
-                    plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
+                    plantId = (new InventoryManager()).FindPlant(plantName, plantType);
                     //if no such plant name
                     if (plantId.Equals(-1))
                     {
@@ -218,7 +218,9 @@ namespace seedsfromzion.GUI.StatisticsForms
                 return;
             }
 
-            if(this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
+            if(this.fromDate.LockUpdateChecked.Equals(true) &&
+               this.tillDate.LockUpdateChecked.Equals(true) &&
+               this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
             {
                 new ErrorWindow("תעריכים בסדר הפוך!").Show();
                 return;
@@ -266,7 +268,7 @@ namespace seedsfromzion.GUI.StatisticsForms
                 DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
                 if (rows.Length > 0)
                 {
-                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, string>(rows, "type");
 
                     //foreach(string name in names)
                     //{
