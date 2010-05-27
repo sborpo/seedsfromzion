@@ -47,7 +47,7 @@ namespace seedsfromzion.GUI.WorkerForms
             WorkerManager workerManager = new WorkerManager();
             try
             {
-                workerManager.AddWorker(int.Parse(textBox_ID.Text), workerName);
+                workerManager.AddWorker(int.Parse(textBox_ID.Text), workerName, textBox_phone.Text, textBox_comments.Text);
             }
             catch (ArgumentException)
             {

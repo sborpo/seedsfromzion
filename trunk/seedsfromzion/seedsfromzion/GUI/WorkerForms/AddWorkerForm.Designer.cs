@@ -29,12 +29,25 @@
         private void InitializeComponent()
         {
             this.textBox_ID = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.textBox_firstName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.textBox_lastName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.btn_addWorker = new DevComponents.DotNetBar.ButtonX();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
+            this.dateChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox_comments = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
+            this.textBox_phone = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btn_find = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.dateChoisePanel.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_ID
@@ -43,27 +56,12 @@
             // 
             // 
             this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Location = new System.Drawing.Point(209, 50);
+            this.textBox_ID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_ID.Location = new System.Drawing.Point(3, 3);
             this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(137, 20);
+            this.textBox_ID.Size = new System.Drawing.Size(160, 20);
             this.textBox_ID.TabIndex = 0;
             this.textBox_ID.TextChanged += new System.EventHandler(this.textBox_ID_TextChanged);
-            // 
-            // labelX1
-            // 
-            this.labelX1.Location = new System.Drawing.Point(114, 50);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 1;
-            this.labelX1.Text = "תעודת זהות:";
-            // 
-            // labelX2
-            // 
-            this.labelX2.Location = new System.Drawing.Point(114, 88);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
-            this.labelX2.TabIndex = 2;
-            this.labelX2.Text = "שם פרטי:";
             // 
             // textBox_firstName
             // 
@@ -71,9 +69,10 @@
             // 
             // 
             this.textBox_firstName.Border.Class = "TextBoxBorder";
-            this.textBox_firstName.Location = new System.Drawing.Point(209, 88);
+            this.textBox_firstName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_firstName.Location = new System.Drawing.Point(3, 34);
             this.textBox_firstName.Name = "textBox_firstName";
-            this.textBox_firstName.Size = new System.Drawing.Size(137, 20);
+            this.textBox_firstName.Size = new System.Drawing.Size(160, 20);
             this.textBox_firstName.TabIndex = 3;
             // 
             // textBox_lastName
@@ -82,57 +81,280 @@
             // 
             // 
             this.textBox_lastName.Border.Class = "TextBoxBorder";
-            this.textBox_lastName.Location = new System.Drawing.Point(209, 127);
+            this.textBox_lastName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_lastName.Location = new System.Drawing.Point(3, 66);
             this.textBox_lastName.Name = "textBox_lastName";
-            this.textBox_lastName.Size = new System.Drawing.Size(137, 20);
+            this.textBox_lastName.Size = new System.Drawing.Size(160, 20);
             this.textBox_lastName.TabIndex = 4;
             // 
-            // labelX3
+            // tableLayoutPanel1
             // 
-            this.labelX3.Location = new System.Drawing.Point(114, 127);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
-            this.labelX3.TabIndex = 5;
-            this.labelX3.Text = "שם משפחה:";
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.74144F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.25855F));
+            this.tableLayoutPanel1.Controls.Add(this.labelX5, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelX6, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 100);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // btn_addWorker
+            // labelX5
             // 
-            this.btn_addWorker.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_addWorker.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_addWorker.Location = new System.Drawing.Point(353, 181);
-            this.btn_addWorker.Name = "btn_addWorker";
-            this.btn_addWorker.Size = new System.Drawing.Size(75, 23);
-            this.btn_addWorker.TabIndex = 6;
-            this.btn_addWorker.Text = "הוסף";
-            this.btn_addWorker.Click += new System.EventHandler(this.btn_addWorker_Click);
+            this.labelX5.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX5.Location = new System.Drawing.Point(3, 58);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(65, 23);
+            this.labelX5.TabIndex = 9;
+            this.labelX5.Text = "שם משפחה:";
+            this.labelX5.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX6
+            // 
+            this.labelX6.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX6.ForeColor = System.Drawing.Color.Black;
+            this.labelX6.Location = new System.Drawing.Point(3, 3);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(65, 14);
+            this.labelX6.TabIndex = 7;
+            this.labelX6.Text = "ת.ז:";
+            this.labelX6.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX7
+            // 
+            this.labelX7.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX7.Location = new System.Drawing.Point(342, 224);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.TabIndex = 8;
+            this.labelX7.Text = "שם פרטי:";
+            this.labelX7.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // dateChoisePanel
+            // 
+            this.dateChoisePanel.AutoSize = true;
+            this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
+            this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
+            this.dateChoisePanel.Location = new System.Drawing.Point(46, 23);
+            this.dateChoisePanel.Name = "dateChoisePanel";
+            this.dateChoisePanel.Size = new System.Drawing.Size(257, 184);
+            // 
+            // 
+            // 
+            this.dateChoisePanel.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.dateChoisePanel.Style.BackColorGradientAngle = 90;
+            this.dateChoisePanel.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.dateChoisePanel.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateChoisePanel.Style.BorderBottomWidth = 1;
+            this.dateChoisePanel.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.dateChoisePanel.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateChoisePanel.Style.BorderLeftWidth = 1;
+            this.dateChoisePanel.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateChoisePanel.Style.BorderRightWidth = 1;
+            this.dateChoisePanel.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.dateChoisePanel.Style.BorderTopWidth = 1;
+            this.dateChoisePanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.dateChoisePanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.dateChoisePanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.dateChoisePanel.TabIndex = 14;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.74144F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.25855F));
+            this.tableLayoutPanel2.Controls.Add(this.textBox_comments, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.labelX4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.labelX8, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.labelX9, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelX10, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBox_ID, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.textBox_lastName, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBox_firstName, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.labelX11, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.textBox_phone, 1, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49.20635F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.79365F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 184);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // textBox_comments
+            // 
+            // 
+            // 
+            // 
+            this.textBox_comments.Border.Class = "TextBoxBorder";
+            this.textBox_comments.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_comments.Location = new System.Drawing.Point(3, 144);
+            this.textBox_comments.Name = "textBox_comments";
+            this.textBox_comments.Size = new System.Drawing.Size(160, 20);
+            this.textBox_comments.TabIndex = 14;
+            // 
+            // labelX4
+            // 
+            this.labelX4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX4.Location = new System.Drawing.Point(169, 110);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 10;
+            this.labelX4.Text = "טלפון:";
+            this.labelX4.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX8
+            // 
+            this.labelX8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX8.Location = new System.Drawing.Point(169, 71);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(75, 23);
+            this.labelX8.TabIndex = 9;
+            this.labelX8.Text = "שם משפחה:";
+            this.labelX8.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX9
+            // 
+            this.labelX9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX9.ForeColor = System.Drawing.Color.Black;
+            this.labelX9.Location = new System.Drawing.Point(169, 4);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(75, 23);
+            this.labelX9.TabIndex = 7;
+            this.labelX9.Text = "ת.ז:";
+            this.labelX9.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX10
+            // 
+            this.labelX10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX10.Location = new System.Drawing.Point(169, 35);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(75, 23);
+            this.labelX10.TabIndex = 8;
+            this.labelX10.Text = "שם פרטי:";
+            this.labelX10.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // labelX11
+            // 
+            this.labelX11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX11.Location = new System.Drawing.Point(169, 151);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(75, 23);
+            this.labelX11.TabIndex = 11;
+            this.labelX11.Text = "הערות:";
+            this.labelX11.TextAlignment = System.Drawing.StringAlignment.Center;
+            // 
+            // textBox_phone
+            // 
+            // 
+            // 
+            // 
+            this.textBox_phone.Border.Class = "TextBoxBorder";
+            this.textBox_phone.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_phone.Location = new System.Drawing.Point(3, 105);
+            this.textBox_phone.Name = "textBox_phone";
+            this.textBox_phone.Size = new System.Drawing.Size(160, 20);
+            this.textBox_phone.TabIndex = 13;
+            // 
+            // btn_find
+            // 
+            this.btn_find.CanvasColor = System.Drawing.SystemColors.Control;
+            this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_find.Location = new System.Drawing.Point(334, 215);
+            this.btn_find.Name = "btn_find";
+            this.btn_find.Size = new System.Drawing.Size(87, 30);
+            // 
+            // 
+            // 
+            this.btn_find.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.btn_find.Style.BackColorGradientAngle = 90;
+            this.btn_find.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.btn_find.Style.BackgroundImagePosition = DevComponents.DotNetBar.eStyleBackgroundImage.Tile;
+            this.btn_find.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.btn_find.Style.BorderBottomWidth = 1;
+            this.btn_find.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.btn_find.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.btn_find.Style.BorderLeftWidth = 1;
+            this.btn_find.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.btn_find.Style.BorderRightWidth = 1;
+            this.btn_find.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.btn_find.Style.BorderTopWidth = 1;
+            this.btn_find.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.btn_find.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.btn_find.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemText;
+            // 
+            // 
+            // 
+            this.btn_find.StyleMouseDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.btn_find.StyleMouseDown.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.btn_find.StyleMouseDown.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedBorder;
+            this.btn_find.StyleMouseDown.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.btn_find.StyleMouseDown.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemPressedText;
+            // 
+            // 
+            // 
+            this.btn_find.StyleMouseOver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(0)))));
+            this.btn_find.StyleMouseOver.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(255)))), ((int)(((byte)(230)))), ((int)(((byte)(0)))));
+            this.btn_find.StyleMouseOver.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotBorder;
+            this.btn_find.StyleMouseOver.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.btn_find.StyleMouseOver.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.ItemHotText;
+            this.btn_find.TabIndex = 15;
+            this.btn_find.Text = "הוסף";
+            this.btn_find.Click += new System.EventHandler(this.btn_addWorker_Click);
             // 
             // AddWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 354);
-            this.Controls.Add(this.btn_addWorker);
-            this.Controls.Add(this.labelX3);
-            this.Controls.Add(this.textBox_lastName);
-            this.Controls.Add(this.textBox_firstName);
-            this.Controls.Add(this.labelX2);
-            this.Controls.Add(this.labelX1);
-            this.Controls.Add(this.textBox_ID);
-            this.DoubleBuffered = true;
+            this.ClientSize = new System.Drawing.Size(526, 424);
+            this.Controls.Add(this.btn_find);
+            this.Controls.Add(this.dateChoisePanel);
             this.Name = "AddWorkerForm";
             this.Text = "הוספת עובד חדש";
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.dateChoisePanel.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private DevComponents.DotNetBar.Controls.TextBoxX textBox_ID;
-        private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX textBox_firstName;
         private DevComponents.DotNetBar.Controls.TextBoxX textBox_lastName;
-        private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.ButtonX btn_addWorker;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private DevComponents.DotNetBar.LabelX labelX5;
+        private DevComponents.DotNetBar.LabelX labelX6;
+        private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.DotNetBar.Ribbon.RibbonClientPanel dateChoisePanel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private DevComponents.DotNetBar.LabelX labelX4;
+        private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.LabelX labelX9;
+        private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.DotNetBar.LabelX labelX11;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBox_comments;
+        private DevComponents.DotNetBar.Controls.TextBoxX textBox_phone;
+        private DevComponents.DotNetBar.Ribbon.RibbonClientPanel btn_find;
     }
 }
