@@ -94,6 +94,7 @@ namespace seedsfromzion.GUI.InventoryForms
             integerInput1.Value = (int)Int32.Parse((string)dataGridViewX1.SelectedRows[0].Cells["countInUnit"].Value.ToString());
             int plantId=(int)Int32.Parse((string)dataGridViewX1.SelectedRows[0].Cells["plantId"].Value.ToString());
              string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+             pictureBox1.Image = Properties.Resources.image_missing;
              if (pictureName != "NO_PICTURE")
              {
                  pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName);
@@ -113,6 +114,7 @@ namespace seedsfromzion.GUI.InventoryForms
         private void initPlantInfo()
         {
             pictureBox1.Image = Properties.Resources.image_missing;
+            pictureBox1.Refresh();
             foreign.Text = "";
             unitstype.Text = "";
             integerInput1.Value = 0;

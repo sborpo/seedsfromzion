@@ -30,10 +30,9 @@ namespace seedsfromzion.Managers
             MySqlCommand[] commands = new MySqlCommand[2];
             if (checkPlantExists(planInfo))
                 throw new ArgumentException("Plant already exists");
-
             int newId = getNewPlantId();
             string pictureName = planInfo.Picture;
-            string newPictureName=copyThePicture(pictureName,newId);
+            string newPictureName=copyThePicture(pictureName,planInfo.Name);
 
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,@P_UNIT_TYPE , @P_COUNT)", 
@@ -54,7 +53,7 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLTransaction(commands);
         }
 
-        private string copyThePicture(string pictureName, int newId)
+        private string copyThePicture(string pictureName, string newId)
         {
             if (pictureName == "NO_PICTURE")
             {
@@ -394,11 +393,9 @@ namespace seedsfromzion.Managers
         public void updatePlantDetails(PlantInfo planInfo,string type, double price, double lifetime,out String pictureN)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
-            //get the plantId
-            int id=FindPlant(planInfo.Name, type);
             //Update the picture
             string pictureName = planInfo.Picture;
-            string newPictureName = copyThePicture(pictureName, id);
+            string newPictureName = copyThePicture(pictureName, planInfo.Name);
             pictureN = newPictureName;
             //update the Plants Table
             commands[0] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants SET  foreignName=@P_FOREIGN, picture=@P_PIC, comments=@P_COMMENTS, unitType=@P_UNIT_TYPE, countInUnit=@P_COUNT " +
