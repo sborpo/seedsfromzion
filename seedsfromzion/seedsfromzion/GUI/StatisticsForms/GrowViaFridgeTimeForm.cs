@@ -188,7 +188,7 @@ namespace seedsfromzion.GUI.StatisticsForms
                 }
                 else
                 {
-                    plantId = (new InventoryManager()).FindPlant(plantName, plantType[0]);
+                    plantId = (new InventoryManager()).FindPlant(plantName, plantType);
                     //if no such plant name
                     if (plantId.Equals(-1))
                     {
