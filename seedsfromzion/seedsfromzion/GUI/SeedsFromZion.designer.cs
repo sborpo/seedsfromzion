@@ -91,6 +91,7 @@
             this.statusBar = new DevComponents.DotNetBar.Bar();
             this.statusLabel = new DevComponents.DotNetBar.LabelItem();
             this.controlContainerItem1 = new DevComponents.DotNetBar.ControlContainerItem();
+            this.buttonItem1 = new DevComponents.DotNetBar.ButtonItem();
             this.systemControl.SuspendLayout();
             this.inventoryPanel.SuspendLayout();
             this.workersPanel.SuspendLayout();
@@ -248,7 +249,8 @@
             this.collectPlantsbutton.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.collectPlantsbutton.Name = "collectPlantsbutton";
             this.collectPlantsbutton.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.buttonItem4});
+            this.buttonItem4,
+            this.buttonItem1});
             this.collectPlantsbutton.SubItemsExpandWidth = 14;
             this.collectPlantsbutton.Tooltip = "איסוף צמחים...";
             this.collectPlantsbutton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
@@ -925,6 +927,13 @@
             this.controlContainerItem1.MenuVisibility = DevComponents.DotNetBar.eMenuVisibility.VisibleAlways;
             this.controlContainerItem1.Name = "controlContainerItem1";
             // 
+            // buttonItem1
+            // 
+            this.buttonItem1.ImagePaddingHorizontal = 8;
+            this.buttonItem1.Name = "buttonItem1";
+            this.buttonItem1.Text = "הכנסת זרעים למחסן ממקורי חיצוני";
+            this.buttonItem1.Click += new System.EventHandler(this.buttonItem1_Click);
+            // 
             // seedsFromZion
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -1015,5 +1024,6 @@
         private DevComponents.DotNetBar.ButtonItem buttonItem4;
         private DevComponents.DotNetBar.ButtonItem InventoryReports;
         private DevComponents.DotNetBar.ButtonItem disconnectButton;
+        private DevComponents.DotNetBar.ButtonItem buttonItem1;
     }
 }

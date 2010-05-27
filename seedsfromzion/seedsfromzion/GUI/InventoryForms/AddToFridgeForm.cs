@@ -13,7 +13,6 @@ namespace seedsfromzion.GUI.InventoryForms
     public partial class AddToFridgeForm : seedsfromzion.GUI.BaseForm
     {
         private DataTable plantsTable;
-        private DataTable types;
 
         public AddToFridgeForm(seedsFromZion mainForm)
         {

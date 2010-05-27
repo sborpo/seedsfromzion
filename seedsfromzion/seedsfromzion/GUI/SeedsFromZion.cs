@@ -436,6 +436,13 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        private void buttonItem1_Click(object sender, EventArgs e)
+        {
+            AddFinishedFromExternal form = new AddFinishedFromExternal();
+            form.MdiParent = this;
+            form.Show();
+        }
+
         
   
     }

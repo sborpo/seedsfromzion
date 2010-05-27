@@ -97,6 +97,11 @@ namespace seedsfromzion.GUI.InventoryForms
             invMgr.updatePlantDetails(plantInfo, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
             pictureBox1.Image = Image.FromFile(executionPath+@"\"+ConfigFile.getInstance.ImagesPath+@"\"+Newpicture);
             new SuccessWindow().Show();
+            pictureBox1.Image.Dispose();
+            FindPlant form = new FindPlant();
+            form.MdiParent = this.MdiParent;
+            form.Show();
+            this.Close();
 
         }
 
@@ -204,6 +209,7 @@ namespace seedsfromzion.GUI.InventoryForms
             OpenFileDialog dig = new OpenFileDialog();
             if (dig.ShowDialog() == DialogResult.OK)
             {
+                pictureBox1.Image.Dispose();
                 pictureBox1.Image = Image.FromFile(dig.FileName);
                 picture = dig.FileName;
             }
