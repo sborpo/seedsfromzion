@@ -12,6 +12,7 @@ namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class SowSeedsForm : seedsfromzion.GUI.BaseForm
     {
+        seedsFromZion mainForm;
         DataTable fridgeTable;
         public SowSeedsForm(seedsFromZion mainForm)
         {
@@ -79,6 +80,17 @@ namespace seedsfromzion.GUI.InventoryForms
             initFridgeTable();
 
             new SuccessWindow().Show();
+        }
+
+        private void SowSeedsForm_Load(object sender, EventArgs e)
+        {
+            mainForm = (seedsFromZion)this.MdiParent;
+            this.FormClosing += new FormClosingEventHandler(SowSeedsForm_FormClosing);
+        }
+
+        void SowSeedsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            mainForm.favoriteClicked -= mainForm_favoriteClicked;
         }
     }
 }
