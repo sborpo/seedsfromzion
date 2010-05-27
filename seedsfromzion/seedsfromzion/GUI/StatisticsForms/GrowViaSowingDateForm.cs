@@ -174,6 +174,12 @@ namespace seedsfromzion.GUI.StatisticsForms
                 return;
             }
 
+            if (this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
+            {
+                new ErrorWindow("תעריכים בסדר הפוך!").Show();
+                return;
+            }
+
             this.GrowViaSowGraphControl_Load(plantName, plantId);
         }
 
