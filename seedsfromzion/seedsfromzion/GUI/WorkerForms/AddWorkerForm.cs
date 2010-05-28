@@ -54,6 +54,9 @@ namespace seedsfromzion.GUI.WorkerForms
                 new ErrorWindow("עובד בעל אותה ת.ז כבר נמצא במערכת").Show();
                 return;
             }
+            //if we got till here, showe a success window
+            SuccessWindow successWindow = new SuccessWindow();
+            successWindow.Show();
         }
 
         private void textBox_ID_TextChanged(object sender, EventArgs e)

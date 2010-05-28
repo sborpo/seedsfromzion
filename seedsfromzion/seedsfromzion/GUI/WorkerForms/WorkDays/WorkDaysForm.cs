@@ -86,6 +86,10 @@ namespace seedsfromzion.GUI.WorkerForms
             m_manager.AddWorkerHours(workersId, date, dateTime_start.Value.TimeOfDay.ToString(), dateTime_end.Value.TimeOfDay.ToString());
 
             populateHours();
+
+            //if we got till here, showe a success window
+            SuccessWindow successWindow = new SuccessWindow();
+            successWindow.Show();
         }
 
         private void dataGridWorkers_SelectionChanged(object sender, EventArgs e)

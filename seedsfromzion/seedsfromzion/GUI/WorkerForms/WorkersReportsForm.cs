@@ -45,10 +45,10 @@ namespace seedsfromzion.GUI.WorkerForms
             table.Columns[1].ColumnName = "שם";
             table.Columns[2].ColumnName = "טלפון";
             table.Columns[3].ColumnName = "הערות";
-            InventoryStatus(r, "עובדים", table);
+            workerStatus(r, "עובדים", table);
         }
 
-        private void InventoryStatus(Report r, string headingStr, DataTable workers)
+        private void workerStatus(Report r, string headingStr, DataTable workers)
         {
             HtmlTable htmlTable = new HtmlTable(workers);
             htmlTable.align(HtmlAlign.center);
