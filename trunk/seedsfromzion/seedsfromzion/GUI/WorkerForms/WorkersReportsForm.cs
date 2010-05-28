@@ -60,13 +60,24 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void generateWorkersReport(Report r)
         {
+            if (dataGrid_allWorkers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int workerID = (int)((uint)dataGrid_allWorkers.SelectedRows[0].Cells["id"].Value);
+            string workerName = (string)dataGrid_allWorkers.SelectedRows[0].Cells["name"].Value;
+
+            DateTime month = dateTimePicker.Value;
+            
             WorkerManager manager = new WorkerManager();
-            DataTable table = manager.Workers;
-            table.Columns[0].ColumnName = "ת.ז";
-            table.Columns[1].ColumnName = "שם";
-            table.Columns[2].ColumnName = "טלפון";
-            table.Columns[3].ColumnName = "הערות";
-            workerStatus(r, "עובדים", table);
+            DataTable table = manager.GetWorkerHoursPerMonth(workerID, month);
+
+            table.Columns[0].ColumnName = "תאריך";
+            table.Columns[1].ColumnName = "שעת התחלה";
+            table.Columns[2].ColumnName = "שעת סיום";
+
+            string headr = " שעות לעובד " + workerName + " ת.ז: " + workerID.ToString() + " בחודש " + String.Format("{0:yyyy-M}", month);
+            workerStatus(r, headr, table);
         }
 
         private void workerStatus(Report r, string headingStr, DataTable workers)
