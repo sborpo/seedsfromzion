@@ -222,19 +222,12 @@ namespace seedsfromzion.Managers
 
        public int getNextOrderId()
        {
-           
            //getting the maximum order id number:
-           MySqlCommand orderFromStorageCommand = DataAccessUtils.commandBuilder("SELECT MAX(orderId) As max From seedsdb.orders");
-           DataTable orderFromStorageResult = DatabaseAccess.getResultSetFromDb(orderFromStorageCommand);
-           if (orderFromStorageResult.Rows.Count == 0)
-           {
-               return 1;
-           }
-           DataRow row = orderFromStorageResult.Rows[0];
-           System.UInt32 incSize = 1;
-           return (int)(((System.UInt32)row[0]) + incSize) ;
-           
-         
+           MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(orderId), 0) AS max FROM seedsdb.orders");
+           DataTable result = DatabaseAccess.getResultSetFromDb(command);
+
+           int newId = (int)Convert.ToInt32(result.Rows[0]["orderId"]) + 1;
+           return newId;            
         }
 
         #endregion
