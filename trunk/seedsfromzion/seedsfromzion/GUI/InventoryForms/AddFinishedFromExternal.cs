@@ -47,6 +47,20 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void addButton_Click(object sender, EventArgs e)
         {
+            InventoryManager manager = new InventoryManager();
+            if ((dataGridViewX1.SelectedRows == null) || (dataGridViewX1.SelectedRows.Count == 0))
+            {
+                new ErrorWindow("לא נבחר צמח להוספה").Show();
+                return;
+            }
+            if (storageLocation.Text.Equals(String.Empty))
+            {
+                new ErrorWindow("לא נבחר מיקום במחסן").Show();
+                return;
+            }
+            int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
+            manager.AddToFinishedStorageExternal(plantId, integerInput1.Value, Math.Round(doubleInput1.Value,2), storageLocation.Text);
+            new SuccessWindow().Show();
 
         }
 

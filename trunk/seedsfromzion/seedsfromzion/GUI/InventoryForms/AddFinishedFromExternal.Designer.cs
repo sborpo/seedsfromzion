@@ -41,7 +41,7 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.integerInput1 = new DevComponents.Editors.IntegerInput();
-            this.textBoxX2 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.storageLocation = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.doubleInput1 = new DevComponents.Editors.DoubleInput();
             this.addButton = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1.SuspendLayout();
@@ -162,7 +162,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelX4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.integerInput1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBoxX2, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.storageLocation, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.doubleInput1, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(26, 232);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -208,21 +208,23 @@
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.integerInput1.Location = new System.Drawing.Point(24, 3);
+            this.integerInput1.MinValue = 1;
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.ShowUpDown = true;
             this.integerInput1.Size = new System.Drawing.Size(80, 20);
             this.integerInput1.TabIndex = 3;
+            this.integerInput1.Value = 1;
             // 
-            // textBoxX2
+            // storageLocation
             // 
             // 
             // 
             // 
-            this.textBoxX2.Border.Class = "TextBoxBorder";
-            this.textBoxX2.Location = new System.Drawing.Point(4, 50);
-            this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(100, 20);
-            this.textBoxX2.TabIndex = 4;
+            this.storageLocation.Border.Class = "TextBoxBorder";
+            this.storageLocation.Location = new System.Drawing.Point(4, 50);
+            this.storageLocation.Name = "storageLocation";
+            this.storageLocation.Size = new System.Drawing.Size(100, 20);
+            this.storageLocation.TabIndex = 4;
             // 
             // doubleInput1
             // 
@@ -233,10 +235,12 @@
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput1.Increment = 1;
             this.doubleInput1.Location = new System.Drawing.Point(24, 97);
+            this.doubleInput1.MinValue = 0.1;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
             this.doubleInput1.Size = new System.Drawing.Size(80, 20);
             this.doubleInput1.TabIndex = 5;
+            this.doubleInput1.Value = 0.1;
             // 
             // addButton
             // 
@@ -280,7 +284,7 @@
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX4;
         private DevComponents.Editors.IntegerInput integerInput1;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
+        private DevComponents.DotNetBar.Controls.TextBoxX storageLocation;
         private DevComponents.Editors.DoubleInput doubleInput1;
         private DevComponents.DotNetBar.ButtonX addButton;
     }

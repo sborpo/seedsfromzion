@@ -36,7 +36,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("לא ניתן למחוק צמח אשר נמצא כעת בשימוש במערכת");
                 return;
             }
+            pictureBox1.Image.Dispose();
             manager.removePlant(plantid, name);
+           
+            //remove the plant from the favorites
+            ((seedsFromZion)this.MdiParent).removeFavoritePlant(plantid);
             new SuccessWindow().Show();
             actEmptyBox();
            
