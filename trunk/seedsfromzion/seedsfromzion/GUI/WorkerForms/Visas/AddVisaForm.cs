@@ -52,7 +52,9 @@ namespace seedsfromzion.GUI.WorkerForms
                 eroor.Show();
                 return;
             }
-
+            //if we got till here, showe a success window
+            SuccessWindow successWindow = new SuccessWindow();
+            successWindow.Show();
             //if we passed all other stages, so we OK
             this.DialogResult = DialogResult.OK;
             this.Close();

@@ -86,14 +86,14 @@
             this.dataGridVisas.ReadOnly = true;
             this.dataGridVisas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridVisas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridVisas.Size = new System.Drawing.Size(410, 159);
+            this.dataGridVisas.Size = new System.Drawing.Size(410, 128);
             this.dataGridVisas.TabIndex = 0;
             // 
             // btn_addVisa
             // 
             this.btn_addVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_addVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_addVisa.Location = new System.Drawing.Point(19, 178);
+            this.btn_addVisa.Location = new System.Drawing.Point(19, 147);
             this.btn_addVisa.Name = "btn_addVisa";
             this.btn_addVisa.Size = new System.Drawing.Size(55, 36);
             this.btn_addVisa.TabIndex = 1;
@@ -167,7 +167,7 @@
             this.groupPanel1.Controls.Add(this.btn_addVisa);
             this.groupPanel1.Location = new System.Drawing.Point(52, 12);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(452, 238);
+            this.groupPanel1.Size = new System.Drawing.Size(452, 211);
             // 
             // 
             // 
@@ -231,7 +231,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(676, 382);
+            this.showGraphButton.Location = new System.Drawing.Point(670, 382);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -280,7 +280,7 @@
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
             this.dateChoisePanel.Location = new System.Drawing.Point(41, 206);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(784, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(778, 142);
             // 
             // 
             // 
@@ -317,7 +317,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(784, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(778, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDate
@@ -330,7 +330,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(270, 96);
+            this.tillDate.Location = new System.Drawing.Point(266, 96);
             // 
             // 
             // 
@@ -385,7 +385,7 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(638, 94);
+            this.tillDateLabel.Location = new System.Drawing.Point(632, 94);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -403,7 +403,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(270, 25);
+            this.fromDate.Location = new System.Drawing.Point(266, 25);
             // 
             // 
             // 
@@ -462,7 +462,7 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(638, 23);
+            this.fromDateLabel.Location = new System.Drawing.Point(632, 23);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -550,7 +550,7 @@
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.dataGrid_workers);
-            this.groupPanel2.Location = new System.Drawing.Point(52, 256);
+            this.groupPanel2.Location = new System.Drawing.Point(52, 229);
             this.groupPanel2.Name = "groupPanel2";
             this.groupPanel2.Size = new System.Drawing.Size(344, 211);
             // 
@@ -582,7 +582,7 @@
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel3.Controls.Add(this.dataGrid_allWorkers);
             this.groupPanel3.Controls.Add(this.btn_attachWorkerToVisa);
-            this.groupPanel3.Location = new System.Drawing.Point(417, 256);
+            this.groupPanel3.Location = new System.Drawing.Point(414, 229);
             this.groupPanel3.Name = "groupPanel3";
             this.groupPanel3.Size = new System.Drawing.Size(452, 211);
             // 

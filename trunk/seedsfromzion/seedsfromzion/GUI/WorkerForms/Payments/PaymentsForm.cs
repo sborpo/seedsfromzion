@@ -62,6 +62,10 @@ namespace seedsfromzion.GUI.WorkerForms
             manager.UpdatePostpondedPayment(workerID, (double)numericUpDown_postponedPay.Value);
 
             populateWorkers();
+
+            //if we got till here, showe a success window
+            SuccessWindow successWindow = new SuccessWindow();
+            successWindow.Show();
         }
     }
 }
