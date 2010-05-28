@@ -37,6 +37,8 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.comments = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.closeImage = new DevComponents.DotNetBar.ButtonX();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.integerInput1 = new DevComponents.Editors.IntegerInput();
             this.unitstype = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.foreign = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -115,6 +117,9 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
             // 
             // labelX2
             // 
@@ -143,6 +148,7 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.webBrowser1);
             this.groupPanel1.Controls.Add(this.integerInput1);
             this.groupPanel1.Controls.Add(this.unitstype);
             this.groupPanel1.Controls.Add(this.foreign);
@@ -177,6 +183,26 @@
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 8;
             this.groupPanel1.Text = "פרטי הצמח";
+            // 
+            // closeImage
+            // 
+            this.closeImage.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.closeImage.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.closeImage.Location = new System.Drawing.Point(29, 286);
+            this.closeImage.Name = "closeImage";
+            this.closeImage.Size = new System.Drawing.Size(75, 23);
+            this.closeImage.TabIndex = 11;
+            this.closeImage.Text = "סגור תמונה";
+            this.closeImage.Click += new System.EventHandler(this.closeImage_Click);
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(807, 204);
+            this.webBrowser1.TabIndex = 10;
             // 
             // integerInput1
             // 
@@ -258,7 +284,8 @@
             // 
             // FindPlant
             // 
-            this.ClientSize = new System.Drawing.Size(949, 592);
+            this.ClientSize = new System.Drawing.Size(980, 592);
+            this.Controls.Add(this.closeImage);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.dataGridViewX1);
@@ -292,6 +319,8 @@
         private DevComponents.DotNetBar.Controls.TextBoxX unitstype;
         private DevComponents.DotNetBar.Controls.TextBoxX foreign;
         private DevComponents.DotNetBar.ButtonX buttonX2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private DevComponents.DotNetBar.ButtonX closeImage;
 
     }
 }

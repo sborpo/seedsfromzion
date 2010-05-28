@@ -102,9 +102,9 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
+            this.systemControl.Controls.Add(this.statisticsPanel);
             this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Controls.Add(this.inventoryPanel);
-            this.systemControl.Controls.Add(this.statisticsPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemControl.ForeColor = System.Drawing.Color.Black;
@@ -351,6 +351,7 @@
             this.workersPanel.ShowFocusRectangle = true;
             this.workersPanel.Size = new System.Drawing.Size(1001, 108);
             this.workersPanel.TabIndex = 2;
+            this.workersPanel.Visible = false;
             // 
             // paymentWorkersBar
             // 
@@ -506,7 +507,6 @@
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.statisticsPanel.Size = new System.Drawing.Size(1001, 108);
             this.statisticsPanel.TabIndex = 3;
-            this.statisticsPanel.Visible = false;
             // 
             // graphsStatisticsBar
             // 
@@ -608,7 +608,6 @@
             // 
             // workersTab
             // 
-            this.workersTab.Checked = true;
             this.workersTab.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Default;
             this.workersTab.ImagePaddingHorizontal = 8;
             this.workersTab.Name = "workersTab";
@@ -621,6 +620,7 @@
             // 
             // statisticsTab
             // 
+            this.statisticsTab.Checked = true;
             this.statisticsTab.ImagePaddingHorizontal = 8;
             this.statisticsTab.Name = "statisticsTab";
             this.statisticsTab.Panel = this.statisticsPanel;
