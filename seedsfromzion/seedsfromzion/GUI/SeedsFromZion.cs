@@ -31,6 +31,7 @@ namespace seedsfromzion.GUI
         public seedsFromZion()
         {
             InitializeComponent();
+            
 
         }
 
@@ -43,13 +44,18 @@ namespace seedsfromzion.GUI
         {
             FavoritesHasher hasher = new FavoritesHasher();
             StringCollection collection = ConfigFile.getInstance.Favorites;
-            ButtonItem[] items = new ButtonItem[collection.Count];
             for (int i = 0; i < collection.Count; i++)
 			{
-                items[i] = new ButtonItem(collection[i], hasher.hashPlantId(collection[i]));
-                items[i].Click += new EventHandler(seedsFromZion_Click);
+                String name = hasher.hashPlantId(collection[i]);
+                if (name == null)
+                {
+                    continue;
+                }
+                ButtonItem item = new ButtonItem(collection[i], name);
+                item.Click += new EventHandler(seedsFromZion_Click);
+                this.favoritesButtonMini.SubItems.Add(item);
             }
-            this.favoritesButtonMini.SubItems.AddRange(items);
+          
         }
 
         /// <summary>
@@ -67,6 +73,25 @@ namespace seedsfromzion.GUI
                 //it's plantId (stored in clickedButton.Name)
                 favoriteClicked(Convert.ToInt32(clickedButton.Name));
             }
+        }
+
+        /// <summary>
+        /// Removes the given plant from the favorites
+        /// </summary>
+        /// <param name="plantId"></param>
+        public void removeFavoritePlant(int plantId)
+        {
+            //remove from the buttons of the favorites
+            SubItemsCollection collection = this.favoritesButtonMini.SubItems;
+            if (!collection.Contains(plantId.ToString()))
+            {
+                return;
+            }
+            collection.RemoveAt(collection.IndexOf(plantId.ToString()));
+            //remove from the favorites file
+            StringCollection favorites = ConfigFile.getInstance.Favorites;
+            favorites.Remove(plantId.ToString());
+            ConfigFile.getInstance.Favorites = favorites;
         }
         #endregion
 
@@ -348,6 +373,7 @@ namespace seedsfromzion.GUI
             fridgeGraphMDIChild.MdiParent = this;
             // Display the new form.
             fridgeGraphMDIChild.Show();
+            
         }
 
 

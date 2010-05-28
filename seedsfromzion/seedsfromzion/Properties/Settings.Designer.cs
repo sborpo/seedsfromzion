@@ -120,6 +120,7 @@ namespace seedsfromzion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SettingsManageabilityAttribute(global::System.Configuration.SettingsManageability.Roaming)]
         public global::System.Collections.Specialized.StringCollection Favorites {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["Favorites"]));

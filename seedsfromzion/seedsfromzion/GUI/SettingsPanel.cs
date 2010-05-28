@@ -122,7 +122,10 @@ namespace seedsfromzion.GUI
             {
                 string res;
                 dict.TryGetValue(Int32.Parse(plant),out res);
-                favoritesGrid.Rows.Add(res,(string)plant);
+                if (res != null)
+                {
+                    favoritesGrid.Rows.Add(res, (string)plant);
+                }
             }
 
 

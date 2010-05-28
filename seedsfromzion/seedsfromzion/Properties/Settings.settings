@@ -26,7 +26,7 @@
     <Setting Name="UnitsNotify" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">10</Value>
     </Setting>
-    <Setting Name="Favorites" Type="System.Collections.Specialized.StringCollection" Scope="User">
+    <Setting Name="Favorites" Roaming="true" Type="System.Collections.Specialized.StringCollection" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="VisaFrequency" Type="System.Int32" Scope="User">

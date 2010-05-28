@@ -297,6 +297,7 @@ namespace seedsfromzion.DataAccess
         {
             get
             {
+               
                 if (Properties.Settings.Default.Favorites == null)
                 {
                     Properties.Settings.Default.Favorites = new StringCollection();
