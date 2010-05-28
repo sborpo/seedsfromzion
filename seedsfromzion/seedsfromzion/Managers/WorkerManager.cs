@@ -204,13 +204,13 @@ namespace seedsfromzion.Managers
         public DataTable GetWorkerHoursPerMonth(int p_id, DateTime p_month)
         {
             DateTime nextMonth = new DateTime(p_month.Year, p_month.Month, 1);
-            nextMonth.AddMonths(1);
+            nextMonth = nextMonth.AddMonths(1);
 
             if (!this.checkWorkerExists(p_id))
             {
                 throw new ArgumentException("worker doesnwt exists");
             }
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT startTime, endTime FROM seedsdb.workdays " +
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT date, startTime, endTime FROM seedsdb.workdays " +
                 "WHERE workerId=@P_ID AND date>=@P_DATE AND date<@NEXTMONTH",
                 "@P_ID", p_id.ToString(),
                 "@P_DATE", String.Format("{0:yyyy-M-d}", p_month),
