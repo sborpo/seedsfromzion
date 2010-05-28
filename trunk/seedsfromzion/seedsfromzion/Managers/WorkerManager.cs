@@ -195,6 +195,28 @@ namespace seedsfromzion.Managers
                 "@P_DATE", String.Format("{0:yyyy-M-d}", p_date));
             return DatabaseAccess.getResultSetFromDb(command);
         }
+
+        /// <summary>
+        /// returns the hours the p_id worker workes on p_month
+        /// </summary>
+        /// <param name="p_id"></param>
+        /// <param name="p_date"></param>
+        public DataTable GetWorkerHoursPerMonth(int p_id, DateTime p_month)
+        {
+            DateTime nextMonth = new DateTime(p_month.Year, p_month.Month, 1);
+            nextMonth.AddMonths(1);
+
+            if (!this.checkWorkerExists(p_id))
+            {
+                throw new ArgumentException("worker doesnwt exists");
+            }
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT startTime, endTime FROM seedsdb.workdays " +
+                "WHERE workerId=@P_ID AND date>=@P_DATE AND date<@NEXTMONTH",
+                "@P_ID", p_id.ToString(),
+                "@P_DATE", String.Format("{0:yyyy-M-d}", p_month),
+                "@NEXTMONTH", String.Format("{0:yyyy-M-d}", nextMonth));
+            return DatabaseAccess.getResultSetFromDb(command);
+        }
         #endregion hours
 
         #region visa
