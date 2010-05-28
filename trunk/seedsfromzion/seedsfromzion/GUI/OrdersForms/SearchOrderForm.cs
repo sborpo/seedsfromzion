@@ -41,7 +41,7 @@ namespace seedsfromzion.GUI.OrdersForms
         {
             
             //Table : id , name , type, storageId, units, location
-            MySqlCommand command = new MySqlCommand("SELECT Orders.orderId AS orderId ,Orders.clientId AS clientId , Orders.orderDate As orderDate , Orders.dueDate AS dueDate FROM seedsdb.orders Orders");
+            MySqlCommand command = new MySqlCommand("SELECT Orders.orderId AS orderId ,Orders.clientId AS clientId , Orders.orderDate As orderDate , Orders.dueDate AS dueDate FROM seedsdb.orders Orders WHERE Orders.status = '0'");
             Orders = DataAccess.DatabaseAccess.getResultSetFromDb(command);
             displayAllOrders();
 
@@ -168,6 +168,33 @@ namespace seedsfromzion.GUI.OrdersForms
             OrdersMainForm form = new OrdersMainForm(m_selectedOrder, m_selectedClient);
             form.MdiParent = this.MdiParent;
             form.Show();
+        }
+
+        private void orderConfirm_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = orderGrid.SelectedRows;
+
+            if (selectedRows.Count == 0)
+            {
+                new ErrorWindow("לא נבחרה הזמנה לאישור אספקה").Show();
+                return;
+            }
+
+
+            OrderManager orderManager = new OrderManager();
+            System.UInt32 orderId = (System.UInt32)selectedRows[0].Cells["orderId"].Value;
+            System.UInt32 clientId = (System.UInt32)selectedRows[0].Cells["clientId"].Value;
+            //updating the order:
+            OrderInfo orderInfo = orderManager.findOrder((int)orderId, (int)clientId);
+            ClientInfo clientInfo = orderManager.findClient((int)clientId);
+            orderInfo.status = '1';
+            orderManager.updateOrderInfo((int)orderId,orderInfo,clientInfo);
+            //refreshing the view:
+            detailsGrid.Rows.Clear();
+            detailsGrid.Refresh();
+            refreshOrderTable();
+            new SuccessWindow().Show();
+            return;
         }
 
     }
