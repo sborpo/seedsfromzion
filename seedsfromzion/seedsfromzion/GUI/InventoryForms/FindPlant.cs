@@ -9,6 +9,7 @@ using seedsfromzion.Managers;
 using System.Data;
 using seedsfromzion.DataAccess;
 using seedsfromzion.DataStructures;
+using System.IO;
 
 namespace seedsfromzion.GUI.InventoryForms
 {
@@ -17,9 +18,17 @@ namespace seedsfromzion.GUI.InventoryForms
         public FindPlant()
         {
             InitializeComponent();
+            initEnlargePiture();
 
            
             
+        }
+
+        private void initEnlargePiture()
+        {
+            pictureBox1.Cursor = Cursors.Hand;
+            webBrowser1.Hide();
+            closeImage.Hide();
         }
 
         void mainForm_deletePlantClicked()
@@ -160,6 +169,62 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
             mainForm.deletePlantClicked += new seedsFromZion.deletePlantClickedHandler(mainForm_deletePlantClicked);
+        }
+
+        private void closeImage_Click(object sender, EventArgs e)
+        {
+
+            string execPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string fileName = execPath + @"\" + "Enlarge.html";
+            
+             if (File.Exists(fileName))
+             {
+                 File.Delete(fileName);
+             }
+             webBrowser1.Hide();
+             closeImage.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewX1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            string pictureName = (string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
+            TextWriter tw = null;
+            string execPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            string fileName = execPath+@"\"+"Enlarge.html";
+            try
+            {
+                File.WriteAllText(fileName, "<html><img src=\"" + execPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName + "\"></html>", Encoding.UTF8);
+               
+                
+            }
+            catch (Exception ex)
+            {
+               
+            }
+            EnableEnlarge(fileName);
+        }
+
+        private void EnableEnlarge(string fileName)
+        {
+            webBrowser1.Url = new Uri( fileName);
+            webBrowser1.Update();
+            webBrowser1.Show();
+            closeImage.Show();
+
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            
         }
     }
 }

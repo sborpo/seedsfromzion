@@ -207,7 +207,6 @@ namespace seedsfromzion.GUI.InventoryForms
         private void buttonX2_Click(object sender, EventArgs e)
         {
             OpenFileDialog dig = new OpenFileDialog();
-            dig.Filter = "JPEG Image (*.jpg) |*.jpg | Gif Image (*.gif) | *.gif | PNG Image (*.png) | *.png";
             if (dig.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Image.Dispose();
