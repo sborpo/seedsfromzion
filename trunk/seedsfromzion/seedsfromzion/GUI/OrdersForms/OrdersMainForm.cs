@@ -18,7 +18,7 @@ namespace seedsfromzion.GUI.OrdersForms
         bool loading;
         bool bOrderExist;
         OrderInfo oldOrder;
-
+        double epsilon;
         public OrdersMainForm()
         {
             loading = true;
@@ -34,6 +34,7 @@ namespace seedsfromzion.GUI.OrdersForms
             doubleInput1.MinValue = 0;
             loading = false;
             bOrderExist = false;
+            epsilon = 0.0001;
         }
         public OrdersMainForm(OrderInfo orderInfo, ClientInfo clientInfo)
         {
@@ -51,6 +52,7 @@ namespace seedsfromzion.GUI.OrdersForms
             loading = false;
             bOrderExist = true;
             oldOrder = orderInfo;
+            epsilon = 0.0001;
 
             //setting the client info:
             idBox.Value = clientInfo.clientId;
@@ -84,7 +86,7 @@ namespace seedsfromzion.GUI.OrdersForms
         {
            
             //Table : id , name , type, storageId, units, location
-            MySqlCommand command = new MySqlCommand("SELECT Plant.plantId AS id ,Plant.name AS name , Plant.type As type , Storage.id AS storageId, Storage.units AS units,Storage.location AS location FROM seedsdb.finishedstorage Storage, seedsdb.planttypes Plant WHERE Storage.plantId=Plant.plantId");
+            MySqlCommand command = new MySqlCommand("SELECT Plant.plantId AS id ,Plant.name AS name , Plant.type As type , Storage.id AS storageId, Storage.units AS units,Storage.location AS location FROM seedsdb.finishedstorage Storage, seedsdb.planttypes Plant WHERE Storage.plantId=Plant.plantId AND Storage.units >" + epsilon.ToString());
             Storage = DataAccess.DatabaseAccess.getResultSetFromDb(command);
             displayAllStorage();
             
@@ -166,6 +168,12 @@ namespace seedsfromzion.GUI.OrdersForms
             //retrieving the amount to be added to the order:
             double amount = doubleInput1.Value;
             double rowUnits = (double)selectedRows[0].Cells["units"].Value;
+            //checking that the amount is not '0':
+            if (0 == amount)
+            {
+                new ErrorWindow("לא נבחרה כמות להוספה להזמנה").Show();
+                return;
+            }
             //checking that there is enough amount in storage:
             if ( rowUnits < amount)
             {
