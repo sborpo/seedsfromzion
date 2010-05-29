@@ -223,7 +223,7 @@ namespace seedsfromzion.Managers
        public int getNextOrderId()
        {
            //getting the maximum order id number:
-           MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(orderId), 0) AS max FROM seedsdb.orders");
+           MySqlCommand command = DataAccessUtils.commandBuilder("SELECT COALESCE(MAX(orderId), 0) AS orderId FROM seedsdb.orders");
            DataTable result = DatabaseAccess.getResultSetFromDb(command);
 
            int newId = (int)Convert.ToInt32(result.Rows[0]["orderId"]) + 1;
