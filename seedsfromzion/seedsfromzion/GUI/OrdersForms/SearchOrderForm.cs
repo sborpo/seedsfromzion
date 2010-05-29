@@ -189,6 +189,7 @@ namespace seedsfromzion.GUI.OrdersForms
             ClientInfo clientInfo = orderManager.findClient((int)clientId);
             orderInfo.status = '1';
             orderManager.updateOrderInfo((int)orderId,orderInfo,clientInfo);
+           // orderManager.cleanByOrder(orderInfo);
             //refreshing the view:
             detailsGrid.Rows.Clear();
             detailsGrid.Refresh();
