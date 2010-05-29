@@ -287,9 +287,15 @@ namespace seedsfromzion.Managers
         }
         #endregion
 
-        internal void cleanByOrder(OrderInfo orderInfo)
+        internal void cleanAfterOrderConfirmed(double epsilon)
         {
-            throw new NotImplementedException();
+            MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.finishedstorage " +
+                                                                    "WHERE units<@EPSILON AND NOT EXISTS ( SELECT * FROM seedsdb.orders F,seedsdb.ordersfromstorage O " +
+                                                                    "WHERE F.orderId=O.orderId AND seedsdb.finishedstorage.plantId=O.plantId AND F.status='0')",
+                                                                    "@EPSILON", epsilon.ToString()); 
+            
+            DatabaseAccess.performDMLQuery(command);  
+
         }
     }
 }
