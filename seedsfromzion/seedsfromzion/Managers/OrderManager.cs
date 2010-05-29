@@ -91,7 +91,7 @@ namespace seedsfromzion.Managers
             InventoryManager invManager = new InventoryManager();
             int orderSize = order.plantId.Length;
             for (int i = 0; i < orderSize; i++)
-            {
+            {                                
                 invManager.removePlantUnits((int)order.plantId[i], order.fromStorageId[i], (double)order.units[i]);
             }
             
@@ -286,5 +286,10 @@ namespace seedsfromzion.Managers
             return DataAccessUtils.rowExists("SELECT id FROM seedsdb.clients WHERE id=@p_clientId;", "@p_clientId", p_clientId.ToString());            
         }
         #endregion
+
+        internal void cleanByOrder(OrderInfo orderInfo)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
