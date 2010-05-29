@@ -46,6 +46,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             this.addPlantPanel = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.plantUnitType = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.addPlantTypePanel = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.typeType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.typeLife = new DevComponents.Editors.DoubleInput();
@@ -56,8 +58,6 @@
             this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.typePlantName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
-            this.plantUnitType = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTime)).BeginInit();
@@ -311,6 +311,27 @@
             this.addPlantPanel.TabIndex = 18;
             this.addPlantPanel.Text = "הוספת צמח";
             // 
+            // plantUnitType
+            // 
+            // 
+            // 
+            // 
+            this.plantUnitType.Border.Class = "TextBoxBorder";
+            this.plantUnitType.Location = new System.Drawing.Point(270, 198);
+            this.plantUnitType.Name = "plantUnitType";
+            this.plantUnitType.Size = new System.Drawing.Size(131, 20);
+            this.plantUnitType.TabIndex = 19;
+            // 
+            // labelX11
+            // 
+            this.labelX11.BackColor = System.Drawing.Color.Transparent;
+            this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX11.Location = new System.Drawing.Point(417, 196);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(75, 23);
+            this.labelX11.TabIndex = 18;
+            this.labelX11.Text = "סוג היחידות:";
+            // 
             // addPlantTypePanel
             // 
             this.addPlantTypePanel.CanvasColor = System.Drawing.SystemColors.Control;
@@ -455,33 +476,13 @@
             this.typePlantName.Size = new System.Drawing.Size(142, 20);
             this.typePlantName.TabIndex = 16;
             // 
-            // labelX11
-            // 
-            this.labelX11.BackColor = System.Drawing.Color.Transparent;
-            this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX11.Location = new System.Drawing.Point(417, 196);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(75, 23);
-            this.labelX11.TabIndex = 18;
-            this.labelX11.Text = "סוג היחידות:";
-            // 
-            // plantUnitType
-            // 
-            // 
-            // 
-            // 
-            this.plantUnitType.Border.Class = "TextBoxBorder";
-            this.plantUnitType.Location = new System.Drawing.Point(270, 198);
-            this.plantUnitType.Name = "plantUnitType";
-            this.plantUnitType.Size = new System.Drawing.Size(131, 20);
-            this.plantUnitType.TabIndex = 19;
-            // 
             // AddNewPlant
             // 
             this.ClientSize = new System.Drawing.Size(1028, 597);
             this.Controls.Add(this.addPlantTypePanel);
             this.Controls.Add(this.addPlantPanel);
             this.Name = "AddNewPlant";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewPlant_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.price)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lifeTime)).EndInit();

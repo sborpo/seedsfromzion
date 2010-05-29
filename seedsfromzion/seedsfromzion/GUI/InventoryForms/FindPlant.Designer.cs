@@ -37,7 +37,6 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.comments = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.closeImage = new DevComponents.DotNetBar.ButtonX();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.integerInput1 = new DevComponents.Editors.IntegerInput();
             this.unitstype = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -45,6 +44,7 @@
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.closeImage = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -184,17 +184,6 @@
             this.groupPanel1.TabIndex = 8;
             this.groupPanel1.Text = "פרטי הצמח";
             // 
-            // closeImage
-            // 
-            this.closeImage.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.closeImage.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.closeImage.Location = new System.Drawing.Point(29, 286);
-            this.closeImage.Name = "closeImage";
-            this.closeImage.Size = new System.Drawing.Size(75, 23);
-            this.closeImage.TabIndex = 11;
-            this.closeImage.Text = "סגור תמונה";
-            this.closeImage.Click += new System.EventHandler(this.closeImage_Click);
-            // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -270,6 +259,17 @@
             this.labelX3.TabIndex = 5;
             this.labelX3.Text = "שם לועזי:";
             // 
+            // closeImage
+            // 
+            this.closeImage.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.closeImage.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.closeImage.Location = new System.Drawing.Point(29, 286);
+            this.closeImage.Name = "closeImage";
+            this.closeImage.Size = new System.Drawing.Size(75, 23);
+            this.closeImage.TabIndex = 11;
+            this.closeImage.Text = "סגור תמונה";
+            this.closeImage.Click += new System.EventHandler(this.closeImage_Click);
+            // 
             // buttonX2
             // 
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -294,6 +294,7 @@
             this.Controls.Add(this.labelX1);
             this.Name = "FindPlant";
             this.Load += new System.EventHandler(this.FindPlant_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FindPlant_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupPanel1.ResumeLayout(false);

@@ -226,5 +226,13 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             
         }
+
+        private void FindPlant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+            }
+        }
     }
 }
