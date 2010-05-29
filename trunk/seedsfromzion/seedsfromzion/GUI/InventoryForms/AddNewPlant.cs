@@ -284,5 +284,14 @@ namespace seedsfromzion.GUI.InventoryForms
 
            
         }
+
+        private void AddNewPlant_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Dispose of the image when exiting the form
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image.Dispose();
+            }
+        }
     }
 }
