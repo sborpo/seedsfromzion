@@ -337,7 +337,7 @@ namespace seedsfromzion.Managers
         {
             // check if exists numOfUnits in storage
             MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage" +
-                " SET units=units-@NUM_OF_UNITS WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
+                " SET units= (units-@NUM_OF_UNITS) WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
                 "@NUM_OF_UNITS", numOfUnits.ToString(),
                 "@P_PLANTID", p_plantId.ToString(),
                 "P_STORAGEID", p_storageId);
@@ -353,7 +353,7 @@ namespace seedsfromzion.Managers
         {
             // check if exists numOfUnits in storage
             MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage" +
-                " SET units=units+@NUM_OF_UNITS WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
+                " SET units= (units+@NUM_OF_UNITS) WHERE plantId=@P_PLANTID AND id=@P_STORAGEID",
                 "@NUM_OF_UNITS", numOfUnits.ToString(),
                 "@P_PLANTID", p_plantId.ToString(),
                 "P_STORAGEID", p_storageId);
@@ -388,7 +388,7 @@ namespace seedsfromzion.Managers
                             "@P_LOCATION", location);
             // Delete the current plant units from the fridge table
             commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Fridge " +
-                            "SET units = (units - " + numOfUnits.ToString() + ") WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate",
+                            "SET units = round((units - " + numOfUnits.ToString() + "),2) WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate",
                             "@P_PLANTID", p_id.ToString(),
                             "@ArriveDate", arriveDate);
             // Delete Plants with 0 units in the fridge (after update)
@@ -432,7 +432,7 @@ namespace seedsfromzion.Managers
             MySqlCommand[] commands = new MySqlCommand[4];
             commands[0] = FinishedStorageAddCommand(pid, storageNum, grown, location);
             commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.field " +
-                            "SET units = (units - " + units.ToString() + ") WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate AND sowingDate=@SowingDate",
+                            "SET units = round((units - " + units.ToString() + "),2) WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate AND sowingDate=@SowingDate",
                             "@P_PLANTID", pid.ToString(),
                             "@ArriveDate", arriveDate,
                             "@SowingDate", sowDate);
@@ -472,7 +472,7 @@ namespace seedsfromzion.Managers
             if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.finishedstorage WHERE plantId=@Plant AND id=@StorageId", "@Plant", pid.ToString(), "@StorageId", storageNum.ToString()))
             {
                 command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage " +
-                            "SET units = (units + " + units.ToString() + ") WHERE plantId =@P_PLANTID AND id=@StorageId",
+                            "SET units = round((units + " + units.ToString() + "),2) WHERE plantId =@P_PLANTID AND id=@StorageId",
                             "@P_PLANTID", pid.ToString(),
                             "@StorageId", storageNum.ToString());
             }
