@@ -108,6 +108,7 @@
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
             this.dataGridViewX1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewX1.Size = new System.Drawing.Size(322, 109);
             this.dataGridViewX1.TabIndex = 2;
             // 
