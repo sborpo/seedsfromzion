@@ -3,13 +3,14 @@
 	color:black}
 body
 {
-background-color:#f4ffd8;
+background-attachment:scroll;
+background-image:url(background3.jpg);
 }
 /*headings will be a color close to white*/
 .signature { color:green ; font-size:12px; font-family:"Times New Roman", Times, serif;}
 p { color:black;}
-.line {color: #f00; height: 1px;}
-.maintable {color:black; border: 1px solid black; border-collapse:collapse;}
-td {padding:15px; border: 1px solid green;}
-th {background-color:green; color:white; border: 1px solid green;}
-.tdsign{ border: 1px solid #f4ffd8;}
+.line {color: red; height: 1px;}
+.maintable {color:black; width:100%; border: 1px solid black; border-collapse:collapse;}
+td {padding:15px; border: 1px solid black; text-align: center; font-family:Rod Transparent;}
+th {background-color:green; color:white; height:20px; border: 1px solid black; font-size: 10px; font-family:"Arial", Times, serif;}
+.tdsign{ border: 1px solid black;}
