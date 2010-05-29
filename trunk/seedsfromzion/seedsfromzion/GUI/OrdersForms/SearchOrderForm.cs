@@ -18,9 +18,11 @@ namespace seedsfromzion.GUI.OrdersForms
         OrderInfo m_selectedOrder;
         ClientInfo m_selectedClient;
         bool loading;
+        double epsilon;
         public SearchOrderForm()
         {
             InitializeComponent();
+            epsilon = 0.00001;
             Orders = new DataTable();
             Orders.Clear();
             orderGrid.Rows.Clear();
@@ -189,7 +191,7 @@ namespace seedsfromzion.GUI.OrdersForms
             ClientInfo clientInfo = orderManager.findClient((int)clientId);
             orderInfo.status = '1';
             orderManager.updateOrderInfo((int)orderId,orderInfo,clientInfo);
-           // orderManager.cleanByOrder(orderInfo);
+            orderManager.cleanAfterOrderConfirmed(epsilon);
             //refreshing the view:
             detailsGrid.Rows.Clear();
             detailsGrid.Refresh();
