@@ -179,6 +179,12 @@
     <Compile Include="GUI\InventoryForms\UpdateSproutingForm.Designer.cs">
       <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\MessageWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MessageWindow.Designer.cs">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\OrdersForms\EmailSender.cs" />
     <Compile Include="GUI\OrdersForms\OrdersMainForm.cs">
       <SubType>Form</SubType>
@@ -361,6 +367,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\InventoryForms\UpdateSproutingForm.resx">
       <DependentUpon>UpdateSproutingForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MessageWindow.resx">
+      <DependentUpon>MessageWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\OrdersForms\OrdersMainForm.resx">

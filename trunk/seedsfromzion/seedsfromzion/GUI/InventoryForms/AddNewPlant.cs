@@ -16,6 +16,7 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private string picture = "NO_PICTURE";
         private string executionPath;
+        private string prevoiusPicture;
         
 
         /// <summary>
@@ -42,6 +43,7 @@ namespace seedsfromzion.GUI.InventoryForms
             plantUnitType.Text = info.UnitType;
             comboBoxEx1.Items.Add(type);
             comboBoxEx1.SelectedIndex = 0;
+            prevoiusPicture = info.Picture;
             if (info.Picture != "NO_PICTURE")
             {
                 pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + info.Picture);
@@ -56,7 +58,6 @@ namespace seedsfromzion.GUI.InventoryForms
             buttonX1.Click -= new EventHandler(buttonX1_Click);
             buttonX1.Click += new EventHandler(updateClick);
             
-            string pictureName = info.Picture;
             addPlantPanel.Text = "עדכון צמח";
             #endregion
         }
@@ -94,7 +95,7 @@ namespace seedsfromzion.GUI.InventoryForms
             pictureBox1.Image.Dispose();
             pictureBox1.Image = null;
             String Newpicture;
-            invMgr.updatePlantDetails(plantInfo, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
+            invMgr.updatePlantDetails(plantInfo,prevoiusPicture, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
             pictureBox1.Image = Image.FromFile(executionPath+@"\"+ConfigFile.getInstance.ImagesPath+@"\"+Newpicture);
             new SuccessWindow().Show();
             pictureBox1.Image.Dispose();

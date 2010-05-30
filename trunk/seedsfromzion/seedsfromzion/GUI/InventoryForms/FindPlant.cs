@@ -46,7 +46,8 @@ namespace seedsfromzion.GUI.InventoryForms
                 return;
             }
             pictureBox1.Image.Dispose();
-            manager.removePlant(plantid, name);
+            PlantInfo plantinfo = manager.FindPlant(name);
+            manager.removePlant(plantid, plantinfo);
            
             //remove the plant from the favorites
             ((seedsFromZion)this.MdiParent).removeFavoritePlant(plantid);

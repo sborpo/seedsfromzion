@@ -177,7 +177,7 @@ namespace seedsfromzion.Managers
         /// </summary>
         /// <param name="plantId"></param>
         /// <param name="name"></param>
-        public void removePlant(int plantId, string name)
+        public void removePlant(int plantId, PlantInfo name)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
             commands[0] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.planttypes WHERE plantId=@Plant", "@Plant", plantId.ToString());
@@ -185,12 +185,15 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLTransaction(commands);
             try
             {
-                PlantInfo info = FindPlant(name);
+                PlantInfo info = FindPlant(name.Name);
             }
             catch (ArgumentException ex)
             {
                 //The Plant Doesn't Exists
-                RemoveFromImages(name);
+                if (name.Picture != "NO_PICTURE")
+                {
+                    RemoveFromImages(name.Picture);
+                }
             }
             
             
@@ -226,7 +229,7 @@ namespace seedsfromzion.Managers
                 throw new ArgumentException("Plant already exists");
             int newId = getNewPlantId();
             string pictureName = planInfo.Picture;
-            string newPictureName = copyThePicture(pictureName, planInfo.Name);
+            string newPictureName = copyThePicture(pictureName, newId.ToString());
 
             commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
                 "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,@P_UNIT_TYPE , @P_COUNT)",
@@ -255,12 +258,12 @@ namespace seedsfromzion.Managers
         /// <param name="type"></param>
         /// <param name="price"></param>
         /// <param name="lifetime"></param>
-        public void updatePlantDetails(PlantInfo planInfo, string type, double price, double lifetime, out String pictureN)
+        public void updatePlantDetails(PlantInfo planInfo,string oldPicture, string type, double price, double lifetime, out String pictureN)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
             //Update the picture
             string pictureName = planInfo.Picture;
-            string newPictureName = copyThePicture(pictureName, planInfo.Name);
+            string newPictureName = copyThePicture(pictureName, oldPicture);
             pictureN = newPictureName;
             //update the Plants Table
             commands[0] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Plants SET  foreignName=@P_FOREIGN, picture=@P_PIC, comments=@P_COMMENTS, unitType=@P_UNIT_TYPE, countInUnit=@P_COUNT " +
@@ -307,6 +310,7 @@ namespace seedsfromzion.Managers
             {
                 return pictureName;
             }
+
             string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string imagesPath = executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + newId.ToString();
             File.Copy(pictureName, imagesPath, true);
