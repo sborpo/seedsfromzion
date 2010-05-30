@@ -441,7 +441,7 @@ namespace seedsfromzion.Managers
                             "@ArriveDate", arriveDate,
                             "@SowingDate", sowDate);
             commands[2] = new MySqlCommand("DELETE FROM seedsdb.field WHERE units < " + epsilon.ToString());
-            if (sproute < 0)
+            if (sproute >= 0)
             {
                 commands[3] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.sproutedstats(plantId, arrivingDate, sowindDate, collectionDate,sproutingPerc) " +
                                   " VALUES (@PLANTID,@Arrive,@Sow,@Collect,@Sprout)",
