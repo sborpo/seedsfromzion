@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
 
 namespace seedsfromzion.DataAccess
 {
@@ -93,6 +94,8 @@ namespace seedsfromzion.DataAccess
                 {
                     tw.Write(elem.toString());
                 }
+                tw.Write(new HtmlCode("</body></html>").toString());
+
             }
             finally
             {
@@ -121,13 +124,25 @@ namespace seedsfromzion.DataAccess
         /// </summary>
         private void addHeader()
         {
-            string style = (docStyle.Equals(ReportStyle.BlackWhite)) ? Properties.Resources.blackAndWhiteStyle : Properties.Resources.colorStyle;
+            string style;
+            if ((docStyle.Equals(ReportStyle.BlackWhite)))
+            {
+                style = Properties.Resources.blackAndWhiteStyle;
+            }
+            else
+            {
+                style= Properties.Resources.colorStyle;
+                string [] splitten=Regex.Split(style, "body\r\n{");
+                style = splitten[0] + "body\n{\nbackground-image:url('" + System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\" + "background3.jpg');\n" + splitten[1];
+            }
+            
             HtmlCode code = new HtmlCode("<head>" +
                                       "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">" +
                                       "<style type=\"text/css\">" +
                                       style+
                                       "</style>" +
                                       "</head>");
+
 
             document.AddFirst(code);
 
@@ -140,7 +155,7 @@ namespace seedsfromzion.DataAccess
         private void addSignature()
         {
             string time=DateTime.Now.ToLocalTime().ToString();
-            HtmlCode code = new HtmlCode("<table class=\"sign\"><tr><td class=\"tdSign\"><h1 class=\"signature\"><div align=left>" + time + "</div></h1></td><td class=\"tdSign\"><div align=right><h1 class=\"signature\">המסמך נוצר על ידי מערכת לניהול עסקי זרעים מציון</h1></div></td></tr></table><hr class=\"line\"/>");
+            HtmlCode code = new HtmlCode("<table class=\"sign\"><tr><td class=\"tdSign\"><h1 class=\"signature\"><div align=left>" + time + "</div></h1></td><td class=\"tdSign\"><div align=right><h1 class=\"signature\">המסמך נוצר על ידי מערכת לניהול עסקי זרעים מציון</h1></div></td></tr></table><hr class=\"line\"/><body>");
 
             document.AddLast(code);
             document.AddLast(new HtmlEndLine(2));
