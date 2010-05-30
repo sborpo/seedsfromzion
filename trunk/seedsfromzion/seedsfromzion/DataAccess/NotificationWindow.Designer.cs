@@ -32,6 +32,8 @@
             this.reflectionImage1 = new DevComponents.DotNetBar.Controls.ReflectionImage();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // reflectionImage1
@@ -61,21 +63,33 @@
             resources.ApplyResources(this.textBoxX1, "textBoxX1");
             this.textBoxX1.Name = "textBoxX1";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // NotificationWindow
             // 
-            this.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
+            this.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(245)))));
+            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reflectionImage1);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(55)))), ((int)(((byte)(114)))));
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "NotificationWindow";
+            this.ShowCloseButton = false;
             this.ShowInTaskbar = true;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Style = DevComponents.DotNetBar.eBallonStyle.Office2007Alert;
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.NotificationWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +100,6 @@
         private DevComponents.DotNetBar.Controls.ReflectionImage reflectionImage1;
         private System.Windows.Forms.Label label1;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
