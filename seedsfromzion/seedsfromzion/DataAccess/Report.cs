@@ -133,7 +133,7 @@ namespace seedsfromzion.DataAccess
             {
                 style= Properties.Resources.colorStyle;
                 string [] splitten=Regex.Split(style, "body\r\n{");
-                style = splitten[0] + "body\n{\nbackground-image:url('" + System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"\" + "background3.jpg');\n" + splitten[1];
+                style = splitten[0] + "body\n{\nbackground-image:url('" + System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + @"/" + "background3.jpg');\n" + splitten[1];
             }
             
             HtmlCode code = new HtmlCode("<head>" +
