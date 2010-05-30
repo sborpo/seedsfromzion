@@ -139,7 +139,7 @@ namespace seedsfromzion.Managers
             private void checkUnits()
             {
                 //execture the select command of the database
-                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT P.name,P.type,U.units FROM seedsdb.planttypes P, (SELECT plantId,SUM(units) AS units FROM seedsdb.finishedstorage"+
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT P.name,P.type,U.units FROM seedsdb.planttypes P, (SELECT plantId,SUM(units) AS units FROM seedsdb.finishedstorage"+
                 " GROUP BY plantId) U WHERE  P.plantId=U.plantId AND U.units<@Units", "@Units", ConfigFile.getInstance.MinUnitsInStorage.ToString());
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
@@ -169,7 +169,7 @@ namespace seedsfromzion.Managers
             {
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.VisaExpireDays));
-                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS "
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS "
                 + "WHERE VS.expireDate>=@Date AND VS.visaId=WS.visaId AND W.id=WS.workerId", "@Date", date);
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
@@ -198,7 +198,7 @@ namespace seedsfromzion.Managers
             {
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.OrderDueDate));
-                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT id,name FROM seedsdb.Orders O, seedsdb.Clients C "
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT id,name FROM seedsdb.Orders O, seedsdb.Clients C "
                 + "WHERE O.dueDate>=@Date AND C.id=O.clientId", "@Date", date);
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
