@@ -61,6 +61,7 @@ namespace seedsfromzion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2010-02-14")]
         public global::System.DateTime LastOptimizeDate {
             get {
                 return ((global::System.DateTime)(this["LastOptimizeDate"]));
@@ -168,7 +169,7 @@ namespace seedsfromzion.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2012-04-03")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2009-12-14")]
         public global::System.DateTime LastBackupDate {
             get {
                 return ((global::System.DateTime)(this["LastBackupDate"]));

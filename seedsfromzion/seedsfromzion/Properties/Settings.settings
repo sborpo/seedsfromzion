@@ -12,7 +12,7 @@
       <Value Profile="(Default)">Backups</Value>
     </Setting>
     <Setting Name="LastOptimizeDate" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">2010-02-14</Value>
     </Setting>
     <Setting Name="OptimizeFrequency" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">12</Value>
@@ -39,7 +39,7 @@
       <Value Profile="(Default)">48</Value>
     </Setting>
     <Setting Name="LastBackupDate" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2012-04-03</Value>
+      <Value Profile="(Default)">2009-12-14</Value>
     </Setting>
     <Setting Name="BackupFrequency" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3</Value>

@@ -277,6 +277,24 @@ namespace seedsfromzion.Managers
         }
 
         /// <summary>
+        /// Checks if performing automatic backup is neccessary
+        /// returns true if yes , otherwise returns false.
+        /// </summary>
+        /// <returns></returns>
+        public bool shouldPerformAutomaticBackup()
+        {
+            DateTime lastBackup = ConfigFile.getInstance.LastAutomaticBackupDate;
+            //check that the last backup date + backup frequency is less then todays date
+            //if yes return otherwise perform the backup
+            if (lastBackup.AddDays(ConfigFile.getInstance.BackupFrequency).CompareTo(DateTime.Now) < 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+        /// <summary>
         /// performs an automatic backup of the system into 
         /// a zip file , which will be located in the Backups
         /// directory.
@@ -286,10 +304,7 @@ namespace seedsfromzion.Managers
         /// </summary>
         public void performAutomaticBackup()
         {
-            DateTime lastBackup= ConfigFile.getInstance.LastAutomaticBackupDate;
-            //check that the last backup date + backup frequency is less then todays date
-            //if yes return otherwise perform the backup
-            if (lastBackup.AddDays(ConfigFile.getInstance.BackupFrequency).CompareTo(DateTime.Now) < 0)
+            if (!shouldPerformAutomaticBackup())
             {
                 return;
             }
@@ -301,14 +316,31 @@ namespace seedsfromzion.Managers
             ConfigFile.getInstance.LastAutomaticBackupDate = new DateTime(time.Year, time.Month, time.Day);
         }
 
-        
 
-        public void performDbOptimization()
+        /// <summary>
+        /// Checks whenever an optimization should be performed ,
+        /// returns true if yes , otherwise false.
+        /// </summary>
+        /// <returns></returns>
+        public bool shouldPerformOptimization()
         {
             DateTime lastOptimize = ConfigFile.getInstance.LastOptimizationDate;
             //check that the last optimization date date + optimization frequency is less then todays date
             //if yes return otherwise perform the optimization
             if (lastOptimize.AddDays(ConfigFile.getInstance.OptimizingFrequency).CompareTo(DateTime.Now) < 0)
+            {
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Performs an optimization on the work hours table ,
+        /// moves old record to an archive engine table
+        /// </summary>
+        public void performDbOptimization()
+        {
+
+            if (!shouldPerformOptimization())
             {
                 return;
             }

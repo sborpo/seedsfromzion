@@ -13,6 +13,7 @@ using seedsfromzion.GUI.StatisticsForms;
 using seedsfromzion.GUI.OrdersForms;
 using seedsfromzion.GUI.InventoryForms;
 using System.Collections.Specialized;
+using System.Threading;
 
 namespace seedsfromzion.GUI
 {
@@ -33,6 +34,15 @@ namespace seedsfromzion.GUI
             InitializeComponent();
             
 
+        }
+
+        private void SetParent(Form form, Form parent)
+        {
+            foreach (Form f in parent.MdiChildren)
+            {
+                f.Close();
+            }
+            form.MdiParent = parent;
         }
 
         #region Favorites Managment
@@ -171,6 +181,13 @@ namespace seedsfromzion.GUI
             
         }
 
+        private void initRoutines()
+        {
+            routine = new Routines(this);
+            
+            routine.checkNotifications();
+        }
+
         private void systemControl_SelectedRibbonTabChanged(object sender, EventArgs e)
         {
             if (this.ActiveMdiChild != null)
@@ -182,6 +199,24 @@ namespace seedsfromzion.GUI
         private void seedsFromZion_FormClosing(object sender, FormClosingEventArgs e)
         {
             routine.abortChecking();
+            if (routine.shouldPerformAutomaticBackup())
+            {
+                MessageWindow win=new MessageWindow("מבצע גיבוי אוטומטי");
+                win.Show();
+                Thread.Sleep(3000);
+                routine.performAutomaticBackup();
+                win.Close();
+                
+            }
+            if (routine.shouldPerformOptimization())
+            {
+                MessageWindow win = new MessageWindow("מבצע אופטימיזציה ");
+                win.Show();
+                Thread.Sleep(3000);
+                routine.performDbOptimization();
+                win.Close();
+            }
+           
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -228,11 +263,7 @@ namespace seedsfromzion.GUI
             initRoutines();
         }
 
-        private void initRoutines()
-        {
-            routine = new Routines(this);
-            routine.checkNotifications();
-        }
+       
 
         private void createBackUpButton_Click(object sender, EventArgs e)
         {
@@ -260,6 +291,12 @@ namespace seedsfromzion.GUI
             initRoutines();
         }
 
+        private void addNewUserButton_Click(object sender, EventArgs e)
+        {
+            SystemUsersManager system = new SystemUsersManager();
+            system.Show();
+        }
+
         private void printButton_Click(object sender, EventArgs e)
         {
 
@@ -281,18 +318,48 @@ namespace seedsfromzion.GUI
         }
         #endregion
 
+        #region Plant Manipulation
+
+        private void findPlantButton_Click(object sender, EventArgs e)
+        {
+            FindPlant findPlantMDIChild = new FindPlant();
+            // Set the Parent Form of the Child window.
+            SetParent(findPlantMDIChild, this);
+            // Display the new form.
+            //findPlantMDIChild.Dock = DockStyle.Fill;
+            findPlantMDIChild.Show();
+
+        }
+
+        private void addPlantButton_Click(object sender, EventArgs e)
+        {
+            AddNewPlant form = new AddNewPlant();
+            SetParent(form, this);
+            form.Show();
+        }
+        #endregion
+
+        #region Storage And Report
         private void addToFridgeButton_Click(object sender, EventArgs e)
         {
 
             AddToFridgeForm form = new AddToFridgeForm(this);
-            form.MdiParent = this;
+            SetParent(form, this);
+            form.Show();
+        }
+
+        private void buttonItem1_Click(object sender, EventArgs e)
+        {
+            AddFinishedFromExternal form = new AddFinishedFromExternal();
+            SetParent(form, this);
             form.Show();
         }
 
         private void seedPlantButton_Click(object sender, EventArgs e)
         {
+
             SowSeedsForm form = new SowSeedsForm(this);
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
 
         }
@@ -300,41 +367,29 @@ namespace seedsfromzion.GUI
         private void collectPlantsbutton_Click(object sender, EventArgs e)
         {
             PlantCollectionForm form = new PlantCollectionForm(this);
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
         private void buttonItem4_Click(object sender, EventArgs e)
         {
             UpdateSproutingForm form = new UpdateSproutingForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
         private void InventoryReports_Click(object sender, EventArgs e)
         {
             InventoryReports form = new InventoryReports();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
 
         }
+        #endregion
 
-        private void findPlantButton_Click(object sender, EventArgs e)
-        {
-            FindPlant findPlantMDIChild = new FindPlant();
-            // Set the Parent Form of the Child window.
-            findPlantMDIChild.MdiParent = this;
-            // Display the new form.
-            //findPlantMDIChild.Dock = DockStyle.Fill;
-            findPlantMDIChild.Show();
-        }
+       
 
-        private void addPlantButton_Click(object sender, EventArgs e)
-        {
-            AddNewPlant form = new AddNewPlant();
-            form.MdiParent = this;
-            form.Show();
-        }
+
         #endregion
 
         #region statistics
@@ -342,7 +397,7 @@ namespace seedsfromzion.GUI
         {
             SalesGraphFrom salesGraphMDIChild = new SalesGraphFrom(this);
             // Set the Parent Form of the Child window.
-            salesGraphMDIChild.MdiParent = this;
+            SetParent(salesGraphMDIChild, this);
             // Display the new form.
             salesGraphMDIChild.Show(); 
             
@@ -352,7 +407,7 @@ namespace seedsfromzion.GUI
         {
             GrowViaSowingDateForm sowGraphMDIChild = new GrowViaSowingDateForm(this);
             // Set the Parent Form of the Child window.
-            sowGraphMDIChild.MdiParent = this;
+            SetParent(sowGraphMDIChild, this);
             // Display the new form.
             sowGraphMDIChild.Show();
         }
@@ -361,7 +416,7 @@ namespace seedsfromzion.GUI
         {
             GrowViaPlantTypeForm typeGraphMDIChild = new GrowViaPlantTypeForm(this);
             // Set the Parent Form of the Child window.
-            typeGraphMDIChild.MdiParent = this;
+            SetParent(typeGraphMDIChild, this);
             // Display the new form.
             typeGraphMDIChild.Show();
         }
@@ -370,7 +425,7 @@ namespace seedsfromzion.GUI
         {
             GrowViaFridgeTimeForm fridgeGraphMDIChild = new GrowViaFridgeTimeForm(this);
             // Set the Parent Form of the Child window.
-            fridgeGraphMDIChild.MdiParent = this;
+            SetParent(fridgeGraphMDIChild, this);
             // Display the new form.
             fridgeGraphMDIChild.Show();
             
@@ -380,14 +435,12 @@ namespace seedsfromzion.GUI
         #endregion
 
         #region tiny menu
+        private void saveButtonMini_Click(object sender, EventArgs e)
+        {
+            createBackUpButton_Click(sender, e);
+        }
         
         #endregion
-
-        private void addNewUserButton_Click(object sender, EventArgs e)
-        {
-            SystemUsersManager system = new SystemUsersManager();
-            system.Show();
-        }
 
         #region workers
 
@@ -395,35 +448,36 @@ namespace seedsfromzion.GUI
         {
 
             AddWorkerForm form = new AddWorkerForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
         private void findWorkersButton_Click(object sender, EventArgs e)
         {
+            
             FindWorkerForm form = new FindWorkerForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();   
         }
 
         private void addUpdateVisaButton_Click(object sender, EventArgs e)
         {
             VisasGeneralForm form = new VisasGeneralForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
         private void paymentButton_Click(object sender, EventArgs e)
         {
             PaymentsForm form = new PaymentsForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
         private void addWorkerHoursButton_Click(object sender, EventArgs e)
         {
             WorkDaysForm form = new WorkDaysForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
 
@@ -435,7 +489,7 @@ namespace seedsfromzion.GUI
         private void reportButton_Click(object sender, EventArgs e)
         {
             WorkersReportsForm form = new WorkersReportsForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
         }
         #endregion
@@ -444,10 +498,18 @@ namespace seedsfromzion.GUI
         private void addOrderButton_Click(object sender, EventArgs e)
         {
             OrdersMainForm form = new OrdersMainForm();
-            form.MdiParent = this;
+            SetParent(form, this);
             form.Show();
 
         }
+
+        private void findOrderButton_Click(object sender, EventArgs e)
+        {
+            SearchOrderForm form = new SearchOrderForm();
+            SetParent(form, this);
+            form.Show();
+        }
+
         #endregion
 
         private void systemControl_Click(object sender, EventArgs e)
@@ -455,19 +517,9 @@ namespace seedsfromzion.GUI
 
         }
 
-        private void findOrderButton_Click(object sender, EventArgs e)
-        {
-            SearchOrderForm form = new SearchOrderForm();
-            form.MdiParent = this;
-            form.Show();
-        }
 
-        private void buttonItem1_Click(object sender, EventArgs e)
-        {
-            AddFinishedFromExternal form = new AddFinishedFromExternal();
-            form.MdiParent = this;
-            form.Show();
-        }
+
+       
 
         
   
