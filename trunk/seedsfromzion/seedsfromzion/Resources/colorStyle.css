@@ -4,7 +4,6 @@
 body
 {
 background-attachment:scroll;
-background-image:url(background3.jpg);
 }
 /*headings will be a color close to white*/
 .signature { color:green ; font-size:12px; font-family:"Times New Roman", Times, serif;}
