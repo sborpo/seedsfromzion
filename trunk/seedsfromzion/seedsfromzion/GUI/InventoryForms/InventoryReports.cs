@@ -55,10 +55,30 @@ namespace seedsfromzion.GUI.InventoryForms
             }
         }
 
+        private bool handleEmpty   (DataTable table ,string heading, Report r)
+        {
+            if (!(table.Rows.Count == 0))
+            {
+                return false;
+            }
+            HtmlHeading head= new HtmlHeading(heading);
+            head.align(HtmlAlign.center);
+            r.append(head);
+            r.append(new HtmlEndLine(2));
+            HtmlParagraph par = new HtmlParagraph("ריק");
+            par.align ( HtmlAlign.center);
+            r.append(par);
+            r.append(new HtmlEndLine(2));
+            return true;
+        }
         private void generateWarehouseStatus(Report r)
         {
             InventoryManager manager = new InventoryManager();
             DataTable table = manager.getFinishedStorageTable();
+            if (handleEmpty(table, "מצב המחסנים", r) == true)
+            {
+                return;
+            }
             table.Columns[0].ColumnName = "מזהה הצמח";
             table.Columns[1].ColumnName = "שם הצמח";
             table.Columns[2].ColumnName = "סוג הצמח";
@@ -73,6 +93,10 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             InventoryManager manager = new InventoryManager();
             DataTable table = manager.getFieldTable();
+            if (handleEmpty(table, "מצב השדה", r) == true)
+            {
+                return;
+            }
             table.Columns[0].ColumnName = "מזהה הצמח";
             table.Columns[1].ColumnName = "שם הצמח";
             table.Columns[2].ColumnName = "סוג הצמח";
@@ -89,6 +113,10 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             InventoryManager manager = new InventoryManager();
             DataTable table=manager.getFridgeTable();
+            if (handleEmpty(table, "מצב המקרר", r) == true)
+            {
+                return;
+            }
             table.Columns[0].ColumnName = "מזהה הצמח";
             table.Columns[1].ColumnName = "שם הצמח";
             table.Columns[2].ColumnName = "סוג הצמח";
