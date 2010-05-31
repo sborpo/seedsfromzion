@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
-
+using seedsfromzion.DataAccess;
 
 namespace seedsfromzion.GUI.InventoryForms
 {
@@ -17,6 +17,8 @@ namespace seedsfromzion.GUI.InventoryForms
         public AddFinishedFromExternal()
         {
             InitializeComponent();
+            //set minimum value
+            doubleInput1.MinValue = ConfigFile.MIN_VALUE;
             initPlantsTable();
            
         }
@@ -59,7 +61,7 @@ namespace seedsfromzion.GUI.InventoryForms
                 return;
             }
             int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
-            manager.AddToFinishedStorageExternal(plantId, integerInput1.Value, Math.Round(doubleInput1.Value,2), storageLocation.Text);
+            manager.AddToFinishedStorageExternal(plantId, integerInput1.Value, doubleInput1.Value, storageLocation.Text);
             new SuccessWindow().Show();
 
         }

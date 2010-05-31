@@ -12,11 +12,13 @@ namespace seedsfromzion.DataAccess
     /// application.
     /// It is a singleton class.
     /// </summary>
-    class ConfigFile
+    public class ConfigFile
     {
+        private static int rounding = 4;
+        private static double MinValue = 0.0001;
         //the singelton field
         private static ConfigFile file;
-        ConfigFile()
+         ConfigFile()
         {
         }
 
@@ -32,6 +34,41 @@ namespace seedsfromzion.DataAccess
                     file = new ConfigFile();
                 }
                 return file;
+            }
+        }
+
+        /// <summary>
+        /// Returns the epsilon used for SQL updates and inserts
+        /// </summary>
+        public static double EPSILON
+        {
+            get
+            {
+                return MinValue/10;
+            }
+        }
+
+        /// <summary>
+        /// Returns the rounding of the units in the system
+        /// in order to make the calculations corrent afterwards
+        /// </summary>
+        public static int ROUNDING
+        {
+            get
+            {
+                return rounding;
+            }
+        }
+
+        /// <summary>
+        /// Returns the most minimum unit type value that can
+        /// be represented in the system
+        /// </summary>
+        public static double MIN_VALUE
+        {
+            get
+            {
+                return MinValue;
             }
         }
 

@@ -54,6 +54,8 @@
             // 
             // units
             // 
+            this.units.AutoOverwrite = true;
+            this.units.AutoResolveFreeTextEntries = false;
             // 
             // 
             // 
@@ -285,7 +287,6 @@
 
         #endregion
 
-        private DevComponents.Editors.DoubleInput units;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevComponents.DotNetBar.Controls.TextBoxX location;
         private DevComponents.DotNetBar.LabelX arriveLabel;
@@ -302,5 +303,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private DevComponents.Editors.DoubleInput units;
     }
 }

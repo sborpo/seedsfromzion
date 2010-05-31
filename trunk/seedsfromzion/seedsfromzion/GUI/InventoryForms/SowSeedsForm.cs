@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Data;
 using seedsfromzion.Managers;
 using seedsfromzion.GUI;
+using seedsfromzion.DataAccess;
 namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class SowSeedsForm : seedsfromzion.GUI.BaseForm
@@ -17,6 +18,8 @@ namespace seedsfromzion.GUI.InventoryForms
         public SowSeedsForm(seedsFromZion mainForm)
         {
             InitializeComponent();
+            //setting the minimum value
+            doubleInput1.MinValue = ConfigFile.MIN_VALUE;
             initFridgeTable();
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
         }
