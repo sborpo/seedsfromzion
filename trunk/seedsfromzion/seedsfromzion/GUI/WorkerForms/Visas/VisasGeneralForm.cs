@@ -108,6 +108,25 @@ namespace seedsfromzion.GUI.WorkerForms
             populateWorkers();
         }
 
+        private void btn_deleteVisa_Click(object sender, EventArgs e)
+        {
+            if (dataGridVisas.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
+
+            WorkerManager workerManager = new WorkerManager();
+            workerManager.RemoveVisa(visaID);
+
+            //refresh the form
+            populateVisas();
+            populateWorkers();
+
+            SuccessWindow success = new SuccessWindow();
+            success.Show();
+        }
+
 
     }
 }
