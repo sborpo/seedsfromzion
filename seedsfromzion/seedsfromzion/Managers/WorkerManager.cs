@@ -93,12 +93,18 @@ namespace seedsfromzion.Managers
         {
             if (!checkWorkerExists(p_id))
             {
-                throw new ArgumentException("worker doesn't exists");
+                return;
             }
-            MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workers WHERE id=@P_ID", "@P_ID",
+            MySqlCommand[] commands = new MySqlCommand[4];
+            commands[0] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workers WHERE id=@P_ID", "@P_ID",
                 p_id.ToString());
-            DatabaseAccess.performDMLQuery(command);
-            ///TODO: consider to remove the worker from all the tabels of the DB, or not delete it at all.
+            commands[1] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workersvisas WHERE workerId=@P_ID", "@P_ID",
+                p_id.ToString());
+            commands[2] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workdays WHERE workerId=@P_ID", "@P_ID",
+                p_id.ToString());
+            commands[3] = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.payments WHERE workerId=@P_ID", "@P_ID",
+                p_id.ToString());
+            DatabaseAccess.performDMLTransaction(commands);
         }
 
         public void GenerateWorkerReport(int p_id) { } 

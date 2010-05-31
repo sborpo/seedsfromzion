@@ -23,7 +23,7 @@ namespace seedsfromzion.GUI.WorkerForms
             base.BaseForm_Load(sender, e);
 
             seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
-            mainForm.deletePlantClicked += new seedsFromZion.deletePlantClickedHandler(mainForm_deleteWorkerClicked);
+            mainForm.deleteWorkerClicked += new seedsFromZion.deleteWorkerClickedHandler(mainForm_deleteWorkerClicked);
         }
 
         private void btn_find_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace seedsfromzion.GUI.WorkerForms
             {
                 return;
             }
-            int workerid = (int)(UInt32)(dataGridWorkers.SelectedRows[0].Cells["workerId"].Value);
+            int workerid = (int)(UInt32)(dataGridWorkers.SelectedRows[0].Cells["id"].Value);
 
             try
             {
