@@ -481,10 +481,7 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
-        private void removeWorkerButton_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void reportButton_Click(object sender, EventArgs e)
         {
@@ -492,6 +489,18 @@ namespace seedsfromzion.GUI
             SetParent(form, this);
             form.Show();
         }
+
+        #region removing worker
+        public delegate void deleteWorkerClickedHandler();
+        public event deleteWorkerClickedHandler deleteWorkerClicked;
+        private void removeWorkerButton_Click(object sender, EventArgs e)
+        {
+            if (deleteWorkerClicked!=null)
+            {
+                deleteWorkerClicked();
+            }
+        }
+        #endregion
         #endregion
 
         #region orders
