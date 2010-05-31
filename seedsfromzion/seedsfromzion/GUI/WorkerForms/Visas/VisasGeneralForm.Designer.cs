@@ -51,6 +51,8 @@
             this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btn_deleteVisa = new DevComponents.DotNetBar.ButtonX();
+            this.btn_editVisa = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).BeginInit();
@@ -93,7 +95,7 @@
             // 
             this.btn_addVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_addVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_addVisa.Location = new System.Drawing.Point(19, 147);
+            this.btn_addVisa.Location = new System.Drawing.Point(141, 147);
             this.btn_addVisa.Name = "btn_addVisa";
             this.btn_addVisa.Size = new System.Drawing.Size(55, 36);
             this.btn_addVisa.TabIndex = 1;
@@ -163,6 +165,8 @@
             // 
             this.groupPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.btn_editVisa);
+            this.groupPanel1.Controls.Add(this.btn_deleteVisa);
             this.groupPanel1.Controls.Add(this.dataGridVisas);
             this.groupPanel1.Controls.Add(this.btn_addVisa);
             this.groupPanel1.Location = new System.Drawing.Point(52, 12);
@@ -231,7 +235,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(670, 382);
+            this.showGraphButton.Location = new System.Drawing.Point(664, 382);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -280,7 +284,7 @@
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
             this.dateChoisePanel.Location = new System.Drawing.Point(41, 206);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(778, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(772, 142);
             // 
             // 
             // 
@@ -317,7 +321,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(778, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(772, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDate
@@ -330,7 +334,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(266, 96);
+            this.tillDate.Location = new System.Drawing.Point(263, 96);
             // 
             // 
             // 
@@ -385,7 +389,7 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(632, 94);
+            this.tillDateLabel.Location = new System.Drawing.Point(626, 94);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -403,7 +407,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(266, 25);
+            this.fromDate.Location = new System.Drawing.Point(263, 25);
             // 
             // 
             // 
@@ -462,7 +466,7 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(632, 23);
+            this.fromDateLabel.Location = new System.Drawing.Point(626, 23);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -608,6 +612,27 @@
             this.groupPanel3.TabIndex = 9;
             this.groupPanel3.Text = "כל העובדים";
             // 
+            // btn_deleteVisa
+            // 
+            this.btn_deleteVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_deleteVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_deleteVisa.Location = new System.Drawing.Point(19, 147);
+            this.btn_deleteVisa.Name = "btn_deleteVisa";
+            this.btn_deleteVisa.Size = new System.Drawing.Size(55, 36);
+            this.btn_deleteVisa.TabIndex = 2;
+            this.btn_deleteVisa.Text = "מחק";
+            this.btn_deleteVisa.Click += new System.EventHandler(this.btn_deleteVisa_Click);
+            // 
+            // btn_editVisa
+            // 
+            this.btn_editVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_editVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_editVisa.Location = new System.Drawing.Point(80, 147);
+            this.btn_editVisa.Name = "btn_editVisa";
+            this.btn_editVisa.Size = new System.Drawing.Size(55, 36);
+            this.btn_editVisa.TabIndex = 3;
+            this.btn_editVisa.Text = "ערוך";
+            // 
             // VisasGeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -616,6 +641,7 @@
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
+            this.DoubleBuffered = true;
             this.Name = "VisasGeneralForm";
             this.Text = "VisasGeneralForm";
             this.Load += new System.EventHandler(this.VisasGeneralForm_Load);
@@ -657,5 +683,7 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx plantTypeDropBox;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel2;
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
+        private DevComponents.DotNetBar.ButtonX btn_editVisa;
+        private DevComponents.DotNetBar.ButtonX btn_deleteVisa;
     }
 }

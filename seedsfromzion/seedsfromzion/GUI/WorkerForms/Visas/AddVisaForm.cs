@@ -39,6 +39,12 @@ namespace seedsfromzion.GUI.WorkerForms
                 eroor.Show();
                 return;
             }
+            if (dateTimeInput.Value <= DateTime.MinValue)
+            {
+                ErrorWindow eroor = new ErrorWindow("יש להכניס תאריך תפוגה");
+                eroor.Show();
+                return;
+            }
             #endregion
 
             WorkerManager workerManager = new WorkerManager();
