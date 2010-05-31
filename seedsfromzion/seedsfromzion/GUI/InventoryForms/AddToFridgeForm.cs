@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
 using seedsfromzion.GUI;
+using seedsfromzion.DataAccess;
 
 namespace seedsfromzion.GUI.InventoryForms
 {
@@ -19,6 +20,8 @@ namespace seedsfromzion.GUI.InventoryForms
         {
            
             InitializeComponent();
+            //setting the minimum value
+            units.MinValue = ConfigFile.MIN_VALUE;
             initPlantsTable();
             this.mainForm = mainForm;
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
@@ -77,7 +80,7 @@ namespace seedsfromzion.GUI.InventoryForms
             int plantId = (int)(UInt32)(dataGridViewX1.SelectedRows[0].Cells[0].Value);
             try
             {
-                manager.AddToFridge(plantId, dateTimePicker1.Value, Math.Round(units.Value,2), location.Text);
+                manager.AddToFridge(plantId, dateTimePicker1.Value, units.Value, location.Text);
             }
             catch (InventoryManager.KeyException ex)
             {

@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using seedsfromzion.Managers;
-
+using seedsfromzion.DataAccess;
 namespace seedsfromzion.GUI.InventoryForms
 {
     public partial class PlantCollectionForm : seedsfromzion.GUI.BaseForm
@@ -16,6 +16,8 @@ namespace seedsfromzion.GUI.InventoryForms
         public PlantCollectionForm(seedsFromZion mainForm)
         {
             InitializeComponent();
+            doubleInput2.MinValue = ConfigFile.MIN_VALUE;
+            doubleInput3.MinValue = ConfigFile.MIN_VALUE;
             initFieldTable();
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
         }

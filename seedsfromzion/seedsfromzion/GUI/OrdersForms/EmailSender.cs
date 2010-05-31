@@ -56,7 +56,7 @@ namespace seedsfromzion.GUI.OrdersForms
 
         private static string generateOrderEmail(int orderId,ClientInfo info)
         {
-            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT  P.name, P.type ,SUM(O.units) AS units  FROM seedsdb.ordersfromstorage O ,seedsdb.planttypes P WHERE O.plantId=P.plantId AND orderId=@Order GROUP BY GROUP BY P.name,P.type", "@Order", orderId.ToString());
+            MySqlCommand command = DataAccessUtils.commandBuilder("SELECT  P.name, P.type ,SUM(O.units) AS units  FROM seedsdb.ordersfromstorage O ,seedsdb.planttypes P WHERE O.plantId=P.plantId AND orderId=@Order GROUP BY P.name,P.type", "@Order", orderId.ToString());
             DataTable table = DatabaseAccess.getResultSetFromDb(command);
             table.Columns[0].ColumnName = "שם הצמח";
             table.Columns[1].ColumnName = "סוג הצמח";

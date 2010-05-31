@@ -13,7 +13,6 @@ namespace seedsfromzion.Managers
 
     public class InventoryManager
     {
-        private const double epsilon = 0.01;
         public class KeyException : Exception { }
 
         #region Tables Getters
@@ -370,7 +369,7 @@ namespace seedsfromzion.Managers
 
         public void SowSeeds(int p_id, DateTime p_arriveDate, DateTime p_sowingDate, double numOfUnits, string location)
         {
-            numOfUnits = Math.Round(numOfUnits, 2);
+            numOfUnits = Math.Round(numOfUnits, ConfigFile.ROUNDING);
             if (!checkPlantExistsByID(p_id))
                 throw new ArgumentException("Plant doesn't exists");
             string arriveDate = String.Format("{0:yyyy-M-d}", p_arriveDate);
@@ -392,11 +391,11 @@ namespace seedsfromzion.Managers
                             "@P_LOCATION", location);
             // Delete the current plant units from the fridge table
             commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.Fridge " +
-                            "SET units = round((units - " + numOfUnits.ToString() + "),2) WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate",
+                            "SET units = "+String.Format("round((units - {0} ),{1})",numOfUnits.ToString(),ConfigFile.ROUNDING) + " WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate",
                             "@P_PLANTID", p_id.ToString(),
                             "@ArriveDate", arriveDate);
             // Delete Plants with 0 units in the fridge (after update)
-            commands[2] = new MySqlCommand("DELETE FROM seedsdb.Fridge WHERE units < " + epsilon.ToString());
+            commands[2] = new MySqlCommand("DELETE FROM seedsdb.Fridge WHERE units < " +ConfigFile.EPSILON.ToString());
             DatabaseAccess.performDMLTransaction(commands);
 
 
@@ -404,7 +403,7 @@ namespace seedsfromzion.Managers
 
         public void AddToFridge(int plantId, DateTime arriveDate, double units, string location)
         {
-            units = Math.Round(units, 2);
+            units = Math.Round(units, ConfigFile.ROUNDING);
             if (!checkPlantExistsByID(plantId))
                 throw new ArgumentException("Plant doesn't exists");
             bool keyExists = DataAccessUtils.rowExists("SELECT * FROM seedsdb.fridge WHERE plantId=@PlantId AND arrivingDate=@ARRIVE", "@PlantId", plantId.ToString(), "@ARRIVE", String.Format("{0:yyyy-M-d}", arriveDate));
@@ -423,7 +422,7 @@ namespace seedsfromzion.Managers
 
         public void CollectPlants(int pid, DateTime p_arriveDate, DateTime p_sowingDate, DateTime p_collectionDate, double units, double grown, int storageNum, string location, double sproute)
         {
-            grown = Math.Round(grown, 2);
+            grown = Math.Round(grown, ConfigFile.ROUNDING);
             if (!checkPlantExistsByID(pid))
                 throw new ArgumentException("Plant doesn't exists");
             string arriveDate = String.Format("{0:yyyy-M-d}", p_arriveDate);
@@ -436,11 +435,11 @@ namespace seedsfromzion.Managers
             MySqlCommand[] commands = new MySqlCommand[4];
             commands[0] = FinishedStorageAddCommand(pid, storageNum, grown, location);
             commands[1] = DataAccessUtils.commandBuilder("UPDATE seedsdb.field " +
-                            "SET units = round((units - " + units.ToString() + "),2) WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate AND sowingDate=@SowingDate",
+                            "SET units = "+String.Format("round((units - {0} ),{1})" ,units.ToString(),ConfigFile.ROUNDING) + " WHERE plantId =@P_PLANTID AND arrivingDate = @ArriveDate AND sowingDate=@SowingDate",
                             "@P_PLANTID", pid.ToString(),
                             "@ArriveDate", arriveDate,
                             "@SowingDate", sowDate);
-            commands[2] = new MySqlCommand("DELETE FROM seedsdb.field WHERE units < " + epsilon.ToString());
+            commands[2] = new MySqlCommand("DELETE FROM seedsdb.field WHERE units < " + ConfigFile.EPSILON.ToString());
             if (sproute >= 0)
             {
                 commands[3] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.sproutedstats(plantId, arrivingDate, sowindDate, collectionDate,sproutingPerc) " +
@@ -465,7 +464,7 @@ namespace seedsfromzion.Managers
 
         public void AddToFinishedStorageExternal(int pid, int storageNum, double units, string location)
         {
-            units = Math.Round(units, 2);
+            units = Math.Round(units, ConfigFile.ROUNDING);
             MySqlCommand command = FinishedStorageAddCommand(pid, storageNum, units, location);
             DataAccess.DatabaseAccess.performDMLQuery(command);
         }
@@ -476,7 +475,7 @@ namespace seedsfromzion.Managers
             if (DataAccessUtils.rowExists("SELECT * FROM seedsdb.finishedstorage WHERE plantId=@Plant AND id=@StorageId", "@Plant", pid.ToString(), "@StorageId", storageNum.ToString()))
             {
                 command = DataAccessUtils.commandBuilder("UPDATE seedsdb.finishedstorage " +
-                            "SET units = round((units + " + units.ToString() + "),2) WHERE plantId =@P_PLANTID AND id=@StorageId",
+                            "SET units = "+String.Format("round((units + {0} ),{1})" ,units.ToString(),ConfigFile.ROUNDING) + " WHERE plantId =@P_PLANTID AND id=@StorageId",
                             "@P_PLANTID", pid.ToString(),
                             "@StorageId", storageNum.ToString());
             }
