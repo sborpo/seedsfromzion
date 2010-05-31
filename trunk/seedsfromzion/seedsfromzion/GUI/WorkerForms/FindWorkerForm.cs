@@ -18,6 +18,14 @@ namespace seedsfromzion.GUI.WorkerForms
             populateWorekres();
         }
 
+        private void FindWorkerForm_Load(object sender, EventArgs e)
+        {
+            base.BaseForm_Load(sender, e);
+
+            seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
+            mainForm.deletePlantClicked += new seedsFromZion.deletePlantClickedHandler(mainForm_deleteWorkerClicked);
+        }
+
         private void btn_find_Click(object sender, EventArgs e)
         {
             //find throw name
@@ -92,5 +100,29 @@ namespace seedsfromzion.GUI.WorkerForms
         {
             populateWorekres();
         }
+
+
+        void mainForm_deleteWorkerClicked()
+        {
+            if (dataGridWorkers.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            int workerid = (int)(UInt32)(dataGridWorkers.SelectedRows[0].Cells["workerId"].Value);
+
+            try
+            {
+                m_manager.RemoveWorker(workerid);
+            }
+            catch (Exception e)
+            {
+                new ErrorWindow(e.Message).Show();
+                return;
+            }
+
+            new SuccessWindow().Show();
+            populateWorekres();
+        }
+        
     }
 }

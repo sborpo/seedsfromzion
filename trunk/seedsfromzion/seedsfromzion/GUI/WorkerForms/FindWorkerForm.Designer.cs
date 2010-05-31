@@ -290,8 +290,10 @@
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.dateChoisePanel);
             this.Controls.Add(this.dataGridWorkers);
+            this.DoubleBuffered = true;
             this.Name = "FindWorkerForm";
             this.Text = "חפש עובד";
+            this.Load += new System.EventHandler(this.FindWorkerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).EndInit();
             this.dateChoisePanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
