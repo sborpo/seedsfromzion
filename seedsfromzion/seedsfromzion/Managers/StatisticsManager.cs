@@ -306,7 +306,7 @@ namespace seedsfromzion.Managers
         static public DataTable getGrowViaSowGraphValues(int plantId)
         {
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE sproutedstats IS NOT NULL SP.plantId = @PLANT_ID",
+                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE sproutedstats NOT IS NULL AND SP.plantId = @PLANT_ID",
                                                 "@PLANT_ID", plantId.ToString());
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
@@ -315,7 +315,7 @@ namespace seedsfromzion.Managers
         static public DataTable getGrowViaSowGraphValues(string plantName)
         {
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE sproutedstats IS NOT NULL SP.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
+                DataAccessUtils.commandBuilder("SELECT SP.sowindDate AS sowingDate, SP.sproutingPerc AS sproutingPerc FROM sproutedstats SP WHERE sproutedstats NOT IS NULL AND SP.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
                                                 "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
@@ -324,7 +324,7 @@ namespace seedsfromzion.Managers
         static public DataTable getGrowViaTypeGraphValues(string plantName)
         {
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT PT.type AS type, SUM(SPS.sproutingPerc)/COUNT(*) AS sproutingPerc FROM planttypes PT, sproutedstats SPS WHERE sproutedstats IS NOT NULL PT.name = @PLANT_NAME AND PT.plantId = SPS.plantId GROUP BY type",
+                DataAccessUtils.commandBuilder("SELECT PT.type AS type, SUM(SPS.sproutingPerc)/COUNT(*) AS sproutingPerc FROM planttypes PT, sproutedstats SPS WHERE sproutedstats NOT IS NULL AND PT.name = @PLANT_NAME AND PT.plantId = SPS.plantId GROUP BY type",
                                                 "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
@@ -333,7 +333,7 @@ namespace seedsfromzion.Managers
         static public DataTable getGrowViaFridgeGraphValues(int plantId)
         {
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE sproutedstats IS NOT NULL SPS.plantId = @PLANT_ID",
+                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE sproutedstats NOT IS NULL AND SPS.plantId = @PLANT_ID",
                                                 "@PLANT_ID", plantId.ToString());
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
@@ -342,7 +342,7 @@ namespace seedsfromzion.Managers
         static public DataTable getGrowViaFridgeGraphValues(string plantName)
         {
             MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE sproutedstats IS NOT NULL SPS.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
+                DataAccessUtils.commandBuilder("SELECT DATEDIFF(SPS.`sowindDate`, SPS.`arrivingDate`) AS fridgeTime, SPS.sproutingPerc AS sproutingPerc FROM  sproutedstats SPS WHERE sproutedstats NOT IS NULL AND SPS.plantId IN (SELECT PT.plantId FROM planttypes PT WHERE PT.name = @PLANT_NAME)",
                                                 "@PLANT_NAME", plantName);
             DataTable result = DatabaseAccess.getResultSetFromDb(command);
             return result;
