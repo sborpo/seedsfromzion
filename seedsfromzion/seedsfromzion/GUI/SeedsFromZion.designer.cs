@@ -159,7 +159,7 @@
             this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
             this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ordersInventoryBar.TabIndex = 6;
-            this.ordersInventoryBar.Text = "מנהל בהזמנות";
+            this.ordersInventoryBar.Text = "מנהל הזמנות";
             this.ordersInventoryBar.VerticalItemAlignment = DevComponents.DotNetBar.eVerticalItemsAlignment.Middle;
             // 
             // findOrderButton
