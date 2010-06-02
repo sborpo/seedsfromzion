@@ -148,7 +148,7 @@ namespace seedsfromzion.DataAccess
             //construct the notification window
             NotificationWindow notific = new NotificationWindow(mes.Title, mes.Text, notifyWindow);
             //register the window close event handler to the event
-            notific.CloseButtonClick += new EventHandler(notify_BalloonTipClosed);
+            notific.closedBalloon += new NotificationWindow.ClosingBalloonHandler(notify_BalloonTipClosed);
             //display the window
             notific.Show();
         }

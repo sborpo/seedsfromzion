@@ -10,6 +10,8 @@ namespace seedsfromzion
 {
     public partial class NotificationWindow : DevComponents.DotNetBar.Balloon
     {
+        public delegate void ClosingBalloonHandler(object sender, EventArgs e);
+        public event ClosingBalloonHandler closedBalloon;
         public NotificationWindow()
         {
             InitializeComponent();
@@ -34,6 +36,8 @@ namespace seedsfromzion
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
+            closedBalloon(sender, e);
             this.Close();
         }
 
