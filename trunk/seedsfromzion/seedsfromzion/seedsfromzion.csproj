@@ -475,6 +475,7 @@
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
     <Content Include="lib\ZedGraph.dll" />
+    <None Include="Resources\postage_stamp_wide.png" />
     <None Include="Resources\image_missing.jpg" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\addOrderIcon.png" />
