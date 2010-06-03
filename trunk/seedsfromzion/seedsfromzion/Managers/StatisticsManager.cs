@@ -120,7 +120,7 @@ namespace seedsfromzion.Managers
             for (int i = 0; i < dateArr.Length; i++)
             {
                 DateTime date = DateTime.FromOADate(dateArr[i]);
-                if (date.CompareTo(from) >= 0)
+                if (fromDate.LockUpdateChecked && date.CompareTo(from) >= 0)
                 {
                     if (tillDate.LockUpdateChecked)
                     {
