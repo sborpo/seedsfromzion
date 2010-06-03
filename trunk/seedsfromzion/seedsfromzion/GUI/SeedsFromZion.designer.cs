@@ -100,9 +100,9 @@
             // systemControl
             // 
             this.systemControl.CaptionVisible = true;
-            this.systemControl.Controls.Add(this.inventoryPanel);
-            this.systemControl.Controls.Add(this.workersPanel);
             this.systemControl.Controls.Add(this.statisticsPanel);
+            this.systemControl.Controls.Add(this.workersPanel);
+            this.systemControl.Controls.Add(this.inventoryPanel);
             this.systemControl.Dock = System.Windows.Forms.DockStyle.Top;
             this.systemControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.systemControl.ForeColor = System.Drawing.Color.Black;
@@ -301,7 +301,6 @@
             this.statisticsPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.statisticsPanel.Size = new System.Drawing.Size(1001, 103);
             this.statisticsPanel.TabIndex = 3;
-            this.statisticsPanel.Visible = false;
             // 
             // graphsStatisticsBar
             // 
@@ -403,6 +402,7 @@
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
             this.inventoryPanel.TabIndex = 1;
+            this.inventoryPanel.Visible = false;
             // 
             // ordersInventoryBar
             // 
@@ -601,7 +601,6 @@
             // 
             // inventoryTab
             // 
-            this.inventoryTab.Checked = true;
             this.inventoryTab.ImagePaddingHorizontal = 8;
             this.inventoryTab.Name = "inventoryTab";
             this.inventoryTab.Panel = this.inventoryPanel;
@@ -625,6 +624,7 @@
             // 
             // statisticsTab
             // 
+            this.statisticsTab.Checked = true;
             this.statisticsTab.ImagePaddingHorizontal = 8;
             this.statisticsTab.Name = "statisticsTab";
             this.statisticsTab.Panel = this.statisticsPanel;

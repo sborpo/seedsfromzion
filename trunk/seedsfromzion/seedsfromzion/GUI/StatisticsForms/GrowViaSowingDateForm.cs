@@ -86,10 +86,15 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
 
             //set the values of the bars
-            Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,Double>(graphData, "sowingDate");
-            Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
-            StatisticsManager.sortData(ref xArray, ref yArray);
-            StatisticsManager.filterDates(ref xArray, ref yArray, this.fromDate, this.tillDate);
+            Double[] xOrig = StatisticsManager.buildArrayFromGraphData<DateTime, Double>(graphData, "sowingDate");
+            Double[] yOrig = StatisticsManager.buildArrayFromGraphData<double, Double>(graphData, "sproutingPerc");
+            Double[] xArray;
+            Double[] yArray;
+            StatisticsManager.sortData(ref xOrig, ref yOrig);
+            StatisticsManager.filterDates(xOrig, yOrig, this.fromDate, this.tillDate, out xArray, out yArray);
+
+            //get predictions
+            StatisticsManager.predictForDates(xOrig, yOrig, this.fromDate, this.tillDate, ref xArray, ref yArray);
 
             if (xArray.Length.Equals(0))
             {

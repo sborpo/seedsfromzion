@@ -122,17 +122,16 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.CurveList.Clear();
             salesGraphPane.GraphObjList.Clear();
   
-            if (graphData.Rows.Count.Equals(0))
-            {
-                new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
-                return;
-            }
-
             //set the values of the bars
-            Double[] xArray = StatisticsManager.buildArrayFromGraphData<DateTime,double>(graphData, "orderDate");
-            Double[] yArray = StatisticsManager.buildArrayFromGraphData<decimal,double>(graphData, "units");
-            StatisticsManager.sortData(ref xArray, ref yArray);
-            StatisticsManager.filterDates(ref xArray, ref yArray, this.fromDate, this.tillDate);
+            Double[] xOrig = StatisticsManager.buildArrayFromGraphData<DateTime, double>(graphData, "orderDate");
+            Double[] yOrig = StatisticsManager.buildArrayFromGraphData<decimal, double>(graphData, "units");
+            Double[] xArray;
+            Double[] yArray;
+            StatisticsManager.sortData(ref xOrig, ref yOrig);
+            StatisticsManager.filterDates(xOrig, yOrig, this.fromDate, this.tillDate, out xArray, out yArray);
+
+            //get predictions
+            StatisticsManager.predictForDates(xOrig, yOrig, this.fromDate, this.tillDate, ref xArray, ref yArray);
 
             //check if there is any data
             if (xArray.Length.Equals(0))
@@ -143,6 +142,9 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             //create the bar
             BarItem myCurve = salesGraphPane.AddBar("'שם הצמח: " + "'" + plantName, xArray, yArray, Color.Blue);
+            
+            //prediction
+            
 
             // Draw the X tics between the labels instead of at the labels
             salesGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
