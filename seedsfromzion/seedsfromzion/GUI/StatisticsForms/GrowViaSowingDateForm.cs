@@ -53,7 +53,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Scale.MajorStep = 1;
             growGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
             // tilt the x axis labels to an angle of 65 degrees
-            growGraphPane.XAxis.Scale.FontSpec.Angle = 65;
+            growGraphPane.XAxis.Scale.FontSpec.Angle = 90;
             growGraphPane.XAxis.Scale.FontSpec.Size = 9;
             growGraphPane.XAxis.Scale.IsVisible = false;
 
@@ -179,7 +179,9 @@ namespace seedsfromzion.GUI.StatisticsForms
                 return;
             }
 
-            if (this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
+            if (this.fromDate.LockUpdateChecked &&
+               this.tillDate.LockUpdateChecked &&
+               this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
             {
                 new ErrorWindow("תעריכים בסדר הפוך!").Show();
                 return;
