@@ -103,8 +103,8 @@ namespace seedsfromzion.Managers
         static public void filterDates(Double[] dateArr, Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate,
             out Double[] resultDates, out Double[] resultValues)
         {
-            resultDates = new Double[dateArr.Length];
-            resultValues = new Double[dateArr.Length];
+            resultDates = (Double[])dateArr.Clone();
+            resultValues = (Double[])valArr.Clone();
             if (!fromDate.LockUpdateChecked && !tillDate.LockUpdateChecked)
             {
                 return;
@@ -154,7 +154,7 @@ namespace seedsfromzion.Managers
         static public void predictForDates(Double[] origArrDate, Double[] origArrVal, DateTimeInput fromDate, DateTimeInput tillDate,
             ref Double[] dateArr, ref Double[] valuesArr)
         {
-            if ((fromDate.LockUpdateChecked && DateTime.Now.CompareTo(tillDate.Value) < 0 ) || (tillDate.LockUpdateChecked && DateTime.Now.CompareTo(fromDate.Value) < 0))
+            if ((fromDate.LockUpdateChecked && DateTime.Now.CompareTo(fromDate.Value) < 0) || (tillDate.LockUpdateChecked && DateTime.Now.CompareTo(tillDate.Value) < 0))
             {
                 makePrediction(origArrDate, origArrVal, fromDate, tillDate,ref dateArr, ref valuesArr);
             }
@@ -173,8 +173,8 @@ namespace seedsfromzion.Managers
             }
             else if (from.LockUpdateChecked)
             {
-                if(DateTime.Now.Year.CompareTo(floorDate.Year) < 0 ||
-                   (DateTime.Now.Year.Equals(floorDate.Year) && DateTime.Now.Month.CompareTo(floorDate.Month) < 0) )
+                if (DateTime.Now.Year.CompareTo(fromDate.Year) < 0 ||
+                   (DateTime.Now.Year.Equals(fromDate.Year) && DateTime.Now.Month.CompareTo(fromDate.Month) < 0))
                 {
                     floorDate = fromDate;
                 }
