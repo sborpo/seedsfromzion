@@ -44,8 +44,14 @@ namespace seedsfromzion.Managers
 
             public void updateValue(double value)
             {
+                int saved_count = count;
                 count++;
-                this.value = (this.value + value) / count;
+                this.value = (this.value * saved_count + value) / count;
+            }
+
+            public double getValue()
+            {
+                return this.value;
             }
         }
 
@@ -94,16 +100,22 @@ namespace seedsfromzion.Managers
             }
         }
 
-        static public void filterDates(ref Double[] dateArr,ref Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate)
+        static public void filterDates(Double[] dateArr, Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate,
+            out Double[] resultDates, out Double[] resultValues)
         {
+            resultDates = new Double[dateArr.Length];
+            resultValues = new Double[dateArr.Length];
             if (!fromDate.LockUpdateChecked && !tillDate.LockUpdateChecked)
+            {
+                return;
+            }
+            if (dateArr.Length.Equals(0))
             {
                 return;
             }
             DateTime from = fromDate.Value;
             DateTime till = tillDate.Value;
-            Double[] resultDates = new Double[dateArr.Length];
-            Double[] resultValues = new Double[dateArr.Length];
+            
             ArrayList list = new ArrayList();
             for (int i = 0; i < dateArr.Length; i++)
             {
@@ -134,56 +146,77 @@ namespace seedsfromzion.Managers
             //resize the arrays to fit data
             Array.Resize<double>(ref resultDates, list.Count);
             Array.Resize<double>(ref resultValues, list.Count);
-            
-            //make the prediction if it is possible
-            if (DateTime.Now.CompareTo(till) < 0 || DateTime.Now.CompareTo(from) < 0)
-            {
-                //makePrediction(ref resultDates, ref resultValues, from, till);
-            }
 
-            dateArr = resultDates;
-            valArr = resultValues;
-            
         }
 
-        static private void makePrediction(ref Double[] resultDates, ref Double[] resultValues, DateTime fromDate, DateTime tillDate)
+        #region prediction
+
+        static public void predictForDates(Double[] origArrDate, Double[] origArrVal, DateTimeInput fromDate, DateTimeInput tillDate,
+            ref Double[] dateArr, ref Double[] valuesArr)
         {
+            if ((fromDate.LockUpdateChecked && DateTime.Now.CompareTo(tillDate.Value) < 0 ) || (tillDate.LockUpdateChecked && DateTime.Now.CompareTo(fromDate.Value) < 0))
+            {
+                makePrediction(origArrDate, origArrVal, fromDate, tillDate,ref dateArr, ref valuesArr);
+            }
+        }
+
+        static private void makePrediction(Double[] origArrDate, Double[] origArrVal, DateTimeInput from, DateTimeInput till,
+            ref Double[] resultDates, ref Double[] resultValues)
+        {
+            DateTime fromDate = from.Value;
+            DateTime tillDate = till.Value;
             DateTime roofDate = DateTime.MinValue;
-            if(fromDate.CompareTo(DateTime.Now) > 0)
+            DateTime floorDate = DateTime.Now.AddMonths(1);
+            if (!till.LockUpdateChecked)
             {
-                roofDate = fromDate;
+                return;
             }
-            if (tillDate.CompareTo(DateTime.Now) > 0)
+            else if (from.LockUpdateChecked)
             {
-                roofDate = tillDate;
+                if(DateTime.Now.Year.CompareTo(floorDate.Year) < 0 ||
+                   (DateTime.Now.Year.Equals(floorDate.Year) && DateTime.Now.Month.CompareTo(floorDate.Month) < 0) )
+                {
+                    floorDate = fromDate;
+                }
             }
+            roofDate = tillDate;
+
             if (roofDate.CompareTo(DateTime.Now) <= 0)
             {
                 return;
-
             }
-            DateTime[] predictDates = getDatesToPredict(DateTime.Now, roofDate);
+            DateTime[] predictDates = getDatesToPredict(floorDate, roofDate);
 
-            Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory = buildMonthYearHistory(resultDates, resultValues);
+            Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory = buildMonthYearHistory(origArrDate, origArrVal);
 
-            int size = resultDates.Length + predictDates.Length;
+            int size = predictDates.Length + resultDates.Length;
             Double[] allDates = new Double[size];
             Double[] allValues = new Double[size];
-
+            int success_pred = 0;
             for (int i = 0; i < size; i++)
             {
-                if (i < resultDates.Length)
+                if (i >= resultDates.Length)
+                {
+                    int pred_indx = i - resultDates.Length;
+                    double pred_value = proccessPredictionForDate(predictDates[pred_indx], monthYearsHistory);
+                    if (pred_value > 0)
+                    {
+                        int curr_indx = i - (pred_indx - success_pred);
+                        allDates[curr_indx] = predictDates[pred_indx].ToOADate();
+                        allValues[curr_indx] = pred_value;
+                        success_pred++;
+                    }
+                }
+                else
                 {
                     allDates[i] = resultDates[i];
                     allValues[i] = resultValues[i];
                 }
-                else
-                {
-                    int predDateIndex = i - resultDates.Length;
-                    allDates[i] = (double)Convert.ChangeType(predictDates[predDateIndex], typeof(double));
-                    allValues[i] = proccessPredictionForDate(predictDates[predDateIndex], monthYearsHistory);
-                }
             }
+            //resize the arrays to fit data
+            int new_size = resultDates.Length + success_pred;
+            Array.Resize<double>(ref allDates, new_size);
+            Array.Resize<double>(ref allValues, new_size);
 
             resultDates = allDates;
             resultValues= allValues;
@@ -192,16 +225,29 @@ namespace seedsfromzion.Managers
 
         static private double proccessPredictionForDate(DateTime date, Dictionary<int, Dictionary<int, DateMean>> monthYearsHistory)
         {
-            int year = date.Year;
             int month = date.Month;
+            double pred_value = 0;
 
             Dictionary<int, DateMean> dataForMonth;
 
             if (monthYearsHistory.ContainsKey(month))
             {
                 monthYearsHistory.TryGetValue(month, out dataForMonth);
+                int year_num = dataForMonth.Count;
+                int sum = (1+year_num)*year_num/2;
+
+                for (int i = 0; i < year_num; i++ )
+                {
+                    double value = dataForMonth.ElementAt(i).Value.getValue();
+                    pred_value += value * (year_num - i) / sum;
+                }
             }
-            return 0;
+            else
+            {
+                pred_value = -1;
+            }
+
+            return pred_value;
         }
 
         static private Dictionary<int, Dictionary<int, DateMean>> buildMonthYearHistory(Double[] resultDates, Double[] resultValues)
@@ -243,23 +289,26 @@ namespace seedsfromzion.Managers
         static private DateTime[] getDatesToPredict(DateTime fromDate, DateTime toDate)
         {
             List<DateTime> predictMonths = new List<DateTime>();
-            DateTime currDate = fromDate.AddMonths(1);
-            
-            while (currDate.Month <= toDate.Month)
+            DateTime currDate = fromDate;
+
+            predictMonths.Add(currDate);
+            while (!(currDate.Year.Equals(toDate.Year) && currDate.Month.Equals(toDate.Month)))
             {
-                predictMonths.Add(currDate);
                 currDate = currDate.AddMonths(1);
+                predictMonths.Add(currDate);  
             }
 
             return predictMonths.ToArray();
         }
 
+        #endregion
+
         static public void sortData(ref Double[] dateArr, ref Double[] valArr)
         {
-            Double[] resultDates = dateArr;
-            Double[] resultValues = valArr;
-            
-            Array.Sort(dateArr,valArr);
+            if (dateArr.Length > 0)
+            {
+                Array.Sort(dateArr, valArr);
+            }
         }
 
         static public string getNameById(int plantId)
