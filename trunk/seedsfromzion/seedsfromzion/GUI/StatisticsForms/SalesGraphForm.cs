@@ -95,7 +95,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.XAxis.Scale.MajorStep = 1;
             salesGraphPane.XAxis.Scale.MajorUnit = DateUnit.Month;
             // tilt the x axis labels to an angle of 65 degrees
-            salesGraphPane.XAxis.Scale.FontSpec.Angle = 65;
+            salesGraphPane.XAxis.Scale.FontSpec.Angle = 90;
             salesGraphPane.XAxis.Scale.FontSpec.Size = 9;
             salesGraphPane.XAxis.Scale.IsVisible = false;
 
@@ -220,8 +220,8 @@ namespace seedsfromzion.GUI.StatisticsForms
                 return;
             }
 
-            if(this.fromDate.LockUpdateChecked.Equals(true) &&
-               this.tillDate.LockUpdateChecked.Equals(true) &&
+            if(this.fromDate.LockUpdateChecked &&
+               this.tillDate.LockUpdateChecked &&
                this.fromDate.Value.CompareTo(this.tillDate.Value) > 0)
             {
                 new ErrorWindow("תעריכים בסדר הפוך!").Show();
