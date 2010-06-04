@@ -152,7 +152,7 @@ namespace seedsfromzion.Managers
                 //and display.
                 foreach (DataRow row in res.Rows)
                 {
-                    sb.Append(String.Format(row["name"] +" מסוג "+row["type"]+"'"+" - "+row["units"]+ " יחידות "));
+                    sb.Append(String.Format(row["name"] +" מסוג "+row["type"]+"'"+" - "+row["units"]+ " יחידות ")+"\n");
                 }
                 //display the notification
                 notify.Invoke(notify.displayFunc, (String.Format("מצב המלאי עבור הצמחים הבאים ירד מתחת ל {0} יחידות", ConfigFile.getInstance.MinUnitsInStorage)), sb.ToString());
