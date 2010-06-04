@@ -71,6 +71,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("יש להכניס את המיקום בשדה").Show();
                 return;
             }
+            if (((DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value).CompareTo(dateTimePicker1.Value)>0)
+            {
+                new ErrorWindow("יש להכניס תאריך זריעה המאוחר יותר מתאריך"+"\n"+"ההכנסה למקרר").Show();
+                return;
+            }
             try
             {
                 manager.SowSeeds((int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value, (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value, dateTimePicker1.Value, doubleInput1.Value, textBoxX1.Text);
