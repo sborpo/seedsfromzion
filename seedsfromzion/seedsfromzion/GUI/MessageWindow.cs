@@ -21,5 +21,10 @@ namespace seedsfromzion.GUI
             InitializeComponent();
             labelX1.Text = text;
         }
+
+        public void setText(string text)
+        {
+            labelX1.Text=text;
+        }
     }
 }

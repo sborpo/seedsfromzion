@@ -199,23 +199,25 @@ namespace seedsfromzion.GUI
         private void seedsFromZion_FormClosing(object sender, FormClosingEventArgs e)
         {
             routine.abortChecking();
+            MessageWindow win = new MessageWindow();
             if (routine.shouldPerformAutomaticBackup())
             {
-                MessageWindow win=new MessageWindow("מבצע גיבוי אוטומטי");
+                win.setText("מבצע גיבוי אוטומטי");
                 win.Show();
                 Thread.Sleep(3000);
                 routine.performAutomaticBackup();
-                win.Close();
+                
                 
             }
             if (routine.shouldPerformOptimization())
             {
-                MessageWindow win = new MessageWindow("מבצע אופטימיזציה ");
+                win .setText("מבצע אופטימיזציה ");
                 win.Show();
                 Thread.Sleep(3000);
                 routine.performDbOptimization();
-                win.Close();
+          
             }
+            win.Close();
            
         }
 
