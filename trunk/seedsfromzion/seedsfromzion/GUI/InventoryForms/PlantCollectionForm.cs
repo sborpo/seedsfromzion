@@ -68,13 +68,18 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("לא נבחר צמח מהשדה").Show();
                 return;
             }
-            if (textBoxX1.Text.Equals(String.Empty))
+            if (textBoxX2.Text.Equals(String.Empty))
             {
                 new ErrorWindow("יש להכניס את המיקום במחסן").Show();
                 return;
             }
             DateTime arrive = (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value;
             DateTime sow = (DateTime)dataGridViewX1.SelectedRows[0].Cells[4].Value;
+            if (arrive.CompareTo(dateTimePicker1.Value) > 0)
+            {
+                new ErrorWindow("יש להכניס תאריך איסוף המאוחר יותר מתאריך" + "\n" + "הזריעה").Show();
+                return;
+            }
             int plantId=(int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value;
             try
             {
