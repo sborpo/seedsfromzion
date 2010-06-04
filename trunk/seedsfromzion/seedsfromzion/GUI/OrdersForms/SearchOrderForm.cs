@@ -56,14 +56,14 @@ namespace seedsfromzion.GUI.OrdersForms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxX1_TextChanged(object sender, EventArgs e)
+        private void integerInput1_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxX1.Text.Equals(String.Empty))
+            if (integerInput1.IsEmpty)
             {
                 actEmptyTextBox();
                 return;
             }
-            DataRow[] filteredRows = Orders.Select("orderId=" + textBoxX1.Text );
+            DataRow[] filteredRows = Orders.Select("clientId=" + integerInput1.Value.ToString());
             refreshOrdersView(filteredRows);
             orderGrid_SelectionChanged(null, null);
 

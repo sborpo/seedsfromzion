@@ -28,15 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.orderGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.detailsGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +43,10 @@
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.editOrder = new DevComponents.DotNetBar.ButtonX();
             this.orderConfirm = new DevComponents.DotNetBar.ButtonX();
+            this.integerInput1 = new DevComponents.Editors.IntegerInput();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelX1
@@ -55,7 +56,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(82, 31);
             this.labelX1.TabIndex = 0;
-            this.labelX1.Text = "מספר הזמנה:";
+            this.labelX1.Text = "מספר לקוח:";
             // 
             // orderGrid
             // 
@@ -67,14 +68,14 @@
             this.clientId,
             this.orderDate,
             this.dueDate});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.orderGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.orderGrid.Location = new System.Drawing.Point(30, 81);
             this.orderGrid.MultiSelect = false;
@@ -113,18 +114,6 @@
             this.dueDate.Name = "dueDate";
             this.dueDate.ReadOnly = true;
             // 
-            // textBoxX1
-            // 
-            // 
-            // 
-            // 
-            this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Location = new System.Drawing.Point(104, 29);
-            this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(127, 20);
-            this.textBoxX1.TabIndex = 3;
-            this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
-            // 
             // labelX2
             // 
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
@@ -142,14 +131,14 @@
             this.detailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.units});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.detailsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.detailsGrid.Location = new System.Drawing.Point(541, 81);
             this.detailsGrid.MultiSelect = false;
@@ -211,21 +200,36 @@
             this.orderConfirm.Text = "אשר אספקת הזמנה";
             this.orderConfirm.Click += new System.EventHandler(this.orderConfirm_Click);
             // 
+            // integerInput1
+            // 
+            // 
+            // 
+            // 
+            this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.integerInput1.Location = new System.Drawing.Point(104, 30);
+            this.integerInput1.MinValue = 0;
+            this.integerInput1.Name = "integerInput1";
+            this.integerInput1.Size = new System.Drawing.Size(126, 20);
+            this.integerInput1.TabIndex = 9;
+            this.integerInput1.ValueChanged += new System.EventHandler(this.integerInput1_TextChanged);
+            // 
             // SearchOrderForm
             // 
             this.ClientSize = new System.Drawing.Size(798, 517);
+            this.Controls.Add(this.integerInput1);
             this.Controls.Add(this.orderConfirm);
             this.Controls.Add(this.editOrder);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.detailsGrid);
             this.Controls.Add(this.labelX2);
-            this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.orderGrid);
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
             this.Name = "SearchOrderForm";
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -238,7 +242,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clientId;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn dueDate;
-        private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.DataGridViewX detailsGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
@@ -246,5 +249,6 @@
         private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX editOrder;
         private DevComponents.DotNetBar.ButtonX orderConfirm;
+        private DevComponents.Editors.IntegerInput integerInput1;
     }
 }
