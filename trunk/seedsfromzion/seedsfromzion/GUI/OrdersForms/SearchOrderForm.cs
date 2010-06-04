@@ -63,8 +63,9 @@ namespace seedsfromzion.GUI.OrdersForms
                 actEmptyTextBox();
                 return;
             }
-            DataRow[] filteredRows = Orders.Select("orderId LIKE '" + textBoxX1.Text + "%'");
+            DataRow[] filteredRows = Orders.Select("orderId=" + textBoxX1.Text );
             refreshOrdersView(filteredRows);
+            orderGrid_SelectionChanged(null, null);
 
         }
         /// <summary>
