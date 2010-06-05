@@ -264,6 +264,12 @@
     <Compile Include="GUI\WorkerForms\Payments\PaymentsForm.Designer.cs">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\WorkerForms\Visas\UpdateVisaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\WorkerForms\Visas\UpdateVisaForm.Designer.cs">
+      <DependentUpon>UpdateVisaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\WorkerForms\WorkersReportsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -423,6 +429,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\WorkerForms\Payments\PaymentsForm.resx">
       <DependentUpon>PaymentsForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WorkerForms\Visas\UpdateVisaForm.resx">
+      <DependentUpon>UpdateVisaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\WorkerForms\WorkersReportsForm.resx">

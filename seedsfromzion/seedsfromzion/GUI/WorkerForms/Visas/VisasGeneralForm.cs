@@ -37,6 +37,23 @@ namespace seedsfromzion.GUI.WorkerForms
             }
         }
 
+        private void btn_editVisa_Click(object sender, EventArgs e)
+        {
+            if (dataGridVisas.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
+            DateTime expireDate = ((DateTime)dataGridVisas.SelectedRows[0].Cells["expireDate"].Value);
+            string contact = ((string)dataGridVisas.SelectedRows[0].Cells["contact"].Value);
+
+            UpdateVisaForm form = new UpdateVisaForm(visaID, expireDate, contact);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                populateVisas();
+            }
+        }
+
         private void populateVisas()
         {
             WorkerManager workerManager = new WorkerManager();
@@ -126,7 +143,6 @@ namespace seedsfromzion.GUI.WorkerForms
             SuccessWindow success = new SuccessWindow();
             success.Show();
         }
-
 
     }
 }

@@ -21,8 +21,6 @@ namespace seedsfromzion
             try
             {
                 Application.Run(new seedsfromzion.GUI.seedsFromZion());
-                
-
             }
             catch (Exception e)
             {
