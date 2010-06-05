@@ -37,6 +37,8 @@
             this.dataGrid_allWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.btn_attachWorkerToVisa = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btn_editVisa = new DevComponents.DotNetBar.ButtonX();
+            this.btn_deleteVisa = new DevComponents.DotNetBar.ButtonX();
             this.graphicSettingsPanel = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.showGraphButton = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.dateChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
@@ -51,8 +53,6 @@
             this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
-            this.btn_deleteVisa = new DevComponents.DotNetBar.ButtonX();
-            this.btn_editVisa = new DevComponents.DotNetBar.ButtonX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).BeginInit();
@@ -194,6 +194,28 @@
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 7;
             this.groupPanel1.Text = "אשרות כניסה";
+            // 
+            // btn_editVisa
+            // 
+            this.btn_editVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_editVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_editVisa.Location = new System.Drawing.Point(80, 147);
+            this.btn_editVisa.Name = "btn_editVisa";
+            this.btn_editVisa.Size = new System.Drawing.Size(55, 36);
+            this.btn_editVisa.TabIndex = 3;
+            this.btn_editVisa.Text = "ערוך";
+            this.btn_editVisa.Click += new System.EventHandler(this.btn_editVisa_Click);
+            // 
+            // btn_deleteVisa
+            // 
+            this.btn_deleteVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_deleteVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_deleteVisa.Location = new System.Drawing.Point(19, 147);
+            this.btn_deleteVisa.Name = "btn_deleteVisa";
+            this.btn_deleteVisa.Size = new System.Drawing.Size(55, 36);
+            this.btn_deleteVisa.TabIndex = 2;
+            this.btn_deleteVisa.Text = "מחק";
+            this.btn_deleteVisa.Click += new System.EventHandler(this.btn_deleteVisa_Click);
             // 
             // graphicSettingsPanel
             // 
@@ -612,27 +634,6 @@
             this.groupPanel3.TabIndex = 9;
             this.groupPanel3.Text = "כל העובדים";
             // 
-            // btn_deleteVisa
-            // 
-            this.btn_deleteVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_deleteVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_deleteVisa.Location = new System.Drawing.Point(19, 147);
-            this.btn_deleteVisa.Name = "btn_deleteVisa";
-            this.btn_deleteVisa.Size = new System.Drawing.Size(55, 36);
-            this.btn_deleteVisa.TabIndex = 2;
-            this.btn_deleteVisa.Text = "מחק";
-            this.btn_deleteVisa.Click += new System.EventHandler(this.btn_deleteVisa_Click);
-            // 
-            // btn_editVisa
-            // 
-            this.btn_editVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btn_editVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_editVisa.Location = new System.Drawing.Point(80, 147);
-            this.btn_editVisa.Name = "btn_editVisa";
-            this.btn_editVisa.Size = new System.Drawing.Size(55, 36);
-            this.btn_editVisa.TabIndex = 3;
-            this.btn_editVisa.Text = "ערוך";
-            // 
             // VisasGeneralForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,7 +642,6 @@
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
-            this.DoubleBuffered = true;
             this.Name = "VisasGeneralForm";
             this.Text = "VisasGeneralForm";
             this.Load += new System.EventHandler(this.VisasGeneralForm_Load);
