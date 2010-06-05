@@ -120,16 +120,23 @@ namespace seedsfromzion.Managers
             for (int i = 0; i < dateArr.Length; i++)
             {
                 DateTime date = DateTime.FromOADate(dateArr[i]);
-                if (fromDate.LockUpdateChecked && date.CompareTo(from) >= 0)
+                if (fromDate.LockUpdateChecked && tillDate.LockUpdateChecked)
                 {
-                    if (tillDate.LockUpdateChecked)
+                    if (date.CompareTo(from) >= 0 && date.CompareTo(till) <= 0)
                     {
-                        if (date.CompareTo(till) <= 0)
-                        {
-                            list.Add(i);
-                        }
+                        list.Add(i);
                     }
-                    else 
+                }
+                else if (fromDate.LockUpdateChecked)
+                {
+                    if (date.CompareTo(from) >= 0)
+                    {
+                        list.Add(i);
+                    }
+                }
+                else
+                {
+                    if (date.CompareTo(till) <= 0)
                     {
                         list.Add(i);
                     }
@@ -154,7 +161,9 @@ namespace seedsfromzion.Managers
         static public void predictForDates(Double[] origArrDate, Double[] origArrVal, DateTimeInput fromDate, DateTimeInput tillDate,
             ref Double[] dateArr, ref Double[] valuesArr)
         {
-            if ((fromDate.LockUpdateChecked && DateTime.Now.CompareTo(fromDate.Value) < 0) || (tillDate.LockUpdateChecked && DateTime.Now.CompareTo(tillDate.Value) < 0))
+            //if (tillDate.LockUpdateChecked && (DateTime.Now.Year.CompareTo(tillDate.Value.Year) < 0 ||
+              //  (DateTime.Now.Year.Equals(tillDate.Value.Year) && DateTime.Now.Month.CompareTo(tillDate.Value.Month) < 0)))
+            if((tillDate.LockUpdateChecked && DateTime.Now.CompareTo(tillDate.Value) < 0))
             {
                 makePrediction(origArrDate, origArrVal, fromDate, tillDate,ref dateArr, ref valuesArr);
             }
@@ -173,10 +182,18 @@ namespace seedsfromzion.Managers
             }
             else if (from.LockUpdateChecked)
             {
-                if (DateTime.Now.Year.CompareTo(fromDate.Year) < 0 ||
-                   (DateTime.Now.Year.Equals(fromDate.Year) && DateTime.Now.Month.CompareTo(fromDate.Month) < 0))
+                //if (DateTime.Now.Year.CompareTo(fromDate.Year) < 0 ||
+                //   (DateTime.Now.Year.Equals(fromDate.Year) && DateTime.Now.Month.CompareTo(fromDate.Month) < 0))
+                if (DateTime.Now.CompareTo(fromDate) < 0 )
                 {
                     floorDate = fromDate;
+                }
+            }
+            else
+            {
+                if (DateTime.Now.Year.Equals(tillDate.Year) && DateTime.Now.Month.Equals(tillDate.Month))
+                {
+                    floorDate = tillDate;
                 }
             }
             roofDate = tillDate;
@@ -290,7 +307,10 @@ namespace seedsfromzion.Managers
         {
             List<DateTime> predictMonths = new List<DateTime>();
             DateTime currDate = fromDate;
-
+            if (fromDate.CompareTo(toDate) > 0)
+            {
+                return predictMonths.ToArray();
+            }
             predictMonths.Add(currDate);
             while (!(currDate.Year.Equals(toDate.Year) && currDate.Month.Equals(toDate.Month)))
             {
