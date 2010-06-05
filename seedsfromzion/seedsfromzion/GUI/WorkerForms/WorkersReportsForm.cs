@@ -68,7 +68,11 @@ namespace seedsfromzion.GUI.WorkerForms
             string workerName = (string)dataGrid_allWorkers.SelectedRows[0].Cells["name"].Value;
 
             DateTime month = dateTimePicker.Value;
-            
+            //to start a new month
+            while (month.Day!= 1)
+            {
+                month = month.AddDays(-1);
+            }
             WorkerManager manager = new WorkerManager();
             DataTable table = manager.GetWorkerHoursPerMonth(workerID, month);
 
