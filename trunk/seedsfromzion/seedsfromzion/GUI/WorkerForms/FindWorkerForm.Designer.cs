@@ -33,16 +33,26 @@
             this.dataGridWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.dateChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.textBox_firstName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.textBox_lastName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.btn_find = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.btn_showAll = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
+            this.ribbonClientPanel1 = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).BeginInit();
             this.dateChoisePanel.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.ribbonClientPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox_ID
@@ -52,7 +62,7 @@
             // 
             // 
             this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Location = new System.Drawing.Point(3, 10);
+            this.textBox_ID.Location = new System.Drawing.Point(3, 50);
             this.textBox_ID.Name = "textBox_ID";
             this.textBox_ID.Size = new System.Drawing.Size(162, 20);
             this.textBox_ID.TabIndex = 1;
@@ -72,13 +82,13 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridWorkers.Location = new System.Drawing.Point(49, 180);
+            this.dataGridWorkers.Location = new System.Drawing.Point(21, 190);
             this.dataGridWorkers.MultiSelect = false;
             this.dataGridWorkers.Name = "dataGridWorkers";
             this.dataGridWorkers.ReadOnly = true;
             this.dataGridWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridWorkers.Size = new System.Drawing.Size(414, 240);
+            this.dataGridWorkers.Size = new System.Drawing.Size(414, 258);
             this.dataGridWorkers.TabIndex = 5;
             // 
             // dateChoisePanel
@@ -86,9 +96,10 @@
             this.dateChoisePanel.AutoSize = true;
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.dateChoisePanel.Location = new System.Drawing.Point(49, 29);
+            this.dateChoisePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dateChoisePanel.Location = new System.Drawing.Point(3, 3);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(261, 120);
+            this.dateChoisePanel.Size = new System.Drawing.Size(286, 121);
             // 
             // 
             // 
@@ -115,50 +126,24 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.74144F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.25855F));
-            this.tableLayoutPanel1.Controls.Add(this.labelX1, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_ID, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_firstName, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox_lastName, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_firstName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelX1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.textBox_lastName, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 120);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(286, 121);
             this.tableLayoutPanel1.TabIndex = 9;
-            // 
-            // labelX1
-            // 
-            this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX1.Location = new System.Drawing.Point(171, 88);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
-            this.labelX1.TabIndex = 9;
-            this.labelX1.Text = "שם משפחה:";
-            this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
-            // 
-            // labelX2
-            // 
-            this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX2.ForeColor = System.Drawing.Color.Black;
-            this.labelX2.Location = new System.Drawing.Point(171, 8);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
-            this.labelX2.TabIndex = 7;
-            this.labelX2.Text = "ת.ז:";
-            this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX3
             // 
             this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX3.Location = new System.Drawing.Point(171, 48);
+            this.labelX3.Location = new System.Drawing.Point(187, 18);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 8;
@@ -172,10 +157,21 @@
             // 
             // 
             this.textBox_firstName.Border.Class = "TextBoxBorder";
-            this.textBox_firstName.Location = new System.Drawing.Point(3, 50);
+            this.textBox_firstName.Location = new System.Drawing.Point(3, 20);
             this.textBox_firstName.Name = "textBox_firstName";
             this.textBox_firstName.Size = new System.Drawing.Size(162, 20);
             this.textBox_firstName.TabIndex = 10;
+            // 
+            // labelX1
+            // 
+            this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX1.Location = new System.Drawing.Point(187, 79);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.TabIndex = 9;
+            this.labelX1.Text = "שם משפחה:";
+            this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // textBox_lastName
             // 
@@ -184,16 +180,28 @@
             // 
             // 
             this.textBox_lastName.Border.Class = "TextBoxBorder";
-            this.textBox_lastName.Location = new System.Drawing.Point(3, 90);
+            this.textBox_lastName.Location = new System.Drawing.Point(3, 80);
             this.textBox_lastName.Name = "textBox_lastName";
             this.textBox_lastName.Size = new System.Drawing.Size(162, 20);
             this.textBox_lastName.TabIndex = 11;
+            // 
+            // labelX2
+            // 
+            this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX2.ForeColor = System.Drawing.Color.Black;
+            this.labelX2.Location = new System.Drawing.Point(187, 49);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.TabIndex = 7;
+            this.labelX2.Text = "ת.ז:";
+            this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // btn_find
             // 
             this.btn_find.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_find.Location = new System.Drawing.Point(341, 117);
+            this.btn_find.Location = new System.Drawing.Point(333, 128);
             this.btn_find.Name = "btn_find";
             this.btn_find.Size = new System.Drawing.Size(87, 30);
             // 
@@ -239,7 +247,7 @@
             // 
             this.btn_showAll.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_showAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_showAll.Location = new System.Drawing.Point(457, 119);
+            this.btn_showAll.Location = new System.Drawing.Point(426, 128);
             this.btn_showAll.Name = "btn_showAll";
             this.btn_showAll.Size = new System.Drawing.Size(87, 30);
             // 
@@ -281,24 +289,109 @@
             this.btn_showAll.Text = "הצג הכל";
             this.btn_showAll.Click += new System.EventHandler(this.btn_showAll_Click);
             // 
+            // ribbonClientPanel1
+            // 
+            this.ribbonClientPanel1.AutoSize = true;
+            this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.ribbonClientPanel1.Controls.Add(this.tableLayoutPanel2);
+            this.ribbonClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.ribbonClientPanel1.Name = "ribbonClientPanel1";
+            this.ribbonClientPanel1.Size = new System.Drawing.Size(286, 121);
+            // 
+            // 
+            // 
+            this.ribbonClientPanel1.Style.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.ribbonClientPanel1.Style.BackColorGradientAngle = 90;
+            this.ribbonClientPanel1.Style.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.ribbonClientPanel1.Style.BorderBottom = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ribbonClientPanel1.Style.BorderBottomWidth = 1;
+            this.ribbonClientPanel1.Style.BorderColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.ribbonClientPanel1.Style.BorderLeft = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ribbonClientPanel1.Style.BorderLeftWidth = 1;
+            this.ribbonClientPanel1.Style.BorderRight = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ribbonClientPanel1.Style.BorderRightWidth = 1;
+            this.ribbonClientPanel1.Style.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.ribbonClientPanel1.Style.BorderTopWidth = 1;
+            this.ribbonClientPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
+            this.ribbonClientPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
+            this.ribbonClientPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.ribbonClientPanel1.TabIndex = 16;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.74144F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.25855F));
+            this.tableLayoutPanel2.Controls.Add(this.textBox_ID, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(286, 121);
+            this.tableLayoutPanel2.TabIndex = 9;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(17, 12);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tabControl1.RightToLeftLayout = true;
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(300, 153);
+            this.tabControl1.TabIndex = 18;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.ribbonClientPanel1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(292, 127);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "חפש לפי ת.ז";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dateChoisePanel);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(292, 127);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "חפש לפי שם";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // FindWorkerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 473);
+            this.ClientSize = new System.Drawing.Size(829, 558);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_showAll);
             this.Controls.Add(this.btn_find);
-            this.Controls.Add(this.dateChoisePanel);
             this.Controls.Add(this.dataGridWorkers);
-            this.DoubleBuffered = true;
             this.Name = "FindWorkerForm";
             this.Text = "חפש עובד";
             this.Load += new System.EventHandler(this.FindWorkerForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridWorkers)).EndInit();
             this.dateChoisePanel.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.ribbonClientPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -315,5 +408,10 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBox_lastName;
         private DevComponents.DotNetBar.Ribbon.RibbonClientPanel btn_find;
         private DevComponents.DotNetBar.Ribbon.RibbonClientPanel btn_showAll;
+        private DevComponents.DotNetBar.Ribbon.RibbonClientPanel ribbonClientPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
     }
 }

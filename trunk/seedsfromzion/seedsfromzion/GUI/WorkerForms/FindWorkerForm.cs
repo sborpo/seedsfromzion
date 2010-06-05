@@ -28,12 +28,12 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private void btn_find_Click(object sender, EventArgs e)
         {
-            //find throw name
+            //find through name
             if (string.IsNullOrEmpty(textBox_ID.Text))
             {
                 if (string.IsNullOrEmpty(textBox_firstName.Text) || string.IsNullOrEmpty(textBox_lastName.Text))
                 {
-                    populateWorekres();
+                    dataGridWorkers.DataSource = null;
                     return;
                 }
                 else
@@ -44,7 +44,7 @@ namespace seedsfromzion.GUI.WorkerForms
                 }
                 
             }
-            //find throw id
+            //find through id
             int res;
             if (!int.TryParse(textBox_ID.Text, out res))
             {
@@ -122,6 +122,11 @@ namespace seedsfromzion.GUI.WorkerForms
 
             new SuccessWindow().Show();
             populateWorekres();
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            textBox_firstName.Text = textBox_lastName.Text = textBox_ID.Text = "";
         }
         
     }
