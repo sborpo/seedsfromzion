@@ -241,7 +241,7 @@
             // 
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Add.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Add.Location = new System.Drawing.Point(330, 213);
+            this.btn_Add.Location = new System.Drawing.Point(88, 199);
             this.btn_Add.Name = "btn_Add";
             this.btn_Add.Size = new System.Drawing.Size(49, 35);
             this.btn_Add.TabIndex = 1;
@@ -252,7 +252,7 @@
             // 
             this.btn_cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_cancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_cancel.Location = new System.Drawing.Point(262, 213);
+            this.btn_cancel.Location = new System.Drawing.Point(36, 199);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(46, 35);
             this.btn_cancel.TabIndex = 2;
@@ -263,11 +263,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(418, 310);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(394, 237);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AddVisaForm";
+            this.RightToLeftLayout = false;
             this.Text = "AddVisaForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.tableLayoutPanel1.ResumeLayout(false);
