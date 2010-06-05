@@ -23,6 +23,9 @@ namespace seedsfromzion.GUI.WorkerForms
 
             populateWorekres();
             populateHours();
+
+            //set the max day on the callendar to TODAY
+            monthCalendar.MaxDate = DateTime.Today;
         }
 
         private void populateWorekres()
