@@ -257,11 +257,15 @@ namespace seedsfromzion.Managers
         /// <param name="type"></param>
         /// <param name="price"></param>
         /// <param name="lifetime"></param>
-        public void updatePlantDetails(PlantInfo planInfo,string oldPicture, string type, double price, double lifetime, out String pictureN)
+        public void updatePlantDetails(PlantInfo planInfo,int plantId,string oldPicture, string type, double price, double lifetime, out String pictureN)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
             //Update the picture
             string pictureName = planInfo.Picture;
+            if ((pictureName != "NO_PICTURE") && (oldPicture == "NO_PICTURE"))
+            {
+                oldPicture = plantId.ToString();
+            }
             string newPictureName = copyThePicture(pictureName, oldPicture);
             pictureN = newPictureName;
             //update the Plants Table

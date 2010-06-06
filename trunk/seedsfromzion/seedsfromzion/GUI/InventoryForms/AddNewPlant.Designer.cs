@@ -114,10 +114,10 @@
             // 
             // 
             this.foreignName.Border.Class = "TextBoxBorder";
-            this.foreignName.Location = new System.Drawing.Point(268, 48);
+            this.foreignName.Location = new System.Drawing.Point(233, 48);
             this.foreignName.Name = "foreignName";
             this.foreignName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foreignName.Size = new System.Drawing.Size(133, 20);
+            this.foreignName.Size = new System.Drawing.Size(168, 20);
             this.foreignName.TabIndex = 5;
             // 
             // name
@@ -126,9 +126,9 @@
             // 
             // 
             this.name.Border.Class = "TextBoxBorder";
-            this.name.Location = new System.Drawing.Point(268, 13);
+            this.name.Location = new System.Drawing.Point(233, 13);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(133, 20);
+            this.name.Size = new System.Drawing.Size(168, 20);
             this.name.TabIndex = 6;
             // 
             // integerInput1
@@ -138,10 +138,10 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(268, 85);
+            this.integerInput1.Location = new System.Drawing.Point(233, 85);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(65, 20);
+            this.integerInput1.Size = new System.Drawing.Size(100, 20);
             this.integerInput1.TabIndex = 7;
             // 
             // comboBoxEx1
@@ -150,9 +150,9 @@
             this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxEx1.FormattingEnabled = true;
             this.comboBoxEx1.ItemHeight = 14;
-            this.comboBoxEx1.Location = new System.Drawing.Point(268, 114);
+            this.comboBoxEx1.Location = new System.Drawing.Point(233, 114);
             this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(65, 20);
+            this.comboBoxEx1.Size = new System.Drawing.Size(100, 20);
             this.comboBoxEx1.TabIndex = 8;
             // 
             // buttonX1
@@ -208,11 +208,11 @@
             this.price.BackgroundStyle.Class = "DateTimeInputBackground";
             this.price.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.price.Increment = 1;
-            this.price.Location = new System.Drawing.Point(269, 141);
+            this.price.Location = new System.Drawing.Point(232, 141);
             this.price.MinValue = 0;
             this.price.Name = "price";
             this.price.ShowUpDown = true;
-            this.price.Size = new System.Drawing.Size(64, 20);
+            this.price.Size = new System.Drawing.Size(101, 20);
             this.price.TabIndex = 13;
             this.price.ValueChanged += new System.EventHandler(this.price_ValueChanged);
             // 
@@ -234,11 +234,11 @@
             this.lifeTime.BackgroundStyle.Class = "DateTimeInputBackground";
             this.lifeTime.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.lifeTime.Increment = 1;
-            this.lifeTime.Location = new System.Drawing.Point(270, 171);
+            this.lifeTime.Location = new System.Drawing.Point(232, 171);
             this.lifeTime.MinValue = 0;
             this.lifeTime.Name = "lifeTime";
             this.lifeTime.ShowUpDown = true;
-            this.lifeTime.Size = new System.Drawing.Size(63, 20);
+            this.lifeTime.Size = new System.Drawing.Size(101, 20);
             this.lifeTime.TabIndex = 15;
             // 
             // pictureBox1
@@ -317,9 +317,9 @@
             // 
             // 
             this.plantUnitType.Border.Class = "TextBoxBorder";
-            this.plantUnitType.Location = new System.Drawing.Point(270, 198);
+            this.plantUnitType.Location = new System.Drawing.Point(232, 198);
             this.plantUnitType.Name = "plantUnitType";
-            this.plantUnitType.Size = new System.Drawing.Size(131, 20);
+            this.plantUnitType.Size = new System.Drawing.Size(169, 20);
             this.plantUnitType.TabIndex = 19;
             // 
             // labelX11
@@ -377,9 +377,9 @@
             this.typeType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.typeType.FormattingEnabled = true;
             this.typeType.ItemHeight = 14;
-            this.typeType.Location = new System.Drawing.Point(226, 41);
+            this.typeType.Location = new System.Drawing.Point(184, 41);
             this.typeType.Name = "typeType";
-            this.typeType.Size = new System.Drawing.Size(100, 20);
+            this.typeType.Size = new System.Drawing.Size(142, 20);
             this.typeType.TabIndex = 25;
             // 
             // typeLife
@@ -390,10 +390,10 @@
             this.typeLife.BackgroundStyle.Class = "DateTimeInputBackground";
             this.typeLife.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.typeLife.Increment = 1;
-            this.typeLife.Location = new System.Drawing.Point(226, 102);
+            this.typeLife.Location = new System.Drawing.Point(184, 102);
             this.typeLife.Name = "typeLife";
             this.typeLife.ShowUpDown = true;
-            this.typeLife.Size = new System.Drawing.Size(100, 20);
+            this.typeLife.Size = new System.Drawing.Size(142, 20);
             this.typeLife.TabIndex = 24;
             // 
             // typePrice
@@ -404,11 +404,11 @@
             this.typePrice.BackgroundStyle.Class = "DateTimeInputBackground";
             this.typePrice.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.typePrice.Increment = 1;
-            this.typePrice.Location = new System.Drawing.Point(226, 73);
+            this.typePrice.Location = new System.Drawing.Point(184, 73);
             this.typePrice.MinValue = 0;
             this.typePrice.Name = "typePrice";
             this.typePrice.ShowUpDown = true;
-            this.typePrice.Size = new System.Drawing.Size(100, 20);
+            this.typePrice.Size = new System.Drawing.Size(142, 20);
             this.typePrice.TabIndex = 23;
             // 
             // labelX10

@@ -26,7 +26,7 @@ namespace seedsfromzion.GUI.InventoryForms
 
         void mainForm_favoriteClicked(int plantId)
         {
-            InventoryUtils.FilterTable(fridgeTable, dataGridViewX1, "plantId = "+ plantId.ToString(), "plantId", "name", "type", "arrivingDate", "units");
+            InventoryUtils.FilterTable(fridgeTable, dataGridViewX1, "plantId = "+ plantId.ToString(), "plantId", "name", "type", "arrivingDate", "units","location");
         }
 
         private void initFridgeTable()
@@ -43,7 +43,7 @@ namespace seedsfromzion.GUI.InventoryForms
                 dataGridViewX1.Rows.Clear();
                 return;
             }
-            InventoryUtils.FilterTable(fridgeTable, dataGridViewX1, "name LIKE '" + plantInput.Text + "%'", "plantId", "name", "type","arrivingDate","units");
+            InventoryUtils.FilterTable(fridgeTable, dataGridViewX1, "name LIKE '" + plantInput.Text + "%'", "plantId", "name", "type","arrivingDate","units","location");
         }
 
         private void dataGridViewX1_SelectionChanged(object sender, EventArgs e)
