@@ -19,7 +19,7 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             InitializeComponent();
             initEnlargePiture();
-
+            
            
             
         }
@@ -87,6 +87,7 @@ namespace seedsfromzion.GUI.InventoryForms
             dataGridViewX1.Columns["unitType"].Visible = false;
             dataGridViewX1.Columns["countInUnit"].Visible = false;
             dataGridViewX1.Columns["comments"].Visible = false;
+            dataGridViewX1.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewX1.Refresh();
 
             FillPlantProperties();
@@ -156,9 +157,9 @@ namespace seedsfromzion.GUI.InventoryForms
             string type=(string)dataGridViewX1.SelectedRows[0].Cells["type"].Value;
             double price=(double)dataGridViewX1.SelectedRows[0].Cells["price"].Value;
             double lifetime=(double)dataGridViewX1.SelectedRows[0].Cells["lifetime"].Value;
+            int plantId = (int)(UInt32)dataGridViewX1.SelectedRows[0].Cells["plantId"].Value;
 
-
-            AddNewPlant updateForm = new AddNewPlant(info, type, price, lifetime);
+            AddNewPlant updateForm = new AddNewPlant(info,plantId, type, price, lifetime);
             updateForm.MdiParent = this.MdiParent;
             updateForm.Show();
             pictureBox1.Image.Dispose();

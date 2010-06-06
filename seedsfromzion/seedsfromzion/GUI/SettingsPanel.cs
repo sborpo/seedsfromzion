@@ -11,6 +11,7 @@ using MySql.Data.MySqlClient;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using DevComponents.DotNetBar.Controls;
 namespace seedsfromzion.GUI
 {
     public partial class SettingsPanel : DevComponents.DotNetBar.Office2007Form
@@ -19,6 +20,7 @@ namespace seedsfromzion.GUI
         public event ChangedSettingHandler settingsChanged;
         public event ChangedSettingHandler systemSettingsChanged;
         private Dictionary<int, String> dict;
+        private DataTable db;
         public SettingsPanel()
         {
             InitializeComponent();
@@ -101,15 +103,27 @@ namespace seedsfromzion.GUI
 
         }
 
+        private void initDbDataGrid(DataTable table,DataGridViewX gridView,params string [] columnsNames)
+        {
+            gridView.Rows.Clear();
+            //add the rows to the gridView according to the given column name
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                object[] row = new object[columnsNames.Length];
+                for (int j = 0; j < columnsNames.Length; j++)
+                {
+                    row[j] = table.Rows[i][columnsNames[j]];
+                }
+                gridView.Rows.Add(row);
+            }
+        }
+
         private void initializeFavoritesGrids()
         {
             
             MySqlCommand command = new MySqlCommand("SELECT plantId,name,type FROM seedsdb.planttypes");
-            DataTable db = DataAccess.DatabaseAccess.getResultSetFromDb(command);
-            systemPlantGrid.DataSource = db;
-            systemPlantGrid.Columns["name"].HeaderText = "שם הצמח";
-            systemPlantGrid.Columns["type"].HeaderText = "סוג הצמח";
-            systemPlantGrid.Columns["plantId"].Visible = false;
+            db = DataAccess.DatabaseAccess.getResultSetFromDb(command);
+            initDbDataGrid(db, systemPlantGrid, "plantId", "name", "type");
             dict = new Dictionary<int,string>();
             foreach (DataRow row in db.Rows)
 	        {
@@ -224,6 +238,16 @@ namespace seedsfromzion.GUI
             ConfigFile.getInstance.EmailPassword = emailPass.Text;
             systemSettingsChanged();
             this.Close();
+        }
+
+        private void filterTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (filterTextbox.Text == "")
+            {
+                initDbDataGrid(db, systemPlantGrid, "plantId", "name", "type");
+                return;
+            }
+            GUI.InventoryForms.InventoryUtils.FilterTable(db, systemPlantGrid, "name LIKE '" + filterTextbox.Text + "%'", "plantId", "name", "type");
         }
 
    

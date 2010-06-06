@@ -17,6 +17,7 @@ namespace seedsfromzion.GUI.InventoryForms
         private string picture = "NO_PICTURE";
         private string executionPath;
         private string prevoiusPicture;
+        private int plantId;
         
 
         /// <summary>
@@ -29,9 +30,10 @@ namespace seedsfromzion.GUI.InventoryForms
         /// <param name="type"></param>
         /// <param name="priceArg"></param>
         /// <param name="lifeTimeArg"></param>
-        public AddNewPlant(PlantInfo info,string type,double priceArg,double lifeTimeArg )
+        public AddNewPlant(PlantInfo info,int plantident,string type,double priceArg,double lifeTimeArg )
         {
             InitializeComponent();
+            plantId = plantident;
             executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             #region set the properties from the arguments
             name.Text=info.Name;
@@ -95,10 +97,8 @@ namespace seedsfromzion.GUI.InventoryForms
             pictureBox1.Image.Dispose();
             pictureBox1.Image = null;
             String Newpicture;
-            invMgr.updatePlantDetails(plantInfo,prevoiusPicture, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
-            pictureBox1.Image = Image.FromFile(executionPath+@"\"+ConfigFile.getInstance.ImagesPath+@"\"+Newpicture);
+            invMgr.updatePlantDetails(plantInfo,plantId,prevoiusPicture, comboBoxEx1.Items[0].ToString(), price.Value, lifeTime.Value,out Newpicture);
             new SuccessWindow().Show();
-            pictureBox1.Image.Dispose();
             FindPlant form = new FindPlant();
             form.MdiParent = this.MdiParent;
             form.Show();

@@ -140,7 +140,7 @@ namespace seedsfromzion.Managers
             {
                 //execture the select command of the database
                 MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT P.name,P.type,U.units FROM seedsdb.planttypes P, (SELECT plantId,SUM(units) AS units FROM seedsdb.finishedstorage"+
-                " GROUP BY plantId) U WHERE  P.plantId=U.plantId AND U.units<@Units", "@Units", ConfigFile.getInstance.MinUnitsInStorage.ToString());
+                " GROUP BY plantId) U WHERE  P.plantId=U.plantId AND U.units<@Units AND units>0", "@Units", ConfigFile.getInstance.MinUnitsInStorage.ToString());
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
                 //check if we have such kind of plants
