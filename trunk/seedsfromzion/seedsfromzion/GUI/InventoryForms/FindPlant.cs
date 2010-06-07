@@ -18,10 +18,7 @@ namespace seedsfromzion.GUI.InventoryForms
         public FindPlant()
         {
             InitializeComponent();
-            initEnlargePiture();
-            
-           
-            
+            initEnlargePiture();            
         }
 
         private void initEnlargePiture()
@@ -234,6 +231,19 @@ namespace seedsfromzion.GUI.InventoryForms
             if (pictureBox1.Image != null)
             {
                 pictureBox1.Image.Dispose();
+            }
+        }
+
+        private void textBoxX1_TextChanged(object sender, EventArgs e)
+        {
+            StatisticsManager.initPlantNames(this.textBoxX1.Text);//NEW
+            DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
+            if (rows.Length > 0)
+            {
+                String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+
+                this.textBoxX1.AutoCompleteCustomSource.AddRange(names);
+                this.textBoxX1.Refresh();
             }
         }
     }
