@@ -439,9 +439,9 @@
             this.labelX10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX10.BackColor = System.Drawing.Color.Transparent;
             this.labelX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX10.Location = new System.Drawing.Point(147, 98);
+            this.labelX10.Location = new System.Drawing.Point(165, 98);
             this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(170, 23);
+            this.labelX10.Size = new System.Drawing.Size(152, 23);
             this.labelX10.TabIndex = 21;
             this.labelX10.Text = "אורך חיים בחודשים";
             // 
@@ -450,9 +450,9 @@
             this.labelX9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX9.BackColor = System.Drawing.Color.Transparent;
             this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX9.Location = new System.Drawing.Point(147, 69);
+            this.labelX9.Location = new System.Drawing.Point(165, 69);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(170, 23);
+            this.labelX9.Size = new System.Drawing.Size(152, 23);
             this.labelX9.TabIndex = 20;
             this.labelX9.Text = "מחיר ליחידת משקל:";
             // 
@@ -461,9 +461,9 @@
             this.quality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.quality.BackColor = System.Drawing.Color.Transparent;
             this.quality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.quality.Location = new System.Drawing.Point(147, 40);
+            this.quality.Location = new System.Drawing.Point(165, 40);
             this.quality.Name = "quality";
-            this.quality.Size = new System.Drawing.Size(170, 23);
+            this.quality.Size = new System.Drawing.Size(152, 23);
             this.quality.TabIndex = 19;
             this.quality.Text = "איכות הצמח:";
             // 
@@ -486,9 +486,9 @@
             this.labelX8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX8.BackColor = System.Drawing.Color.Transparent;
             this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX8.Location = new System.Drawing.Point(147, 11);
+            this.labelX8.Location = new System.Drawing.Point(165, 11);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(170, 23);
+            this.labelX8.Size = new System.Drawing.Size(152, 23);
             this.labelX8.TabIndex = 17;
             this.labelX8.Text = "שם הצמח:";
             // 
