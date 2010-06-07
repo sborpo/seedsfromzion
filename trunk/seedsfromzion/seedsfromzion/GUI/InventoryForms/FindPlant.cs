@@ -125,6 +125,7 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void initPlantInfo()
         {
+            pictureBox1.Refresh();
             pictureBox1.Image = Properties.Resources.image_missing;
             pictureBox1.Refresh();
             foreign.Text = "";
