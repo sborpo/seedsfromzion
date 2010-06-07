@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.units = new DevComponents.Editors.DoubleInput();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -54,6 +55,7 @@
             // 
             // units
             // 
+            this.units.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.units.AutoOverwrite = true;
             this.units.AutoResolveFreeTextEntries = false;
             // 
@@ -61,13 +63,12 @@
             // 
             this.units.BackgroundStyle.Class = "DateTimeInputBackground";
             this.units.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.units.Dock = System.Windows.Forms.DockStyle.Top;
             this.units.Increment = 1;
-            this.units.Location = new System.Drawing.Point(3, 45);
+            this.units.Location = new System.Drawing.Point(3, 51);
             this.units.MinValue = 0.1;
             this.units.Name = "units";
             this.units.ShowUpDown = true;
-            this.units.Size = new System.Drawing.Size(209, 20);
+            this.units.Size = new System.Drawing.Size(209, 22);
             this.units.TabIndex = 0;
             this.units.Value = 1;
             // 
@@ -82,7 +83,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.arriveLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.units, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 202);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 301);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51F));
@@ -93,48 +94,52 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 10);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(209, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(209, 22);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // location
             // 
+            this.location.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             // 
             // 
             // 
             this.location.Border.Class = "TextBoxBorder";
-            this.location.Dock = System.Windows.Forms.DockStyle.Top;
-            this.location.Location = new System.Drawing.Point(3, 85);
+            this.location.Location = new System.Drawing.Point(3, 94);
             this.location.MaxLength = 5;
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(209, 20);
+            this.location.Size = new System.Drawing.Size(209, 22);
             this.location.TabIndex = 2;
             // 
             // labelX3
             // 
-            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(351, 85);
+            this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX3.Location = new System.Drawing.Point(280, 94);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.Size = new System.Drawing.Size(146, 23);
             this.labelX3.TabIndex = 5;
             this.labelX3.Text = "מיקום במקרר";
             // 
             // labelX2
             // 
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(351, 45);
+            this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX2.Location = new System.Drawing.Point(280, 50);
             this.labelX2.Name = "labelX2";
             this.labelX2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(146, 23);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "יחידות";
             // 
             // arriveLabel
             // 
-            this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.arriveLabel.Location = new System.Drawing.Point(280, 3);
+            this.arriveLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.arriveLabel.Location = new System.Drawing.Point(280, 9);
             this.arriveLabel.Name = "arriveLabel";
             this.arriveLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.arriveLabel.Size = new System.Drawing.Size(146, 23);
@@ -150,9 +155,9 @@
             // 
             // 
             this.plantInput.Border.Class = "TextBoxBorder";
-            this.plantInput.Location = new System.Drawing.Point(239, 11);
+            this.plantInput.Location = new System.Drawing.Point(220, 8);
             this.plantInput.Name = "plantInput";
-            this.plantInput.Size = new System.Drawing.Size(131, 20);
+            this.plantInput.Size = new System.Drawing.Size(131, 28);
             this.plantInput.TabIndex = 2;
             this.plantInput.TextChanged += new System.EventHandler(this.plantInput_TextChanged);
             // 
@@ -160,18 +165,19 @@
             // 
             this.labelX1.BackColor = System.Drawing.Color.Transparent;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(376, 8);
+            this.labelX1.Location = new System.Drawing.Point(357, 8);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(63, 23);
+            this.labelX1.Size = new System.Drawing.Size(82, 23);
             this.labelX1.TabIndex = 4;
-            this.labelX1.Text = "שם הצמח\r\n";
+            this.labelX1.Text = "שם הצמח:\r\n";
             this.labelX1.Click += new System.EventHandler(this.labelX1_Click);
             // 
             // buttonX1
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(203, 359);
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonX1.Location = new System.Drawing.Point(201, 450);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(75, 23);
             this.buttonX1.TabIndex = 6;
@@ -195,26 +201,35 @@
             this.dataGridViewX1.AllowUserToAddRows = false;
             this.dataGridViewX1.AllowUserToDeleteRows = false;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(10, 37);
+            this.dataGridViewX1.Location = new System.Drawing.Point(10, 45);
             this.dataGridViewX1.MultiSelect = false;
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
+            this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(429, 95);
+            this.dataGridViewX1.Size = new System.Drawing.Size(429, 176);
             this.dataGridViewX1.TabIndex = 7;
             // 
             // Column1
@@ -245,9 +260,10 @@
             this.groupPanel1.Controls.Add(this.plantInput);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
             this.groupPanel1.Controls.Add(this.labelX1);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.groupPanel1.Location = new System.Drawing.Point(13, 12);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(457, 159);
+            this.groupPanel1.Size = new System.Drawing.Size(455, 262);
             // 
             // 
             // 
@@ -273,10 +289,11 @@
             // 
             // AddToFridgeForm
             // 
-            this.ClientSize = new System.Drawing.Size(592, 509);
+            this.ClientSize = new System.Drawing.Size(914, 500);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Name = "AddToFridgeForm";
             ((System.ComponentModel.ISupportInitialize)(this.units)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

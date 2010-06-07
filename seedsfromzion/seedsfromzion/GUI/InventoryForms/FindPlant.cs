@@ -246,5 +246,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 this.textBoxX1.Refresh();
             }
         }
+
+        private void textBoxX1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
+                e.Handled = true;
+        }
     }
 }

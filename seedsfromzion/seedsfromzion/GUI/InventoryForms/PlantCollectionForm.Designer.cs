@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -77,9 +78,10 @@
             this.groupPanel1.Controls.Add(this.textBoxX1);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
             this.groupPanel1.Location = new System.Drawing.Point(12, 15);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(563, 139);
+            this.groupPanel1.Size = new System.Drawing.Size(563, 236);
             // 
             // 
             // 
@@ -109,9 +111,10 @@
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Location = new System.Drawing.Point(374, 9);
+            this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            this.textBoxX1.Location = new System.Drawing.Point(348, 9);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxX1.Size = new System.Drawing.Size(111, 22);
             this.textBoxX1.TabIndex = 2;
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             // 
@@ -123,13 +126,21 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(75, 23);
             this.labelX1.TabIndex = 1;
-            this.labelX1.Text = "שם הצמח";
+            this.labelX1.Text = "שם הצמח:";
             // 
             // dataGridViewX1
             // 
             this.dataGridViewX1.AllowUserToAddRows = false;
             this.dataGridViewX1.AllowUserToDeleteRows = false;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -138,21 +149,22 @@
             this.arriveDate,
             this.sowDate,
             this.units});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(14, 35);
+            this.dataGridViewX1.Location = new System.Drawing.Point(14, 39);
             this.dataGridViewX1.MultiSelect = false;
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
+            this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(523, 80);
+            this.dataGridViewX1.Size = new System.Drawing.Size(523, 159);
             this.dataGridViewX1.TabIndex = 0;
             this.dataGridViewX1.SelectionChanged += new System.EventHandler(this.dataGridViewX1_SelectionChanged);
             this.dataGridViewX1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellContentClick);
@@ -206,21 +218,21 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 172);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 268);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.34146F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 53.65854F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(375, 120);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(412, 120);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // labelX2
             // 
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(297, 3);
+            this.labelX2.Location = new System.Drawing.Point(304, 3);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(105, 23);
             this.labelX2.TabIndex = 0;
             this.labelX2.Text = "תאריך איסוף";
             // 
@@ -236,16 +248,16 @@
             this.integerInput1.MinValue = 1;
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.ShowUpDown = true;
-            this.integerInput1.Size = new System.Drawing.Size(228, 20);
+            this.integerInput1.Size = new System.Drawing.Size(251, 22);
             this.integerInput1.TabIndex = 2;
             this.integerInput1.Value = 1;
             // 
             // labelX3
             // 
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(297, 41);
+            this.labelX3.Location = new System.Drawing.Point(304, 41);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.Size = new System.Drawing.Size(105, 23);
             this.labelX3.TabIndex = 3;
             this.labelX3.Text = "מספר המחסן";
             // 
@@ -253,9 +265,9 @@
             // 
             this.labelX7.BackColor = System.Drawing.Color.Transparent;
             this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX7.Location = new System.Drawing.Point(297, 85);
+            this.labelX7.Location = new System.Drawing.Point(314, 85);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.Size = new System.Drawing.Size(95, 23);
             this.labelX7.TabIndex = 4;
             this.labelX7.Text = "מיקום במחסן";
             // 
@@ -269,7 +281,7 @@
             this.textBoxX2.Location = new System.Drawing.Point(3, 85);
             this.textBoxX2.MaxLength = 5;
             this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(228, 20);
+            this.textBoxX2.Size = new System.Drawing.Size(251, 22);
             this.textBoxX2.TabIndex = 5;
             // 
             // dateTimePicker1
@@ -277,7 +289,7 @@
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(228, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(251, 22);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // expandablePanel1
@@ -286,11 +298,10 @@
             this.expandablePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.expandablePanel1.Controls.Add(this.tableLayoutPanel2);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.expandablePanel1.Expanded = false;
-            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(3, 3, 230, 60);
+            this.expandablePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.expandablePanel1.Location = new System.Drawing.Point(3, 3);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(369, 26);
+            this.expandablePanel1.Size = new System.Drawing.Size(406, 60);
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -320,15 +331,15 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(230, 31);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(406, 31);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // labelX4
             // 
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.Location = new System.Drawing.Point(152, 3);
+            this.labelX4.Location = new System.Drawing.Point(301, 3);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.Size = new System.Drawing.Size(102, 23);
             this.labelX4.TabIndex = 0;
             this.labelX4.Text = "אחוז הנביטה";
             // 
@@ -340,12 +351,12 @@
             this.doubleInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput1.Increment = 1;
-            this.doubleInput1.Location = new System.Drawing.Point(32, 3);
+            this.doubleInput1.Location = new System.Drawing.Point(120, 3);
             this.doubleInput1.MaxValue = 100;
             this.doubleInput1.MinValue = -1;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(80, 20);
+            this.doubleInput1.Size = new System.Drawing.Size(80, 26);
             this.doubleInput1.TabIndex = 1;
             this.doubleInput1.Value = -1;
             // 
@@ -354,35 +365,35 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.expandablePanel1, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 344);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 440);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(375, 67);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(412, 67);
             this.tableLayoutPanel3.TabIndex = 3;
             // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.02439F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.97561F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 83F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.3871F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.6129F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             this.tableLayoutPanel4.Controls.Add(this.labelX5, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelX6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput2, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput3, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 298);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 394);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(375, 40);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(412, 40);
             this.tableLayoutPanel4.TabIndex = 4;
             // 
             // labelX5
             // 
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX5.Location = new System.Drawing.Point(275, 3);
+            this.labelX5.Location = new System.Drawing.Point(312, 3);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(97, 23);
             this.labelX5.TabIndex = 0;
@@ -391,9 +402,9 @@
             // labelX6
             // 
             this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX6.Location = new System.Drawing.Point(91, 3);
+            this.labelX6.Location = new System.Drawing.Point(96, 3);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(75, 23);
+            this.labelX6.Size = new System.Drawing.Size(87, 23);
             this.labelX6.TabIndex = 1;
             this.labelX6.Text = "מתוכם נבטו";
             // 
@@ -405,11 +416,11 @@
             this.doubleInput2.BackgroundStyle.Class = "DateTimeInputBackground";
             this.doubleInput2.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput2.Increment = 1;
-            this.doubleInput2.Location = new System.Drawing.Point(174, 3);
+            this.doubleInput2.Location = new System.Drawing.Point(189, 3);
             this.doubleInput2.MinValue = 0.1;
             this.doubleInput2.Name = "doubleInput2";
             this.doubleInput2.ShowUpDown = true;
-            this.doubleInput2.Size = new System.Drawing.Size(76, 20);
+            this.doubleInput2.Size = new System.Drawing.Size(65, 22);
             this.doubleInput2.TabIndex = 2;
             this.doubleInput2.Value = 0.1;
             // 
@@ -425,7 +436,7 @@
             this.doubleInput3.MinValue = 0.1;
             this.doubleInput3.Name = "doubleInput3";
             this.doubleInput3.ShowUpDown = true;
-            this.doubleInput3.Size = new System.Drawing.Size(80, 20);
+            this.doubleInput3.Size = new System.Drawing.Size(80, 22);
             this.doubleInput3.TabIndex = 3;
             this.doubleInput3.Value = 0.1;
             // 
@@ -433,7 +444,7 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(267, 445);
+            this.buttonX1.Location = new System.Drawing.Point(267, 533);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(75, 23);
             this.buttonX1.TabIndex = 5;
@@ -442,12 +453,13 @@
             // 
             // PlantCollectionForm
             // 
-            this.ClientSize = new System.Drawing.Size(725, 565);
+            this.ClientSize = new System.Drawing.Size(838, 567);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupPanel1);
+            this.DoubleBuffered = true;
             this.Name = "PlantCollectionForm";
             this.Load += new System.EventHandler(this.PlantCollectionForm_Load);
             this.groupPanel1.ResumeLayout(false);

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.storageGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -75,9 +75,9 @@
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Location = new System.Drawing.Point(149, 26);
+            this.textBoxX1.Location = new System.Drawing.Point(194, 25);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(153, 20);
+            this.textBoxX1.Size = new System.Drawing.Size(153, 22);
             this.textBoxX1.TabIndex = 0;
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             // 
@@ -86,7 +86,7 @@
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(50, 23);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(93, 23);
+            this.labelX1.Size = new System.Drawing.Size(121, 23);
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "סנן לפי שם צמח:";
             // 
@@ -102,22 +102,23 @@
             this.type,
             this.storageId,
             this.units});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.storageGrid.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.storageGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.storageGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.storageGrid.Location = new System.Drawing.Point(50, 52);
             this.storageGrid.MultiSelect = false;
             this.storageGrid.Name = "storageGrid";
             this.storageGrid.ReadOnly = true;
+            this.storageGrid.RowTemplate.Height = 24;
             this.storageGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.storageGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.storageGrid.Size = new System.Drawing.Size(451, 100);
+            this.storageGrid.Size = new System.Drawing.Size(451, 154);
             this.storageGrid.TabIndex = 2;
             this.storageGrid.SelectionChanged += new System.EventHandler(this.storageGrid_SelectionChanged);
             this.storageGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.storageGrid_CellContentClick);
@@ -160,18 +161,18 @@
             this.addButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.addButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.addButton.Image = global::seedsfromzion.Properties.Resources.addOrderIcon;
-            this.addButton.Location = new System.Drawing.Point(274, 163);
+            this.addButton.Location = new System.Drawing.Point(270, 222);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(28, 23);
+            this.addButton.Size = new System.Drawing.Size(38, 25);
             this.addButton.TabIndex = 3;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // labelX2
             // 
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX2.Location = new System.Drawing.Point(50, 196);
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX2.Location = new System.Drawing.Point(50, 250);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(93, 23);
+            this.labelX2.Size = new System.Drawing.Size(127, 23);
             this.labelX2.TabIndex = 4;
             this.labelX2.Text = "פריטים בהזמנה:";
             // 
@@ -186,19 +187,20 @@
             this.orderType,
             this.orderStorageId,
             this.orderUnits});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.orderGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.orderGrid.Location = new System.Drawing.Point(50, 225);
+            this.orderGrid.Location = new System.Drawing.Point(50, 279);
             this.orderGrid.MultiSelect = false;
             this.orderGrid.Name = "orderGrid";
             this.orderGrid.ReadOnly = true;
+            this.orderGrid.RowTemplate.Height = 24;
             this.orderGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderGrid.Size = new System.Drawing.Size(451, 150);
             this.orderGrid.TabIndex = 5;
@@ -238,7 +240,7 @@
             // labelX3
             // 
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX3.Location = new System.Drawing.Point(51, 163);
+            this.labelX3.Location = new System.Drawing.Point(57, 224);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(92, 18);
             this.labelX3.TabIndex = 6;
@@ -252,57 +254,57 @@
             this.doubleInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.doubleInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.doubleInput1.Increment = 1;
-            this.doubleInput1.Location = new System.Drawing.Point(178, 161);
+            this.doubleInput1.Location = new System.Drawing.Point(184, 222);
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(80, 20);
+            this.doubleInput1.Size = new System.Drawing.Size(80, 22);
             this.doubleInput1.TabIndex = 7;
             // 
             // buttonOrder
             // 
             this.buttonOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.buttonOrder.Location = new System.Drawing.Point(546, 343);
+            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonOrder.Location = new System.Drawing.Point(618, 347);
             this.buttonOrder.Name = "buttonOrder";
-            this.buttonOrder.Size = new System.Drawing.Size(75, 23);
+            this.buttonOrder.Size = new System.Drawing.Size(82, 32);
             this.buttonOrder.TabIndex = 8;
             this.buttonOrder.Text = "בצע הזמנה";
             this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
             // labelX4
             // 
-            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX4.Location = new System.Drawing.Point(547, 22);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.Size = new System.Drawing.Size(95, 23);
             this.labelX4.TabIndex = 9;
             this.labelX4.Text = "פרטי המזמין:";
             // 
             // labelX5
             // 
-            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX5.Location = new System.Drawing.Point(546, 91);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(28, 23);
+            this.labelX5.Size = new System.Drawing.Size(96, 23);
             this.labelX5.TabIndex = 10;
             this.labelX5.Text = "שם:";
             // 
             // labelX6
             // 
-            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX6.Location = new System.Drawing.Point(544, 120);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(75, 23);
+            this.labelX6.Size = new System.Drawing.Size(98, 23);
             this.labelX6.TabIndex = 11;
             this.labelX6.Text = "מספר טלפון:";
             // 
             // labelX7
             // 
-            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX7.Location = new System.Drawing.Point(546, 149);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(75, 23);
+            this.labelX7.Size = new System.Drawing.Size(96, 23);
             this.labelX7.TabIndex = 12;
             this.labelX7.Text = "E-Mail:";
             // 
@@ -312,9 +314,9 @@
             // 
             // 
             this.nameBox.Border.Class = "TextBoxBorder";
-            this.nameBox.Location = new System.Drawing.Point(617, 94);
+            this.nameBox.Location = new System.Drawing.Point(661, 94);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(119, 20);
+            this.nameBox.Size = new System.Drawing.Size(119, 22);
             this.nameBox.TabIndex = 13;
             // 
             // phoneBoxX
@@ -323,9 +325,9 @@
             // 
             // 
             this.phoneBoxX.Border.Class = "TextBoxBorder";
-            this.phoneBoxX.Location = new System.Drawing.Point(617, 123);
+            this.phoneBoxX.Location = new System.Drawing.Point(661, 123);
             this.phoneBoxX.Name = "phoneBoxX";
-            this.phoneBoxX.Size = new System.Drawing.Size(119, 20);
+            this.phoneBoxX.Size = new System.Drawing.Size(119, 22);
             this.phoneBoxX.TabIndex = 15;
             // 
             // emailBoxX
@@ -334,17 +336,17 @@
             // 
             // 
             this.emailBoxX.Border.Class = "TextBoxBorder";
-            this.emailBoxX.Location = new System.Drawing.Point(617, 149);
+            this.emailBoxX.Location = new System.Drawing.Point(661, 149);
             this.emailBoxX.Name = "emailBoxX";
-            this.emailBoxX.Size = new System.Drawing.Size(119, 20);
+            this.emailBoxX.Size = new System.Drawing.Size(119, 22);
             this.emailBoxX.TabIndex = 16;
             // 
             // labelX8
             // 
-            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX8.Location = new System.Drawing.Point(554, 63);
+            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX8.Location = new System.Drawing.Point(547, 64);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(49, 23);
+            this.labelX8.Size = new System.Drawing.Size(95, 23);
             this.labelX8.TabIndex = 17;
             this.labelX8.Text = "ח.פ\\ת.ז:";
             // 
@@ -355,9 +357,9 @@
             // 
             this.idBox.BackgroundStyle.Class = "DateTimeInputBackground";
             this.idBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.idBox.Location = new System.Drawing.Point(618, 65);
+            this.idBox.Location = new System.Drawing.Point(662, 65);
             this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(118, 20);
+            this.idBox.Size = new System.Drawing.Size(118, 22);
             this.idBox.TabIndex = 18;
             this.idBox.ValueChanged += new System.EventHandler(this.idBox_TextChanged);
             // 
@@ -369,7 +371,7 @@
             this.dateTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
             this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInput.ButtonDropDown.Visible = true;
-            this.dateTimeInput.Location = new System.Drawing.Point(617, 196);
+            this.dateTimeInput.Location = new System.Drawing.Point(661, 196);
             // 
             // 
             // 
@@ -400,17 +402,17 @@
             this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
             this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dateTimeInput.Name = "dateTimeInput";
-            this.dateTimeInput.Size = new System.Drawing.Size(119, 20);
+            this.dateTimeInput.Size = new System.Drawing.Size(119, 22);
             this.dateTimeInput.TabIndex = 19;
             // 
             // labelX9
             // 
-            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX9.Location = new System.Drawing.Point(530, 196);
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX9.Location = new System.Drawing.Point(544, 195);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(81, 25);
+            this.labelX9.Size = new System.Drawing.Size(112, 25);
             this.labelX9.TabIndex = 20;
-            this.labelX9.Text = "תאריך אספקה";
+            this.labelX9.Text = "תאריך אספקה:";
             // 
             // removeButton
             // 
@@ -418,7 +420,7 @@
             this.removeButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.removeButton.DisabledImage = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
             this.removeButton.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
-            this.removeButton.Location = new System.Drawing.Point(507, 252);
+            this.removeButton.Location = new System.Drawing.Point(50, 446);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(43, 43);
             this.removeButton.TabIndex = 21;
@@ -430,14 +432,14 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.checkBox1.Location = new System.Drawing.Point(529, 317);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(226, 20);
+            this.checkBox1.Size = new System.Drawing.Size(276, 24);
             this.checkBox1.TabIndex = 22;
             this.checkBox1.Text = "שלח  את פרטי ההזמנה למייל הלקוח";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // OrdersMainForm
             // 
-            this.ClientSize = new System.Drawing.Size(767, 378);
+            this.ClientSize = new System.Drawing.Size(839, 528);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.labelX9);

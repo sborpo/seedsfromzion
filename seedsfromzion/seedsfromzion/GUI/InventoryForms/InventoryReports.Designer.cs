@@ -89,27 +89,27 @@
             // labelX2
             // 
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(213, 3);
+            this.labelX2.Location = new System.Drawing.Point(178, 3);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(110, 23);
             this.labelX2.TabIndex = 3;
             this.labelX2.Text = "מצב המקרר";
             // 
             // labelX3
             // 
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX3.Location = new System.Drawing.Point(227, 34);
+            this.labelX3.Location = new System.Drawing.Point(178, 34);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(61, 23);
+            this.labelX3.Size = new System.Drawing.Size(110, 23);
             this.labelX3.TabIndex = 4;
             this.labelX3.Text = "מצב השדה";
             // 
             // labelX4
             // 
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.Location = new System.Drawing.Point(159, 64);
+            this.labelX4.Location = new System.Drawing.Point(178, 64);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(129, 23);
+            this.labelX4.Size = new System.Drawing.Size(110, 23);
             this.labelX4.TabIndex = 5;
             this.labelX4.Text = "מצב המחסנים";
             // 
@@ -118,7 +118,7 @@
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(24, 22);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(220, 23);
+            this.labelX1.Size = new System.Drawing.Size(275, 23);
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "סמן את הדוחות שברצונך לשמור בקובץ";
             // 
@@ -126,9 +126,10 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(151, 241);
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonX1.Location = new System.Drawing.Point(141, 239);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(75, 23);
+            this.buttonX1.Size = new System.Drawing.Size(85, 25);
             this.buttonX1.TabIndex = 2;
             this.buttonX1.Text = "שמור";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
@@ -142,7 +143,7 @@
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comboBoxEx1.Location = new System.Drawing.Point(105, 196);
+            this.comboBoxEx1.Location = new System.Drawing.Point(117, 196);
             this.comboBoxEx1.Name = "comboBoxEx1";
             this.comboBoxEx1.Size = new System.Drawing.Size(121, 20);
             this.comboBoxEx1.TabIndex = 3;
@@ -160,9 +161,9 @@
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX5.Location = new System.Drawing.Point(24, 193);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(75, 23);
+            this.labelX5.Size = new System.Drawing.Size(87, 23);
             this.labelX5.TabIndex = 4;
-            this.labelX5.Text = "סגנון הדו\"ח";
+            this.labelX5.Text = "סגנון הדו\"ח:";
             // 
             // InventoryReports
             // 
@@ -172,6 +173,7 @@
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
             this.Name = "InventoryReports";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

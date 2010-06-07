@@ -50,29 +50,32 @@
             // 
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.80282F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 66.19718F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.83249F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.16751F));
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.labelX3, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.labelX1, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox_ID, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox_contact, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dateTimeInput, 1, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(36, 28);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(127, 34);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(355, 141);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(394, 174);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // labelX2
             // 
             this.labelX2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelX2.Location = new System.Drawing.Point(238, 50);
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX2.Location = new System.Drawing.Point(245, 62);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(114, 41);
+            this.labelX2.Size = new System.Drawing.Size(145, 50);
             this.labelX2.TabIndex = 1;
             this.labelX2.Text = "איש קשר:";
             this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -80,9 +83,11 @@
             // labelX3
             // 
             this.labelX3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelX3.Location = new System.Drawing.Point(238, 3);
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX3.Location = new System.Drawing.Point(245, 4);
+            this.labelX3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(114, 41);
+            this.labelX3.Size = new System.Drawing.Size(145, 50);
             this.labelX3.TabIndex = 2;
             this.labelX3.Text = "מספר מזהה:";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -90,37 +95,44 @@
             // labelX1
             // 
             this.labelX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelX1.Location = new System.Drawing.Point(238, 97);
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX1.Location = new System.Drawing.Point(245, 120);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(114, 41);
+            this.labelX1.Size = new System.Drawing.Size(145, 50);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "תאריך תפוגה:";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // textBox_ID
             // 
+            this.textBox_ID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Location = new System.Drawing.Point(83, 3);
+            this.textBox_ID.Location = new System.Drawing.Point(38, 18);
+            this.textBox_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(149, 20);
+            this.textBox_ID.Size = new System.Drawing.Size(199, 22);
             this.textBox_ID.TabIndex = 3;
             // 
             // textBox_contact
             // 
+            this.textBox_contact.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_contact.Border.Class = "TextBoxBorder";
-            this.textBox_contact.Location = new System.Drawing.Point(83, 50);
+            this.textBox_contact.Location = new System.Drawing.Point(38, 76);
+            this.textBox_contact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_contact.Name = "textBox_contact";
-            this.textBox_contact.Size = new System.Drawing.Size(149, 20);
+            this.textBox_contact.Size = new System.Drawing.Size(199, 22);
             this.textBox_contact.TabIndex = 4;
             // 
             // dateTimeInput
             // 
+            this.dateTimeInput.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
@@ -128,7 +140,8 @@
             this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInput.ButtonDropDown.Visible = true;
             this.dateTimeInput.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.dateTimeInput.Location = new System.Drawing.Point(83, 97);
+            this.dateTimeInput.Location = new System.Drawing.Point(38, 134);
+            this.dateTimeInput.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             // 
             // 
             // 
@@ -160,7 +173,7 @@
             this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dateTimeInput.Name = "dateTimeInput";
             this.dateTimeInput.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dateTimeInput.Size = new System.Drawing.Size(149, 20);
+            this.dateTimeInput.Size = new System.Drawing.Size(199, 22);
             this.dateTimeInput.TabIndex = 5;
             // 
             // tableLayoutPanel2
@@ -234,16 +247,18 @@
             this.tillDate.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.tillDate.Name = "tillDate";
             this.tillDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tillDate.Size = new System.Drawing.Size(192, 20);
+            this.tillDate.Size = new System.Drawing.Size(192, 22);
             this.tillDate.TabIndex = 7;
             // 
             // btn_Add
             // 
             this.btn_Add.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_Add.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_Add.Location = new System.Drawing.Point(88, 199);
+            this.btn_Add.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_Add.Location = new System.Drawing.Point(372, 236);
+            this.btn_Add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_Add.Name = "btn_Add";
-            this.btn_Add.Size = new System.Drawing.Size(49, 35);
+            this.btn_Add.Size = new System.Drawing.Size(65, 43);
             this.btn_Add.TabIndex = 1;
             this.btn_Add.Text = "הוסף";
             this.btn_Add.Click += new System.EventHandler(this.btn_Add_Click);
@@ -252,22 +267,26 @@
             // 
             this.btn_cancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_cancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_cancel.Location = new System.Drawing.Point(36, 199);
+            this.btn_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_cancel.Location = new System.Drawing.Point(226, 236);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(46, 35);
+            this.btn_cancel.Size = new System.Drawing.Size(61, 43);
             this.btn_cancel.TabIndex = 2;
             this.btn_cancel.Text = "בטל";
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // AddVisaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(394, 237);
+            this.ClientSize = new System.Drawing.Size(525, 283);
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_Add);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "AddVisaForm";
             this.RightToLeftLayout = false;
             this.Text = "AddVisaForm";
