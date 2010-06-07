@@ -283,7 +283,7 @@ namespace seedsfromzion.Managers
                 "@P_LIFETIME", lifetime.ToString(),
                 "@P_PRICE", price.ToString(),
                 "@P_NAME", planInfo.Name,
-                "@P_TYPE", planInfo.UnitType.ToString());
+                "@P_TYPE", type);
             DatabaseAccess.performDMLTransaction(commands);
 
         }
@@ -309,7 +309,7 @@ namespace seedsfromzion.Managers
 
         private string copyThePicture(string pictureName, string newId)
         {
-            if (pictureName == "NO_PICTURE")
+            if ((pictureName == "NO_PICTURE") || (pictureName.Equals(newId)))
             {
                 return pictureName;
             }

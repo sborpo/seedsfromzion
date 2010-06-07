@@ -66,11 +66,23 @@ namespace seedsfromzion.GUI
                 {
                     continue;
                 }
-                ButtonItem item = new ButtonItem(collection[i], name);
-                item.Click += new EventHandler(seedsFromZion_Click);
-                this.favoritesButtonMini.SubItems.Add(item);
+                addToFavoritesButtons(collection[i], name);
             }
           
+        }
+
+        /// <summary>
+        /// This method adds a given plant to the favorites buttons
+        /// and adds an handler to this button
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        public void addToFavoritesButtons(string id, string name)
+        {
+            ButtonItem item = new ButtonItem(id, name);
+            item.Click += new EventHandler(seedsFromZion_Click);
+            this.favoritesButtonMini.SubItems.Add(item);
+
         }
 
         /// <summary>
@@ -253,7 +265,7 @@ namespace seedsfromzion.GUI
         #region system button functions
         private void settingsButton_Click(object sender, EventArgs e)
         {
-            SettingsPanel settings = new SettingsPanel();
+            SettingsPanel settings = new SettingsPanel(this);
             settings.settingsChanged += new SettingsPanel.ChangedSettingHandler(settings_settingsChanged);
             settings.systemSettingsChanged += new SettingsPanel.ChangedSettingHandler(settings_systemSettingsChanged);
             settings.Show();

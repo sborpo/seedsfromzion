@@ -107,6 +107,7 @@
             this.location.Border.Class = "TextBoxBorder";
             this.location.Dock = System.Windows.Forms.DockStyle.Top;
             this.location.Location = new System.Drawing.Point(3, 85);
+            this.location.MaxLength = 5;
             this.location.Name = "location";
             this.location.Size = new System.Drawing.Size(209, 20);
             this.location.TabIndex = 2;
