@@ -10,7 +10,7 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
-    public partial class AddVisaForm : BaseForm
+    public partial class AddVisaForm : DevComponents.DotNetBar.Office2007Form
     {
         public AddVisaForm()
         {
