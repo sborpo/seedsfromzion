@@ -211,12 +211,13 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(5);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "UpdateVisaForm";
-            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.RightToLeftLayout = false;
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "UpdateVisaForm";
-            this.WindowState = System.Windows.Forms.FormWindowState.Normal;
+            this.Text = "עדכן אשרה";
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.ResumeLayout(false);
