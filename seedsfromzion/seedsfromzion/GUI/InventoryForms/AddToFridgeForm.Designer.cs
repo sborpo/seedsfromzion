@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.units = new DevComponents.Editors.DoubleInput();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -67,7 +67,7 @@
             this.units.MinValue = 0.1;
             this.units.Name = "units";
             this.units.ShowUpDown = true;
-            this.units.Size = new System.Drawing.Size(209, 26);
+            this.units.Size = new System.Drawing.Size(222, 26);
             this.units.TabIndex = 0;
             this.units.Value = 1;
             // 
@@ -88,16 +88,16 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 49F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(429, 129);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(455, 129);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 10);
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dateTimePicker1.Location = new System.Drawing.Point(3, 8);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(209, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(222, 26);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // location
@@ -110,14 +110,14 @@
             this.location.Location = new System.Drawing.Point(3, 92);
             this.location.MaxLength = 5;
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(209, 26);
+            this.location.Size = new System.Drawing.Size(222, 26);
             this.location.TabIndex = 2;
             // 
             // labelX3
             // 
             this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(280, 94);
+            this.labelX3.Location = new System.Drawing.Point(306, 94);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(146, 23);
             this.labelX3.TabIndex = 5;
@@ -127,7 +127,7 @@
             // 
             this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(280, 50);
+            this.labelX2.Location = new System.Drawing.Point(306, 50);
             this.labelX2.Name = "labelX2";
             this.labelX2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labelX2.Size = new System.Drawing.Size(146, 23);
@@ -138,7 +138,7 @@
             // 
             this.arriveLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.arriveLabel.Location = new System.Drawing.Point(280, 9);
+            this.arriveLabel.Location = new System.Drawing.Point(306, 9);
             this.arriveLabel.Name = "arriveLabel";
             this.arriveLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.arriveLabel.Size = new System.Drawing.Size(146, 23);
@@ -206,14 +206,14 @@
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(10, 45);
             this.dataGridViewX1.MultiSelect = false;
