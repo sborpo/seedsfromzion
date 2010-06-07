@@ -32,7 +32,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             base.BaseForm_Load(sender, e);
             this.GrowViaTypeGraphControl_Start(sender, e);
-            StatisticsManager.initPlantNames();
+            //StatisticsManager.initPlantNames();
         }
 
         private void GrowViaTypeGraphControl_Start(object sender, EventArgs e)
@@ -119,7 +119,9 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 if (this.plantNameTextBox.Text.Length > 0)
                 {
-                    DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                    //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                    StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                    DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
                     if (rows.Length > 0)
                     {
                         String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
