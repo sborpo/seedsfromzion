@@ -83,7 +83,7 @@
             this.dataGridVisas.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridVisas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridVisas.Location = new System.Drawing.Point(25, 16);
-            this.dataGridVisas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridVisas.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridVisas.MultiSelect = false;
             this.dataGridVisas.Name = "dataGridVisas";
             this.dataGridVisas.ReadOnly = true;
@@ -97,7 +97,7 @@
             this.btn_addVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_addVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_addVisa.Location = new System.Drawing.Point(188, 181);
-            this.btn_addVisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_addVisa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_addVisa.Name = "btn_addVisa";
             this.btn_addVisa.Size = new System.Drawing.Size(73, 44);
             this.btn_addVisa.TabIndex = 1;
@@ -119,14 +119,15 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid_workers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGrid_workers.Location = new System.Drawing.Point(20, 4);
-            this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGrid_workers.Location = new System.Drawing.Point(25, 16);
+            this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4);
             this.dataGrid_workers.MultiSelect = false;
             this.dataGrid_workers.Name = "dataGrid_workers";
             this.dataGrid_workers.ReadOnly = true;
+            this.dataGrid_workers.RowTemplate.Height = 24;
             this.dataGrid_workers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid_workers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid_workers.Size = new System.Drawing.Size(412, 199);
+            this.dataGrid_workers.Size = new System.Drawing.Size(287, 209);
             this.dataGrid_workers.TabIndex = 2;
             // 
             // dataGrid_allWorkers
@@ -145,7 +146,7 @@
             this.dataGrid_allWorkers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid_allWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGrid_allWorkers.Location = new System.Drawing.Point(24, 4);
-            this.dataGrid_allWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGrid_allWorkers.Margin = new System.Windows.Forms.Padding(4);
             this.dataGrid_allWorkers.MultiSelect = false;
             this.dataGrid_allWorkers.Name = "dataGrid_allWorkers";
             this.dataGrid_allWorkers.ReadOnly = true;
@@ -159,7 +160,7 @@
             this.btn_attachWorkerToVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_attachWorkerToVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_attachWorkerToVisa.Location = new System.Drawing.Point(24, 186);
-            this.btn_attachWorkerToVisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_attachWorkerToVisa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_attachWorkerToVisa.Name = "btn_attachWorkerToVisa";
             this.btn_attachWorkerToVisa.Size = new System.Drawing.Size(165, 44);
             this.btn_attachWorkerToVisa.TabIndex = 4;
@@ -175,10 +176,10 @@
             this.groupPanel1.Controls.Add(this.dataGridVisas);
             this.groupPanel1.Controls.Add(this.btn_addVisa);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel1.Location = new System.Drawing.Point(69, 15);
-            this.groupPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupPanel1.Location = new System.Drawing.Point(17, 13);
+            this.groupPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(603, 260);
+            this.groupPanel1.Size = new System.Drawing.Size(603, 269);
             // 
             // 
             // 
@@ -207,7 +208,7 @@
             this.btn_editVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_editVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_editVisa.Location = new System.Drawing.Point(107, 181);
-            this.btn_editVisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_editVisa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_editVisa.Name = "btn_editVisa";
             this.btn_editVisa.Size = new System.Drawing.Size(73, 44);
             this.btn_editVisa.TabIndex = 3;
@@ -219,7 +220,7 @@
             this.btn_deleteVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_deleteVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.btn_deleteVisa.Location = new System.Drawing.Point(25, 181);
-            this.btn_deleteVisa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_deleteVisa.Margin = new System.Windows.Forms.Padding(4);
             this.btn_deleteVisa.Name = "btn_deleteVisa";
             this.btn_deleteVisa.Size = new System.Drawing.Size(73, 44);
             this.btn_deleteVisa.TabIndex = 2;
@@ -266,7 +267,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(664, 382);
+            this.showGraphButton.Location = new System.Drawing.Point(658, 382);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -315,7 +316,7 @@
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
             this.dateChoisePanel.Location = new System.Drawing.Point(41, 206);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(772, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(766, 142);
             // 
             // 
             // 
@@ -352,7 +353,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(772, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(766, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDate
@@ -365,7 +366,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(263, 95);
+            this.tillDate.Location = new System.Drawing.Point(259, 95);
             // 
             // 
             // 
@@ -420,7 +421,7 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(626, 94);
+            this.tillDateLabel.Location = new System.Drawing.Point(620, 94);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -438,7 +439,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(263, 24);
+            this.fromDate.Location = new System.Drawing.Point(259, 24);
             // 
             // 
             // 
@@ -497,7 +498,7 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(626, 23);
+            this.fromDateLabel.Location = new System.Drawing.Point(620, 23);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -586,10 +587,10 @@
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel2.Controls.Add(this.dataGrid_workers);
             this.groupPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel2.Location = new System.Drawing.Point(69, 282);
-            this.groupPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupPanel2.Location = new System.Drawing.Point(644, 13);
+            this.groupPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(459, 260);
+            this.groupPanel2.Size = new System.Drawing.Size(336, 269);
             // 
             // 
             // 
@@ -620,8 +621,8 @@
             this.groupPanel3.Controls.Add(this.dataGrid_allWorkers);
             this.groupPanel3.Controls.Add(this.btn_attachWorkerToVisa);
             this.groupPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel3.Location = new System.Drawing.Point(552, 282);
-            this.groupPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupPanel3.Location = new System.Drawing.Point(17, 290);
+            this.groupPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.groupPanel3.Name = "groupPanel3";
             this.groupPanel3.Size = new System.Drawing.Size(603, 260);
             // 
@@ -651,13 +652,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1193, 710);
+            this.ClientSize = new System.Drawing.Size(998, 567);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisasGeneralForm";
             this.Text = "VisasGeneralForm";
             this.Load += new System.EventHandler(this.VisasGeneralForm_Load);
