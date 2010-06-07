@@ -42,7 +42,7 @@ namespace seedsfromzion.GUI.InventoryForms
             InventoryManager manager = new InventoryManager();
             if (manager.IsPlantIsUsed(plantid))
             {
-                new ErrorWindow("לא ניתן למחוק צמח אשר נמצא כעת בשימוש במערכת");
+                new ErrorWindow("לא ניתן למחוק צמח אשר נמצא כעת בשימוש במערכת").Show();
                 return;
             }
             pictureBox1.Image.Dispose();

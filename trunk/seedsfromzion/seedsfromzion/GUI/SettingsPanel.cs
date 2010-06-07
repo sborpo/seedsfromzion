@@ -21,11 +21,13 @@ namespace seedsfromzion.GUI
         public event ChangedSettingHandler systemSettingsChanged;
         private Dictionary<int, String> dict;
         private DataTable db;
-        public SettingsPanel()
+        seedsFromZion parent;
+        public SettingsPanel(seedsFromZion mainWindow)
         {
             InitializeComponent();
             initializeFavoritesGrids();
             initializeNotificationsData();
+            parent = mainWindow;
           
         }
         private void initializeNotificationsData()
@@ -155,9 +157,10 @@ namespace seedsfromzion.GUI
                 int plantId =  (int)((UInt32)row.Cells["plantId"].Value);
                 string name = (string)row.Cells["name"].Value;
                 string type = (string)row.Cells["type"].Value;
+                string plantNameType=String.Format(name + " מסוג " + type);
                 try
                 {
-                    string plantNameType=String.Format(name + " מסוג " + type);
+                 
                     AdminManager.addToFavorites(plantId.ToString() );
                     favoritesGrid.Rows.Add(plantNameType ,plantId.ToString());
 
@@ -165,9 +168,10 @@ namespace seedsfromzion.GUI
                 }
                 catch (PlantAlreadyInFavorites ex)
                 {
-                 //Do nothing , it will not add it.  
+                 //Do nothing , it will not add it.
+                    continue;
                 }
-
+                parent.addToFavoritesButtons(plantId.ToString(), plantNameType);
 
             }
             favoritesGrid.Refresh();
@@ -183,6 +187,7 @@ namespace seedsfromzion.GUI
                  AdminManager.removeFromFavorites(plantId);
                  dict.Remove((int)(UInt32.Parse(plantId)));
                  favoritesGrid.Rows.Remove(row);
+                 parent.removeFavoritePlant(Int32.Parse(plantId));
              }
              favoritesGrid.Refresh();
         }
@@ -204,6 +209,9 @@ namespace seedsfromzion.GUI
 
         private void SettingsPanel_Load(object sender, EventArgs e)
         {
+            //first close the opened windows of the system
+            parent.closeOpenedWindows();
+            //now set the parameters
             sql.Text = ConfigFile.getInstance.MySqlPath;
             images.Text = ConfigFile.getInstance.ImagesPath;
             backups.Text = ConfigFile.getInstance.BackupPath;
