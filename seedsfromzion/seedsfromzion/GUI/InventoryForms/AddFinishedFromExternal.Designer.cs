@@ -80,7 +80,7 @@
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextColor = System.Drawing.Color.Navy;
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "צמחי המערכת";
@@ -113,7 +113,7 @@
             this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(282, 199);
+            this.dataGridViewX1.Size = new System.Drawing.Size(276, 199);
             this.dataGridViewX1.TabIndex = 2;
             // 
             // plantid
@@ -146,7 +146,7 @@
             this.textBoxX1.Border.Class = "TextBoxBorder";
             this.textBoxX1.Location = new System.Drawing.Point(59, 13);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(166, 26);
+            this.textBoxX1.Size = new System.Drawing.Size(160, 26);
             this.textBoxX1.TabIndex = 1;
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             // 
@@ -158,7 +158,7 @@
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX1.Location = new System.Drawing.Point(210, 13);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(110, 23);
+            this.labelX1.Size = new System.Drawing.Size(104, 23);
             this.labelX1.TabIndex = 0;
             this.labelX1.Text = "חיפוש צמח:";
             // 

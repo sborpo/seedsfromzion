@@ -73,7 +73,7 @@
             this.labelX1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX1.BackColor = System.Drawing.Color.Transparent;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX1.Location = new System.Drawing.Point(386, 12);
+            this.labelX1.Location = new System.Drawing.Point(380, 12);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(208, 23);
             this.labelX1.TabIndex = 0;
@@ -84,7 +84,7 @@
             this.labelX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX2.BackColor = System.Drawing.Color.Transparent;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(386, 45);
+            this.labelX2.Location = new System.Drawing.Point(380, 45);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(208, 23);
             this.labelX2.TabIndex = 1;
@@ -95,7 +95,7 @@
             this.labelX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(386, 111);
+            this.labelX3.Location = new System.Drawing.Point(380, 111);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(208, 23);
             this.labelX3.TabIndex = 2;
@@ -106,7 +106,7 @@
             this.labelX4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX4.Location = new System.Drawing.Point(386, 80);
+            this.labelX4.Location = new System.Drawing.Point(380, 80);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(208, 25);
             this.labelX4.TabIndex = 3;
@@ -119,7 +119,7 @@
             // 
             // 
             this.foreignName.Border.Class = "TextBoxBorder";
-            this.foreignName.Location = new System.Drawing.Point(213, 47);
+            this.foreignName.Location = new System.Drawing.Point(207, 47);
             this.foreignName.Name = "foreignName";
             this.foreignName.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.foreignName.Size = new System.Drawing.Size(168, 26);
@@ -132,7 +132,7 @@
             // 
             // 
             this.name.Border.Class = "TextBoxBorder";
-            this.name.Location = new System.Drawing.Point(213, 12);
+            this.name.Location = new System.Drawing.Point(207, 12);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(168, 26);
             this.name.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(281, 81);
+            this.integerInput1.Location = new System.Drawing.Point(275, 81);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.Size = new System.Drawing.Size(100, 26);
@@ -158,7 +158,7 @@
             this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxEx1.FormattingEnabled = true;
             this.comboBoxEx1.ItemHeight = 20;
-            this.comboBoxEx1.Location = new System.Drawing.Point(281, 110);
+            this.comboBoxEx1.Location = new System.Drawing.Point(275, 110);
             this.comboBoxEx1.Name = "comboBoxEx1";
             this.comboBoxEx1.Size = new System.Drawing.Size(100, 26);
             this.comboBoxEx1.TabIndex = 8;
@@ -172,7 +172,7 @@
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonX1.Image = global::seedsfromzion.Properties.Resources.addOrderIcon;
-            this.buttonX1.Location = new System.Drawing.Point(281, 312);
+            this.buttonX1.Location = new System.Drawing.Point(275, 312);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(100, 50);
             this.buttonX1.TabIndex = 9;
@@ -184,7 +184,7 @@
             this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX5.BackColor = System.Drawing.Color.Transparent;
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX5.Location = new System.Drawing.Point(386, 233);
+            this.labelX5.Location = new System.Drawing.Point(380, 233);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(208, 23);
             this.labelX5.TabIndex = 10;
@@ -193,7 +193,7 @@
             // comments
             // 
             this.comments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.comments.Location = new System.Drawing.Point(11, 234);
+            this.comments.Location = new System.Drawing.Point(5, 234);
             this.comments.MaximumSize = new System.Drawing.Size(420, 80);
             this.comments.Multiline = true;
             this.comments.Name = "comments";
@@ -206,7 +206,7 @@
             this.labelX6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX6.BackColor = System.Drawing.Color.Transparent;
             this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX6.Location = new System.Drawing.Point(386, 140);
+            this.labelX6.Location = new System.Drawing.Point(380, 140);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(208, 23);
             this.labelX6.TabIndex = 12;
@@ -221,7 +221,7 @@
             this.price.BackgroundStyle.Class = "DateTimeInputBackground";
             this.price.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.price.Increment = 1;
-            this.price.Location = new System.Drawing.Point(280, 137);
+            this.price.Location = new System.Drawing.Point(274, 137);
             this.price.MinValue = 0;
             this.price.Name = "price";
             this.price.ShowUpDown = true;
@@ -234,7 +234,7 @@
             this.labelX7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX7.BackColor = System.Drawing.Color.Transparent;
             this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX7.Location = new System.Drawing.Point(386, 169);
+            this.labelX7.Location = new System.Drawing.Point(380, 169);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(208, 23);
             this.labelX7.TabIndex = 14;
@@ -249,7 +249,7 @@
             this.lifeTime.BackgroundStyle.Class = "DateTimeInputBackground";
             this.lifeTime.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.lifeTime.Increment = 1;
-            this.lifeTime.Location = new System.Drawing.Point(280, 167);
+            this.lifeTime.Location = new System.Drawing.Point(274, 167);
             this.lifeTime.MinValue = 0;
             this.lifeTime.Name = "lifeTime";
             this.lifeTime.ShowUpDown = true;
@@ -323,7 +323,7 @@
             this.addPlantPanel.Style.CornerDiameter = 4;
             this.addPlantPanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.addPlantPanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.addPlantPanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.addPlantPanel.Style.TextColor = System.Drawing.Color.Navy;
             this.addPlantPanel.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.addPlantPanel.TabIndex = 18;
             this.addPlantPanel.Text = "הוספת צמח";
@@ -335,7 +335,7 @@
             // 
             // 
             this.plantUnitType.Border.Class = "TextBoxBorder";
-            this.plantUnitType.Location = new System.Drawing.Point(212, 197);
+            this.plantUnitType.Location = new System.Drawing.Point(206, 197);
             this.plantUnitType.Name = "plantUnitType";
             this.plantUnitType.Size = new System.Drawing.Size(169, 26);
             this.plantUnitType.TabIndex = 19;
@@ -345,7 +345,7 @@
             this.labelX11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX11.BackColor = System.Drawing.Color.Transparent;
             this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX11.Location = new System.Drawing.Point(386, 196);
+            this.labelX11.Location = new System.Drawing.Point(380, 196);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(208, 23);
             this.labelX11.TabIndex = 18;
@@ -386,7 +386,7 @@
             this.addPlantTypePanel.Style.CornerDiameter = 4;
             this.addPlantTypePanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.addPlantTypePanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.addPlantTypePanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.addPlantTypePanel.Style.TextColor = System.Drawing.Color.Navy;
             this.addPlantTypePanel.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.addPlantTypePanel.TabIndex = 19;
             this.addPlantTypePanel.Text = "הוספת סוג צמח";
@@ -398,7 +398,7 @@
             this.typeType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.typeType.FormattingEnabled = true;
             this.typeType.ItemHeight = 20;
-            this.typeType.Location = new System.Drawing.Point(11, 37);
+            this.typeType.Location = new System.Drawing.Point(5, 37);
             this.typeType.Name = "typeType";
             this.typeType.Size = new System.Drawing.Size(142, 26);
             this.typeType.TabIndex = 25;
@@ -412,7 +412,7 @@
             this.typeLife.BackgroundStyle.Class = "DateTimeInputBackground";
             this.typeLife.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.typeLife.Increment = 1;
-            this.typeLife.Location = new System.Drawing.Point(11, 98);
+            this.typeLife.Location = new System.Drawing.Point(5, 98);
             this.typeLife.Name = "typeLife";
             this.typeLife.ShowUpDown = true;
             this.typeLife.Size = new System.Drawing.Size(142, 26);
@@ -427,7 +427,7 @@
             this.typePrice.BackgroundStyle.Class = "DateTimeInputBackground";
             this.typePrice.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.typePrice.Increment = 1;
-            this.typePrice.Location = new System.Drawing.Point(11, 69);
+            this.typePrice.Location = new System.Drawing.Point(5, 69);
             this.typePrice.MinValue = 0;
             this.typePrice.Name = "typePrice";
             this.typePrice.ShowUpDown = true;
@@ -439,7 +439,7 @@
             this.labelX10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX10.BackColor = System.Drawing.Color.Transparent;
             this.labelX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX10.Location = new System.Drawing.Point(159, 98);
+            this.labelX10.Location = new System.Drawing.Point(153, 98);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(170, 23);
             this.labelX10.TabIndex = 21;
@@ -450,7 +450,7 @@
             this.labelX9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX9.BackColor = System.Drawing.Color.Transparent;
             this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX9.Location = new System.Drawing.Point(159, 69);
+            this.labelX9.Location = new System.Drawing.Point(153, 69);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(170, 23);
             this.labelX9.TabIndex = 20;
@@ -461,7 +461,7 @@
             this.quality.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.quality.BackColor = System.Drawing.Color.Transparent;
             this.quality.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.quality.Location = new System.Drawing.Point(159, 40);
+            this.quality.Location = new System.Drawing.Point(153, 40);
             this.quality.Name = "quality";
             this.quality.Size = new System.Drawing.Size(170, 23);
             this.quality.TabIndex = 19;
@@ -486,7 +486,7 @@
             this.labelX8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX8.BackColor = System.Drawing.Color.Transparent;
             this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX8.Location = new System.Drawing.Point(159, 11);
+            this.labelX8.Location = new System.Drawing.Point(153, 11);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(170, 23);
             this.labelX8.TabIndex = 17;
@@ -501,7 +501,7 @@
             // 
             // 
             this.typePlantName.Border.Class = "TextBoxBorder";
-            this.typePlantName.Location = new System.Drawing.Point(11, 8);
+            this.typePlantName.Location = new System.Drawing.Point(5, 8);
             this.typePlantName.Name = "typePlantName";
             this.typePlantName.Size = new System.Drawing.Size(142, 26);
             this.typePlantName.TabIndex = 16;

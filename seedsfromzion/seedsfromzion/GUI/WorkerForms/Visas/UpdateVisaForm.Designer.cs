@@ -214,6 +214,7 @@
             this.Name = "UpdateVisaForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.RightToLeftLayout = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "UpdateVisaForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.tableLayoutPanel1.ResumeLayout(false);

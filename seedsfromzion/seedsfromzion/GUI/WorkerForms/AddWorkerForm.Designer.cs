@@ -344,7 +344,7 @@
             this.graphicSettingsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
             this.graphicSettingsPanel.Controls.Add(this.btn_find);
             this.graphicSettingsPanel.Controls.Add(this.dateChoisePanel);
-            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.graphicSettingsPanel.IsShadowEnabled = true;
             this.graphicSettingsPanel.Location = new System.Drawing.Point(12, 12);
             this.graphicSettingsPanel.Name = "graphicSettingsPanel";

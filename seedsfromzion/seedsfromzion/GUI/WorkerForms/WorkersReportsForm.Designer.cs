@@ -132,7 +132,7 @@
             this.dataGrid_allWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -163,7 +163,7 @@
             this.graphicSettingsPanel.Controls.Add(this.comboBoxEx1);
             this.graphicSettingsPanel.Controls.Add(this.labelX5);
             this.graphicSettingsPanel.Controls.Add(this.labelX1);
-            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.graphicSettingsPanel.IsShadowEnabled = true;
             this.graphicSettingsPanel.Location = new System.Drawing.Point(27, 5);
             this.graphicSettingsPanel.Name = "graphicSettingsPanel";
