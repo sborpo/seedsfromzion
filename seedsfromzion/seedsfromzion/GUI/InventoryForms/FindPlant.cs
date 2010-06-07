@@ -241,7 +241,7 @@ namespace seedsfromzion.GUI.InventoryForms
             if (rows.Length > 0)
             {
                 String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-
+                this.textBoxX1.AutoCompleteCustomSource.Clear();
                 this.textBoxX1.AutoCompleteCustomSource.AddRange(names);
                 this.textBoxX1.Refresh();
             }
