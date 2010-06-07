@@ -35,8 +35,8 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             base.BaseForm_Load(sender, e);
             this.salesGraphControl_Start(sender, e);
-            StatisticsManager.initPlantNames();
-            StatisticsManager.initPlantTypes();
+            //StatisticsManager.initPlantNames();
+            //StatisticsManager.initPlantTypes();
         }
 
         //private void MyContextMenuBuilder(ZedGraphControl control, ContextMenuStrip menuStrip, Point mousePt, ZedGraphControl.ContextMenuObjectState objState)
@@ -243,7 +243,9 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
             else if (this.plantNameTextBox.Text.Length > 0)
             {
-                DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
@@ -267,16 +269,18 @@ namespace seedsfromzion.GUI.StatisticsForms
             if (this.plantNameTextBox.Text.Length > 0)
             {
                 this.plantTypeDropBox.BeginUpdate();
-                DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
+                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
                 if (rows.Length > 0)
                 {
-                    String[] names = StatisticsManager.buildArrayFromGraphData<string, string>(rows, "type");
+                    String[] types = StatisticsManager.buildArrayFromGraphData<string, string>(rows, "type");
 
                     //foreach(string name in names)
                     //{
                     //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
                     //}
-                    this.plantTypeDropBox.Items.AddRange(names);
+                    this.plantTypeDropBox.Items.AddRange(types);
                 }
                 this.plantTypeDropBox.EndUpdate();
             }
