@@ -63,16 +63,17 @@
             this.units.BackgroundStyle.Class = "DateTimeInputBackground";
             this.units.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.units.Increment = 1;
-            this.units.Location = new System.Drawing.Point(3, 49);
+            this.units.Location = new System.Drawing.Point(4, 48);
             this.units.MinValue = 0.1;
             this.units.Name = "units";
             this.units.ShowUpDown = true;
-            this.units.Size = new System.Drawing.Size(222, 26);
+            this.units.Size = new System.Drawing.Size(220, 26);
             this.units.TabIndex = 0;
             this.units.Value = 1;
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -95,9 +96,9 @@
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(3, 8);
+            this.dateTimePicker1.Location = new System.Drawing.Point(4, 8);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(222, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 26);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // location
@@ -107,43 +108,43 @@
             // 
             // 
             this.location.Border.Class = "TextBoxBorder";
-            this.location.Location = new System.Drawing.Point(3, 92);
+            this.location.Location = new System.Drawing.Point(4, 91);
             this.location.MaxLength = 5;
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(222, 26);
+            this.location.Size = new System.Drawing.Size(220, 26);
             this.location.TabIndex = 2;
             // 
             // labelX3
             // 
             this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(306, 94);
+            this.labelX3.Location = new System.Drawing.Point(305, 93);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(146, 23);
             this.labelX3.TabIndex = 5;
-            this.labelX3.Text = "מיקום במקרר";
+            this.labelX3.Text = "מיקום במקרר:";
             // 
             // labelX2
             // 
             this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(306, 50);
+            this.labelX2.Location = new System.Drawing.Point(305, 49);
             this.labelX2.Name = "labelX2";
             this.labelX2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labelX2.Size = new System.Drawing.Size(146, 23);
             this.labelX2.TabIndex = 4;
-            this.labelX2.Text = "יחידות";
+            this.labelX2.Text = "יחידות:";
             // 
             // arriveLabel
             // 
             this.arriveLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.arriveLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.arriveLabel.Location = new System.Drawing.Point(306, 9);
+            this.arriveLabel.Location = new System.Drawing.Point(305, 9);
             this.arriveLabel.Name = "arriveLabel";
             this.arriveLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.arriveLabel.Size = new System.Drawing.Size(146, 23);
             this.arriveLabel.TabIndex = 3;
-            this.arriveLabel.Text = "תאריך הכנסה למקרר";
+            this.arriveLabel.Text = "תאריך הכנסה למקרר:";
             // 
             // plantInput
             // 
@@ -177,9 +178,9 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonX1.Location = new System.Drawing.Point(201, 450);
+            this.buttonX1.Location = new System.Drawing.Point(167, 450);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(75, 23);
+            this.buttonX1.Size = new System.Drawing.Size(109, 33);
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "הוסף";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
