@@ -54,12 +54,12 @@
             // 
             // textBox_ID
             // 
+            this.textBox_ID.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_ID.Location = new System.Drawing.Point(4, 4);
+            this.textBox_ID.Location = new System.Drawing.Point(10, 6);
             this.textBox_ID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_ID.Name = "textBox_ID";
             this.textBox_ID.Size = new System.Drawing.Size(213, 26);
@@ -68,12 +68,12 @@
             // 
             // textBox_firstName
             // 
+            this.textBox_firstName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_firstName.Border.Class = "TextBoxBorder";
-            this.textBox_firstName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_firstName.Location = new System.Drawing.Point(4, 42);
+            this.textBox_firstName.Location = new System.Drawing.Point(10, 45);
             this.textBox_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_firstName.Name = "textBox_firstName";
             this.textBox_firstName.Size = new System.Drawing.Size(213, 26);
@@ -81,12 +81,12 @@
             // 
             // textBox_lastName
             // 
+            this.textBox_lastName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_lastName.Border.Class = "TextBoxBorder";
-            this.textBox_lastName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_lastName.Location = new System.Drawing.Point(4, 81);
+            this.textBox_lastName.Location = new System.Drawing.Point(10, 89);
             this.textBox_lastName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_lastName.Name = "textBox_lastName";
             this.textBox_lastName.Size = new System.Drawing.Size(213, 26);
@@ -151,7 +151,7 @@
             this.dateChoisePanel.Location = new System.Drawing.Point(86, 22);
             this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(343, 226);
+            this.dateChoisePanel.Size = new System.Drawing.Size(353, 227);
             // 
             // 
             // 
@@ -199,17 +199,17 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(343, 226);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(353, 227);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // textBox_comments
             // 
+            this.textBox_comments.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_comments.Border.Class = "TextBoxBorder";
-            this.textBox_comments.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_comments.Location = new System.Drawing.Point(4, 177);
+            this.textBox_comments.Location = new System.Drawing.Point(10, 187);
             this.textBox_comments.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_comments.Name = "textBox_comments";
             this.textBox_comments.Size = new System.Drawing.Size(213, 26);
@@ -217,73 +217,73 @@
             // 
             // labelX4
             // 
-            this.labelX4.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX4.Location = new System.Drawing.Point(225, 135);
+            this.labelX4.Location = new System.Drawing.Point(231, 130);
             this.labelX4.Margin = new System.Windows.Forms.Padding(4);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(100, 28);
+            this.labelX4.Size = new System.Drawing.Size(118, 40);
             this.labelX4.TabIndex = 10;
             this.labelX4.Text = "טלפון:";
             this.labelX4.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX8
             // 
-            this.labelX8.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX8.Location = new System.Drawing.Point(225, 87);
+            this.labelX8.Location = new System.Drawing.Point(231, 82);
             this.labelX8.Margin = new System.Windows.Forms.Padding(4);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(100, 28);
+            this.labelX8.Size = new System.Drawing.Size(118, 40);
             this.labelX8.TabIndex = 9;
             this.labelX8.Text = "שם משפחה:";
             this.labelX8.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX9
             // 
-            this.labelX9.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX9.ForeColor = System.Drawing.Color.Black;
-            this.labelX9.Location = new System.Drawing.Point(225, 5);
+            this.labelX9.Location = new System.Drawing.Point(231, 4);
             this.labelX9.Margin = new System.Windows.Forms.Padding(4);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(100, 28);
+            this.labelX9.Size = new System.Drawing.Size(118, 30);
             this.labelX9.TabIndex = 7;
             this.labelX9.Text = "ת.ז:";
             this.labelX9.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX10
             // 
-            this.labelX10.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX10.Location = new System.Drawing.Point(225, 43);
+            this.labelX10.Location = new System.Drawing.Point(231, 42);
             this.labelX10.Margin = new System.Windows.Forms.Padding(4);
             this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(100, 28);
+            this.labelX10.Size = new System.Drawing.Size(118, 32);
             this.labelX10.TabIndex = 8;
             this.labelX10.Text = "שם פרטי:";
             this.labelX10.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // labelX11
             // 
-            this.labelX11.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.labelX11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX11.Location = new System.Drawing.Point(225, 185);
+            this.labelX11.Location = new System.Drawing.Point(231, 178);
             this.labelX11.Margin = new System.Windows.Forms.Padding(4);
             this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(100, 28);
+            this.labelX11.Size = new System.Drawing.Size(118, 45);
             this.labelX11.TabIndex = 11;
             this.labelX11.Text = "הערות:";
             this.labelX11.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // textBox_phone
             // 
+            this.textBox_phone.Anchor = System.Windows.Forms.AnchorStyles.Left;
             // 
             // 
             // 
             this.textBox_phone.Border.Class = "TextBoxBorder";
-            this.textBox_phone.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox_phone.Location = new System.Drawing.Point(4, 129);
+            this.textBox_phone.Location = new System.Drawing.Point(10, 137);
             this.textBox_phone.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_phone.Name = "textBox_phone";
             this.textBox_phone.Size = new System.Drawing.Size(213, 26);
@@ -294,10 +294,10 @@
             this.btn_find.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_find.Location = new System.Drawing.Point(313, 284);
+            this.btn_find.Location = new System.Drawing.Point(313, 282);
             this.btn_find.Margin = new System.Windows.Forms.Padding(4);
             this.btn_find.Name = "btn_find";
-            this.btn_find.Size = new System.Drawing.Size(116, 37);
+            this.btn_find.Size = new System.Drawing.Size(126, 39);
             // 
             // 
             // 
