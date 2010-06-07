@@ -18,7 +18,7 @@ namespace seedsfromzion.GUI.InventoryForms
         public FindPlant()
         {
             InitializeComponent();
-            initEnlargePiture();            
+            initEnlargePiture();
         }
 
         private void initEnlargePiture()
@@ -42,16 +42,17 @@ namespace seedsfromzion.GUI.InventoryForms
                 new ErrorWindow("לא ניתן למחוק צמח אשר נמצא כעת בשימוש במערכת").Show();
                 return;
             }
-            pictureBox1.Image.Dispose();
+            if (pictureBox1.Image != null)
+            {
+                pictureBox1.Image = null;
+            }
             PlantInfo plantinfo = manager.FindPlant(name);
             manager.removePlant(plantid, plantinfo);
-           
+
             //remove the plant from the favorites
             ((seedsFromZion)this.MdiParent).removeFavoritePlant(plantid);
             new SuccessWindow().Show();
             actEmptyBox();
-           
-
 
         }
 
@@ -63,7 +64,7 @@ namespace seedsfromzion.GUI.InventoryForms
                 return;
             }
             InventoryManager manager = new InventoryManager();
-            DataTable table=manager.getFullPlantsTable(textBoxX1.Text);
+            DataTable table = manager.getFullPlantsTable(textBoxX1.Text);
             if (table.Rows.Count == 0)
             {
                 dataGridViewX1.DataSource = null;
@@ -72,8 +73,8 @@ namespace seedsfromzion.GUI.InventoryForms
                 return;
             }
             dataGridViewX1.DataSource = table;
-            
-          //  T.plantId,T.name, T.type , T.lifetime, T.price,P.foreignName,P.picture,P.unitType,P.countInUnit,P.comments
+
+            //  T.plantId,T.name, T.type , T.lifetime, T.price,P.foreignName,P.picture,P.unitType,P.countInUnit,P.comments
             dataGridViewX1.Columns["plantId"].Visible = false;
             dataGridViewX1.Columns["name"].Visible = false;
             dataGridViewX1.Columns["type"].HeaderText = "סוג";
@@ -95,24 +96,23 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void FillPlantProperties()
         {
-            if (dataGridViewX1.SelectedRows.Count==0)
+            if (dataGridViewX1.SelectedRows.Count == 0)
             {
                 initPlantInfo();
                 return;
             }
             foreign.Text = (string)dataGridViewX1.SelectedRows[0].Cells["foreignName"].Value;
             unitstype.Text = (string)dataGridViewX1.SelectedRows[0].Cells["unitType"].Value;
-            string pictureName= (string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
+            string pictureName = (string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
             integerInput1.Value = (int)Int32.Parse((string)dataGridViewX1.SelectedRows[0].Cells["countInUnit"].Value.ToString());
-            int plantId=(int)Int32.Parse((string)dataGridViewX1.SelectedRows[0].Cells["plantId"].Value.ToString());
-             string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-             pictureBox1.Image = Properties.Resources.image_missing;
-             if (pictureName != "NO_PICTURE")
-             {
-                 pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName);
-             }
-             comments.Text = (string)dataGridViewX1.SelectedRows[0].Cells["comments"].Value;
-
+            int plantId = (int)Int32.Parse((string)dataGridViewX1.SelectedRows[0].Cells["plantId"].Value.ToString());
+            string executionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            pictureBox1.Image = Properties.Resources.image_missing;
+            if (pictureName != "NO_PICTURE")
+            {
+                pictureBox1.Image = Image.FromFile(executionPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName);
+            }
+            comments.Text = (string)dataGridViewX1.SelectedRows[0].Cells["comments"].Value;
         }
 
         private void actEmptyBox()
@@ -141,28 +141,28 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void buttonX2_Click(object sender, EventArgs e)
         {
-            if (dataGridViewX1.SelectedRows.Count==0)
+            if (dataGridViewX1.SelectedRows.Count == 0)
             {
                 return;
             }
             PlantInfo info = new PlantInfo();
-            info.Name=textBoxX1.Text;
-            info.ForeignName=foreign.Text;
-            info.CountInUnit=integerInput1.Value;
-            info.UnitType=unitstype.Text;
-            info.Comments=comments.Text;
-            info.Picture=(string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
-            string type=(string)dataGridViewX1.SelectedRows[0].Cells["type"].Value;
-            double price=(double)dataGridViewX1.SelectedRows[0].Cells["price"].Value;
-            double lifetime=(double)dataGridViewX1.SelectedRows[0].Cells["lifetime"].Value;
+            info.Name = textBoxX1.Text;
+            info.ForeignName = foreign.Text;
+            info.CountInUnit = integerInput1.Value;
+            info.UnitType = unitstype.Text;
+            info.Comments = comments.Text;
+            info.Picture = (string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
+            string type = (string)dataGridViewX1.SelectedRows[0].Cells["type"].Value;
+            double price = (double)dataGridViewX1.SelectedRows[0].Cells["price"].Value;
+            double lifetime = (double)dataGridViewX1.SelectedRows[0].Cells["lifetime"].Value;
             int plantId = (int)(UInt32)dataGridViewX1.SelectedRows[0].Cells["plantId"].Value;
 
-            AddNewPlant updateForm = new AddNewPlant(info,plantId, type, price, lifetime);
+            AddNewPlant updateForm = new AddNewPlant(info, plantId, type, price, lifetime);
             updateForm.MdiParent = this.MdiParent;
             updateForm.Show();
             pictureBox1.Image.Dispose();
             this.Close();
-            
+
         }
 
         private void FindPlant_Load(object sender, EventArgs e)
@@ -176,13 +176,13 @@ namespace seedsfromzion.GUI.InventoryForms
 
             string execPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string fileName = execPath + @"\" + "Enlarge.html";
-            
-             if (File.Exists(fileName))
-             {
-                 File.Delete(fileName);
-             }
-             webBrowser1.Hide();
-             closeImage.Hide();
+
+            if (File.Exists(fileName))
+            {
+                File.Delete(fileName);
+            }
+            webBrowser1.Hide();
+            closeImage.Hide();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -194,23 +194,21 @@ namespace seedsfromzion.GUI.InventoryForms
             string pictureName = (string)dataGridViewX1.SelectedRows[0].Cells["picture"].Value;
             TextWriter tw = null;
             string execPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            string fileName = execPath+@"\"+"Enlarge.html";
+            string fileName = execPath + @"\" + "Enlarge.html";
             try
             {
                 File.WriteAllText(fileName, "<html><img src=\"" + execPath + @"\" + ConfigFile.getInstance.ImagesPath + @"\" + pictureName + "\"></html>", Encoding.UTF8);
-               
-                
             }
             catch (Exception ex)
             {
-               
+
             }
             EnableEnlarge(fileName);
         }
 
         private void EnableEnlarge(string fileName)
         {
-            webBrowser1.Url = new Uri( fileName);
+            webBrowser1.Url = new Uri(fileName);
             webBrowser1.Update();
             webBrowser1.Show();
             closeImage.Show();
@@ -219,12 +217,12 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
-          
+
         }
 
         private void pictureBox1_MouseLeave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FindPlant_FormClosing(object sender, FormClosingEventArgs e)
