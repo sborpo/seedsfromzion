@@ -35,8 +35,8 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             base.BaseForm_Load(sender, e);
             this.GrowViaSowGraphControl_Start(sender, e);
-            StatisticsManager.initPlantNames();
-            StatisticsManager.initPlantTypes();
+            //StatisticsManager.initPlantNames();
+            //StatisticsManager.initPlantTypes();
         }
 
         private void GrowViaSowGraphControl_Start(object sender, EventArgs e)
@@ -202,7 +202,9 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
             else if (this.plantNameTextBox.Text.Length > 0)
             {
-                DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
@@ -226,7 +228,9 @@ namespace seedsfromzion.GUI.StatisticsForms
             if (this.plantNameTextBox.Text.Length > 0)
             {
                 this.plantTypeDropBox.BeginUpdate();
-                DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
+                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
+                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
