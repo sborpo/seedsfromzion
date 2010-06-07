@@ -219,7 +219,7 @@ namespace seedsfromzion.GUI.StatisticsForms
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-
+                    this.plantNameTextBox.AutoCompleteCustomSource.Clear();
                     this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
                     this.plantNameTextBox.Refresh();
                 }
