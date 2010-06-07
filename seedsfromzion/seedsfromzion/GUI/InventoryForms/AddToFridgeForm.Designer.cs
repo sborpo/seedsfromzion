@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.units = new DevComponents.Editors.DoubleInput();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -64,11 +63,11 @@
             this.units.BackgroundStyle.Class = "DateTimeInputBackground";
             this.units.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.units.Increment = 1;
-            this.units.Location = new System.Drawing.Point(3, 51);
+            this.units.Location = new System.Drawing.Point(3, 49);
             this.units.MinValue = 0.1;
             this.units.Name = "units";
             this.units.ShowUpDown = true;
-            this.units.Size = new System.Drawing.Size(209, 22);
+            this.units.Size = new System.Drawing.Size(209, 26);
             this.units.TabIndex = 0;
             this.units.Value = 1;
             // 
@@ -108,10 +107,10 @@
             // 
             // 
             this.location.Border.Class = "TextBoxBorder";
-            this.location.Location = new System.Drawing.Point(3, 94);
+            this.location.Location = new System.Drawing.Point(3, 92);
             this.location.MaxLength = 5;
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(209, 22);
+            this.location.Size = new System.Drawing.Size(209, 26);
             this.location.TabIndex = 2;
             // 
             // labelX3
@@ -155,9 +154,10 @@
             // 
             // 
             this.plantInput.Border.Class = "TextBoxBorder";
+            this.plantInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.plantInput.Location = new System.Drawing.Point(220, 8);
             this.plantInput.Name = "plantInput";
-            this.plantInput.Size = new System.Drawing.Size(131, 28);
+            this.plantInput.Size = new System.Drawing.Size(131, 26);
             this.plantInput.TabIndex = 2;
             this.plantInput.TextChanged += new System.EventHandler(this.plantInput_TextChanged);
             // 
@@ -201,27 +201,19 @@
             this.dataGridViewX1.AllowUserToAddRows = false;
             this.dataGridViewX1.AllowUserToDeleteRows = false;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(10, 45);
             this.dataGridViewX1.MultiSelect = false;
@@ -260,7 +252,7 @@
             this.groupPanel1.Controls.Add(this.plantInput);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
             this.groupPanel1.Controls.Add(this.labelX1);
-            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel1.Location = new System.Drawing.Point(13, 12);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(455, 262);
@@ -294,6 +286,7 @@
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "AddToFridgeForm";
             ((System.ComponentModel.ISupportInitialize)(this.units)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

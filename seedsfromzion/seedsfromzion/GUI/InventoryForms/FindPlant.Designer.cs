@@ -132,7 +132,7 @@
             this.labelX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX2.BackColor = System.Drawing.Color.Transparent;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(648, 98);
+            this.labelX2.Location = new System.Drawing.Point(642, 98);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(151, 23);
             this.labelX2.TabIndex = 6;
@@ -145,7 +145,7 @@
             // 
             // 
             this.comments.Border.Class = "TextBoxBorder";
-            this.comments.Location = new System.Drawing.Point(355, 98);
+            this.comments.Location = new System.Drawing.Point(349, 98);
             this.comments.Multiline = true;
             this.comments.Name = "comments";
             this.comments.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -166,7 +166,7 @@
             this.groupPanel1.Controls.Add(this.labelX2);
             this.groupPanel1.Controls.Add(this.labelX3);
             this.groupPanel1.Controls.Add(this.pictureBox1);
-            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel1.Location = new System.Drawing.Point(29, 53);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(813, 252);
@@ -199,7 +199,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(807, 223);
+            this.webBrowser1.Size = new System.Drawing.Size(807, 225);
             this.webBrowser1.TabIndex = 10;
             // 
             // integerInput1
@@ -210,10 +210,10 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(535, 64);
+            this.integerInput1.Location = new System.Drawing.Point(529, 64);
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.ShowUpDown = true;
-            this.integerInput1.Size = new System.Drawing.Size(84, 28);
+            this.integerInput1.Size = new System.Drawing.Size(84, 26);
             this.integerInput1.TabIndex = 10;
             // 
             // unitstype
@@ -223,9 +223,9 @@
             // 
             // 
             this.unitstype.Border.Class = "TextBoxBorder";
-            this.unitstype.Location = new System.Drawing.Point(459, 37);
+            this.unitstype.Location = new System.Drawing.Point(453, 37);
             this.unitstype.Name = "unitstype";
-            this.unitstype.Size = new System.Drawing.Size(160, 28);
+            this.unitstype.Size = new System.Drawing.Size(160, 26);
             this.unitstype.TabIndex = 9;
             // 
             // foreign
@@ -235,10 +235,10 @@
             // 
             // 
             this.foreign.Border.Class = "TextBoxBorder";
-            this.foreign.Location = new System.Drawing.Point(459, 11);
+            this.foreign.Location = new System.Drawing.Point(453, 11);
             this.foreign.Name = "foreign";
             this.foreign.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foreign.Size = new System.Drawing.Size(160, 28);
+            this.foreign.Size = new System.Drawing.Size(160, 26);
             this.foreign.TabIndex = 8;
             // 
             // labelX5
@@ -246,7 +246,7 @@
             this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX5.BackColor = System.Drawing.Color.Transparent;
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX5.Location = new System.Drawing.Point(648, 69);
+            this.labelX5.Location = new System.Drawing.Point(642, 69);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(151, 23);
             this.labelX5.TabIndex = 7;
@@ -257,7 +257,7 @@
             this.labelX4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX4.Location = new System.Drawing.Point(648, 40);
+            this.labelX4.Location = new System.Drawing.Point(642, 40);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(151, 23);
             this.labelX4.TabIndex = 6;
@@ -268,7 +268,7 @@
             this.labelX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(648, 11);
+            this.labelX3.Location = new System.Drawing.Point(642, 11);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(151, 23);
             this.labelX3.TabIndex = 5;

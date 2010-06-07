@@ -139,13 +139,13 @@
             this.comboBoxEx1.DisplayMember = "Text";
             this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 14;
+            this.comboBoxEx1.ItemHeight = 20;
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
             this.comboBoxEx1.Location = new System.Drawing.Point(117, 196);
             this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxEx1.Size = new System.Drawing.Size(121, 26);
             this.comboBoxEx1.TabIndex = 3;
             // 
             // comboItem1
@@ -159,7 +159,7 @@
             // labelX5
             // 
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX5.Location = new System.Drawing.Point(24, 193);
+            this.labelX5.Location = new System.Drawing.Point(24, 199);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(87, 23);
             this.labelX5.TabIndex = 4;
@@ -174,6 +174,7 @@
             this.Controls.Add(this.labelX1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "InventoryReports";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
