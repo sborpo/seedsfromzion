@@ -54,8 +54,8 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.doubleInput2 = new DevComponents.Editors.DoubleInput();
             this.doubleInput3 = new DevComponents.Editors.DoubleInput();
+            this.doubleInput2 = new DevComponents.Editors.DoubleInput();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
@@ -66,8 +66,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -99,7 +99,7 @@
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextColor = System.Drawing.Color.Navy;
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 0;
             this.groupPanel1.Text = "שדה";
@@ -407,22 +407,6 @@
             this.labelX6.TabIndex = 1;
             this.labelX6.Text = "מתוכם נבטו:";
             // 
-            // doubleInput2
-            // 
-            // 
-            // 
-            // 
-            this.doubleInput2.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.doubleInput2.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.doubleInput2.Increment = 1;
-            this.doubleInput2.Location = new System.Drawing.Point(192, 4);
-            this.doubleInput2.MinValue = 0.1;
-            this.doubleInput2.Name = "doubleInput2";
-            this.doubleInput2.ShowUpDown = true;
-            this.doubleInput2.Size = new System.Drawing.Size(84, 26);
-            this.doubleInput2.TabIndex = 2;
-            this.doubleInput2.Value = 0.1;
-            // 
             // doubleInput3
             // 
             // 
@@ -438,6 +422,22 @@
             this.doubleInput3.Size = new System.Drawing.Size(80, 26);
             this.doubleInput3.TabIndex = 3;
             this.doubleInput3.Value = 0.1;
+            // 
+            // doubleInput2
+            // 
+            // 
+            // 
+            // 
+            this.doubleInput2.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.doubleInput2.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
+            this.doubleInput2.Increment = 1;
+            this.doubleInput2.Location = new System.Drawing.Point(192, 4);
+            this.doubleInput2.MinValue = 0.1;
+            this.doubleInput2.Name = "doubleInput2";
+            this.doubleInput2.ShowUpDown = true;
+            this.doubleInput2.Size = new System.Drawing.Size(84, 26);
+            this.doubleInput2.TabIndex = 2;
+            this.doubleInput2.Value = 0.1;
             // 
             // buttonX1
             // 
@@ -472,8 +472,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).EndInit();
             this.ResumeLayout(false);
 
         }

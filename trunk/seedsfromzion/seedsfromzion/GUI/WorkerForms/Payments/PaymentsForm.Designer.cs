@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGrid_workers = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.numericUpDowd_advancedPay = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_postponedPay = new System.Windows.Forms.NumericUpDown();
@@ -52,14 +52,14 @@
             this.dataGrid_workers.AllowUserToDeleteRows = false;
             this.dataGrid_workers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGrid_workers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGrid_workers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGrid_workers.Location = new System.Drawing.Point(19, 17);
             this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4);
@@ -143,7 +143,7 @@
             this.dateChoisePanel.AutoSize = true;
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.dateChoisePanel.Location = new System.Drawing.Point(186, 238);
+            this.dateChoisePanel.Location = new System.Drawing.Point(112, 233);
             this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4);
             this.dateChoisePanel.Name = "dateChoisePanel";
             this.dateChoisePanel.Size = new System.Drawing.Size(348, 100);
@@ -172,7 +172,7 @@
             this.btn_update.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_update.Location = new System.Drawing.Point(418, 369);
+            this.btn_update.Location = new System.Drawing.Point(232, 361);
             this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(116, 37);
@@ -244,7 +244,7 @@
             this.groupPanel1.Style.CornerDiameter = 4;
             this.groupPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.groupPanel1.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.groupPanel1.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.groupPanel1.Style.TextColor = System.Drawing.Color.Navy;
             this.groupPanel1.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel1.TabIndex = 16;
             this.groupPanel1.Text = "דיווח שעות העבודה";

@@ -290,6 +290,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "AddVisaForm";
             this.RightToLeftLayout = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AddVisaForm";
             this.WindowState = System.Windows.Forms.FormWindowState.Normal;
             this.tableLayoutPanel1.ResumeLayout(false);

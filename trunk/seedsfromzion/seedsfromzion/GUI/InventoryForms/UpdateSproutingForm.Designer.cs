@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.doubleInput1 = new DevComponents.Editors.DoubleInput();
@@ -47,14 +47,14 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(34, 15);
             this.dataGridViewX1.MultiSelect = false;
@@ -62,7 +62,7 @@
             this.dataGridViewX1.ReadOnly = true;
             this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(544, 265);
+            this.dataGridViewX1.Size = new System.Drawing.Size(538, 265);
             this.dataGridViewX1.TabIndex = 1;
             // 
             // labelX2
@@ -72,7 +72,7 @@
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelX2.Location = new System.Drawing.Point(484, 312);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(94, 23);
+            this.labelX2.Size = new System.Drawing.Size(88, 23);
             this.labelX2.TabIndex = 2;
             this.labelX2.Text = "אחוז הנביטה:";
             // 
@@ -91,7 +91,7 @@
             this.doubleInput1.MinValue = 0;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(80, 26);
+            this.doubleInput1.Size = new System.Drawing.Size(74, 26);
             this.doubleInput1.TabIndex = 3;
             this.doubleInput1.Value = 50;
             // 
@@ -104,7 +104,7 @@
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonX1.Location = new System.Drawing.Point(46, 297);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(86, 41);
+            this.buttonX1.Size = new System.Drawing.Size(80, 41);
             this.buttonX1.TabIndex = 4;
             this.buttonX1.Text = "עדכן";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
@@ -139,7 +139,7 @@
             this.addPlantTypePanel.Style.CornerDiameter = 4;
             this.addPlantTypePanel.Style.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.addPlantTypePanel.Style.TextAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Center;
-            this.addPlantTypePanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.addPlantTypePanel.Style.TextColor = System.Drawing.Color.Navy;
             this.addPlantTypePanel.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.addPlantTypePanel.TabIndex = 20;
             this.addPlantTypePanel.Text = "איסופים שעבורם לא נרשמו אחוזי נביטה";
