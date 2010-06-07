@@ -224,29 +224,37 @@ namespace seedsfromzion.Managers
         public void AddPlant(PlantInfo planInfo, string type, double p_price, double p_lifetime)
         {
             MySqlCommand[] commands = new MySqlCommand[2];
-            if (checkPlantExists(planInfo))
-                throw new ArgumentException("Plant already exists");
-            int newId = getNewPlantId();
-            string pictureName = planInfo.Picture;
-            string newPictureName = copyThePicture(pictureName, newId.ToString());
+            try
+            {
+                PlantInfo info = FindPlant(planInfo.Name);
+                
+            }
+            catch (ArgumentException ex)
+            {
+                int newId = getNewPlantId();
+                string pictureName = planInfo.Picture;
+                string newPictureName = copyThePicture(pictureName, newId.ToString());
 
-            commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
-                "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,@P_UNIT_TYPE , @P_COUNT)",
-                "@P_NAME", planInfo.Name,
-                "@P_FOREIGN", planInfo.ForeignName,
-                "@P_COMMENTS", planInfo.Comments,
-                "@P_PIC", newPictureName,
-                "@P_UNIT_TYPE", planInfo.UnitType.ToString(),
-                "@P_COUNT", planInfo.CountInUnit.ToString());
+                commands[0] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.Plants (name, foreignName, picture, comments, unitType, countInUnit) " +
+                    "VALUES(@P_NAME, @P_FOREIGN, @P_PIC, @P_COMMENTS,@P_UNIT_TYPE , @P_COUNT)",
+                    "@P_NAME", planInfo.Name,
+                    "@P_FOREIGN", planInfo.ForeignName,
+                    "@P_COMMENTS", planInfo.Comments,
+                    "@P_PIC", newPictureName,
+                    "@P_UNIT_TYPE", planInfo.UnitType.ToString(),
+                    "@P_COUNT", planInfo.CountInUnit.ToString());
 
-            commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
-                "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
-                "@P_TYPE", type,
-                "@P_NAME", planInfo.Name,
-                "@P_LIFETIME", p_lifetime.ToString(),
-                "@P_PRICE", p_price.ToString(),
-                "@P_ID", newId.ToString());
-            DatabaseAccess.performDMLTransaction(commands);
+                commands[1] = DataAccessUtils.commandBuilder("INSERT INTO seedsdb.PlantTypes (type, name, lifetime, price, plantId) " +
+                    "VALUES(@P_TYPE, @P_NAME, @P_LIFETIME, @P_PRICE, @P_ID)",
+                    "@P_TYPE", type,
+                    "@P_NAME", planInfo.Name,
+                    "@P_LIFETIME", p_lifetime.ToString(),
+                    "@P_PRICE", p_price.ToString(),
+                    "@P_ID", newId.ToString());
+                DatabaseAccess.performDMLTransaction(commands);
+                return;
+            }
+            throw new ArgumentException("Plant Already Exists");
         }
 
         /// <summary>
@@ -506,7 +514,6 @@ namespace seedsfromzion.Managers
 
         #endregion
 
-      
         /// <summary>
         /// checks if a specific plant exists in the DB
         /// </summary>
