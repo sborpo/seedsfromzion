@@ -302,7 +302,7 @@ namespace seedsfromzion.GUI.InventoryForms
             if (rows.Length > 0)
             {
                 String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-
+                this.typePlantName.AutoCompleteCustomSource.Clear();
                 this.typePlantName.AutoCompleteCustomSource.AddRange(names);
                 this.typePlantName.Refresh();
             }
