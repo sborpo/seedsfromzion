@@ -117,7 +117,7 @@
             this.foreignName.Location = new System.Drawing.Point(233, 48);
             this.foreignName.Name = "foreignName";
             this.foreignName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foreignName.Size = new System.Drawing.Size(168, 20);
+            this.foreignName.Size = new System.Drawing.Size(168, 22);
             this.foreignName.TabIndex = 5;
             // 
             // name
@@ -128,7 +128,7 @@
             this.name.Border.Class = "TextBoxBorder";
             this.name.Location = new System.Drawing.Point(233, 13);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(168, 20);
+            this.name.Size = new System.Drawing.Size(168, 22);
             this.name.TabIndex = 6;
             // 
             // integerInput1
@@ -141,7 +141,7 @@
             this.integerInput1.Location = new System.Drawing.Point(233, 85);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(100, 20);
+            this.integerInput1.Size = new System.Drawing.Size(100, 22);
             this.integerInput1.TabIndex = 7;
             // 
             // comboBoxEx1
@@ -212,7 +212,7 @@
             this.price.MinValue = 0;
             this.price.Name = "price";
             this.price.ShowUpDown = true;
-            this.price.Size = new System.Drawing.Size(101, 20);
+            this.price.Size = new System.Drawing.Size(101, 22);
             this.price.TabIndex = 13;
             this.price.ValueChanged += new System.EventHandler(this.price_ValueChanged);
             // 
@@ -238,7 +238,7 @@
             this.lifeTime.MinValue = 0;
             this.lifeTime.Name = "lifeTime";
             this.lifeTime.ShowUpDown = true;
-            this.lifeTime.Size = new System.Drawing.Size(101, 20);
+            this.lifeTime.Size = new System.Drawing.Size(101, 22);
             this.lifeTime.TabIndex = 15;
             // 
             // pictureBox1
@@ -319,7 +319,7 @@
             this.plantUnitType.Border.Class = "TextBoxBorder";
             this.plantUnitType.Location = new System.Drawing.Point(232, 198);
             this.plantUnitType.Name = "plantUnitType";
-            this.plantUnitType.Size = new System.Drawing.Size(169, 20);
+            this.plantUnitType.Size = new System.Drawing.Size(169, 22);
             this.plantUnitType.TabIndex = 19;
             // 
             // labelX11
@@ -393,7 +393,7 @@
             this.typeLife.Location = new System.Drawing.Point(184, 102);
             this.typeLife.Name = "typeLife";
             this.typeLife.ShowUpDown = true;
-            this.typeLife.Size = new System.Drawing.Size(142, 20);
+            this.typeLife.Size = new System.Drawing.Size(142, 22);
             this.typeLife.TabIndex = 24;
             // 
             // typePrice
@@ -408,7 +408,7 @@
             this.typePrice.MinValue = 0;
             this.typePrice.Name = "typePrice";
             this.typePrice.ShowUpDown = true;
-            this.typePrice.Size = new System.Drawing.Size(142, 20);
+            this.typePrice.Size = new System.Drawing.Size(142, 22);
             this.typePrice.TabIndex = 23;
             // 
             // labelX10
@@ -467,20 +467,24 @@
             // 
             // typePlantName
             // 
+            this.typePlantName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append;
+            this.typePlantName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
             // 
             // 
             this.typePlantName.Border.Class = "TextBoxBorder";
             this.typePlantName.Location = new System.Drawing.Point(184, 12);
             this.typePlantName.Name = "typePlantName";
-            this.typePlantName.Size = new System.Drawing.Size(142, 20);
+            this.typePlantName.Size = new System.Drawing.Size(142, 22);
             this.typePlantName.TabIndex = 16;
+            this.typePlantName.TextChanged += new System.EventHandler(this.typePlantName_TextChanged);
             // 
             // AddNewPlant
             // 
             this.ClientSize = new System.Drawing.Size(1028, 597);
             this.Controls.Add(this.addPlantTypePanel);
             this.Controls.Add(this.addPlantPanel);
+            this.DoubleBuffered = true;
             this.Name = "AddNewPlant";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddNewPlant_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
