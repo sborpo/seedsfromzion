@@ -307,5 +307,11 @@ namespace seedsfromzion.GUI.InventoryForms
                 this.typePlantName.Refresh();
             }
         }
+
+        private void typePlantName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
+                e.Handled = true;
+        }
     }
 }

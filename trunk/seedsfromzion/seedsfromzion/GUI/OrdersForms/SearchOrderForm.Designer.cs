@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.orderGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,7 +51,7 @@
             // 
             // labelX1
             // 
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX1.Location = new System.Drawing.Point(30, 22);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(82, 31);
@@ -68,14 +68,14 @@
             this.clientId,
             this.orderDate,
             this.dueDate});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.orderGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.orderGrid.Location = new System.Drawing.Point(30, 81);
             this.orderGrid.MultiSelect = false;
@@ -116,12 +116,12 @@
             // 
             // labelX2
             // 
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX2.Location = new System.Drawing.Point(483, 30);
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX2.Location = new System.Drawing.Point(541, 29);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(78, 23);
+            this.labelX2.Size = new System.Drawing.Size(106, 23);
             this.labelX2.TabIndex = 4;
-            this.labelX2.Text = "תיאור ההזמנה";
+            this.labelX2.Text = "תיאור ההזמנה:";
             // 
             // detailsGrid
             // 
@@ -131,14 +131,14 @@
             this.detailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.units});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle6;
             this.detailsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.detailsGrid.Location = new System.Drawing.Point(541, 81);
             this.detailsGrid.MultiSelect = false;
@@ -166,11 +166,11 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonX1.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
             this.buttonX1.Location = new System.Drawing.Point(31, 354);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(103, 47);
+            this.buttonX1.Size = new System.Drawing.Size(119, 62);
             this.buttonX1.TabIndex = 6;
             this.buttonX1.Text = "בטל הזמנה";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
@@ -179,8 +179,8 @@
             // 
             this.editOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.editOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.editOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.editOrder.Location = new System.Drawing.Point(541, 484);
+            this.editOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.editOrder.Location = new System.Drawing.Point(541, 496);
             this.editOrder.Name = "editOrder";
             this.editOrder.Size = new System.Drawing.Size(91, 28);
             this.editOrder.TabIndex = 7;
@@ -191,11 +191,11 @@
             // 
             this.orderConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.orderConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.orderConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.orderConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.orderConfirm.Image = global::seedsfromzion.Properties.Resources.success_icon;
-            this.orderConfirm.Location = new System.Drawing.Point(369, 354);
+            this.orderConfirm.Location = new System.Drawing.Point(336, 354);
             this.orderConfirm.Name = "orderConfirm";
-            this.orderConfirm.Size = new System.Drawing.Size(104, 47);
+            this.orderConfirm.Size = new System.Drawing.Size(137, 62);
             this.orderConfirm.TabIndex = 8;
             this.orderConfirm.Text = "אשר אספקת הזמנה";
             this.orderConfirm.Click += new System.EventHandler(this.orderConfirm_Click);
@@ -207,16 +207,16 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(104, 30);
+            this.integerInput1.Location = new System.Drawing.Point(118, 29);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(126, 20);
+            this.integerInput1.Size = new System.Drawing.Size(126, 22);
             this.integerInput1.TabIndex = 9;
             this.integerInput1.ValueChanged += new System.EventHandler(this.integerInput1_TextChanged);
             // 
             // SearchOrderForm
             // 
-            this.ClientSize = new System.Drawing.Size(798, 517);
+            this.ClientSize = new System.Drawing.Size(798, 536);
             this.Controls.Add(this.integerInput1);
             this.Controls.Add(this.orderConfirm);
             this.Controls.Add(this.editOrder);

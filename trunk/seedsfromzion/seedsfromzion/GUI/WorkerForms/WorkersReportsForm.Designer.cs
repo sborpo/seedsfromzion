@@ -44,9 +44,10 @@
             // labelX5
             // 
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX5.Location = new System.Drawing.Point(30, 122);
+            this.labelX5.Location = new System.Drawing.Point(40, 150);
+            this.labelX5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(75, 23);
+            this.labelX5.Size = new System.Drawing.Size(100, 28);
             this.labelX5.TabIndex = 7;
             this.labelX5.Text = "סגנון הדו\"ח";
             // 
@@ -59,9 +60,10 @@
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
-            this.comboBoxEx1.Location = new System.Drawing.Point(111, 125);
+            this.comboBoxEx1.Location = new System.Drawing.Point(148, 154);
+            this.comboBoxEx1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(121, 20);
+            this.comboBoxEx1.Size = new System.Drawing.Size(160, 20);
             this.comboBoxEx1.TabIndex = 6;
             // 
             // comboItem1
@@ -76,9 +78,11 @@
             // 
             this.btn_save.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btn_save.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btn_save.Location = new System.Drawing.Point(157, 171);
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_save.Location = new System.Drawing.Point(209, 210);
+            this.btn_save.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_save.Name = "btn_save";
-            this.btn_save.Size = new System.Drawing.Size(75, 23);
+            this.btn_save.Size = new System.Drawing.Size(100, 28);
             this.btn_save.TabIndex = 5;
             this.btn_save.Text = "שמור";
             this.btn_save.Click += new System.EventHandler(this.btn_save_Click);
@@ -86,9 +90,10 @@
             // labelX1
             // 
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(30, 72);
+            this.labelX1.Location = new System.Drawing.Point(40, 89);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.Size = new System.Drawing.Size(100, 28);
             this.labelX1.TabIndex = 8;
             this.labelX1.Text = "סוג הדו\"ח";
             // 
@@ -98,9 +103,10 @@
             this.comboBox_type.Items.AddRange(new object[] {
             "כל העובדים",
             "עובד ספציפי"});
-            this.comboBox_type.Location = new System.Drawing.Point(111, 74);
+            this.comboBox_type.Location = new System.Drawing.Point(148, 91);
+            this.comboBox_type.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox_type.Name = "comboBox_type";
-            this.comboBox_type.Size = new System.Drawing.Size(121, 21);
+            this.comboBox_type.Size = new System.Drawing.Size(160, 24);
             this.comboBox_type.TabIndex = 10;
             this.comboBox_type.Text = "כל העובדים";
             this.comboBox_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_type_SelectedIndexChanged);
@@ -110,9 +116,10 @@
             this.dateTimePicker.CustomFormat = "MM/ yyyy";
             this.dateTimePicker.Enabled = false;
             this.dateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker.Location = new System.Drawing.Point(247, 75);
+            this.dateTimePicker.Location = new System.Drawing.Point(329, 92);
+            this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(86, 20);
+            this.dateTimePicker.Size = new System.Drawing.Size(113, 22);
             this.dateTimePicker.TabIndex = 11;
             // 
             // dataGrid_allWorkers
@@ -131,20 +138,21 @@
             this.dataGrid_allWorkers.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid_allWorkers.Enabled = false;
             this.dataGrid_allWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGrid_allWorkers.Location = new System.Drawing.Point(358, 36);
+            this.dataGrid_allWorkers.Location = new System.Drawing.Point(477, 44);
+            this.dataGrid_allWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGrid_allWorkers.MultiSelect = false;
             this.dataGrid_allWorkers.Name = "dataGrid_allWorkers";
             this.dataGrid_allWorkers.ReadOnly = true;
             this.dataGrid_allWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid_allWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid_allWorkers.Size = new System.Drawing.Size(242, 109);
+            this.dataGrid_allWorkers.Size = new System.Drawing.Size(323, 134);
             this.dataGrid_allWorkers.TabIndex = 12;
             // 
             // WorkersReportsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(603, 399);
+            this.ClientSize = new System.Drawing.Size(833, 484);
             this.Controls.Add(this.dataGrid_allWorkers);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.comboBox_type);
@@ -152,6 +160,8 @@
             this.Controls.Add(this.labelX5);
             this.Controls.Add(this.comboBoxEx1);
             this.Controls.Add(this.btn_save);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "WorkersReportsForm";
             this.Text = "WorkerReportsForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).EndInit();

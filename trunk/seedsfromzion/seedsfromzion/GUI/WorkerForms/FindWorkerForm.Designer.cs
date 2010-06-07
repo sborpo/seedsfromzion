@@ -62,9 +62,10 @@
             // 
             // 
             this.textBox_ID.Border.Class = "TextBoxBorder";
-            this.textBox_ID.Location = new System.Drawing.Point(3, 50);
+            this.textBox_ID.Location = new System.Drawing.Point(4, 60);
+            this.textBox_ID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(162, 20);
+            this.textBox_ID.Size = new System.Drawing.Size(216, 26);
             this.textBox_ID.TabIndex = 1;
             // 
             // dataGridWorkers
@@ -82,13 +83,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridWorkers.Location = new System.Drawing.Point(21, 190);
+            this.dataGridWorkers.Location = new System.Drawing.Point(28, 234);
+            this.dataGridWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridWorkers.MultiSelect = false;
             this.dataGridWorkers.Name = "dataGridWorkers";
             this.dataGridWorkers.ReadOnly = true;
             this.dataGridWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridWorkers.Size = new System.Drawing.Size(414, 258);
+            this.dataGridWorkers.Size = new System.Drawing.Size(552, 318);
             this.dataGridWorkers.TabIndex = 5;
             // 
             // dateChoisePanel
@@ -97,9 +99,10 @@
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel1);
             this.dateChoisePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dateChoisePanel.Location = new System.Drawing.Point(3, 3);
+            this.dateChoisePanel.Location = new System.Drawing.Point(4, 4);
+            this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(286, 121);
+            this.dateChoisePanel.Size = new System.Drawing.Size(384, 147);
             // 
             // 
             // 
@@ -132,20 +135,22 @@
             this.tableLayoutPanel1.Controls.Add(this.textBox_lastName, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(286, 121);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(384, 147);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // labelX3
             // 
             this.labelX3.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX3.Location = new System.Drawing.Point(187, 18);
+            this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX3.Location = new System.Drawing.Point(251, 22);
+            this.labelX3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.Size = new System.Drawing.Size(100, 28);
             this.labelX3.TabIndex = 8;
             this.labelX3.Text = "שם פרטי:";
             this.labelX3.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -157,18 +162,20 @@
             // 
             // 
             this.textBox_firstName.Border.Class = "TextBoxBorder";
-            this.textBox_firstName.Location = new System.Drawing.Point(3, 20);
+            this.textBox_firstName.Location = new System.Drawing.Point(4, 23);
+            this.textBox_firstName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_firstName.Name = "textBox_firstName";
-            this.textBox_firstName.Size = new System.Drawing.Size(162, 20);
+            this.textBox_firstName.Size = new System.Drawing.Size(216, 26);
             this.textBox_firstName.TabIndex = 10;
             // 
             // labelX1
             // 
             this.labelX1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelX1.Location = new System.Drawing.Point(187, 79);
+            this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX1.Location = new System.Drawing.Point(251, 96);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.Size = new System.Drawing.Size(100, 28);
             this.labelX1.TabIndex = 9;
             this.labelX1.Text = "שם משפחה:";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -180,19 +187,21 @@
             // 
             // 
             this.textBox_lastName.Border.Class = "TextBoxBorder";
-            this.textBox_lastName.Location = new System.Drawing.Point(3, 80);
+            this.textBox_lastName.Location = new System.Drawing.Point(4, 97);
+            this.textBox_lastName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBox_lastName.Name = "textBox_lastName";
-            this.textBox_lastName.Size = new System.Drawing.Size(162, 20);
+            this.textBox_lastName.Size = new System.Drawing.Size(216, 26);
             this.textBox_lastName.TabIndex = 11;
             // 
             // labelX2
             // 
             this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX2.ForeColor = System.Drawing.Color.Black;
-            this.labelX2.Location = new System.Drawing.Point(187, 49);
+            this.labelX2.Location = new System.Drawing.Point(293, 59);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(75, 23);
+            this.labelX2.Size = new System.Drawing.Size(87, 28);
             this.labelX2.TabIndex = 7;
             this.labelX2.Text = "ת.ז:";
             this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -201,9 +210,11 @@
             // 
             this.btn_find.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_find.Location = new System.Drawing.Point(333, 128);
+            this.btn_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_find.Location = new System.Drawing.Point(444, 158);
+            this.btn_find.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_find.Name = "btn_find";
-            this.btn_find.Size = new System.Drawing.Size(87, 30);
+            this.btn_find.Size = new System.Drawing.Size(116, 37);
             // 
             // 
             // 
@@ -247,9 +258,11 @@
             // 
             this.btn_showAll.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_showAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_showAll.Location = new System.Drawing.Point(426, 128);
+            this.btn_showAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_showAll.Location = new System.Drawing.Point(568, 158);
+            this.btn_showAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_showAll.Name = "btn_showAll";
-            this.btn_showAll.Size = new System.Drawing.Size(87, 30);
+            this.btn_showAll.Size = new System.Drawing.Size(116, 37);
             // 
             // 
             // 
@@ -295,9 +308,10 @@
             this.ribbonClientPanel1.CanvasColor = System.Drawing.SystemColors.Control;
             this.ribbonClientPanel1.Controls.Add(this.tableLayoutPanel2);
             this.ribbonClientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonClientPanel1.Location = new System.Drawing.Point(3, 3);
+            this.ribbonClientPanel1.Location = new System.Drawing.Point(4, 4);
+            this.ribbonClientPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ribbonClientPanel1.Name = "ribbonClientPanel1";
-            this.ribbonClientPanel1.Size = new System.Drawing.Size(286, 121);
+            this.ribbonClientPanel1.Size = new System.Drawing.Size(384, 147);
             // 
             // 
             // 
@@ -322,38 +336,42 @@
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
             this.tableLayoutPanel2.ColumnCount = 2;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.74144F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.25855F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.73958F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.26041F));
             this.tableLayoutPanel2.Controls.Add(this.textBox_ID, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.labelX2, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(286, 121);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(384, 147);
             this.tableLayoutPanel2.TabIndex = 9;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(17, 12);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.tabControl1.Location = new System.Drawing.Point(23, 15);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(300, 153);
+            this.tabControl1.Size = new System.Drawing.Size(400, 188);
             this.tabControl1.TabIndex = 18;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.ribbonClientPanel1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(292, 127);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(392, 155);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "חפש לפי ת.ז";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -361,23 +379,26 @@
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dateChoisePanel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(292, 127);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(392, 155);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "חפש לפי שם";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // FindWorkerForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(829, 558);
+            this.ClientSize = new System.Drawing.Size(782, 591);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btn_showAll);
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.dataGridWorkers);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FindWorkerForm";
             this.Text = "חפש עובד";
             this.Load += new System.EventHandler(this.FindWorkerForm_Load);

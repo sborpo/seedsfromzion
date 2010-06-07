@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridWorkers = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.dataGridView_hours = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -48,27 +48,29 @@
             this.dataGridWorkers.AllowUserToDeleteRows = false;
             this.dataGridWorkers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridWorkers.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridWorkers.Location = new System.Drawing.Point(41, 46);
+            this.dataGridWorkers.Location = new System.Drawing.Point(55, 57);
+            this.dataGridWorkers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridWorkers.Name = "dataGridWorkers";
             this.dataGridWorkers.ReadOnly = true;
             this.dataGridWorkers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridWorkers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridWorkers.Size = new System.Drawing.Size(414, 240);
+            this.dataGridWorkers.Size = new System.Drawing.Size(552, 295);
             this.dataGridWorkers.TabIndex = 6;
             this.dataGridWorkers.SelectionChanged += new System.EventHandler(this.dataGridWorkers_SelectionChanged);
             // 
             // monthCalendar
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(495, 46);
+            this.monthCalendar.Location = new System.Drawing.Point(660, 57);
+            this.monthCalendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthCalendar.Name = "monthCalendar";
             this.monthCalendar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.monthCalendar.TabIndex = 8;
@@ -80,31 +82,33 @@
             this.dataGridView_hours.AllowUserToDeleteRows = false;
             this.dataGridView_hours.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridView_hours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView_hours.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView_hours.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_hours.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridView_hours.Location = new System.Drawing.Point(17, 8);
+            this.dataGridView_hours.Location = new System.Drawing.Point(23, 10);
+            this.dataGridView_hours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dataGridView_hours.Name = "dataGridView_hours";
             this.dataGridView_hours.ReadOnly = true;
             this.dataGridView_hours.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView_hours.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView_hours.Size = new System.Drawing.Size(157, 77);
+            this.dataGridView_hours.Size = new System.Drawing.Size(209, 95);
             this.dataGridView_hours.TabIndex = 9;
             // 
             // dateTime_start
             // 
             this.dateTime_start.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTime_start.Location = new System.Drawing.Point(179, 329);
+            this.dateTime_start.Location = new System.Drawing.Point(177, 391);
+            this.dateTime_start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTime_start.Name = "dateTime_start";
             this.dateTime_start.RightToLeftLayout = true;
             this.dateTime_start.ShowUpDown = true;
-            this.dateTime_start.Size = new System.Drawing.Size(200, 20);
+            this.dateTime_start.Size = new System.Drawing.Size(265, 22);
             this.dateTime_start.TabIndex = 10;
             this.dateTime_start.Value = new System.DateTime(2010, 5, 22, 8, 0, 0, 0);
             // 
@@ -112,11 +116,12 @@
             // 
             this.dateTime_end.AllowDrop = true;
             this.dateTime_end.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTime_end.Location = new System.Drawing.Point(179, 355);
+            this.dateTime_end.Location = new System.Drawing.Point(177, 423);
+            this.dateTime_end.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dateTime_end.Name = "dateTime_end";
             this.dateTime_end.RightToLeftLayout = true;
             this.dateTime_end.ShowUpDown = true;
-            this.dateTime_end.Size = new System.Drawing.Size(200, 20);
+            this.dateTime_end.Size = new System.Drawing.Size(265, 22);
             this.dateTime_end.TabIndex = 11;
             this.dateTime_end.Value = new System.DateTime(2010, 5, 22, 16, 0, 0, 0);
             // 
@@ -124,9 +129,11 @@
             // 
             this.btn_update_hours.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_update_hours.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_update_hours.Location = new System.Drawing.Point(289, 381);
+            this.btn_update_hours.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.btn_update_hours.Location = new System.Drawing.Point(487, 472);
+            this.btn_update_hours.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_update_hours.Name = "btn_update_hours";
-            this.btn_update_hours.Size = new System.Drawing.Size(90, 25);
+            this.btn_update_hours.Size = new System.Drawing.Size(120, 31);
             // 
             // 
             // 
@@ -171,9 +178,11 @@
             this.groupPanel3.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.groupPanel3.Controls.Add(this.dataGridView_hours);
-            this.groupPanel3.Location = new System.Drawing.Point(478, 224);
+            this.groupPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.groupPanel3.Location = new System.Drawing.Point(660, 284);
+            this.groupPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupPanel3.Name = "groupPanel3";
-            this.groupPanel3.Size = new System.Drawing.Size(195, 116);
+            this.groupPanel3.Size = new System.Drawing.Size(260, 143);
             // 
             // 
             // 
@@ -199,15 +208,17 @@
             // 
             // WorkDaysForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 486);
+            this.ClientSize = new System.Drawing.Size(1163, 598);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.btn_update_hours);
             this.Controls.Add(this.dateTime_end);
             this.Controls.Add(this.dateTime_start);
             this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.dataGridWorkers);
+            this.DoubleBuffered = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "WorkDaysForm";
             this.Text = "WorkDaysForm";
             this.Load += new System.EventHandler(this.WorkDaysForm_Load);
