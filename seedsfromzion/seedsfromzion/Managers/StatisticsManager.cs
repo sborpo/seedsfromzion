@@ -19,12 +19,6 @@ namespace seedsfromzion.Managers
         #region public fields
         static public DataTable plantNames;
         static public DataTable plantTypes;
-        //static public Dictionary<string,string> plantTypes = new Dictionary<string,string>()
-        //{   
-        //    {"a","סוג א"},
-        //    {"b","סוג ב"},
-        //    {"c","סוג ג"}
-        //}; 
         #endregion
 
         #region helper class
@@ -56,106 +50,7 @@ namespace seedsfromzion.Managers
         }
 
         #endregion
-
-        #region public global methods
-
-        static public void initPlantNames()
-        {
-            //plantNames = getWholeColumnFromTable("plants", "name");
-            MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T ");
-            plantNames = DatabaseAccess.getResultSetFromDb(command);
-        }
-
-        static public void initPlantTypes()
-        {
-            //plantTypes = getWholeColumnFromTable("planttypes", "type");
-            MySqlCommand command =
-                DataAccessUtils.commandBuilder("SELECT T.name AS name, T.type AS type FROM seedsdb.planttypes T ");
-            plantTypes = DatabaseAccess.getResultSetFromDb(command);
-        }
-
-        //static public DataTable getWholeColumnFromTable(string tableName, string columnName)
-        //{
-        //    MySqlCommand command =
-        //        DataAccessUtils.commandBuilder("SELECT T.@COLUMN_NAME1 AS @COLUMN_NAME2 FROM seedsdb.@TABLE_NAME T ",
-        //                                        "@COLUMN_NAME1", columnName, "@COLUMN_NAME2", columnName, "@TABLE_NAME", tableName);
-        //    DataTable result = DatabaseAccess.getResultSetFromDb(command);
-        //    return result;
-        //}
-        static public void rotateBarLables(GraphPane pane)
-        {
-            Scale sc = pane.YAxis.Scale;
-            //Double offset = (sc.Max - sc.Min) * 0.5;
-            foreach(Object ob in pane.GraphObjList)
-            {
-                if(typeof(TextObj).Equals(ob.GetType()))
-                {
-                    TextObj textObj = ob as TextObj;
-                    textObj.FontSpec.Angle = 0;
-                    //textObj.Location.Y += offset;
-                    textObj.Location.AlignH = AlignH.Center;
-                    textObj.Location.AlignV = AlignV.Bottom;
-                }
-            }
-        }
-
-        static public void filterDates(Double[] dateArr, Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate,
-            out Double[] resultDates, out Double[] resultValues)
-        {
-            resultDates = (Double[])dateArr.Clone();
-            resultValues = (Double[])valArr.Clone();
-            if (!fromDate.LockUpdateChecked && !tillDate.LockUpdateChecked)
-            {
-                return;
-            }
-            if (dateArr.Length.Equals(0))
-            {
-                return;
-            }
-            DateTime from = fromDate.Value;
-            DateTime till = tillDate.Value;
-            
-            ArrayList list = new ArrayList();
-            for (int i = 0; i < dateArr.Length; i++)
-            {
-                DateTime date = DateTime.FromOADate(dateArr[i]);
-                if (fromDate.LockUpdateChecked && tillDate.LockUpdateChecked)
-                {
-                    if (date.CompareTo(from) >= 0 && date.CompareTo(till) <= 0)
-                    {
-                        list.Add(i);
-                    }
-                }
-                else if (fromDate.LockUpdateChecked)
-                {
-                    if (date.CompareTo(from) >= 0)
-                    {
-                        list.Add(i);
-                    }
-                }
-                else
-                {
-                    if (date.CompareTo(till) <= 0)
-                    {
-                        list.Add(i);
-                    }
-                }
-            }
-
-            int[] indexes = (int[])list.ToArray(typeof(int));
-            for (int i = 0; i < indexes.Length; i++)
-            {
-                resultDates[i] = dateArr[indexes[i]];
-                resultValues[i] = valArr[indexes[i]];
-            }
-
-            //resize the arrays to fit data
-            Array.Resize<double>(ref resultDates, list.Count);
-            Array.Resize<double>(ref resultValues, list.Count);
-
-        }
-
+        
         #region prediction
 
         static public void predictForDates(Double[] origArrDate, Double[] origArrVal, DateTimeInput fromDate, DateTimeInput tillDate,
@@ -323,6 +218,110 @@ namespace seedsfromzion.Managers
 
         #endregion
 
+        #region helper functions
+        static public void filterDates(Double[] dateArr, Double[] valArr, DateTimeInput fromDate, DateTimeInput tillDate,
+            out Double[] resultDates, out Double[] resultValues)
+        {
+            resultDates = (Double[])dateArr.Clone();
+            resultValues = (Double[])valArr.Clone();
+            if (!fromDate.LockUpdateChecked && !tillDate.LockUpdateChecked)
+            {
+                return;
+            }
+            if (dateArr.Length.Equals(0))
+            {
+                return;
+            }
+            DateTime from = fromDate.Value;
+            DateTime till = tillDate.Value;
+
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < dateArr.Length; i++)
+            {
+                DateTime date = DateTime.FromOADate(dateArr[i]);
+                if (fromDate.LockUpdateChecked && tillDate.LockUpdateChecked)
+                {
+                    if (date.CompareTo(from) >= 0 && date.CompareTo(till) <= 0)
+                    {
+                        list.Add(i);
+                    }
+                }
+                else if (fromDate.LockUpdateChecked)
+                {
+                    if (date.CompareTo(from) >= 0)
+                    {
+                        list.Add(i);
+                    }
+                }
+                else
+                {
+                    if (date.CompareTo(till) <= 0)
+                    {
+                        list.Add(i);
+                    }
+                }
+            }
+
+            int[] indexes = (int[])list.ToArray(typeof(int));
+            for (int i = 0; i < indexes.Length; i++)
+            {
+                resultDates[i] = dateArr[indexes[i]];
+                resultValues[i] = valArr[indexes[i]];
+            }
+
+            //resize the arrays to fit data
+            Array.Resize<double>(ref resultDates, list.Count);
+            Array.Resize<double>(ref resultValues, list.Count);
+
+        }
+
+
+
+        //static public void initPlantNames()
+        //{
+        //    MySqlCommand command =
+        //        DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T ");
+        //    plantNames = DatabaseAccess.getResultSetFromDb(command);
+        //}
+
+        static public void initPlantNames(string likeName)
+        {
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T WHERE name LIKE '" + likeName + "%'");
+            plantNames = DatabaseAccess.getResultSetFromDb(command);
+        }
+
+        //static public void initPlantTypes()
+        //{
+        //    MySqlCommand command =
+        //        DataAccessUtils.commandBuilder("SELECT T.name AS name, T.type AS type FROM seedsdb.planttypes T ");
+        //    plantTypes = DatabaseAccess.getResultSetFromDb(command);
+        //}
+
+        static public void initPlantTypes(string name)
+        {
+            MySqlCommand command =
+                DataAccessUtils.commandBuilder("SELECT T.type AS type FROM seedsdb.planttypes T WHERE name = @NAME",
+                "@NAME",
+                name);
+            plantTypes = DatabaseAccess.getResultSetFromDb(command);
+        }
+
+        static public void rotateBarLables(GraphPane pane)
+        {
+            Scale sc = pane.YAxis.Scale;
+            foreach (Object ob in pane.GraphObjList)
+            {
+                if (typeof(TextObj).Equals(ob.GetType()))
+                {
+                    TextObj textObj = ob as TextObj;
+                    textObj.FontSpec.Angle = 0;
+                    textObj.Location.AlignH = AlignH.Center;
+                    textObj.Location.AlignV = AlignV.Bottom;
+                }
+            }
+        }
+
         static public void sortData(ref Double[] dateArr, ref Double[] valArr)
         {
             if (dateArr.Length > 0)
@@ -351,7 +350,6 @@ namespace seedsfromzion.Managers
             return plantType;
         }
         #endregion
-
 
         #region statistics methods
         static public DataTable getSalesGraphValues(int plantId)
