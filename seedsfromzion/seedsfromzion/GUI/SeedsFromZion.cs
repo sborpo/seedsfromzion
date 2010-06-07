@@ -36,12 +36,17 @@ namespace seedsfromzion.GUI
 
         }
 
-        private void SetParent(Form form, Form parent)
+        public void closeOpenedWindows()
         {
-            foreach (Form f in parent.MdiChildren)
+            foreach (Form f in this.MdiChildren)
             {
                 f.Close();
             }
+        }
+
+        private void SetParent(Form form, Form parent)
+        {
+            closeOpenedWindows();
             form.MdiParent = parent;
         }
 
@@ -166,7 +171,7 @@ namespace seedsfromzion.GUI
 
         private void disconnectButton_Click(object sender, EventArgs e)
         {
-            //TODO: should close the current MDI forms
+            closeOpenedWindows();
             new UserAuthentication(this).Show();
         }
         #endregion
