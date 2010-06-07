@@ -62,7 +62,7 @@
             this.textBox_ID.Location = new System.Drawing.Point(4, 4);
             this.textBox_ID.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_ID.Name = "textBox_ID";
-            this.textBox_ID.Size = new System.Drawing.Size(213, 28);
+            this.textBox_ID.Size = new System.Drawing.Size(213, 26);
             this.textBox_ID.TabIndex = 0;
             this.textBox_ID.TextChanged += new System.EventHandler(this.textBox_ID_TextChanged);
             // 
@@ -76,7 +76,7 @@
             this.textBox_firstName.Location = new System.Drawing.Point(4, 42);
             this.textBox_firstName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_firstName.Name = "textBox_firstName";
-            this.textBox_firstName.Size = new System.Drawing.Size(213, 28);
+            this.textBox_firstName.Size = new System.Drawing.Size(213, 26);
             this.textBox_firstName.TabIndex = 3;
             // 
             // textBox_lastName
@@ -89,7 +89,7 @@
             this.textBox_lastName.Location = new System.Drawing.Point(4, 81);
             this.textBox_lastName.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_lastName.Name = "textBox_lastName";
-            this.textBox_lastName.Size = new System.Drawing.Size(213, 28);
+            this.textBox_lastName.Size = new System.Drawing.Size(213, 26);
             this.textBox_lastName.TabIndex = 4;
             // 
             // tableLayoutPanel1
@@ -212,7 +212,7 @@
             this.textBox_comments.Location = new System.Drawing.Point(4, 177);
             this.textBox_comments.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_comments.Name = "textBox_comments";
-            this.textBox_comments.Size = new System.Drawing.Size(213, 28);
+            this.textBox_comments.Size = new System.Drawing.Size(213, 26);
             this.textBox_comments.TabIndex = 14;
             // 
             // labelX4
@@ -286,7 +286,7 @@
             this.textBox_phone.Location = new System.Drawing.Point(4, 129);
             this.textBox_phone.Margin = new System.Windows.Forms.Padding(4);
             this.textBox_phone.Name = "textBox_phone";
-            this.textBox_phone.Size = new System.Drawing.Size(213, 28);
+            this.textBox_phone.Size = new System.Drawing.Size(213, 26);
             this.textBox_phone.TabIndex = 13;
             // 
             // btn_find
@@ -344,7 +344,7 @@
             this.graphicSettingsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
             this.graphicSettingsPanel.Controls.Add(this.btn_find);
             this.graphicSettingsPanel.Controls.Add(this.dateChoisePanel);
-            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.graphicSettingsPanel.IsShadowEnabled = true;
             this.graphicSettingsPanel.Location = new System.Drawing.Point(12, 12);
             this.graphicSettingsPanel.Name = "graphicSettingsPanel";
@@ -377,7 +377,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 413);
+            this.ClientSize = new System.Drawing.Size(552, 397);
             this.Controls.Add(this.graphicSettingsPanel);
             this.DoubleBuffered = true;
             this.Margin = new System.Windows.Forms.Padding(4);

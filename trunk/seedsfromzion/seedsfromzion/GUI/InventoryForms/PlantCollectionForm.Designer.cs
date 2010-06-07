@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -78,10 +77,10 @@
             this.groupPanel1.Controls.Add(this.textBoxX1);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
-            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
+            this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel1.Location = new System.Drawing.Point(12, 15);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(563, 236);
+            this.groupPanel1.Size = new System.Drawing.Size(601, 282);
             // 
             // 
             // 
@@ -111,10 +110,10 @@
             // 
             // 
             this.textBoxX1.Border.Class = "TextBoxBorder";
-            this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            this.textBoxX1.Location = new System.Drawing.Point(348, 9);
+            this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.textBoxX1.Location = new System.Drawing.Point(389, 5);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(111, 22);
+            this.textBoxX1.Size = new System.Drawing.Size(111, 26);
             this.textBoxX1.TabIndex = 2;
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             // 
@@ -122,7 +121,7 @@
             // 
             this.labelX1.BackColor = System.Drawing.Color.Transparent;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX1.Location = new System.Drawing.Point(462, 6);
+            this.labelX1.Location = new System.Drawing.Point(506, 8);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(75, 23);
             this.labelX1.TabIndex = 1;
@@ -133,14 +132,6 @@
             this.dataGridViewX1.AllowUserToAddRows = false;
             this.dataGridViewX1.AllowUserToDeleteRows = false;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
@@ -149,14 +140,14 @@
             this.arriveDate,
             this.sowDate,
             this.units});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(14, 39);
             this.dataGridViewX1.MultiSelect = false;
@@ -164,7 +155,7 @@
             this.dataGridViewX1.ReadOnly = true;
             this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(523, 159);
+            this.dataGridViewX1.Size = new System.Drawing.Size(571, 197);
             this.dataGridViewX1.TabIndex = 0;
             this.dataGridViewX1.SelectionChanged += new System.EventHandler(this.dataGridViewX1_SelectionChanged);
             this.dataGridViewX1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewX1_CellContentClick);
@@ -218,7 +209,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(12, 268);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 303);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.34146F));
@@ -248,7 +239,7 @@
             this.integerInput1.MinValue = 1;
             this.integerInput1.Name = "integerInput1";
             this.integerInput1.ShowUpDown = true;
-            this.integerInput1.Size = new System.Drawing.Size(251, 22);
+            this.integerInput1.Size = new System.Drawing.Size(251, 26);
             this.integerInput1.TabIndex = 2;
             this.integerInput1.Value = 1;
             // 
@@ -281,7 +272,7 @@
             this.textBoxX2.Location = new System.Drawing.Point(3, 85);
             this.textBoxX2.MaxLength = 5;
             this.textBoxX2.Name = "textBoxX2";
-            this.textBoxX2.Size = new System.Drawing.Size(251, 22);
+            this.textBoxX2.Size = new System.Drawing.Size(251, 26);
             this.textBoxX2.TabIndex = 5;
             // 
             // dateTimePicker1
@@ -289,7 +280,7 @@
             this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Top;
             this.dateTimePicker1.Location = new System.Drawing.Point(3, 3);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(251, 22);
+            this.dateTimePicker1.Size = new System.Drawing.Size(251, 26);
             this.dateTimePicker1.TabIndex = 6;
             // 
             // expandablePanel1
@@ -365,7 +356,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.expandablePanel1, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(12, 440);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(19, 475);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -383,7 +374,7 @@
             this.tableLayoutPanel4.Controls.Add(this.labelX6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput2, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput3, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(12, 394);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 429);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -420,7 +411,7 @@
             this.doubleInput2.MinValue = 0.1;
             this.doubleInput2.Name = "doubleInput2";
             this.doubleInput2.ShowUpDown = true;
-            this.doubleInput2.Size = new System.Drawing.Size(65, 22);
+            this.doubleInput2.Size = new System.Drawing.Size(65, 26);
             this.doubleInput2.TabIndex = 2;
             this.doubleInput2.Value = 0.1;
             // 
@@ -436,7 +427,7 @@
             this.doubleInput3.MinValue = 0.1;
             this.doubleInput3.Name = "doubleInput3";
             this.doubleInput3.ShowUpDown = true;
-            this.doubleInput3.Size = new System.Drawing.Size(80, 22);
+            this.doubleInput3.Size = new System.Drawing.Size(80, 26);
             this.doubleInput3.TabIndex = 3;
             this.doubleInput3.Value = 0.1;
             // 
@@ -444,22 +435,24 @@
             // 
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Location = new System.Drawing.Point(267, 533);
+            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonX1.Location = new System.Drawing.Point(274, 568);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(75, 23);
+            this.buttonX1.Size = new System.Drawing.Size(86, 30);
             this.buttonX1.TabIndex = 5;
             this.buttonX1.Text = "אסוף";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
             // 
             // PlantCollectionForm
             // 
-            this.ClientSize = new System.Drawing.Size(838, 567);
+            this.ClientSize = new System.Drawing.Size(838, 622);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel4);
             this.Controls.Add(this.tableLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.groupPanel1);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "PlantCollectionForm";
             this.Load += new System.EventHandler(this.PlantCollectionForm_Load);
             this.groupPanel1.ResumeLayout(false);

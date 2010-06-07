@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.orderGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.orderId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -68,14 +68,14 @@
             this.clientId,
             this.orderDate,
             this.dueDate});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.orderGrid.DefaultCellStyle = dataGridViewCellStyle1;
             this.orderGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.orderGrid.Location = new System.Drawing.Point(30, 81);
             this.orderGrid.MultiSelect = false;
@@ -131,14 +131,14 @@
             this.detailsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
             this.units});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.detailsGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.detailsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.detailsGrid.Location = new System.Drawing.Point(541, 81);
             this.detailsGrid.MultiSelect = false;
@@ -210,13 +210,13 @@
             this.integerInput1.Location = new System.Drawing.Point(118, 29);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(126, 22);
+            this.integerInput1.Size = new System.Drawing.Size(126, 26);
             this.integerInput1.TabIndex = 9;
             this.integerInput1.ValueChanged += new System.EventHandler(this.integerInput1_TextChanged);
             // 
             // SearchOrderForm
             // 
-            this.ClientSize = new System.Drawing.Size(798, 536);
+            this.ClientSize = new System.Drawing.Size(848, 530);
             this.Controls.Add(this.integerInput1);
             this.Controls.Add(this.orderConfirm);
             this.Controls.Add(this.editOrder);
@@ -226,6 +226,7 @@
             this.Controls.Add(this.orderGrid);
             this.Controls.Add(this.labelX1);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "SearchOrderForm";
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).EndInit();

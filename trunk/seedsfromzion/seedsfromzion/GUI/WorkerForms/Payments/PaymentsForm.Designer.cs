@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGrid_workers = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.numericUpDowd_advancedPay = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown_postponedPay = new System.Windows.Forms.NumericUpDown();
@@ -50,17 +50,17 @@
             this.dataGrid_workers.AllowUserToDeleteRows = false;
             this.dataGrid_workers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGrid_workers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid_workers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGrid_workers.Location = new System.Drawing.Point(88, 30);
-            this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4);
             this.dataGrid_workers.MultiSelect = false;
             this.dataGrid_workers.Name = "dataGrid_workers";
             this.dataGrid_workers.ReadOnly = true;
@@ -75,7 +75,7 @@
             this.numericUpDowd_advancedPay.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.numericUpDowd_advancedPay.DecimalPlaces = 1;
             this.numericUpDowd_advancedPay.Location = new System.Drawing.Point(4, 22);
-            this.numericUpDowd_advancedPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDowd_advancedPay.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDowd_advancedPay.Name = "numericUpDowd_advancedPay";
             this.numericUpDowd_advancedPay.Size = new System.Drawing.Size(160, 22);
             this.numericUpDowd_advancedPay.TabIndex = 5;
@@ -85,7 +85,7 @@
             this.numericUpDown_postponedPay.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.numericUpDown_postponedPay.DecimalPlaces = 1;
             this.numericUpDown_postponedPay.Location = new System.Drawing.Point(4, 90);
-            this.numericUpDown_postponedPay.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numericUpDown_postponedPay.Margin = new System.Windows.Forms.Padding(4);
             this.numericUpDown_postponedPay.Name = "numericUpDown_postponedPay";
             this.numericUpDown_postponedPay.Size = new System.Drawing.Size(160, 22);
             this.numericUpDown_postponedPay.TabIndex = 6;
@@ -96,7 +96,7 @@
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.labelX1.Location = new System.Drawing.Point(228, 19);
-            this.labelX1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelX1.Margin = new System.Windows.Forms.Padding(4);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(100, 28);
             this.labelX1.TabIndex = 7;
@@ -108,7 +108,7 @@
             this.labelX2.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX2.Location = new System.Drawing.Point(228, 87);
-            this.labelX2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.labelX2.Margin = new System.Windows.Forms.Padding(4);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(100, 28);
             this.labelX2.TabIndex = 8;
@@ -127,7 +127,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -140,8 +140,8 @@
             this.dateChoisePanel.AutoSize = true;
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.dateChoisePanel.Location = new System.Drawing.Point(627, 59);
-            this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateChoisePanel.Location = new System.Drawing.Point(88, 260);
+            this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4);
             this.dateChoisePanel.Name = "dateChoisePanel";
             this.dateChoisePanel.Size = new System.Drawing.Size(348, 135);
             // 
@@ -169,8 +169,8 @@
             this.btn_update.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_update.Location = new System.Drawing.Point(855, 214);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_update.Location = new System.Drawing.Point(88, 422);
+            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
             this.btn_update.Name = "btn_update";
             this.btn_update.Size = new System.Drawing.Size(116, 37);
             // 
@@ -216,12 +216,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 657);
+            this.ClientSize = new System.Drawing.Size(749, 553);
             this.Controls.Add(this.btn_update);
             this.Controls.Add(this.dateChoisePanel);
             this.Controls.Add(this.dataGrid_workers);
             this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PaymentsForm";
             this.Text = "PaymentsForm";
             this.Load += new System.EventHandler(this.PaymentsForm_Load);
