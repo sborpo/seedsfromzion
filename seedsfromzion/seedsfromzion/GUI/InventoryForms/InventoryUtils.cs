@@ -7,6 +7,7 @@ using DevComponents.DotNetBar.Controls;
 
 namespace seedsfromzion.GUI.InventoryForms
 {
+
     /// <summary>
     /// This class is an auxilary class for the inventory GUI models.
     /// </summary>
