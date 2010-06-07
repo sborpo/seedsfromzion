@@ -172,9 +172,9 @@
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonX1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonX1.Image = global::seedsfromzion.Properties.Resources.addOrderIcon;
-            this.buttonX1.Location = new System.Drawing.Point(296, 312);
+            this.buttonX1.Location = new System.Drawing.Point(281, 312);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(85, 50);
+            this.buttonX1.Size = new System.Drawing.Size(100, 50);
             this.buttonX1.TabIndex = 9;
             this.buttonX1.Text = "הוסף צמח";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
