@@ -169,8 +169,8 @@ namespace seedsfromzion.Managers
             {
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.VisaExpireDays));
-                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT name FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS "
-                + "WHERE VS.expireDate<=@Date AND VS.visaId=WS.visaId AND W.id=WS.workerId", "@Date", date);
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT name,MIN(expireDate) AS date FROM seedsdb.workers W, seedsdb.workersvisas WS , seedsdb.Visas VS "
+                + "WHERE VS.expireDate<=@Date AND VS.expireDate>=@DateNow AND VS.visaId=WS.visaId AND W.id=WS.workerId GROUP BY name", "@Date", date,"@DateNow", String.Format("{0:yyyy-M-d}",DateTime.Now));
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
                 //check if we have such kind of workers
@@ -181,7 +181,15 @@ namespace seedsfromzion.Managers
                 }
                 foreach (DataRow row in res.Rows)
                 {
-                    sb.Append((String)row["name"] + "\n");
+                    TimeSpan duration = TimeSpan.FromTicks((((DateTime)row["date"]).Ticks - DateTime.Now.Ticks));
+                    String str = "ימים";
+                    int timespan = duration.Days;
+                    if (timespan < 1)
+                    {
+                        str = "שעות";
+                        timespan = duration.Hours;
+                    }
+                    sb.Append((String)row["name"] + " " + " תפוג בעוד כ" + timespan + " " + str + "\n");
                 }
                 //display the notification
                 notify.Invoke(notify.displayFunc, (String.Format("אשרות העבודה של העובדים הבאים יפגוגו בטווח של עד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
@@ -198,8 +206,8 @@ namespace seedsfromzion.Managers
             {
                 //execture the select command of the database
                 String date = String.Format("{0:yyyy-M-d}", DateTime.Now.AddDays(ConfigFile.getInstance.OrderDueDate));
-                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT DISTINCT id,name FROM seedsdb.Orders O, seedsdb.Clients C "
-                + "WHERE O.dueDate<=@Date AND C.id=O.clientId", "@Date", date);
+                MySqlCommand command = DataAccessUtils.commandBuilder("SELECT id,name,MIN(O.dueDate) AS date FROM seedsdb.Orders O, seedsdb.Clients C "
+                + "WHERE O.dueDate<=@Date AND O.dueDate>=@DateNow AND O.status='0' AND C.id=O.clientId GROUP BY id,name", "@Date", date, "@DateNow", String.Format("{0:yyyy-M-d}", DateTime.Now));
                 DataTable res = DatabaseAccess.getResultSetFromDb(command);
                 StringBuilder sb = new StringBuilder();
                 //check if we have suck kind of orders
@@ -209,7 +217,17 @@ namespace seedsfromzion.Managers
                 }
                 foreach (DataRow row in res.Rows)
                 {
-                    sb.Append(row["id"] + "  " + row["name"] + "\n");
+
+                    TimeSpan duration = TimeSpan.FromTicks((((DateTime)row["date"]).Ticks - DateTime.Now.Ticks));
+                    String str = "ימים";
+                    int timespan = duration.Days;
+                    if (timespan < 1)
+                    {
+                        str = "שעות";
+                        timespan = duration.Hours;
+                    }
+
+                    sb.Append(row["id"] + "  " + row["name"] +" "+" יגיע בעוד כ"+timespan+" "+str+"\n");
                 }
                 //display the notification
                 notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בטווח של עד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
