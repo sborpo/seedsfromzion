@@ -190,7 +190,7 @@ namespace seedsfromzion.GUI
 
         private void SeedsFromZion_Load(object sender, EventArgs e)
         {
-            //new UserAuthentication(this).Show();
+            new UserAuthentication(this).Show();
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
             initRoutines();
