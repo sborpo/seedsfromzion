@@ -275,7 +275,11 @@ namespace seedsfromzion.Managers
 
         }
 
-
+        static public void resetGraphPane(GraphPane pane)
+        {
+            pane.CurveList.Clear();
+            pane.GraphObjList.Clear();
+        }
 
         //static public void initPlantNames()
         //{
