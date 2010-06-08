@@ -62,7 +62,7 @@
             this.dataGridViewX1.ReadOnly = true;
             this.dataGridViewX1.RowTemplate.Height = 24;
             this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(538, 265);
+            this.dataGridViewX1.Size = new System.Drawing.Size(532, 265);
             this.dataGridViewX1.TabIndex = 1;
             // 
             // labelX2
@@ -70,9 +70,9 @@
             this.labelX2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX2.Location = new System.Drawing.Point(484, 312);
+            this.labelX2.Location = new System.Drawing.Point(471, 312);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(88, 23);
+            this.labelX2.Size = new System.Drawing.Size(95, 23);
             this.labelX2.TabIndex = 2;
             this.labelX2.Text = "אחוז הנביטה:";
             // 
@@ -91,7 +91,7 @@
             this.doubleInput1.MinValue = 0;
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(74, 26);
+            this.doubleInput1.Size = new System.Drawing.Size(68, 26);
             this.doubleInput1.TabIndex = 3;
             this.doubleInput1.Value = 50;
             // 
@@ -104,7 +104,7 @@
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonX1.Location = new System.Drawing.Point(46, 297);
             this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(80, 41);
+            this.buttonX1.Size = new System.Drawing.Size(74, 41);
             this.buttonX1.TabIndex = 4;
             this.buttonX1.Text = "עדכן";
             this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
