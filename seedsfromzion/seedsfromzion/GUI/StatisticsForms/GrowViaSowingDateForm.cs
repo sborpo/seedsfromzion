@@ -54,7 +54,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
             // tilt the x axis labels to an angle of 65 degrees
             growGraphPane.XAxis.Scale.FontSpec.Angle = 90;
-            growGraphPane.XAxis.Scale.FontSpec.Size = 9;
+            growGraphPane.XAxis.Scale.FontSpec.Size = 10;
             growGraphPane.XAxis.Scale.IsVisible = false;
 
             growGraphPane.YAxis.Type = AxisType.Linear;
@@ -77,8 +77,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 graphData = StatisticsManager.getGrowViaSowGraphValues(plantId);
             }
-            growGraphPane.CurveList.Clear();
-            growGraphPane.GraphObjList.Clear();
+            
             if (graphData.Rows.Count.Equals(0))
             {
                 new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
@@ -142,7 +141,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             string plantName = this.plantNameTextBox.Text;
             string plantType = this.plantTypeDropBox.Text;
-
+            StatisticsManager.resetGraphPane(this.GrowViaSowGraphControl.GraphPane);
             //check if all data was entered
             if (plantName.Length <= 0)
             {

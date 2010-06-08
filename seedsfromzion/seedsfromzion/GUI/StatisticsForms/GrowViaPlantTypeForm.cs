@@ -59,8 +59,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             GraphPane growGraphPane = this.GrowViaTypeGraphControl.GraphPane;
             DataTable graphData = StatisticsManager.getGrowViaTypeGraphValues(plantName);
-            growGraphPane.CurveList.Clear();
-            growGraphPane.GraphObjList.Clear();
+            
             //set the values of the bars
             String[] xArray = StatisticsManager.buildArrayFromGraphData<string, String>(graphData, "type");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double, Double>(graphData, "sproutingPerc");
@@ -101,7 +100,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         private void showGraphButton_Click(object sender, EventArgs e)
         {
             string plantName = this.plantNameTextBox.Text;
-
+            StatisticsManager.resetGraphPane(this.GrowViaTypeGraphControl.GraphPane);
             //check if all data was entered
             if (plantName.Length <= 0)
             {
