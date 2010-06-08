@@ -72,8 +72,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 graphData = StatisticsManager.getGrowViaFridgeGraphValues(plantId);
             }
-            growGraphPane.CurveList.Clear();
-            growGraphPane.GraphObjList.Clear();
+            
             //set the values of the bars
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<decimal,Double>(graphData, "fridgeTime");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
@@ -170,7 +169,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             string plantName = this.plantNameTextBox.Text;
             string plantType = this.plantTypeDropBox.Text;
-
+            StatisticsManager.resetGraphPane(this.GrowViaFridgeGraphControl.GraphPane);
             //check if all data was entered
             if (plantName.Length <= 0)
             {

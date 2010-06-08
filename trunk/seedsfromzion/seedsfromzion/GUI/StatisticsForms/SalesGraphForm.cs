@@ -35,6 +35,10 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             base.BaseForm_Load(sender, e);
             this.salesGraphControl_Start(sender, e);
+            this.fromDate.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.fromDate.CustomFormat = "MM/yyyy";
+            this.tillDate.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.tillDate.CustomFormat = "MM/yyyy";
             //StatisticsManager.initPlantNames();
             //StatisticsManager.initPlantTypes();
         }
@@ -96,7 +100,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.XAxis.Scale.MajorUnit = DateUnit.Month;
             // tilt the x axis labels to an angle of 65 degrees
             salesGraphPane.XAxis.Scale.FontSpec.Angle = 90;
-            salesGraphPane.XAxis.Scale.FontSpec.Size = 9;
+            salesGraphPane.XAxis.Scale.FontSpec.Size = 10;
             salesGraphPane.XAxis.Scale.IsVisible = false;
 
             salesGraphPane.YAxis.Type = AxisType.Linear;
@@ -119,9 +123,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 graphData = StatisticsManager.getSalesGraphValues(plantId);
             }
-            salesGraphPane.CurveList.Clear();
-            salesGraphPane.GraphObjList.Clear();
-  
+            
             //set the values of the bars
             Double[] xOrig = StatisticsManager.buildArrayFromGraphData<DateTime, double>(graphData, "orderDate");
             Double[] yOrig = StatisticsManager.buildArrayFromGraphData<decimal, double>(graphData, "units");
@@ -184,7 +186,7 @@ namespace seedsfromzion.GUI.StatisticsForms
         {
             string plantName = this.plantNameTextBox.Text;
             string plantType = this.plantTypeDropBox.Text;
-            
+            StatisticsManager.resetGraphPane(this.salesGraphControl.GraphPane);
             //check if all data was entered
             if (plantName.Length <= 0)
             {
