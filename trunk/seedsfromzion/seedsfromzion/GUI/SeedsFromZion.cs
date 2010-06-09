@@ -129,6 +129,7 @@ namespace seedsfromzion.GUI
         public void Enable()
         {
             this.Enabled = true;
+           
         }
         /// <summary>
         /// Locks the Main Form
@@ -136,6 +137,12 @@ namespace seedsfromzion.GUI
         public void Disable()
         {
             this.Enabled = false;
+           
+        }
+
+        public void loggedIn()
+        {
+            initRoutines();
         }
 
         /// <summary>
@@ -184,6 +191,7 @@ namespace seedsfromzion.GUI
         private void disconnectButton_Click(object sender, EventArgs e)
         {
             closeOpenedWindows();
+            routine.abortChecking();
             new UserAuthentication(this).Show();
         }
         #endregion
@@ -193,7 +201,6 @@ namespace seedsfromzion.GUI
             new UserAuthentication(this).Show();
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
-            initRoutines();
             initFavorites();
             
         }
@@ -201,7 +208,6 @@ namespace seedsfromzion.GUI
         private void initRoutines()
         {
             routine = new Routines(this);
-            
             routine.checkNotifications();
         }
 
@@ -215,7 +221,10 @@ namespace seedsfromzion.GUI
 
         private void seedsFromZion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            routine.abortChecking();
+            if (routine != null)
+            {
+                routine.abortChecking();
+            }
             MessageWindow win = new MessageWindow();
             if (routine.shouldPerformAutomaticBackup())
             {
@@ -278,7 +287,10 @@ namespace seedsfromzion.GUI
 
         void settings_settingsChanged()
         {
-            routine.abortChecking();
+            if (routine != null)
+            {
+                routine.abortChecking();
+            }
             initRoutines();
         }
 
@@ -286,7 +298,10 @@ namespace seedsfromzion.GUI
 
         private void createBackUpButton_Click(object sender, EventArgs e)
         {
-            routine.abortChecking();
+            if (routine != null)
+            {
+                routine.abortChecking();
+            }
             SaveFileDialog chooseBackupPath = new SaveFileDialog();
             chooseBackupPath.InitialDirectory = @"c:\";
            chooseBackupPath.Filter = "Zip File (*.zip) |*.zip";
@@ -301,7 +316,10 @@ namespace seedsfromzion.GUI
 
         private void loadBackUpButton_Click(object sender, EventArgs e)
         {
-            routine.abortChecking();
+            if (routine != null)
+            {
+                routine.abortChecking();
+            }
             OpenFileDialog restoreDialog = new OpenFileDialog();
             if (restoreDialog.ShowDialog()==DialogResult.OK)
             {

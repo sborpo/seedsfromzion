@@ -480,7 +480,16 @@ namespace seedsfromzion.Managers
             MySqlCommand command = FinishedStorageAddCommand(pid, storageNum, units, location);
             DataAccess.DatabaseAccess.performDMLQuery(command);
         }
-
+        
+        /// <summary>
+        /// This is an auxilarty Method which adds a given plant with a certain amount to
+        /// the finished storage
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <param name="storageNum"></param>
+        /// <param name="units"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
         private MySqlCommand FinishedStorageAddCommand(int pid,int storageNum,double units,string location)
         {
             MySqlCommand command;
@@ -503,12 +512,36 @@ namespace seedsfromzion.Managers
             return command;
         }
 
+        /// <summary>
+        /// Updates The Sprouting Percentege of the given statistic. 
+        /// This method should be used when the client didn't inserted the sprouting
+        /// percentage on the collection date
+        /// </summary>
+        /// <param name="pid"></param>
+        /// <param name="arrive"></param>
+        /// <param name="sow"></param>
+        /// <param name="collect"></param>
+        /// <param name="sowing"></param>
         public void UpdateSproutingPercentage(int pid, DateTime arrive, DateTime sow, DateTime collect, double sowing)
         {
             string arriveDate = String.Format("{0:yyyy-M-d}", arrive);
             string sowDate = String.Format("{0:yyyy-M-d}", sow);
             string collectDate = String.Format("{0:yyyy-M-d}", collect);
             MySqlCommand command = DataAccessUtils.commandBuilder("UPDATE seedsdb.sproutedstats SET sproutingPerc=@Perc WHERE plantId=@PID AND arrivingDate = @Arrive AND sowindDate=@Sow AND collectionDate = @Collect ", "@Perc", sowing.ToString(), "@PID", pid.ToString(), "@Arrive", arriveDate, "@Sow", sowDate, "@Collect", collectDate);
+            DatabaseAccess.performDMLQuery(command);
+        }
+
+        /// <summary>
+        /// Removes a given plant from the field. needs all the key attributes
+        /// </summary>
+        /// <param name="plantId"></param>
+        /// <param name="arriveD"></param>
+        /// <param name="sowD"></param>
+        internal void removePlantFromField(int plantId, DateTime arriveD, DateTime sowD)
+        {
+            string arriveDate = String.Format("{0:yyyy-M-d}", arriveD);
+            string sowDate = String.Format("{0:yyyy-M-d}", sowD);
+            MySqlCommand command =DataAccessUtils.commandBuilder("DELETE FROM seedsdb.field WHERE plantId=@ID AND arrivingDate=@Arrive AND sowingDate=@Sow;","@ID",plantId.ToString(),"@Arrive",arriveDate,"@Sow",sowDate);
             DatabaseAccess.performDMLQuery(command);
         }
 
@@ -525,6 +558,7 @@ namespace seedsfromzion.Managers
                 "@P_NAME", plantInfo.Name,
                 "@P_TYPE", plantInfo.UnitType.ToString());
         }
+
         /// <summary>
         /// check if plant exist in the DB by id
         /// </summary>
@@ -534,6 +568,7 @@ namespace seedsfromzion.Managers
         {
             return DataAccessUtils.rowExists("SELECT plantId FROM seedsdb.planttypes WHERE plantId=@P_ID", "@P_ID", p_id.ToString());
         }
+
         /// <summary>
         /// check if a storage exist in the DB by id
         /// </summary>
@@ -543,10 +578,12 @@ namespace seedsfromzion.Managers
         {
             return DataAccessUtils.rowExists("SELECT id FROM seedsdb.finishedstorage WHERE id=@P_ID", "@P_ID", p_id);
         }
-     
-       
-     
 
-       
+
+
+
+
+
+   
     }
 }
