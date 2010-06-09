@@ -55,6 +55,8 @@ namespace seedsfromzion.Managers
         /// <returns></returns>
         public static bool logIn(string username, string password)
         {
+            //TODO: handle user login
+            /*
             //check the user type  
             UserType uType=checkUser (username, password);
             //if the username or the password are incorrect
@@ -63,7 +65,10 @@ namespace seedsfromzion.Managers
                 return false;
             }
             //all good , set the user to be loged in
+            
             logedIn = uType;
+              */
+            logedIn = UserType.ADMIN;
             return true;
         }
 
