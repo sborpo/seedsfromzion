@@ -72,7 +72,7 @@
             this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxX1.Location = new System.Drawing.Point(136, 12);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(299, 26);
+            this.textBoxX1.Size = new System.Drawing.Size(299, 23);
             this.textBoxX1.TabIndex = 1;
             this.textBoxX1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
@@ -132,7 +132,7 @@
             this.labelX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX2.BackColor = System.Drawing.Color.Transparent;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(630, 98);
+            this.labelX2.Location = new System.Drawing.Point(612, 98);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(151, 23);
             this.labelX2.TabIndex = 6;
@@ -141,13 +141,16 @@
             // comments
             // 
             this.comments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.comments.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
             this.comments.Border.Class = "TextBoxBorder";
-            this.comments.Location = new System.Drawing.Point(337, 98);
+            this.comments.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.comments.Location = new System.Drawing.Point(319, 98);
             this.comments.Multiline = true;
             this.comments.Name = "comments";
+            this.comments.ReadOnly = true;
             this.comments.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.comments.Size = new System.Drawing.Size(267, 88);
             this.comments.TabIndex = 7;
@@ -199,7 +202,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(807, 225);
+            this.webBrowser1.Size = new System.Drawing.Size(807, 228);
             this.webBrowser1.TabIndex = 10;
             // 
             // integerInput1
@@ -210,35 +213,40 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(517, 64);
+            this.integerInput1.Location = new System.Drawing.Point(499, 64);
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.ShowUpDown = true;
-            this.integerInput1.Size = new System.Drawing.Size(84, 26);
+            this.integerInput1.Size = new System.Drawing.Size(84, 23);
             this.integerInput1.TabIndex = 10;
             // 
             // unitstype
             // 
             this.unitstype.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.unitstype.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
             this.unitstype.Border.Class = "TextBoxBorder";
-            this.unitstype.Location = new System.Drawing.Point(441, 37);
+            this.unitstype.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.unitstype.Location = new System.Drawing.Point(423, 37);
             this.unitstype.Name = "unitstype";
-            this.unitstype.Size = new System.Drawing.Size(160, 26);
+            this.unitstype.ReadOnly = true;
+            this.unitstype.Size = new System.Drawing.Size(160, 23);
             this.unitstype.TabIndex = 9;
             // 
             // foreign
             // 
             this.foreign.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.foreign.BackColor = System.Drawing.SystemColors.Window;
             // 
             // 
             // 
             this.foreign.Border.Class = "TextBoxBorder";
-            this.foreign.Location = new System.Drawing.Point(441, 11);
+            this.foreign.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.foreign.Location = new System.Drawing.Point(423, 11);
             this.foreign.Name = "foreign";
+            this.foreign.ReadOnly = true;
             this.foreign.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foreign.Size = new System.Drawing.Size(160, 26);
+            this.foreign.Size = new System.Drawing.Size(160, 23);
             this.foreign.TabIndex = 8;
             // 
             // labelX5
@@ -246,7 +254,7 @@
             this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX5.BackColor = System.Drawing.Color.Transparent;
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX5.Location = new System.Drawing.Point(630, 69);
+            this.labelX5.Location = new System.Drawing.Point(612, 69);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(151, 23);
             this.labelX5.TabIndex = 7;
@@ -257,7 +265,7 @@
             this.labelX4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX4.Location = new System.Drawing.Point(630, 40);
+            this.labelX4.Location = new System.Drawing.Point(612, 40);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(151, 23);
             this.labelX4.TabIndex = 6;
@@ -268,7 +276,7 @@
             this.labelX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(630, 11);
+            this.labelX3.Location = new System.Drawing.Point(612, 11);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(151, 23);
             this.labelX3.TabIndex = 5;
@@ -308,7 +316,6 @@
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.labelX1);
-            this.DoubleBuffered = true;
             this.Name = "FindPlant";
             this.Load += new System.EventHandler(this.FindPlant_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FindPlant_FormClosing);
