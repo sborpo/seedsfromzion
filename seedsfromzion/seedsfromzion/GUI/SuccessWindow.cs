@@ -18,7 +18,7 @@ namespace seedsfromzion.GUI
 
         private void SuccessWindow_Load(object sender, EventArgs e)
         {
-
+            this.buttonX1.Select();
         }
 
         private void buttonX1_Click(object sender, EventArgs e)
