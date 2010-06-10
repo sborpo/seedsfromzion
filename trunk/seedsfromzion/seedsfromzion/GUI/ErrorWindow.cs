@@ -33,6 +33,7 @@ namespace seedsfromzion.GUI
         private void ErrorWindow_Load(object sender, EventArgs e)
         {
             textBoxX1.SelectionLength = 0;
+            buttonX1.Select();
         }
     }
 }
