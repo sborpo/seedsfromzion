@@ -108,7 +108,8 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void removePlantButton_Click(object sender, EventArgs e)
         {
-            if (dataGridViewX1.SelectedRows.Count == 0)
+            DialogBox dialog = new DialogBox();
+            if ((dataGridViewX1.SelectedRows.Count == 0) || ((dialog.ShowDialog() != DialogResult.OK)))
             {
                 return;
             }
