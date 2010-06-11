@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlantCollectionForm));
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -58,6 +59,7 @@
             this.doubleInput2 = new DevComponents.Editors.DoubleInput();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.removePlantButton = new DevComponents.DotNetBar.ButtonX();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -69,6 +71,7 @@
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupPanel1
@@ -79,7 +82,7 @@
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel1.Location = new System.Drawing.Point(12, 15);
+            this.groupPanel1.Location = new System.Drawing.Point(165, 12);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(601, 282);
             // 
@@ -141,16 +144,16 @@
             this.arriveDate,
             this.sowDate,
             this.units});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(14, 39);
+            this.dataGridViewX1.Location = new System.Drawing.Point(10, 34);
             this.dataGridViewX1.MultiSelect = false;
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
@@ -211,7 +214,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX7, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(19, 303);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(165, 303);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 46.34146F));
@@ -294,10 +297,12 @@
             this.expandablePanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.expandablePanel1.Controls.Add(this.tableLayoutPanel2);
             this.expandablePanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.expandablePanel1.Expanded = false;
+            this.expandablePanel1.ExpandedBounds = new System.Drawing.Rectangle(3, 3, 439, 60);
             this.expandablePanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.expandablePanel1.Location = new System.Drawing.Point(3, 3);
             this.expandablePanel1.Name = "expandablePanel1";
-            this.expandablePanel1.Size = new System.Drawing.Size(439, 60);
+            this.expandablePanel1.Size = new System.Drawing.Size(439, 26);
             this.expandablePanel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.expandablePanel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.expandablePanel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -362,7 +367,7 @@
             this.tableLayoutPanel3.ColumnCount = 1;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.expandablePanel1, 0, 0);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(19, 475);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(165, 471);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -381,7 +386,7 @@
             this.tableLayoutPanel4.Controls.Add(this.labelX6, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput3, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.doubleInput2, 1, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(19, 429);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(165, 428);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -445,7 +450,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonX1.Location = new System.Drawing.Point(520, 488);
+            this.buttonX1.Location = new System.Drawing.Point(673, 488);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(93, 50);
             this.buttonX1.TabIndex = 5;
@@ -457,16 +462,28 @@
             this.removePlantButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.removePlantButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.removePlantButton.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
-            this.removePlantButton.Location = new System.Drawing.Point(480, 303);
+            this.removePlantButton.Location = new System.Drawing.Point(626, 303);
             this.removePlantButton.Name = "removePlantButton";
             this.removePlantButton.Size = new System.Drawing.Size(133, 42);
             this.removePlantButton.TabIndex = 6;
             this.removePlantButton.Text = "מחק צמח";
             this.removePlantButton.Click += new System.EventHandler(this.removePlantButton_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 629);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // PlantCollectionForm
             // 
-            this.ClientSize = new System.Drawing.Size(838, 556);
+            this.ClientSize = new System.Drawing.Size(863, 629);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.removePlantButton);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel4);
@@ -487,7 +504,9 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -522,5 +541,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private DevComponents.DotNetBar.ButtonX removePlantButton;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

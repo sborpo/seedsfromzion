@@ -364,6 +364,27 @@ namespace seedsfromzion.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap sideCollect {
+            get {
+                object obj = ResourceManager.GetObject("sideCollect", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sideFridge {
+            get {
+                object obj = ResourceManager.GetObject("sideFridge", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap sideSow {
+            get {
+                object obj = ResourceManager.GetObject("sideSow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap success_icon {
             get {
                 object obj = ResourceManager.GetObject("success_icon", resourceCulture);

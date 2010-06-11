@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddToFridgeForm));
             this.units = new DevComponents.Editors.DoubleInput();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -46,10 +47,12 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.units)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // units
@@ -63,11 +66,11 @@
             this.units.BackgroundStyle.Class = "DateTimeInputBackground";
             this.units.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.units.Increment = 1;
-            this.units.Location = new System.Drawing.Point(4, 48);
+            this.units.Location = new System.Drawing.Point(4, 49);
             this.units.MinValue = 0.1;
             this.units.Name = "units";
             this.units.ShowUpDown = true;
-            this.units.Size = new System.Drawing.Size(220, 26);
+            this.units.Size = new System.Drawing.Size(220, 23);
             this.units.TabIndex = 0;
             this.units.Value = 1;
             // 
@@ -83,7 +86,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.arriveLabel, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.units, 1, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(13, 301);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(156, 297);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 51F));
@@ -96,9 +99,9 @@
             // 
             this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.dateTimePicker1.Location = new System.Drawing.Point(4, 8);
+            this.dateTimePicker1.Location = new System.Drawing.Point(4, 9);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 26);
+            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // location
@@ -108,10 +111,10 @@
             // 
             // 
             this.location.Border.Class = "TextBoxBorder";
-            this.location.Location = new System.Drawing.Point(4, 91);
+            this.location.Location = new System.Drawing.Point(4, 93);
             this.location.MaxLength = 5;
             this.location.Name = "location";
-            this.location.Size = new System.Drawing.Size(220, 26);
+            this.location.Size = new System.Drawing.Size(220, 23);
             this.location.TabIndex = 2;
             // 
             // labelX3
@@ -158,7 +161,7 @@
             this.plantInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.plantInput.Location = new System.Drawing.Point(220, 8);
             this.plantInput.Name = "plantInput";
-            this.plantInput.Size = new System.Drawing.Size(131, 26);
+            this.plantInput.Size = new System.Drawing.Size(131, 23);
             this.plantInput.TabIndex = 2;
             this.plantInput.TextChanged += new System.EventHandler(this.plantInput_TextChanged);
             // 
@@ -178,7 +181,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonX1.Location = new System.Drawing.Point(167, 450);
+            this.buttonX1.Location = new System.Drawing.Point(310, 456);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(109, 33);
             this.buttonX1.TabIndex = 6;
@@ -216,7 +219,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(10, 45);
+            this.dataGridViewX1.Location = new System.Drawing.Point(10, 37);
             this.dataGridViewX1.MultiSelect = false;
             this.dataGridViewX1.Name = "dataGridViewX1";
             this.dataGridViewX1.ReadOnly = true;
@@ -254,7 +257,7 @@
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
             this.groupPanel1.Controls.Add(this.labelX1);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel1.Location = new System.Drawing.Point(13, 12);
+            this.groupPanel1.Location = new System.Drawing.Point(156, 12);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(455, 262);
             // 
@@ -280,20 +283,33 @@
             this.groupPanel1.TabIndex = 8;
             this.groupPanel1.Text = "צמחים במערכת";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 656);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddToFridgeForm
             // 
-            this.ClientSize = new System.Drawing.Size(914, 500);
+            this.ClientSize = new System.Drawing.Size(914, 656);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupPanel1);
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "AddToFridgeForm";
             ((System.ComponentModel.ISupportInitialize)(this.units)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             this.groupPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -316,5 +332,6 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private DevComponents.Editors.DoubleInput units;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

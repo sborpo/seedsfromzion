@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.plantInput = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -48,10 +48,12 @@
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
             this.groupPanel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // labelX1
@@ -90,14 +92,14 @@
             this.arriveDate,
             this.units,
             this.place});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(3, 32);
             this.dataGridViewX1.MultiSelect = false;
@@ -192,7 +194,7 @@
             this.groupPanel1.Controls.Add(this.plantInput);
             this.groupPanel1.Controls.Add(this.dataGridViewX1);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel1.Location = new System.Drawing.Point(21, 12);
+            this.groupPanel1.Location = new System.Drawing.Point(161, 11);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(600, 275);
             // 
@@ -223,7 +225,7 @@
             this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonX1.Location = new System.Drawing.Point(193, 415);
+            this.buttonX1.Location = new System.Drawing.Point(333, 414);
             this.buttonX1.Name = "buttonX1";
             this.buttonX1.Size = new System.Drawing.Size(125, 40);
             this.buttonX1.TabIndex = 7;
@@ -242,7 +244,7 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX4, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBoxX1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 303);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(161, 302);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 48.61111F));
@@ -286,16 +288,28 @@
             this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.buttonX2.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
-            this.buttonX2.Location = new System.Drawing.Point(465, 293);
+            this.buttonX2.Location = new System.Drawing.Point(605, 292);
             this.buttonX2.Name = "buttonX2";
             this.buttonX2.Size = new System.Drawing.Size(119, 43);
             this.buttonX2.TabIndex = 9;
             this.buttonX2.Text = "מחק צמח";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = global::seedsfromzion.Properties.Resources.sideSow;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(150, 483);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // SowSeedsForm
             // 
-            this.ClientSize = new System.Drawing.Size(640, 483);
+            this.ClientSize = new System.Drawing.Size(932, 483);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.buttonX1);
@@ -307,7 +321,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -332,5 +348,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn units;
         private System.Windows.Forms.DataGridViewTextBoxColumn place;
         private DevComponents.DotNetBar.ButtonX buttonX2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -485,6 +485,10 @@
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
     <Content Include="lib\ZedGraph.dll" />
+    <None Include="Resources\sideFridge.png" />
+    <None Include="Resources\sideCollect.png" />
+    <None Include="Resources\sideSow.png" />
+    <None Include="Resources\saf.tif" />
     <None Include="Resources\questionMark.png" />
     <None Include="Resources\postage_stamp_wide.png" />
     <None Include="Resources\image_missing.jpg" />

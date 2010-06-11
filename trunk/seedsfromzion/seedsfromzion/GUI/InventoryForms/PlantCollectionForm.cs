@@ -123,5 +123,10 @@ namespace seedsfromzion.GUI.InventoryForms
             dataGridViewX1.Rows.Remove(dataGridViewX1.SelectedRows[0]);
 
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
