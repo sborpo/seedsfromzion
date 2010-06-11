@@ -181,7 +181,14 @@ namespace seedsfromzion.Managers
                 }
                 foreach (DataRow row in res.Rows)
                 {
-                    TimeSpan duration = TimeSpan.FromTicks((((DateTime)row["date"]).Ticks - DateTime.Now.Ticks));
+                    DateTime time=DateTime.Now.ToLocalTime();
+                    long ticks = (((DateTime)row["date"]).Ticks - time.Ticks);
+                    if (ticks <= 0)
+                    {
+                        continue;
+                    }
+                    TimeSpan duration = TimeSpan.FromTicks(ticks);
+                    
                     String str = "ימים";
                     int timespan = duration.Days;
                     if (timespan < 1)
@@ -190,6 +197,10 @@ namespace seedsfromzion.Managers
                         timespan = duration.Hours;
                     }
                     sb.Append((String)row["name"] + " " + " תפוג בעוד כ" + timespan + " " + str + "\n");
+                }
+                if (sb.ToString().Equals(String.Empty))
+                {
+                    return;
                 }
                 //display the notification
                 notify.Invoke(notify.displayFunc, (String.Format("אשרות העבודה של העובדים הבאים יפגוגו בטווח של עד כ {0} ימים", ConfigFile.getInstance.VisaExpireDays)), sb.ToString());
@@ -218,7 +229,13 @@ namespace seedsfromzion.Managers
                 foreach (DataRow row in res.Rows)
                 {
 
-                    TimeSpan duration = TimeSpan.FromTicks((((DateTime)row["date"]).Ticks - DateTime.Now.Ticks));
+                    DateTime time = DateTime.Now.ToLocalTime();
+                    long ticks = (((DateTime)row["date"]).Ticks - time.Ticks);
+                    if (ticks <= 0)
+                    {
+                        continue;
+                    }
+                    TimeSpan duration = TimeSpan.FromTicks(ticks);
                     String str = "ימים";
                     int timespan = duration.Days;
                     if (timespan < 1)
@@ -228,6 +245,10 @@ namespace seedsfromzion.Managers
                     }
 
                     sb.Append(row["id"] + "  " + row["name"] +" "+" יגיע בעוד כ"+timespan+" "+str+"\n");
+                }
+                if (sb.ToString().Equals(String.Empty))
+                {
+                    return;
                 }
                 //display the notification
                 notify.Invoke(notify.displayFunc, (String.Format("הלקוחות הבאים יגיעו לקחת את סחורתם בטווח של עד כ {0} ימים", ConfigFile.getInstance.OrderDueDate)), sb.ToString());
