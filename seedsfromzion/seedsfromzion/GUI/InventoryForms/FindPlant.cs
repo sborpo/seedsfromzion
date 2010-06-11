@@ -30,7 +30,8 @@ namespace seedsfromzion.GUI.InventoryForms
 
         void mainForm_deletePlantClicked()
         {
-            if (dataGridViewX1.SelectedRows.Count == 0)
+            DialogBox dialog = new DialogBox();
+            if ((dataGridViewX1.SelectedRows.Count == 0) || ((dialog.ShowDialog() != DialogResult.OK)))
             {
                 return;
             }
