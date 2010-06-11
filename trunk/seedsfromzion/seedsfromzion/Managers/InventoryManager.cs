@@ -545,6 +545,18 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
+        /// <summary>
+        /// Removes the given plantId from the fridge
+        /// </summary>
+        /// <param name="plantId"></param>
+        /// <param name="arrive"></param>
+        internal void removePlantFromFridge(int plantId, DateTime arrive)
+        {
+            string arriveDate = String.Format("{0:yyyy-M-d}", arrive);
+            MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.fridge WHERE plantId=@ID AND arrivingDate=@Arrive", "@ID", plantId.ToString(), "@Arrive", arriveDate);
+            DatabaseAccess.performDMLQuery(command);
+        }
+
         #endregion
 
         /// <summary>
@@ -584,6 +596,7 @@ namespace seedsfromzion.Managers
 
 
 
-   
+
+
     }
 }

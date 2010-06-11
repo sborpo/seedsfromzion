@@ -226,22 +226,21 @@ namespace seedsfromzion.GUI
                 routine.abortChecking();
             }
             MessageWindow win = new MessageWindow();
-            if (routine.shouldPerformAutomaticBackup())
+            if (Routines.shouldPerformAutomaticBackup())
             {
                 win.setText("מבצע גיבוי אוטומטי");
                 win.Show();
                 Thread.Sleep(3000);
-                routine.performAutomaticBackup();
+                Routines.performAutomaticBackup();
                 
                 
             }
-            if (routine.shouldPerformOptimization())
+            if (Routines.shouldPerformOptimization())
             {
-                win .setText("מבצע אופטימיזציה ");
+                win.setText("מבצע אופטימיזציה ");
                 win.Show();
                 Thread.Sleep(3000);
-                routine.performDbOptimization();
-          
+                Routines.performDbOptimization();
             }
             win.Close();
            
