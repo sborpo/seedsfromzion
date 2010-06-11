@@ -100,5 +100,20 @@ namespace seedsfromzion.GUI.InventoryForms
         {
             mainForm.favoriteClicked -= mainForm_favoriteClicked;
         }
+
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewX1.SelectedRows.Count == 0)
+            {
+                return;
+            }
+            DateTime arrive = (DateTime)dataGridViewX1.SelectedRows[0].Cells[3].Value;
+            int plantId = (int)(UInt32)dataGridViewX1.SelectedRows[0].Cells[0].Value;
+            InventoryManager manager = new InventoryManager();
+            //remove the plant from the database
+            manager.removePlantFromFridge(plantId, arrive);
+            //remove the plant from the grid view
+            dataGridViewX1.Rows.Remove(dataGridViewX1.SelectedRows[0]);
+        }
     }
 }

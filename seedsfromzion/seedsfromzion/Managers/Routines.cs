@@ -299,7 +299,7 @@ namespace seedsfromzion.Managers
         /// returns true if yes , otherwise returns false.
         /// </summary>
         /// <returns></returns>
-        public bool shouldPerformAutomaticBackup()
+        public static bool shouldPerformAutomaticBackup()
         {
             DateTime lastBackup = ConfigFile.getInstance.LastAutomaticBackupDate;
             //check that the last backup date + backup frequency is less then todays date
@@ -320,7 +320,7 @@ namespace seedsfromzion.Managers
         /// Dir : Images Path -> images files.
         /// Dir: Database -> the sql dump file
         /// </summary>
-        public void performAutomaticBackup()
+        public static void performAutomaticBackup()
         {
             if (!shouldPerformAutomaticBackup())
             {
@@ -340,7 +340,7 @@ namespace seedsfromzion.Managers
         /// returns true if yes , otherwise false.
         /// </summary>
         /// <returns></returns>
-        public bool shouldPerformOptimization()
+        public static bool shouldPerformOptimization()
         {
             DateTime lastOptimize = ConfigFile.getInstance.LastOptimizationDate;
             //check that the last optimization date date + optimization frequency is less then todays date
@@ -355,7 +355,7 @@ namespace seedsfromzion.Managers
         /// Performs an optimization on the work hours table ,
         /// moves old record to an archive engine table
         /// </summary>
-        public void performDbOptimization()
+        public static void performDbOptimization()
         {
 
             if (!shouldPerformOptimization())
