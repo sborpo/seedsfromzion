@@ -110,6 +110,12 @@ namespace seedsfromzion.GUI.WorkerForms
             }
             int workerid = (int)(UInt32)(dataGridWorkers.SelectedRows[0].Cells["id"].Value);
 
+            DialogBox dialog = new DialogBox("האם אתה בטוח כי ברצונך למחוק עובד?");
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
             try
             {
                 m_manager.RemoveWorker(workerid);
