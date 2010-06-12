@@ -144,5 +144,35 @@ namespace seedsfromzion.GUI.WorkerForms
             success.Show();
         }
 
+        private void btn_removeWorker_Click(object sender, EventArgs e)
+        {
+            if (dataGridVisas.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int visaID = (int)((uint)dataGridVisas.SelectedRows[0].Cells["visaID"].Value);
+
+            if (dataGrid_workers.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            int workerId = (int)((uint)dataGrid_workers.SelectedRows[0].Cells["workerid"].Value);
+
+            DialogBox dialog = new DialogBox("האם אתה בטוח כי ברצונך להסיר עובד מויזה?");
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+
+            WorkerManager workerManager = new WorkerManager();
+            workerManager.RemoveWorkerFromVisa(visaID, workerId);
+
+            //refresh the form
+            populateWorkers();
+
+            SuccessWindow success = new SuccessWindow();
+            success.Show();
+        }
+
     }
 }
