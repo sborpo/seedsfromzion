@@ -143,7 +143,13 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("לא נבחרה הזמנה לביטול").Show();
                 return;
             }
-          
+
+            DialogBox dialog = new DialogBox();
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            
 
             OrderManager orderManager = new OrderManager();
             System.UInt32 orderId = (System.UInt32)selectedRows[0].Cells["orderId"].Value;
@@ -182,7 +188,12 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("לא נבחרה הזמנה לאישור אספקה").Show();
                 return;
             }
-
+            DialogBox dialog = new DialogBox();
+            if (dialog.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            
 
             OrderManager orderManager = new OrderManager();
             System.UInt32 orderId = (System.UInt32)selectedRows[0].Cells["orderId"].Value;
