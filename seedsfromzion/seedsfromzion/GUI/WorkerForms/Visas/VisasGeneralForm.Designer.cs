@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridVisas = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.btn_addVisa = new DevComponents.DotNetBar.ButtonX();
             this.dataGrid_workers = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -52,6 +52,7 @@
             this.plantNameTextBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.plantTypeDropBox = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.groupPanel2 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.btn_removeWorker = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel3 = new DevComponents.DotNetBar.Controls.GroupPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).BeginInit();
@@ -73,14 +74,14 @@
             this.dataGridVisas.AllowUserToDeleteRows = false;
             this.dataGridVisas.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGridVisas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridVisas.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridVisas.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridVisas.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridVisas.Location = new System.Drawing.Point(25, 16);
             this.dataGridVisas.Margin = new System.Windows.Forms.Padding(4);
@@ -110,14 +111,14 @@
             this.dataGrid_workers.AllowUserToDeleteRows = false;
             this.dataGrid_workers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGrid_workers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid_workers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGrid_workers.Location = new System.Drawing.Point(25, 16);
             this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4);
@@ -136,14 +137,14 @@
             this.dataGrid_allWorkers.AllowUserToDeleteRows = false;
             this.dataGrid_allWorkers.BackgroundColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.dataGrid_allWorkers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid_allWorkers.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid_allWorkers.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid_allWorkers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGrid_allWorkers.Location = new System.Drawing.Point(24, 4);
             this.dataGrid_allWorkers.Margin = new System.Windows.Forms.Padding(4);
@@ -164,7 +165,7 @@
             this.btn_attachWorkerToVisa.Name = "btn_attachWorkerToVisa";
             this.btn_attachWorkerToVisa.Size = new System.Drawing.Size(165, 44);
             this.btn_attachWorkerToVisa.TabIndex = 4;
-            this.btn_attachWorkerToVisa.Text = "אוסף עובד לויזה";
+            this.btn_attachWorkerToVisa.Text = "הוסף עובד לויזה";
             this.btn_attachWorkerToVisa.Click += new System.EventHandler(this.btn_addWorkerToVisa_Click);
             // 
             // groupPanel1
@@ -267,7 +268,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(658, 382);
+            this.showGraphButton.Location = new System.Drawing.Point(652, 382);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -316,7 +317,7 @@
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel2);
             this.dateChoisePanel.Location = new System.Drawing.Point(41, 206);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(766, 142);
+            this.dateChoisePanel.Size = new System.Drawing.Size(760, 142);
             // 
             // 
             // 
@@ -353,7 +354,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(766, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(760, 142);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // tillDate
@@ -366,7 +367,7 @@
             this.tillDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.tillDate.ButtonDropDown.Visible = true;
             this.tillDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.tillDate.Location = new System.Drawing.Point(259, 95);
+            this.tillDate.Location = new System.Drawing.Point(255, 96);
             // 
             // 
             // 
@@ -411,7 +412,7 @@
             this.tillDate.Name = "tillDate";
             this.tillDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDate.ShowCheckBox = true;
-            this.tillDate.Size = new System.Drawing.Size(192, 22);
+            this.tillDate.Size = new System.Drawing.Size(192, 20);
             this.tillDate.TabIndex = 13;
             this.tillDate.WatermarkEnabled = false;
             // 
@@ -421,7 +422,7 @@
             this.tillDateLabel.BackColor = System.Drawing.Color.Transparent;
             this.tillDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.tillDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.tillDateLabel.Location = new System.Drawing.Point(620, 94);
+            this.tillDateLabel.Location = new System.Drawing.Point(614, 94);
             this.tillDateLabel.Name = "tillDateLabel";
             this.tillDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tillDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -439,7 +440,7 @@
             this.fromDate.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.fromDate.ButtonDropDown.Visible = true;
             this.fromDate.InputHorizontalAlignment = DevComponents.Editors.eHorizontalAlignment.Right;
-            this.fromDate.Location = new System.Drawing.Point(259, 24);
+            this.fromDate.Location = new System.Drawing.Point(255, 25);
             // 
             // 
             // 
@@ -484,7 +485,7 @@
             this.fromDate.Name = "fromDate";
             this.fromDate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDate.ShowCheckBox = true;
-            this.fromDate.Size = new System.Drawing.Size(192, 22);
+            this.fromDate.Size = new System.Drawing.Size(192, 20);
             this.fromDate.TabIndex = 6;
             this.fromDate.WatermarkEnabled = false;
             // 
@@ -498,7 +499,7 @@
             this.fromDateLabel.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Rounded;
             this.fromDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.fromDateLabel.ForeColor = System.Drawing.Color.Black;
-            this.fromDateLabel.Location = new System.Drawing.Point(620, 23);
+            this.fromDateLabel.Location = new System.Drawing.Point(614, 23);
             this.fromDateLabel.Name = "fromDateLabel";
             this.fromDateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.fromDateLabel.Size = new System.Drawing.Size(143, 25);
@@ -558,10 +559,10 @@
             // 
             // 
             this.plantNameTextBox.Border.Class = "TextBoxBorder";
-            this.plantNameTextBox.Location = new System.Drawing.Point(3, 39);
+            this.plantNameTextBox.Location = new System.Drawing.Point(3, 40);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(103, 22);
+            this.plantNameTextBox.Size = new System.Drawing.Size(103, 20);
             this.plantNameTextBox.TabIndex = 17;
             this.plantNameTextBox.WatermarkText = "הכנס סוג של הצמח";
             // 
@@ -585,12 +586,13 @@
             // 
             this.groupPanel2.CanvasColor = System.Drawing.SystemColors.Control;
             this.groupPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel2.Controls.Add(this.btn_removeWorker);
             this.groupPanel2.Controls.Add(this.dataGrid_workers);
             this.groupPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel2.Location = new System.Drawing.Point(644, 13);
             this.groupPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.groupPanel2.Name = "groupPanel2";
-            this.groupPanel2.Size = new System.Drawing.Size(336, 269);
+            this.groupPanel2.Size = new System.Drawing.Size(363, 307);
             // 
             // 
             // 
@@ -613,6 +615,18 @@
             this.groupPanel2.Style.TextLineAlignment = DevComponents.DotNetBar.eStyleTextAlignment.Near;
             this.groupPanel2.TabIndex = 8;
             this.groupPanel2.Text = "עובדים השיכיים לויזה";
+            // 
+            // btn_removeWorker
+            // 
+            this.btn_removeWorker.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btn_removeWorker.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btn_removeWorker.Location = new System.Drawing.Point(25, 233);
+            this.btn_removeWorker.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_removeWorker.Name = "btn_removeWorker";
+            this.btn_removeWorker.Size = new System.Drawing.Size(165, 44);
+            this.btn_removeWorker.TabIndex = 10;
+            this.btn_removeWorker.Text = "הסר עובד מויזה";
+            this.btn_removeWorker.Click += new System.EventHandler(this.btn_removeWorker_Click);
             // 
             // groupPanel3
             // 
@@ -650,13 +664,12 @@
             // 
             // VisasGeneralForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(998, 567);
+            this.ClientSize = new System.Drawing.Size(1109, 675);
             this.Controls.Add(this.groupPanel3);
             this.Controls.Add(this.groupPanel2);
             this.Controls.Add(this.groupPanel1);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisasGeneralForm";
@@ -702,5 +715,6 @@
         private DevComponents.DotNetBar.Controls.GroupPanel groupPanel3;
         private DevComponents.DotNetBar.ButtonX btn_editVisa;
         private DevComponents.DotNetBar.ButtonX btn_deleteVisa;
+        private DevComponents.DotNetBar.ButtonX btn_removeWorker;
     }
 }

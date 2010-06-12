@@ -271,6 +271,24 @@ namespace seedsfromzion.Managers
         }
 
         /// <summary>
+        /// reemoves a worker attached to a visa.
+        /// </summary>
+        /// <param name="p_visaID"></param>
+        /// <param name="p_workerID"></param>
+        public void RemoveWorkerFromVisa(int p_visaID, int p_workerID)
+        {
+            if (!checkVisaExists(p_visaID))
+            {
+                return;
+            }
+
+            MySqlCommand command = DataAccessUtils.commandBuilder("DELETE FROM seedsdb.workersvisas WHERE visaId=@P_VISAID AND workerid=@P_WORKERID",
+               "@P_VISAID", p_visaID.ToString(),
+               "@P_WORKERID", p_workerID.ToString());
+            DatabaseAccess.performDMLQuery(command);
+        }
+
+        /// <summary>
         /// updates visa's information.
         /// </summary>
         /// <param name="p_visaID"></param>
