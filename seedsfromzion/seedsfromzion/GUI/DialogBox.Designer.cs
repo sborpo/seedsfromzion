@@ -89,6 +89,7 @@ namespace seedsfromzion.GUI
             this.DoubleBuffered = true;
             this.Name = "DialogBox";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "התראה";
             this.Load += new System.EventHandler(this.DialogBox_Load);

@@ -74,19 +74,20 @@
             // 
             // NotificationWindow
             // 
-            this.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(234)))), ((int)(((byte)(245)))));
-            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(175)))), ((int)(((byte)(210)))), ((int)(((byte)(255)))));
+            this.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(147)))), ((int)(((byte)(207)))));
             resources.ApplyResources(this, "$this");
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.reflectionImage1);
-            this.ForeColor = System.Drawing.Color.Black;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(55)))), ((int)(((byte)(114)))));
             this.Name = "NotificationWindow";
             this.ShowCloseButton = false;
-            this.ShowInTaskbar = true;
+            this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Style = DevComponents.DotNetBar.eBallonStyle.Office2007Alert;
+            this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.NotificationWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
