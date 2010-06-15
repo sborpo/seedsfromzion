@@ -233,19 +233,28 @@ namespace seedsfromzion.GUI.InventoryForms
         }
 
         private void textBoxX1_TextChanged(object sender, EventArgs e)
-        {
+        {     
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
             StatisticsManager.initPlantNames(this.textBoxX1.Text);//NEW
-            if (StatisticsManager.plantNames != null)
+            if (this.textBoxX1.Text.Length > 0 && StatisticsManager.plantNames != null)
             {
                 DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                    this.textBoxX1.AutoCompleteCustomSource.Clear();
-                    this.textBoxX1.AutoCompleteCustomSource.AddRange(names);
-                    this.textBoxX1.Refresh();
+                    this.autoCompleteList.Items.Clear();
+                    this.autoCompleteList.Items.AddRange(names);
+                    this.autoCompleteList.Visible = true;
                 }
             }
+        }
+
+        private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.textBoxX1.Text = (String)this.autoCompleteList.SelectedItem;
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
         }
 
         private void textBoxX1_KeyPress(object sender, KeyPressEventArgs e)
