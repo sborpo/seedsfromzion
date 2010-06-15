@@ -17,8 +17,8 @@ namespace seedsfromzion.Managers
     class StatisticsManager
     {
         #region public fields
-        static public DataTable plantNames;
-        static public DataTable plantTypes;
+        static public DataTable plantNames = null;
+        static public DataTable plantTypes = null;
         #endregion
 
         #region helper class
@@ -290,6 +290,13 @@ namespace seedsfromzion.Managers
 
         static public void initPlantNames(string likeName)
         {
+            if (plantNames != null)
+            {
+                if (plantNames.Select("name LIKE '" + likeName + "%'") != null)
+                {
+                    return;
+                }
+            }
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T WHERE name LIKE '" + likeName + "%'");
             plantNames = DatabaseAccess.getResultSetFromDb(command);
