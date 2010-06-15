@@ -49,22 +49,23 @@ namespace seedsfromzion.GUI
             // 
             // text
             // 
-            this.text.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.text.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.text.Location = new System.Drawing.Point(41, 36);
             this.text.Name = "text";
             this.text.Size = new System.Drawing.Size(368, 23);
             this.text.TabIndex = 1;
+            this.text.Text = "האם הינך בטוח שברצונך לבצע פעולה זו?";
             // 
             // yesButton
             // 
             this.yesButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.yesButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.yesButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.yesButton.Location = new System.Drawing.Point(117, 106);
+            this.yesButton.Location = new System.Drawing.Point(117, 97);
             this.yesButton.Name = "yesButton";
-            this.yesButton.Size = new System.Drawing.Size(75, 23);
+            this.yesButton.Size = new System.Drawing.Size(83, 32);
             this.yesButton.TabIndex = 2;
-            this.yesButton.Text = "��";
+            this.yesButton.Text = "כן";
             this.yesButton.Click += new System.EventHandler(this.yesButton_Click);
             // 
             // NoButton
@@ -72,11 +73,11 @@ namespace seedsfromzion.GUI
             this.NoButton.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.NoButton.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
             this.NoButton.DialogResult = System.Windows.Forms.DialogResult.No;
-            this.NoButton.Location = new System.Drawing.Point(276, 106);
+            this.NoButton.Location = new System.Drawing.Point(270, 97);
             this.NoButton.Name = "NoButton";
-            this.NoButton.Size = new System.Drawing.Size(75, 23);
+            this.NoButton.Size = new System.Drawing.Size(81, 32);
             this.NoButton.TabIndex = 3;
-            this.NoButton.Text = "��";
+            this.NoButton.Text = "לא";
             this.NoButton.Click += new System.EventHandler(this.NoButton_Click);
             // 
             // DialogBox
@@ -86,10 +87,11 @@ namespace seedsfromzion.GUI
             this.Controls.Add(this.yesButton);
             this.Controls.Add(this.text);
             this.Controls.Add(this.reflectionImage1);
+            this.DoubleBuffered = true;
             this.Name = "DialogBox";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "�����";
+            this.Text = "התראה";
             this.ResumeLayout(false);
 
         }
