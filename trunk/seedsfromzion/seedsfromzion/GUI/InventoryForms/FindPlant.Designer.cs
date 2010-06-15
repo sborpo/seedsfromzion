@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
@@ -46,6 +46,7 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.closeImage = new DevComponents.DotNetBar.ButtonX();
             this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.autoCompleteList = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupPanel1.SuspendLayout();
@@ -72,7 +73,7 @@
             this.textBoxX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxX1.Location = new System.Drawing.Point(136, 12);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(299, 23);
+            this.textBoxX1.Size = new System.Drawing.Size(299, 26);
             this.textBoxX1.TabIndex = 1;
             this.textBoxX1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxX1_KeyPress);
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
@@ -95,14 +96,14 @@
             this.dataGridViewX1.AllowUserToDeleteRows = false;
             this.dataGridViewX1.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridViewX1.Location = new System.Drawing.Point(29, 372);
             this.dataGridViewX1.MultiSelect = false;
@@ -132,7 +133,7 @@
             this.labelX2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX2.BackColor = System.Drawing.Color.Transparent;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(612, 98);
+            this.labelX2.Location = new System.Drawing.Point(606, 98);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(151, 23);
             this.labelX2.TabIndex = 6;
@@ -147,7 +148,7 @@
             // 
             this.comments.Border.Class = "TextBoxBorder";
             this.comments.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.comments.Location = new System.Drawing.Point(319, 98);
+            this.comments.Location = new System.Drawing.Point(313, 98);
             this.comments.Multiline = true;
             this.comments.Name = "comments";
             this.comments.ReadOnly = true;
@@ -202,7 +203,7 @@
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(807, 228);
+            this.webBrowser1.Size = new System.Drawing.Size(807, 225);
             this.webBrowser1.TabIndex = 10;
             // 
             // integerInput1
@@ -213,9 +214,9 @@
             // 
             this.integerInput1.BackgroundStyle.Class = "DateTimeInputBackground";
             this.integerInput1.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
-            this.integerInput1.Location = new System.Drawing.Point(499, 64);
+            this.integerInput1.Location = new System.Drawing.Point(493, 64);
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(84, 23);
+            this.integerInput1.Size = new System.Drawing.Size(84, 26);
             this.integerInput1.TabIndex = 10;
             // 
             // unitstype
@@ -227,10 +228,10 @@
             // 
             this.unitstype.Border.Class = "TextBoxBorder";
             this.unitstype.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.unitstype.Location = new System.Drawing.Point(423, 37);
+            this.unitstype.Location = new System.Drawing.Point(417, 37);
             this.unitstype.Name = "unitstype";
             this.unitstype.ReadOnly = true;
-            this.unitstype.Size = new System.Drawing.Size(160, 23);
+            this.unitstype.Size = new System.Drawing.Size(160, 26);
             this.unitstype.TabIndex = 9;
             // 
             // foreign
@@ -242,11 +243,11 @@
             // 
             this.foreign.Border.Class = "TextBoxBorder";
             this.foreign.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.foreign.Location = new System.Drawing.Point(423, 11);
+            this.foreign.Location = new System.Drawing.Point(417, 11);
             this.foreign.Name = "foreign";
             this.foreign.ReadOnly = true;
             this.foreign.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.foreign.Size = new System.Drawing.Size(160, 23);
+            this.foreign.Size = new System.Drawing.Size(160, 26);
             this.foreign.TabIndex = 8;
             // 
             // labelX5
@@ -254,7 +255,7 @@
             this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX5.BackColor = System.Drawing.Color.Transparent;
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX5.Location = new System.Drawing.Point(612, 69);
+            this.labelX5.Location = new System.Drawing.Point(606, 69);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(151, 23);
             this.labelX5.TabIndex = 7;
@@ -265,7 +266,7 @@
             this.labelX4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX4.BackColor = System.Drawing.Color.Transparent;
             this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX4.Location = new System.Drawing.Point(612, 40);
+            this.labelX4.Location = new System.Drawing.Point(606, 40);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(151, 23);
             this.labelX4.TabIndex = 6;
@@ -276,7 +277,7 @@
             this.labelX3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX3.BackColor = System.Drawing.Color.Transparent;
             this.labelX3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX3.Location = new System.Drawing.Point(612, 11);
+            this.labelX3.Location = new System.Drawing.Point(606, 11);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(151, 23);
             this.labelX3.TabIndex = 5;
@@ -306,9 +307,23 @@
             this.buttonX2.Text = "ערוך";
             this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
             // 
+            // autoCompleteList
+            // 
+            this.autoCompleteList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.autoCompleteList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.autoCompleteList.FormattingEnabled = true;
+            this.autoCompleteList.ItemHeight = 20;
+            this.autoCompleteList.Location = new System.Drawing.Point(137, 37);
+            this.autoCompleteList.Name = "autoCompleteList";
+            this.autoCompleteList.Size = new System.Drawing.Size(297, 102);
+            this.autoCompleteList.TabIndex = 12;
+            this.autoCompleteList.Visible = false;
+            this.autoCompleteList.SelectedIndexChanged += new System.EventHandler(this.autoCompleteList_SelectedIndexChanged);
+            // 
             // FindPlant
             // 
             this.ClientSize = new System.Drawing.Size(980, 592);
+            this.Controls.Add(this.autoCompleteList);
             this.Controls.Add(this.closeImage);
             this.Controls.Add(this.buttonX2);
             this.Controls.Add(this.groupPanel1);
@@ -316,6 +331,7 @@
             this.Controls.Add(this.buttonX1);
             this.Controls.Add(this.textBoxX1);
             this.Controls.Add(this.labelX1);
+            this.DoubleBuffered = true;
             this.Name = "FindPlant";
             this.Load += new System.EventHandler(this.FindPlant_Load);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FindPlant_FormClosing);
@@ -346,6 +362,7 @@
         private DevComponents.DotNetBar.ButtonX buttonX2;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private DevComponents.DotNetBar.ButtonX closeImage;
+        private System.Windows.Forms.ListBox autoCompleteList;
 
     }
 }
