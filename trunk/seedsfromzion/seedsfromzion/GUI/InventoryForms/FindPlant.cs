@@ -235,13 +235,16 @@ namespace seedsfromzion.GUI.InventoryForms
         private void textBoxX1_TextChanged(object sender, EventArgs e)
         {
             StatisticsManager.initPlantNames(this.textBoxX1.Text);//NEW
-            DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-            if (rows.Length > 0)
+            if (StatisticsManager.plantNames != null)
             {
-                String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                this.textBoxX1.AutoCompleteCustomSource.Clear();
-                this.textBoxX1.AutoCompleteCustomSource.AddRange(names);
-                this.textBoxX1.Refresh();
+                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
+                if (rows.Length > 0)
+                {
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+                    this.textBoxX1.AutoCompleteCustomSource.Clear();
+                    this.textBoxX1.AutoCompleteCustomSource.AddRange(names);
+                    this.textBoxX1.Refresh();
+                }
             }
         }
 
