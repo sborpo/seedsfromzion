@@ -15,7 +15,7 @@ namespace seedsfromzion.GUI
         public DialogBox()
         {
             InitializeComponent();
-            text.Text = "δΰν διπκ αθεη ωαψφεπκ μαφς τςεμδ ζε" + "?";
+            text.Text = "Χ”ΧΧ Χ”Χ™Χ Χ Χ‘ΧΧ•Χ— Χ©Χ‘Χ¨Χ¦Χ•Χ Χ ΧΧ‘Χ¦ΧΆ Χ¤ΧΆΧ•ΧΧ” Χ–Χ•?";
         }
 
         public DialogBox(string userText)
@@ -24,7 +24,10 @@ namespace seedsfromzion.GUI
             text.Text = userText;
         }
 
-    
+        private void DialogBox_Load(object sender, EventArgs e)
+        {
+            this.NoButton.Select();
+        }
 
         private void reflectionImage1_Click(object sender, EventArgs e)
         {
@@ -40,5 +43,7 @@ namespace seedsfromzion.GUI
         {
 
         }
+
+        
     }
 }
