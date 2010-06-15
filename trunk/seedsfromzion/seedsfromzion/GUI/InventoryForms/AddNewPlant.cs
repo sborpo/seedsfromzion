@@ -298,13 +298,16 @@ namespace seedsfromzion.GUI.InventoryForms
         private void typePlantName_TextChanged(object sender, EventArgs e)
         {
             StatisticsManager.initPlantNames(this.typePlantName.Text);//NEW
-            DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-            if (rows.Length > 0)
+            if (StatisticsManager.plantNames != null)
             {
-                String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                this.typePlantName.AutoCompleteCustomSource.Clear();
-                this.typePlantName.AutoCompleteCustomSource.AddRange(names);
-                this.typePlantName.Refresh();
+                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
+                if (rows.Length > 0)
+                {
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+                    this.typePlantName.AutoCompleteCustomSource.Clear();
+                    this.typePlantName.AutoCompleteCustomSource.AddRange(names);
+                    this.typePlantName.Refresh();
+                }
             }
         }
 
