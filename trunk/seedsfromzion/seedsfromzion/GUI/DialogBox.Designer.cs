@@ -54,7 +54,6 @@ namespace seedsfromzion.GUI
             this.text.Name = "text";
             this.text.Size = new System.Drawing.Size(368, 23);
             this.text.TabIndex = 1;
-            this.text.Text = "האם הינך בטוח שברצונך לבצע פעולה זו?";
             // 
             // yesButton
             // 
@@ -92,6 +91,7 @@ namespace seedsfromzion.GUI
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "התראה";
+            this.Load += new System.EventHandler(this.DialogBox_Load);
             this.ResumeLayout(false);
 
         }
