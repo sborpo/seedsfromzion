@@ -297,18 +297,27 @@ namespace seedsfromzion.GUI.InventoryForms
 
         private void typePlantName_TextChanged(object sender, EventArgs e)
         {
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
             StatisticsManager.initPlantNames(this.typePlantName.Text);//NEW
-            if (StatisticsManager.plantNames != null)
+            if (this.typePlantName.Text.Length > 0 && StatisticsManager.plantNames != null)
             {
                 DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                    this.typePlantName.AutoCompleteCustomSource.Clear();
-                    this.typePlantName.AutoCompleteCustomSource.AddRange(names);
-                    this.typePlantName.Refresh();
+                    this.autoCompleteList.Items.Clear();
+                    this.autoCompleteList.Items.AddRange(names);
+                    this.autoCompleteList.Visible = true;
                 }
             }
+        }
+
+        private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.typePlantName.Text = (String)this.autoCompleteList.SelectedItem;
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
         }
 
         private void typePlantName_KeyPress(object sender, KeyPressEventArgs e)
