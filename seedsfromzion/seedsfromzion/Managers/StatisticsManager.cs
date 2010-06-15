@@ -290,6 +290,11 @@ namespace seedsfromzion.Managers
 
         static public void initPlantNames(string likeName)
         {
+            if (likeName.Equals(""))
+            {
+                plantNames = null;
+                return;
+            }
             if (plantNames != null)
             {
                 if (plantNames.Select("name LIKE '" + likeName + "%'") != null)
