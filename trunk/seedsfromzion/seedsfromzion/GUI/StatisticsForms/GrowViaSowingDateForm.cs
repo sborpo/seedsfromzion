@@ -229,18 +229,21 @@ namespace seedsfromzion.GUI.StatisticsForms
                 this.plantTypeDropBox.BeginUpdate();
                 //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
                 StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
-                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
-                if (rows.Length > 0)
+                if (StatisticsManager.plantNames != null)
                 {
-                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
+                    DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
+                    if (rows.Length > 0)
+                    {
+                        String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
 
-                    //foreach(string name in names)
-                    //{
-                    //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
-                    //}
-                    this.plantTypeDropBox.Items.AddRange(names);
+                        //foreach(string name in names)
+                        //{
+                        //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
+                        //}
+                        this.plantTypeDropBox.Items.AddRange(names);
+                    }
+                    this.plantTypeDropBox.EndUpdate();
                 }
-                this.plantTypeDropBox.EndUpdate();
             }
         }
 

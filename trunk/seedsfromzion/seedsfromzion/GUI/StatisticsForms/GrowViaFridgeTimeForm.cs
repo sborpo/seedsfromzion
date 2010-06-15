@@ -214,13 +214,16 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
                 StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
-                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-                if (rows.Length > 0)
+                if (StatisticsManager.plantNames != null)
                 {
-                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                    this.plantNameTextBox.AutoCompleteCustomSource.Clear();
-                    this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
-                    this.plantNameTextBox.Refresh();
+                    DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
+                    if (rows.Length > 0)
+                    {
+                        String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+                        this.plantNameTextBox.AutoCompleteCustomSource.Clear();
+                        this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
+                        this.plantNameTextBox.Refresh();
+                    }
                 }
             }
         }
