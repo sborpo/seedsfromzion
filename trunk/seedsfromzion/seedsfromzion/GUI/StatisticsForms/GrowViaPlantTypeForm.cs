@@ -114,29 +114,27 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         private void plantNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            try
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
+            if (this.plantNameTextBox.Text.Length > 0)
             {
-                if (this.plantNameTextBox.Text.Length > 0)
+                DataRow[] rows = StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                if (rows != null && rows.Length > 0)
                 {
-                    //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                    StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
-                    if (StatisticsManager.plantNames != null)
-                    {
-                        DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-                        if (rows.Length > 0)
-                        {
-                            String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                            this.plantNameTextBox.AutoCompleteCustomSource.Clear();
-                            this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
-                            this.plantNameTextBox.Refresh();
-                        }
-                    }
+                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+                    this.autoCompleteList.Items.Clear();
+                    this.autoCompleteList.Items.AddRange(names);
+                    this.autoCompleteList.Visible = true;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+        }
+
+
+        private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
         }
 
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
