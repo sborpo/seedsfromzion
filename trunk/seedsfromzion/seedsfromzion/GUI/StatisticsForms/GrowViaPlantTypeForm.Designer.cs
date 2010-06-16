@@ -107,7 +107,7 @@
             this.autoCompleteList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.autoCompleteList.FormattingEnabled = true;
             this.autoCompleteList.ItemHeight = 20;
-            this.autoCompleteList.Location = new System.Drawing.Point(63, 77);
+            this.autoCompleteList.Location = new System.Drawing.Point(57, 77);
             this.autoCompleteList.Name = "autoCompleteList";
             this.autoCompleteList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.autoCompleteList.Size = new System.Drawing.Size(190, 82);
@@ -120,7 +120,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(271, 129);
+            this.showGraphButton.Location = new System.Drawing.Point(265, 129);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -171,7 +171,7 @@
             this.plantChoisePanel.Controls.Add(this.plantNameLabel);
             this.plantChoisePanel.Location = new System.Drawing.Point(29, 35);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(391, 64);
+            this.plantChoisePanel.Size = new System.Drawing.Size(385, 64);
             // 
             // 
             // 
@@ -201,11 +201,11 @@
             // 
             // 
             this.plantNameTextBox.Border.Class = "TextBoxBorder";
-            this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.plantNameTextBox.Location = new System.Drawing.Point(34, 16);
+            this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.plantNameTextBox.Location = new System.Drawing.Point(28, 16);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(190, 27);
+            this.plantNameTextBox.Size = new System.Drawing.Size(190, 26);
             this.plantNameTextBox.TabIndex = 18;
             this.plantNameTextBox.WatermarkText = "הכנס שם של הצמח";
             this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
@@ -222,9 +222,9 @@
             this.plantNameLabel.BackgroundStyle.BorderLeftWidth = 1;
             this.plantNameLabel.BackgroundStyle.BorderRightWidth = 1;
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
-            this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(255, 17);
+            this.plantNameLabel.Location = new System.Drawing.Point(249, 17);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(118, 25);
