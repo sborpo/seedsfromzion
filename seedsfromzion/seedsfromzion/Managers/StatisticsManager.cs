@@ -288,23 +288,27 @@ namespace seedsfromzion.Managers
         //    plantNames = DatabaseAccess.getResultSetFromDb(command);
         //}
 
-        static public void initPlantNames(string likeName)
+        static public DataRow[] initPlantNames(string likeName)
         {
+            DataRow[] rows = null;
             if (likeName.Equals(""))
             {
                 plantNames = null;
-                return;
+                return null;
             }
             if (plantNames != null)
             {
-                if (plantNames.Select("name LIKE '" + likeName + "%'").Length > 0)
+                rows = plantNames.Select("name LIKE '" + likeName + "%'");
+                if (rows.Length > 0)
                 {
-                    return;
+                    return rows;
                 }
             }
             MySqlCommand command =
                 DataAccessUtils.commandBuilder("SELECT T.name AS name FROM seedsdb.plants T WHERE name LIKE '" + likeName + "%'");
             plantNames = DatabaseAccess.getResultSetFromDb(command);
+            rows = plantNames.Select();
+            return (rows.Length > 0) ? rows : null;
         }
 
         //static public void initPlantTypes()
