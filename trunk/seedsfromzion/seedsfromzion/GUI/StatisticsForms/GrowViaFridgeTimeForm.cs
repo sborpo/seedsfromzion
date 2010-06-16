@@ -210,22 +210,31 @@ namespace seedsfromzion.GUI.StatisticsForms
                 this.plantTypeDropBox.SelectedIndex = this.plantTypeDropBox.Items.IndexOf(plantType);
                 selectedFavotitePlantId = -1;
             }
-            else if (this.plantNameTextBox.Text.Length > 0)
+            else 
             {
-                //DataRow[] rows = StatisticsManager.plantNames.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
-                if (StatisticsManager.plantNames != null)
+                this.autoCompleteList.Visible = false;
+                this.Redraw();
+                if (this.plantNameTextBox.Text.Length > 0)
                 {
-                    DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-                    if (rows.Length > 0)
+                    DataRow[] rows = StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                    
+                    if (rows != null && rows.Length > 0)
                     {
                         String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                        this.plantNameTextBox.AutoCompleteCustomSource.Clear();
-                        this.plantNameTextBox.AutoCompleteCustomSource.AddRange(names);
-                        this.plantNameTextBox.Refresh();
+                        this.autoCompleteList.Items.Clear();
+                        this.autoCompleteList.Items.AddRange(names);
+                        this.autoCompleteList.Visible = true;
                     }
                 }
             }
+        }
+        
+
+        private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
+            this.autoCompleteList.Visible = false;
+            this.Redraw();
         }
 
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
