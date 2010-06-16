@@ -61,15 +61,14 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid_workers.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid_workers.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
-            this.dataGrid_workers.Location = new System.Drawing.Point(19, 17);
-            this.dataGrid_workers.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGrid_workers.Location = new System.Drawing.Point(14, 14);
             this.dataGrid_workers.MultiSelect = false;
             this.dataGrid_workers.Name = "dataGrid_workers";
             this.dataGrid_workers.ReadOnly = true;
             this.dataGrid_workers.RowTemplate.Height = 24;
             this.dataGrid_workers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid_workers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid_workers.Size = new System.Drawing.Size(515, 187);
+            this.dataGrid_workers.Size = new System.Drawing.Size(386, 152);
             this.dataGrid_workers.TabIndex = 4;
             this.dataGrid_workers.SelectionChanged += new System.EventHandler(this.dataGrid_workers_SelectionChanged);
             // 
@@ -77,20 +76,28 @@
             // 
             this.numericUpDowd_advancedPay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.numericUpDowd_advancedPay.DecimalPlaces = 1;
-            this.numericUpDowd_advancedPay.Location = new System.Drawing.Point(60, 12);
-            this.numericUpDowd_advancedPay.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDowd_advancedPay.Location = new System.Drawing.Point(45, 8);
+            this.numericUpDowd_advancedPay.Maximum = new decimal(new int[] {
+            99999999,
+            0,
+            0,
+            0});
             this.numericUpDowd_advancedPay.Name = "numericUpDowd_advancedPay";
-            this.numericUpDowd_advancedPay.Size = new System.Drawing.Size(160, 26);
+            this.numericUpDowd_advancedPay.Size = new System.Drawing.Size(120, 23);
             this.numericUpDowd_advancedPay.TabIndex = 5;
             // 
             // numericUpDown_postponedPay
             // 
             this.numericUpDown_postponedPay.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.numericUpDown_postponedPay.DecimalPlaces = 1;
-            this.numericUpDown_postponedPay.Location = new System.Drawing.Point(60, 62);
-            this.numericUpDown_postponedPay.Margin = new System.Windows.Forms.Padding(4);
+            this.numericUpDown_postponedPay.Location = new System.Drawing.Point(45, 49);
+            this.numericUpDown_postponedPay.Maximum = new decimal(new int[] {
+            1215752191,
+            23,
+            0,
+            0});
             this.numericUpDown_postponedPay.Name = "numericUpDown_postponedPay";
-            this.numericUpDown_postponedPay.Size = new System.Drawing.Size(160, 26);
+            this.numericUpDown_postponedPay.Size = new System.Drawing.Size(120, 23);
             this.numericUpDown_postponedPay.TabIndex = 6;
             // 
             // labelX1
@@ -98,10 +105,9 @@
             this.labelX1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelX1.Location = new System.Drawing.Point(228, 4);
-            this.labelX1.Margin = new System.Windows.Forms.Padding(4);
+            this.labelX1.Location = new System.Drawing.Point(171, 3);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(116, 42);
+            this.labelX1.Size = new System.Drawing.Size(87, 34);
             this.labelX1.TabIndex = 7;
             this.labelX1.Text = "מקדמה:";
             this.labelX1.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -110,10 +116,9 @@
             // 
             this.labelX2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.labelX2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX2.Location = new System.Drawing.Point(228, 54);
-            this.labelX2.Margin = new System.Windows.Forms.Padding(4);
+            this.labelX2.Location = new System.Drawing.Point(171, 43);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(116, 42);
+            this.labelX2.Size = new System.Drawing.Size(87, 35);
             this.labelX2.TabIndex = 8;
             this.labelX2.Text = "דחוי:";
             this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
@@ -130,12 +135,11 @@
             this.tableLayoutPanel1.Controls.Add(this.labelX2, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(348, 100);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 81);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // dateChoisePanel
@@ -143,10 +147,9 @@
             this.dateChoisePanel.AutoSize = true;
             this.dateChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
             this.dateChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.dateChoisePanel.Location = new System.Drawing.Point(112, 233);
-            this.dateChoisePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.dateChoisePanel.Location = new System.Drawing.Point(84, 189);
             this.dateChoisePanel.Name = "dateChoisePanel";
-            this.dateChoisePanel.Size = new System.Drawing.Size(348, 100);
+            this.dateChoisePanel.Size = new System.Drawing.Size(261, 81);
             // 
             // 
             // 
@@ -172,10 +175,9 @@
             this.btn_update.CanvasColor = System.Drawing.SystemColors.Control;
             this.btn_update.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_update.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.btn_update.Location = new System.Drawing.Point(232, 361);
-            this.btn_update.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_update.Location = new System.Drawing.Point(174, 293);
             this.btn_update.Name = "btn_update";
-            this.btn_update.Size = new System.Drawing.Size(116, 37);
+            this.btn_update.Size = new System.Drawing.Size(87, 30);
             // 
             // 
             // 
@@ -223,9 +225,10 @@
             this.groupPanel1.Controls.Add(this.btn_update);
             this.groupPanel1.Controls.Add(this.dateChoisePanel);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.groupPanel1.Location = new System.Drawing.Point(12, 12);
+            this.groupPanel1.Location = new System.Drawing.Point(9, 10);
+            this.groupPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupPanel1.Name = "groupPanel1";
-            this.groupPanel1.Size = new System.Drawing.Size(563, 450);
+            this.groupPanel1.Size = new System.Drawing.Size(422, 366);
             // 
             // 
             // 
@@ -251,12 +254,10 @@
             // 
             // PaymentsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 478);
+            this.ClientSize = new System.Drawing.Size(447, 388);
             this.Controls.Add(this.groupPanel1);
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "PaymentsForm";
             this.Text = "PaymentsForm";
             this.Load += new System.EventHandler(this.PaymentsForm_Load);
