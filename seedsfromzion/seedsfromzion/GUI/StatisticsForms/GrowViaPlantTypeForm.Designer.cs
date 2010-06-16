@@ -31,15 +31,14 @@
             this.components = new System.ComponentModel.Container();
             this.GrowViaTypeGraphControl = new ZedGraph.ZedGraphControl();
             this.graphicSettingsPanel = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.autoCompleteList = new System.Windows.Forms.ListBox();
             this.showGraphButton = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
             this.plantChoisePanel = new DevComponents.DotNetBar.Ribbon.RibbonClientPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.plantNameTextBox = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.plantNameLabel = new DevComponents.DotNetBar.LabelX();
             this.typeTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.graphicSettingsPanel.SuspendLayout();
             this.plantChoisePanel.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.typeTableLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +57,7 @@
             this.GrowViaTypeGraphControl.ScrollMinX = 0;
             this.GrowViaTypeGraphControl.ScrollMinY = 0;
             this.GrowViaTypeGraphControl.ScrollMinY2 = 0;
-            this.GrowViaTypeGraphControl.Size = new System.Drawing.Size(538, 564);
+            this.GrowViaTypeGraphControl.Size = new System.Drawing.Size(456, 523);
             this.GrowViaTypeGraphControl.TabIndex = 4;
             // 
             // graphicSettingsPanel
@@ -69,14 +68,15 @@
             this.graphicSettingsPanel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.graphicSettingsPanel.CanvasColor = System.Drawing.SystemColors.ActiveCaption;
             this.graphicSettingsPanel.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2010;
+            this.graphicSettingsPanel.Controls.Add(this.autoCompleteList);
             this.graphicSettingsPanel.Controls.Add(this.showGraphButton);
             this.graphicSettingsPanel.Controls.Add(this.plantChoisePanel);
             this.graphicSettingsPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.graphicSettingsPanel.IsShadowEnabled = true;
-            this.graphicSettingsPanel.Location = new System.Drawing.Point(553, 5);
+            this.graphicSettingsPanel.Location = new System.Drawing.Point(471, 5);
             this.graphicSettingsPanel.Name = "graphicSettingsPanel";
             this.graphicSettingsPanel.ShowFocusRectangle = true;
-            this.graphicSettingsPanel.Size = new System.Drawing.Size(541, 566);
+            this.graphicSettingsPanel.Size = new System.Drawing.Size(458, 525);
             // 
             // 
             // 
@@ -100,12 +100,27 @@
             this.graphicSettingsPanel.TabIndex = 6;
             this.graphicSettingsPanel.Text = "הגדרות גרף אחוזי הנביטה לפי סוג הצמח";
             // 
+            // autoCompleteList
+            // 
+            this.autoCompleteList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.autoCompleteList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.autoCompleteList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.autoCompleteList.FormattingEnabled = true;
+            this.autoCompleteList.ItemHeight = 20;
+            this.autoCompleteList.Location = new System.Drawing.Point(63, 77);
+            this.autoCompleteList.Name = "autoCompleteList";
+            this.autoCompleteList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.autoCompleteList.Size = new System.Drawing.Size(190, 82);
+            this.autoCompleteList.TabIndex = 18;
+            this.autoCompleteList.Visible = false;
+            this.autoCompleteList.SelectedIndexChanged += new System.EventHandler(this.autoCompleteList_SelectedIndexChanged);
+            // 
             // showGraphButton
             // 
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(327, 131);
+            this.showGraphButton.Location = new System.Drawing.Point(271, 129);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -152,10 +167,11 @@
             this.plantChoisePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.plantChoisePanel.CanvasColor = System.Drawing.SystemColors.Control;
-            this.plantChoisePanel.Controls.Add(this.tableLayoutPanel1);
-            this.plantChoisePanel.Location = new System.Drawing.Point(51, 37);
+            this.plantChoisePanel.Controls.Add(this.plantNameTextBox);
+            this.plantChoisePanel.Controls.Add(this.plantNameLabel);
+            this.plantChoisePanel.Location = new System.Drawing.Point(29, 35);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(425, 64);
+            this.plantChoisePanel.Size = new System.Drawing.Size(391, 64);
             // 
             // 
             // 
@@ -176,25 +192,9 @@
             this.plantChoisePanel.Style.TextColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.plantChoisePanel.TabIndex = 16;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.0854F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.9146F));
-            this.tableLayoutPanel1.Controls.Add(this.plantNameTextBox, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.plantNameLabel, 1, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(425, 64);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // plantNameTextBox
             // 
-            this.plantNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.plantNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.plantNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             // 
@@ -202,10 +202,10 @@
             // 
             this.plantNameTextBox.Border.Class = "TextBoxBorder";
             this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold);
-            this.plantNameTextBox.Location = new System.Drawing.Point(64, 18);
+            this.plantNameTextBox.Location = new System.Drawing.Point(34, 16);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(201, 27);
+            this.plantNameTextBox.Size = new System.Drawing.Size(190, 27);
             this.plantNameTextBox.TabIndex = 18;
             this.plantNameTextBox.WatermarkText = "הכנס שם של הצמח";
             this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
@@ -213,7 +213,7 @@
             // 
             // plantNameLabel
             // 
-            this.plantNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.plantNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.plantNameLabel.BackColor = System.Drawing.Color.Transparent;
             // 
             // 
@@ -224,7 +224,7 @@
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(304, 19);
+            this.plantNameLabel.Location = new System.Drawing.Point(255, 17);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(118, 25);
@@ -247,12 +247,12 @@
             this.typeTableLayoutPanel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.typeTableLayoutPanel.RowCount = 1;
             this.typeTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.typeTableLayoutPanel.Size = new System.Drawing.Size(1099, 576);
+            this.typeTableLayoutPanel.Size = new System.Drawing.Size(934, 535);
             this.typeTableLayoutPanel.TabIndex = 2;
             // 
             // GrowViaPlantTypeForm
             // 
-            this.ClientSize = new System.Drawing.Size(1099, 576);
+            this.ClientSize = new System.Drawing.Size(934, 535);
             this.Controls.Add(this.typeTableLayoutPanel);
             this.DoubleBuffered = true;
             this.Name = "GrowViaPlantTypeForm";
@@ -260,7 +260,6 @@
             this.Load += new System.EventHandler(this.GrowViaPlantTypeForm_Load);
             this.graphicSettingsPanel.ResumeLayout(false);
             this.plantChoisePanel.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
             this.typeTableLayoutPanel.ResumeLayout(false);
             this.typeTableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -274,9 +273,9 @@
         private System.Windows.Forms.TableLayoutPanel typeTableLayoutPanel;
         private DevComponents.DotNetBar.Ribbon.RibbonClientPanel showGraphButton;
         private DevComponents.DotNetBar.Ribbon.RibbonClientPanel plantChoisePanel;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private DevComponents.DotNetBar.LabelX plantNameLabel;
         private DevComponents.DotNetBar.Controls.TextBoxX plantNameTextBox;
+        private System.Windows.Forms.ListBox autoCompleteList;
 
     }
 }
