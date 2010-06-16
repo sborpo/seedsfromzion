@@ -268,6 +268,8 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
             this.autoCompleteList.Visible = false;
             this.Redraw();
+            this.plantTypeDropBox.Items.Clear();
+            this.plantTypeDropBox.EndUpdate();
         }
 
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
