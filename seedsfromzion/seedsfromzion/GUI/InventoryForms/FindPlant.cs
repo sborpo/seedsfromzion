@@ -236,17 +236,13 @@ namespace seedsfromzion.GUI.InventoryForms
         {     
             this.autoCompleteList.Visible = false;
             this.Redraw();
-            StatisticsManager.initPlantNames(this.textBoxX1.Text);//NEW
-            if (this.textBoxX1.Text.Length > 0 && StatisticsManager.plantNames != null)
+            DataRow[] rows = StatisticsManager.initPlantNames(this.textBoxX1.Text);//NEW
+            if (rows != null && rows.Length > 0)
             {
-                DataRow[] rows = StatisticsManager.plantNames.Select();//NEW
-                if (rows.Length > 0)
-                {
-                    String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
-                    this.autoCompleteList.Items.Clear();
-                    this.autoCompleteList.Items.AddRange(names);
-                    this.autoCompleteList.Visible = true;
-                }
+                String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "name");
+                this.autoCompleteList.Items.Clear();
+                this.autoCompleteList.Items.AddRange(names);
+                this.autoCompleteList.Visible = true;
             }
         }
 
