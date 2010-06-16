@@ -231,14 +231,14 @@
     <Compile Include="GUI\StatisticsForms\SalesGraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\StatisticsForms\SalesGraphForm.designer.cs">
-      <DependentUpon>SalesGraphForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\StatisticsForms\GrowViaSowingDateForm.Designer.cs">
       <DependentUpon>GrowViaSowingDateForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\StatisticsForms\SalesGraphForm.Designer.cs">
+      <DependentUpon>SalesGraphForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\SuccessWindow.cs">
       <SubType>Form</SubType>
