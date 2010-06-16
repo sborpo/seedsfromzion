@@ -297,7 +297,7 @@ namespace seedsfromzion.Managers
             }
             if (plantNames != null)
             {
-                if (plantNames.Select("name LIKE '" + likeName + "%'") != null)
+                if (plantNames.Select("name LIKE '" + likeName + "%'").Length > 0)
                 {
                     return;
                 }
