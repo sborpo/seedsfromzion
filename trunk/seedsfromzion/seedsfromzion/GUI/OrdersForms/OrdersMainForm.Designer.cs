@@ -62,12 +62,15 @@
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.orderTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).BeginInit();
             this.groupPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderTimeInput)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxX1
@@ -78,7 +81,7 @@
             this.textBoxX1.Border.Class = "TextBoxBorder";
             this.textBoxX1.Location = new System.Drawing.Point(184, 22);
             this.textBoxX1.Name = "textBoxX1";
-            this.textBoxX1.Size = new System.Drawing.Size(153, 26);
+            this.textBoxX1.Size = new System.Drawing.Size(153, 23);
             this.textBoxX1.TabIndex = 0;
             this.textBoxX1.TextChanged += new System.EventHandler(this.textBoxX1_TextChanged);
             // 
@@ -259,7 +262,7 @@
             this.doubleInput1.Location = new System.Drawing.Point(184, 222);
             this.doubleInput1.Name = "doubleInput1";
             this.doubleInput1.ShowUpDown = true;
-            this.doubleInput1.Size = new System.Drawing.Size(80, 26);
+            this.doubleInput1.Size = new System.Drawing.Size(80, 23);
             this.doubleInput1.TabIndex = 7;
             // 
             // nameBox
@@ -272,7 +275,7 @@
             this.nameBox.Border.Class = "TextBoxBorder";
             this.nameBox.Location = new System.Drawing.Point(18, 50);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(183, 26);
+            this.nameBox.Size = new System.Drawing.Size(177, 23);
             this.nameBox.TabIndex = 13;
             // 
             // phoneBoxX
@@ -285,7 +288,7 @@
             this.phoneBoxX.Border.Class = "TextBoxBorder";
             this.phoneBoxX.Location = new System.Drawing.Point(18, 79);
             this.phoneBoxX.Name = "phoneBoxX";
-            this.phoneBoxX.Size = new System.Drawing.Size(183, 26);
+            this.phoneBoxX.Size = new System.Drawing.Size(177, 23);
             this.phoneBoxX.TabIndex = 15;
             // 
             // emailBoxX
@@ -298,7 +301,7 @@
             this.emailBoxX.Border.Class = "TextBoxBorder";
             this.emailBoxX.Location = new System.Drawing.Point(18, 105);
             this.emailBoxX.Name = "emailBoxX";
-            this.emailBoxX.Size = new System.Drawing.Size(183, 26);
+            this.emailBoxX.Size = new System.Drawing.Size(177, 23);
             this.emailBoxX.TabIndex = 16;
             // 
             // idBox
@@ -312,7 +315,7 @@
             this.idBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.idBox.Location = new System.Drawing.Point(19, 21);
             this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(182, 26);
+            this.idBox.Size = new System.Drawing.Size(176, 23);
             this.idBox.TabIndex = 18;
             this.idBox.ValueChanged += new System.EventHandler(this.idBox_TextChanged);
             // 
@@ -326,7 +329,7 @@
             this.dateTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
             this.dateTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
             this.dateTimeInput.ButtonDropDown.Visible = true;
-            this.dateTimeInput.Location = new System.Drawing.Point(18, 152);
+            this.dateTimeInput.Location = new System.Drawing.Point(18, 175);
             // 
             // 
             // 
@@ -357,7 +360,7 @@
             this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
             this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dateTimeInput.Name = "dateTimeInput";
-            this.dateTimeInput.Size = new System.Drawing.Size(183, 26);
+            this.dateTimeInput.Size = new System.Drawing.Size(177, 23);
             this.dateTimeInput.TabIndex = 19;
             // 
             // removeButton
@@ -378,6 +381,8 @@
             this.groupPanel1.BackColor = System.Drawing.Color.Transparent;
             this.groupPanel1.CanvasColor = System.Drawing.Color.Transparent;
             this.groupPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
+            this.groupPanel1.Controls.Add(this.orderTimeInput);
+            this.groupPanel1.Controls.Add(this.labelX4);
             this.groupPanel1.Controls.Add(this.checkBox1);
             this.groupPanel1.Controls.Add(this.buttonOrder);
             this.groupPanel1.Controls.Add(this.labelX5);
@@ -423,7 +428,7 @@
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
             this.checkBox1.Location = new System.Drawing.Point(26, 214);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(276, 24);
+            this.checkBox1.Size = new System.Drawing.Size(226, 20);
             this.checkBox1.TabIndex = 27;
             this.checkBox1.Text = "שלח  את פרטי ההזמנה למייל הלקוח";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -448,7 +453,7 @@
             this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX5.Location = new System.Drawing.Point(221, 50);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(92, 23);
+            this.labelX5.Size = new System.Drawing.Size(86, 23);
             this.labelX5.TabIndex = 21;
             this.labelX5.Text = "שם:";
             // 
@@ -460,7 +465,7 @@
             this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX6.Location = new System.Drawing.Point(219, 79);
             this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(94, 23);
+            this.labelX6.Size = new System.Drawing.Size(88, 23);
             this.labelX6.TabIndex = 22;
             this.labelX6.Text = "מספר טלפון:";
             // 
@@ -470,9 +475,9 @@
                         | System.Windows.Forms.AnchorStyles.Right)));
             this.labelX9.BackColor = System.Drawing.Color.Transparent;
             this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX9.Location = new System.Drawing.Point(205, 152);
+            this.labelX9.Location = new System.Drawing.Point(205, 174);
             this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(108, 25);
+            this.labelX9.Size = new System.Drawing.Size(102, 25);
             this.labelX9.TabIndex = 25;
             this.labelX9.Text = "תאריך אספקה:";
             // 
@@ -484,7 +489,7 @@
             this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX7.Location = new System.Drawing.Point(221, 108);
             this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(92, 23);
+            this.labelX7.Size = new System.Drawing.Size(86, 23);
             this.labelX7.TabIndex = 23;
             this.labelX7.Text = "E-Mail:";
             // 
@@ -496,9 +501,61 @@
             this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.labelX8.Location = new System.Drawing.Point(222, 23);
             this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(91, 23);
+            this.labelX8.Size = new System.Drawing.Size(85, 23);
             this.labelX8.TabIndex = 24;
             this.labelX8.Text = "ח.פ\\ת.ז:";
+            // 
+            // labelX4
+            // 
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.Location = new System.Drawing.Point(232, 139);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 28;
+            this.labelX4.Text = "תאריך הזמנה:";
+            // 
+            // orderTimeInput
+            // 
+            // 
+            // 
+            // 
+            this.orderTimeInput.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.orderTimeInput.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.orderTimeInput.ButtonDropDown.Visible = true;
+            this.orderTimeInput.Location = new System.Drawing.Point(18, 136);
+            // 
+            // 
+            // 
+            this.orderTimeInput.MonthCalendar.AnnuallyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.orderTimeInput.MonthCalendar.BackgroundStyle.BackColor = System.Drawing.SystemColors.Window;
+            this.orderTimeInput.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.orderTimeInput.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.orderTimeInput.MonthCalendar.DisplayMonth = new System.DateTime(2010, 6, 1, 0, 0, 0, 0);
+            this.orderTimeInput.MonthCalendar.MarkedDates = new System.DateTime[0];
+            this.orderTimeInput.MonthCalendar.MonthlyMarkedDates = new System.DateTime[0];
+            // 
+            // 
+            // 
+            this.orderTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.orderTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.orderTimeInput.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.orderTimeInput.MonthCalendar.TodayButtonVisible = true;
+            this.orderTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
+            this.orderTimeInput.Name = "orderTimeInput";
+            this.orderTimeInput.Size = new System.Drawing.Size(176, 23);
+            this.orderTimeInput.TabIndex = 29;
+            this.orderTimeInput.Value = new System.DateTime(2010, 6, 18, 19, 0, 44, 0);
             // 
             // OrdersMainForm
             // 
@@ -525,6 +582,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateTimeInput)).EndInit();
             this.groupPanel1.ResumeLayout(false);
             this.groupPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.orderTimeInput)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -563,5 +621,7 @@
         private DevComponents.DotNetBar.LabelX labelX8;
         private System.Windows.Forms.CheckBox checkBox1;
         private DevComponents.DotNetBar.ButtonX buttonOrder;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput orderTimeInput;
+        private DevComponents.DotNetBar.LabelX labelX4;
     }
 }
