@@ -37,6 +37,8 @@ namespace seedsfromzion.GUI.OrdersForms
             epsilon = 0.0001;
             orderTimeInput.Value = System.DateTime.Today;
             orderTimeInput.Refresh();
+            dateTimeInput.Value = System.DateTime.Today;
+            dateTimeInput.Refresh();
         }
         public OrdersMainForm(OrderInfo orderInfo, ClientInfo clientInfo)
         {
@@ -341,6 +343,8 @@ namespace seedsfromzion.GUI.OrdersForms
             emailBoxX.Refresh();
             orderTimeInput.Value = System.DateTime.Today;
             orderTimeInput.Refresh();
+            dateTimeInput.Value = System.DateTime.Today;
+            dateTimeInput.Refresh();
 
         }
 
