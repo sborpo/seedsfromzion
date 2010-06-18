@@ -55,6 +55,8 @@
             this.dateTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.removeButton = new DevComponents.DotNetBar.ButtonX();
             this.groupPanel1 = new DevComponents.DotNetBar.Controls.GroupPanel();
+            this.orderTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.buttonOrder = new DevComponents.DotNetBar.ButtonX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
@@ -62,8 +64,6 @@
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.orderTimeInput = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             ((System.ComponentModel.ISupportInitialize)(this.storageGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doubleInput1)).BeginInit();
@@ -275,7 +275,7 @@
             this.nameBox.Border.Class = "TextBoxBorder";
             this.nameBox.Location = new System.Drawing.Point(18, 50);
             this.nameBox.Name = "nameBox";
-            this.nameBox.Size = new System.Drawing.Size(177, 23);
+            this.nameBox.Size = new System.Drawing.Size(171, 23);
             this.nameBox.TabIndex = 13;
             // 
             // phoneBoxX
@@ -288,7 +288,7 @@
             this.phoneBoxX.Border.Class = "TextBoxBorder";
             this.phoneBoxX.Location = new System.Drawing.Point(18, 79);
             this.phoneBoxX.Name = "phoneBoxX";
-            this.phoneBoxX.Size = new System.Drawing.Size(177, 23);
+            this.phoneBoxX.Size = new System.Drawing.Size(171, 23);
             this.phoneBoxX.TabIndex = 15;
             // 
             // emailBoxX
@@ -301,7 +301,7 @@
             this.emailBoxX.Border.Class = "TextBoxBorder";
             this.emailBoxX.Location = new System.Drawing.Point(18, 105);
             this.emailBoxX.Name = "emailBoxX";
-            this.emailBoxX.Size = new System.Drawing.Size(177, 23);
+            this.emailBoxX.Size = new System.Drawing.Size(171, 23);
             this.emailBoxX.TabIndex = 16;
             // 
             // idBox
@@ -315,7 +315,7 @@
             this.idBox.ButtonFreeText.Shortcut = DevComponents.DotNetBar.eShortcut.F2;
             this.idBox.Location = new System.Drawing.Point(19, 21);
             this.idBox.Name = "idBox";
-            this.idBox.Size = new System.Drawing.Size(176, 23);
+            this.idBox.Size = new System.Drawing.Size(170, 23);
             this.idBox.TabIndex = 18;
             this.idBox.ValueChanged += new System.EventHandler(this.idBox_TextChanged);
             // 
@@ -360,7 +360,7 @@
             this.dateTimeInput.MonthCalendar.TodayButtonVisible = true;
             this.dateTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.dateTimeInput.Name = "dateTimeInput";
-            this.dateTimeInput.Size = new System.Drawing.Size(177, 23);
+            this.dateTimeInput.Size = new System.Drawing.Size(171, 23);
             this.dateTimeInput.TabIndex = 19;
             // 
             // removeButton
@@ -422,98 +422,6 @@
             this.groupPanel1.TabIndex = 23;
             this.groupPanel1.Text = "פרטי המזמין";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.checkBox1.Location = new System.Drawing.Point(26, 214);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(226, 20);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "שלח  את פרטי ההזמנה למייל הלקוח";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // buttonOrder
-            // 
-            this.buttonOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonOrder.Location = new System.Drawing.Point(121, 244);
-            this.buttonOrder.Name = "buttonOrder";
-            this.buttonOrder.Size = new System.Drawing.Size(99, 48);
-            this.buttonOrder.TabIndex = 26;
-            this.buttonOrder.Text = "בצע הזמנה";
-            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
-            // 
-            // labelX5
-            // 
-            this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelX5.BackColor = System.Drawing.Color.Transparent;
-            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX5.Location = new System.Drawing.Point(221, 50);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(86, 23);
-            this.labelX5.TabIndex = 21;
-            this.labelX5.Text = "שם:";
-            // 
-            // labelX6
-            // 
-            this.labelX6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelX6.BackColor = System.Drawing.Color.Transparent;
-            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX6.Location = new System.Drawing.Point(219, 79);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(88, 23);
-            this.labelX6.TabIndex = 22;
-            this.labelX6.Text = "מספר טלפון:";
-            // 
-            // labelX9
-            // 
-            this.labelX9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelX9.BackColor = System.Drawing.Color.Transparent;
-            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX9.Location = new System.Drawing.Point(205, 174);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(102, 25);
-            this.labelX9.TabIndex = 25;
-            this.labelX9.Text = "תאריך אספקה:";
-            // 
-            // labelX7
-            // 
-            this.labelX7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelX7.BackColor = System.Drawing.Color.Transparent;
-            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX7.Location = new System.Drawing.Point(221, 108);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(86, 23);
-            this.labelX7.TabIndex = 23;
-            this.labelX7.Text = "E-Mail:";
-            // 
-            // labelX8
-            // 
-            this.labelX8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelX8.BackColor = System.Drawing.Color.Transparent;
-            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.labelX8.Location = new System.Drawing.Point(222, 23);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(85, 23);
-            this.labelX8.TabIndex = 24;
-            this.labelX8.Text = "ח.פ\\ת.ז:";
-            // 
-            // labelX4
-            // 
-            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelX4.Location = new System.Drawing.Point(232, 139);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(75, 23);
-            this.labelX4.TabIndex = 28;
-            this.labelX4.Text = "תאריך הזמנה:";
-            // 
             // orderTimeInput
             // 
             // 
@@ -553,9 +461,101 @@
             this.orderTimeInput.MonthCalendar.TodayButtonVisible = true;
             this.orderTimeInput.MonthCalendar.WeeklyMarkedDays = new System.DayOfWeek[0];
             this.orderTimeInput.Name = "orderTimeInput";
-            this.orderTimeInput.Size = new System.Drawing.Size(176, 23);
+            this.orderTimeInput.Size = new System.Drawing.Size(171, 23);
             this.orderTimeInput.TabIndex = 29;
             this.orderTimeInput.Value = new System.DateTime(2010, 6, 18, 19, 0, 44, 0);
+            // 
+            // labelX4
+            // 
+            this.labelX4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelX4.Location = new System.Drawing.Point(232, 139);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 28;
+            this.labelX4.Text = "תאריך הזמנה:";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.checkBox1.Location = new System.Drawing.Point(26, 214);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(226, 20);
+            this.checkBox1.TabIndex = 27;
+            this.checkBox1.Text = "שלח  את פרטי ההזמנה למייל הלקוח";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // buttonOrder
+            // 
+            this.buttonOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonOrder.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.buttonOrder.Location = new System.Drawing.Point(121, 244);
+            this.buttonOrder.Name = "buttonOrder";
+            this.buttonOrder.Size = new System.Drawing.Size(99, 48);
+            this.buttonOrder.TabIndex = 26;
+            this.buttonOrder.Text = "בצע הזמנה";
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
+            // 
+            // labelX5
+            // 
+            this.labelX5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelX5.BackColor = System.Drawing.Color.Transparent;
+            this.labelX5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX5.Location = new System.Drawing.Point(221, 50);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(80, 23);
+            this.labelX5.TabIndex = 21;
+            this.labelX5.Text = "שם:";
+            // 
+            // labelX6
+            // 
+            this.labelX6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelX6.BackColor = System.Drawing.Color.Transparent;
+            this.labelX6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX6.Location = new System.Drawing.Point(219, 79);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(82, 23);
+            this.labelX6.TabIndex = 22;
+            this.labelX6.Text = "מספר טלפון:";
+            // 
+            // labelX9
+            // 
+            this.labelX9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelX9.BackColor = System.Drawing.Color.Transparent;
+            this.labelX9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX9.Location = new System.Drawing.Point(205, 174);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(96, 25);
+            this.labelX9.TabIndex = 25;
+            this.labelX9.Text = "תאריך אספקה:";
+            // 
+            // labelX7
+            // 
+            this.labelX7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelX7.BackColor = System.Drawing.Color.Transparent;
+            this.labelX7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX7.Location = new System.Drawing.Point(221, 108);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(80, 23);
+            this.labelX7.TabIndex = 23;
+            this.labelX7.Text = "E-Mail:";
+            // 
+            // labelX8
+            // 
+            this.labelX8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelX8.BackColor = System.Drawing.Color.Transparent;
+            this.labelX8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.labelX8.Location = new System.Drawing.Point(222, 23);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(79, 23);
+            this.labelX8.TabIndex = 24;
+            this.labelX8.Text = "ח.פ\\ת.ז:";
             // 
             // OrdersMainForm
             // 
