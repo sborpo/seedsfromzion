@@ -138,10 +138,10 @@
             this.inventoryPanel.Controls.Add(this.generalInventoryBar);
             this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryPanel.Location = new System.Drawing.Point(0, 61);
+            this.inventoryPanel.Location = new System.Drawing.Point(0, 56);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
+            this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
             this.inventoryPanel.TabIndex = 1;
             // 
             // ordersInventoryBar
@@ -156,7 +156,7 @@
             this.ordersInventoryBar.Location = new System.Drawing.Point(484, 0);
             this.ordersInventoryBar.Name = "ordersInventoryBar";
             this.ordersInventoryBar.ResizeOrderIndex = 1;
-            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 100);
+            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
             this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ordersInventoryBar.TabIndex = 6;
             this.ordersInventoryBar.Text = "מנהל הזמנות";
@@ -196,6 +196,7 @@
             this.removeOrderButton.Tooltip = "לבטל הזמנה...";
             this.removeOrderButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.removeOrderButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.removeOrderButton.Click += new System.EventHandler(this.removeOrderButton_Click);
             // 
             // operationsInventoryBar
             // 
@@ -210,7 +211,7 @@
             this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
             this.operationsInventoryBar.Name = "operationsInventoryBar";
             this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(303, 100);
+            this.operationsInventoryBar.Size = new System.Drawing.Size(303, 105);
             this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.operationsInventoryBar.TabIndex = 5;
             this.operationsInventoryBar.Text = "פעולות";
@@ -297,7 +298,7 @@
             this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
             this.generalInventoryBar.Name = "generalInventoryBar";
             this.generalInventoryBar.ResizeOrderIndex = 1;
-            this.generalInventoryBar.Size = new System.Drawing.Size(178, 100);
+            this.generalInventoryBar.Size = new System.Drawing.Size(178, 105);
             this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.generalInventoryBar.TabIndex = 4;
             this.generalInventoryBar.Text = "כללי";
@@ -892,9 +893,9 @@
             this.statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(4, 580);
+            this.statusBar.Location = new System.Drawing.Point(4, 584);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1001, 23);
+            this.statusBar.Size = new System.Drawing.Size(1001, 19);
             this.statusBar.Stretch = true;
             this.statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statusBar.TabIndex = 1;

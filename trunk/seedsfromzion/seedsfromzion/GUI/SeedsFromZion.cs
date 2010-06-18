@@ -555,6 +555,17 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        #region Delete Order Handler
+        public delegate void deleteOrderClickedHandler();
+        public event deleteOrderClickedHandler deleteOrderClicked;
+        private void removeOrderButton_Click(object sender, EventArgs e)
+        {
+            if (deleteOrderClicked != null)
+            {
+                deleteOrderClicked();
+            }
+        }
+        #endregion
         #endregion
 
         private void systemControl_Click(object sender, EventArgs e)
