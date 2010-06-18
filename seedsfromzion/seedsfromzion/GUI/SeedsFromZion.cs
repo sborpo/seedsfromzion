@@ -214,14 +214,9 @@ namespace seedsfromzion.GUI
             
             
             PrintDoc1 = new PrintDocument();
-            //PrintPreviewDialog PPDlg1 = new PrintPreviewDialog();
-            PPDlg1 = new seedsfromzion.GUI.Printing.CoolPrintPreviewDialog();
-            
-            PPDlg1.ShowIcon = false;
-            PrintDoc1.OriginAtMargins = false; //To set or Get the Position of a Graphic Object            
             PrintDoc1.PrintPage += PDoc_PrintPage;
-            PrintDoc1.PrinterSettings = new PrinterSettings();
-            PrintDoc1.DefaultPageSettings.Landscape = true;
+            
+            
             
         }
 
@@ -498,6 +493,15 @@ namespace seedsfromzion.GUI
             {
                 return;
             }
+
+            PPDlg1 = new seedsfromzion.GUI.Printing.CoolPrintPreviewDialog();
+
+            PPDlg1.ShowIcon = false;
+            PrintDoc1.OriginAtMargins = false; //To set or Get the Position of a Graphic Object            
+
+            PrintDoc1.PrinterSettings = new PrinterSettings();
+            PrintDoc1.DefaultPageSettings.Landscape = true;
+
             PPDlg1.Document = PrintDoc1;
 
             PPDlg1.ShowDialog(this);
