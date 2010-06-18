@@ -36,6 +36,11 @@ namespace seedsfromzion.GUI.OrdersForms
             
         }
 
+        private void SearchOrderForm_Load(object sender, EventArgs e)
+        {
+            seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
+            mainForm.deleteOrderClicked += new seedsFromZion.deleteOrderClickedHandler(buttonX1_Click);
+        }
         /// <summary>
         /// Sets the orders table
         /// </summary>
@@ -134,7 +139,7 @@ namespace seedsfromzion.GUI.OrdersForms
             detailsGrid.Refresh();
         }
 
-        private void buttonX1_Click(object sender, EventArgs e)
+        private void buttonX1_Click()
         {
             System.Windows.Forms.DataGridViewSelectedRowCollection selectedRows = orderGrid.SelectedRows;
 
@@ -211,6 +216,8 @@ namespace seedsfromzion.GUI.OrdersForms
             new SuccessWindow().Show();
             return;
         }
+
+       
 
     }
 }
