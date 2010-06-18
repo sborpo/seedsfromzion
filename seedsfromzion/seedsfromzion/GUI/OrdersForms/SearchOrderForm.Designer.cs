@@ -40,7 +40,6 @@
             this.detailsGrid = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.units = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
             this.editOrder = new DevComponents.DotNetBar.ButtonX();
             this.orderConfirm = new DevComponents.DotNetBar.ButtonX();
             this.integerInput1 = new DevComponents.Editors.IntegerInput();
@@ -168,19 +167,6 @@
             this.units.Name = "units";
             this.units.ReadOnly = true;
             // 
-            // buttonX1
-            // 
-            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.buttonX1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.buttonX1.Image = global::seedsfromzion.Properties.Resources.delete40_Layer_1;
-            this.buttonX1.Location = new System.Drawing.Point(321, 339);
-            this.buttonX1.Name = "buttonX1";
-            this.buttonX1.Size = new System.Drawing.Size(130, 62);
-            this.buttonX1.TabIndex = 6;
-            this.buttonX1.Text = "בטל הזמנה";
-            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
-            // 
             // editOrder
             // 
             this.editOrder.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -216,7 +202,7 @@
             this.integerInput1.Location = new System.Drawing.Point(549, 21);
             this.integerInput1.MinValue = 0;
             this.integerInput1.Name = "integerInput1";
-            this.integerInput1.Size = new System.Drawing.Size(126, 26);
+            this.integerInput1.Size = new System.Drawing.Size(126, 23);
             this.integerInput1.TabIndex = 9;
             this.integerInput1.ValueChanged += new System.EventHandler(this.integerInput1_TextChanged);
             // 
@@ -230,7 +216,6 @@
             this.groupPanel1.Controls.Add(this.orderGrid);
             this.groupPanel1.Controls.Add(this.editOrder);
             this.groupPanel1.Controls.Add(this.labelX2);
-            this.groupPanel1.Controls.Add(this.buttonX1);
             this.groupPanel1.Controls.Add(this.detailsGrid);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel1.Location = new System.Drawing.Point(21, 12);
@@ -267,6 +252,7 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "SearchOrderForm";
+            this.Load += new System.EventHandler(this.SearchOrderForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
@@ -287,7 +273,6 @@
         private DevComponents.DotNetBar.Controls.DataGridViewX detailsGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn name;
         private System.Windows.Forms.DataGridViewTextBoxColumn units;
-        private DevComponents.DotNetBar.ButtonX buttonX1;
         private DevComponents.DotNetBar.ButtonX editOrder;
         private DevComponents.DotNetBar.ButtonX orderConfirm;
         private DevComponents.Editors.IntegerInput integerInput1;
