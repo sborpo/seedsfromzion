@@ -141,10 +141,13 @@
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterParent</value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>Baseform</value>
+  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>BaseForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.Office2007Form, DevComponents.DotNetBar2, Version=7.9.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04</value>
+    <value>DevComponents.DotNetBar.Office2007Form, DevComponents.DotNetBar2, Version=7.9.0.0, Culture=neutral, PublicKeyToken=5fd520d36328f741</value>
   </data>
 </root>
