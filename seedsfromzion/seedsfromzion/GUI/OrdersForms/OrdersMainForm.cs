@@ -35,6 +35,8 @@ namespace seedsfromzion.GUI.OrdersForms
             loading = false;
             bOrderExist = false;
             epsilon = 0.0001;
+            orderTimeInput.Value = System.DateTime.Today;
+            orderTimeInput.Refresh();
         }
         public OrdersMainForm(OrderInfo orderInfo, ClientInfo clientInfo)
         {
@@ -61,6 +63,8 @@ namespace seedsfromzion.GUI.OrdersForms
             emailBoxX.Text = clientInfo.email;
             //setting the due date:
             dateTimeInput.Value = orderInfo.dueDate;
+            orderTimeInput.Value = orderInfo.orderDate;
+            orderTimeInput.Refresh();
 
             InventoryManager invManager = new InventoryManager();
             for (int i = 0; i < orderInfo.plantId.Length; i++)
@@ -261,6 +265,11 @@ namespace seedsfromzion.GUI.OrdersForms
                 new ErrorWindow("נא לעדכן את תאריך האספקה").Show();
                 return;
             }
+            if (orderTimeInput.IsEmpty == true)
+            {              
+                new ErrorWindow("נא לעדכן את תאריך האספקה").Show();
+                return;
+            }
             OrderManager orderManager = new OrderManager();
             DataStructures.ClientInfo clientInfo = new seedsfromzion.DataStructures.ClientInfo();
             DataStructures.OrderInfo orderInfo = new seedsfromzion.DataStructures.OrderInfo();
@@ -288,7 +297,7 @@ namespace seedsfromzion.GUI.OrdersForms
               if (bOrderExist == false)
               {
                   orderInfo.orderId = orderManager.getNextOrderId();
-                  orderInfo.orderDate = DateTime.Today;
+                  orderInfo.orderDate = orderTimeInput.Value;
                   orderInfo.status = '0';
                   orderManager.addOrder(clientInfo, orderInfo);
               }
@@ -330,6 +339,8 @@ namespace seedsfromzion.GUI.OrdersForms
             phoneBoxX.Refresh();
             emailBoxX.Text = "";
             emailBoxX.Refresh();
+            orderTimeInput.Value = System.DateTime.Today;
+            orderTimeInput.Refresh();
 
         }
 
