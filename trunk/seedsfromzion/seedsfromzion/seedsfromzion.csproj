@@ -46,7 +46,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DevComponents.DotNetBar2, Version=7.9.0.0, Culture=neutral, PublicKeyToken=7eb7c3a35b91de04, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=7.9.0.0, Culture=neutral, PublicKeyToken=5fd520d36328f741, processorArchitecture=MSIL" />
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.ReportViewer.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -72,11 +72,6 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="VIBlendControls, Version=4.6.0.0, Culture=neutral, PublicKeyToken=6feea38fef5ea0cf, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\VIBlend\Windows Forms Controls v.4.6.0.0\VIBlendControls.dll</HintPath>
-    </Reference>
-    <Reference Include="VIBlendUtilities, Version=4.6.0.0, Culture=neutral, PublicKeyToken=970a5af59bc48043" />
     <Reference Include="ZedGraph, Version=5.1.5.28844, Culture=neutral, PublicKeyToken=02a83cbd123fcd60, processorArchitecture=MSIL" />
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +111,16 @@
     </Compile>
     <Compile Include="GUI\BaseForm.designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Printing\ComboBox.cs" />
+    <Compile Include="GUI\Printing\CoolPrintPreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Printing\CoolPrintPreviewDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Printing\CoolPrintPreviewDialog.designer.cs">
+      <DependentUpon>CoolPrintPreviewDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\DialogBox.cs">
       <SubType>Form</SubType>
@@ -198,6 +203,10 @@
     <Compile Include="GUI\OrdersForms\SearchOrderForm.Designer.cs">
       <DependentUpon>SearchOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Printing\PageImageList.cs" />
+    <Compile Include="GUI\Printing\PrintDialogEx.cs" />
+    <Compile Include="GUI\Printing\Win32.cs" />
+    <Compile Include="GUI\Printing\Window.cs" />
     <Compile Include="GUI\SafeMode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -333,6 +342,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Printing\CoolPrintPreviewDialog.resx">
+      <DependentUpon>CoolPrintPreviewDialog.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DialogBox.resx">
@@ -485,6 +498,7 @@
     <Content Include="lib\Ionic.Zip.dll" />
     <Content Include="lib\MySql.Data.dll" />
     <Content Include="lib\ZedGraph.dll" />
+    <None Include="Resources\Download-16.png" />
     <None Include="Resources\sideFridge.png" />
     <None Include="Resources\sideCollect.png" />
     <None Include="Resources\sideSow.png" />

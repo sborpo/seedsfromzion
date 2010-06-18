@@ -14,6 +14,7 @@ using seedsfromzion.GUI.OrdersForms;
 using seedsfromzion.GUI.InventoryForms;
 using System.Collections.Specialized;
 using System.Threading;
+using System.Drawing.Printing;  //For "PrintDocument" Class
 
 namespace seedsfromzion.GUI
 {
@@ -26,6 +27,11 @@ namespace seedsfromzion.GUI
         public displayNotification displayFunc;
         Routines routine;
         private Notification notification;
+        PrintDocument PrintDoc1;
+        seedsfromzion.GUI.Printing.CoolPrintPreviewDialog PPDlg1;
+        
+        //PrintForm printForm1 = new PrintForm();
+        
         #endregion
 
         #region global functions
@@ -155,13 +161,13 @@ namespace seedsfromzion.GUI
             {
                 if (value == true)
                 {
-                    identificationButton.Visible = false;
+                    //identificationButton.Visible = false;
                     disconnectButton.Visible = true;
 
                 }
                 else
                 {
-                    identificationButton.Visible = true;
+                   // identificationButton.Visible = true;
                     disconnectButton.Visible = false;
                 }
             }
@@ -202,6 +208,20 @@ namespace seedsfromzion.GUI
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
             initFavorites();
+
+
+
+            
+            
+            PrintDoc1 = new PrintDocument();
+            //PrintPreviewDialog PPDlg1 = new PrintPreviewDialog();
+            PPDlg1 = new seedsfromzion.GUI.Printing.CoolPrintPreviewDialog();
+            
+            PPDlg1.ShowIcon = false;
+            PrintDoc1.OriginAtMargins = false; //To set or Get the Position of a Graphic Object            
+            PrintDoc1.PrintPage += PDoc_PrintPage;
+            PrintDoc1.PrinterSettings = new PrinterSettings();
+            PrintDoc1.DefaultPageSettings.Landscape = true;
             
         }
 
@@ -335,7 +355,7 @@ namespace seedsfromzion.GUI
 
         private void printButton_Click(object sender, EventArgs e)
         {
-
+            printButtonMini_Click(sender, e);
         }
 
         #endregion
@@ -471,12 +491,20 @@ namespace seedsfromzion.GUI
         #endregion
 
         #region tiny menu
-        private void saveButtonMini_Click(object sender, EventArgs e)
-        {
-            createBackUpButton_Click(sender, e);
-        }
         
+        private void printButtonMini_Click(object sender, EventArgs e)
+        {// When PrintPreview Button Clicks   
+            if (this.ActiveMdiChild == null)
+            {
+                return;
+            }
+            PPDlg1.Document = PrintDoc1;
+
+            PPDlg1.ShowDialog(this);
+        }
+                
         #endregion
+
 
         #region workers
 
@@ -568,16 +596,23 @@ namespace seedsfromzion.GUI
         #endregion
         #endregion
 
-        private void systemControl_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-       
-
+        #region printing
         
-  
+        private void PDoc_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            if (this.ActiveMdiChild == null)
+            {
+                return;
+            }
+            Bitmap bmp = new Bitmap(this.Width, this.Height);
+            this.DrawToBitmap(bmp, this.ClientRectangle);
+            e.Graphics.DrawImage(bmp, 0, 0, PrintDoc1.DefaultPageSettings.Bounds.Width, PrintDoc1.DefaultPageSettings.Bounds.Height);
+        }
+        
+        #endregion
+
+
+
+
     }
 }

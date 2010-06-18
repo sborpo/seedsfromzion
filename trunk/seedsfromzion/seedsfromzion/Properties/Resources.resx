@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="salesGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\salesGraph.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="blackAndWhiteStyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\blackAndWhiteStyle.css;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;windows-1255</value>
   </data>
@@ -129,6 +132,9 @@
   </data>
   <data name="ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sideFridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideFridge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="emd438_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\emd438_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -142,6 +148,9 @@
   <data name="Plant_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Plant-64.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="image_missing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\image_missing.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="success_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\success_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -151,14 +160,17 @@
   <data name="OffIcon1602424" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\OffIcon1602424.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Refrigerator_56" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Refrigerator_56.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Settings_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="percent_graph_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\percent_graph_time.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UserRemove_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserRemove-48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sideSow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideSow.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addOrder_48" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addOrder_48.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +193,17 @@
   <data name="FindOrder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FindOrder.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="postage_stamp_wide" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\postage_stamp_wide.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Flowers" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Flowers.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="error_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error_icon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addOrderIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\addOrderIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="percent_graph" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\percent_graph.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,26 +220,26 @@
   <data name="logo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\logo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="addOrder_30" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addOrder_30.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Download_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Download-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="percent_graph_type1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\percent_graph_type1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="HoursUpdate_482" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\HoursUpdate_482.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Printer42_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Printer42_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="percent_graph_time" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\percent_graph_time.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Refrigerator_56" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Refrigerator_56.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="HoursUpdate_482" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\HoursUpdate_482.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sideCollect" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sideCollect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="delete40_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\delete40_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,34 +256,19 @@
   <data name="Favorites22_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Favorites22_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="salesGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\salesGraph.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="questionMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\questionMark.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Download_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Upload_32_Layer_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Upload-32_Layer_1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addOrderIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\addOrderIcon.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="logout" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="image_missing" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\image_missing.jpg;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="postage_stamp_wide" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\postage_stamp_wide.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="questionMark" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\questionMark.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideCollect" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideCollect.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideFridge" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideFridge.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="sideSow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sideSow.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Download-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Download-16.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
