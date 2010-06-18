@@ -72,14 +72,12 @@
             this.sytemMenu = new DevComponents.DotNetBar.ItemContainer();
             this.systemButtonContainer = new DevComponents.DotNetBar.ItemContainer();
             this.systemButtons = new DevComponents.DotNetBar.ItemContainer();
-            this.identificationButton = new DevComponents.DotNetBar.ButtonItem();
             this.disconnectButton = new DevComponents.DotNetBar.ButtonItem();
             this.addNewUserButton = new DevComponents.DotNetBar.ButtonItem();
             this.systemMngButton = new DevComponents.DotNetBar.ButtonItem();
             this.loadBackUpButton = new DevComponents.DotNetBar.ButtonItem();
             this.createBackUpButton = new DevComponents.DotNetBar.ButtonItem();
             this.settingsButton = new DevComponents.DotNetBar.ButtonItem();
-            this.saveButton = new DevComponents.DotNetBar.ButtonItem();
             this.printButton = new DevComponents.DotNetBar.ButtonItem();
             this.exitButton = new DevComponents.DotNetBar.ButtonItem();
             this.saveButtonMini = new DevComponents.DotNetBar.ButtonItem();
@@ -128,7 +126,6 @@
             this.systemControl.TabIndex = 0;
             this.systemControl.Text = "systemControl";
             this.systemControl.SelectedRibbonTabChanged += new System.EventHandler(this.systemControl_SelectedRibbonTabChanged);
-            this.systemControl.Click += new System.EventHandler(this.systemControl_Click);
             // 
             // inventoryPanel
             // 
@@ -138,10 +135,10 @@
             this.inventoryPanel.Controls.Add(this.generalInventoryBar);
             this.inventoryPanel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.inventoryPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.inventoryPanel.Location = new System.Drawing.Point(0, 56);
+            this.inventoryPanel.Location = new System.Drawing.Point(0, 61);
             this.inventoryPanel.Name = "inventoryPanel";
             this.inventoryPanel.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.inventoryPanel.Size = new System.Drawing.Size(1001, 108);
+            this.inventoryPanel.Size = new System.Drawing.Size(1001, 103);
             this.inventoryPanel.TabIndex = 1;
             // 
             // ordersInventoryBar
@@ -156,7 +153,7 @@
             this.ordersInventoryBar.Location = new System.Drawing.Point(484, 0);
             this.ordersInventoryBar.Name = "ordersInventoryBar";
             this.ordersInventoryBar.ResizeOrderIndex = 1;
-            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 105);
+            this.ordersInventoryBar.Size = new System.Drawing.Size(195, 100);
             this.ordersInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.ordersInventoryBar.TabIndex = 6;
             this.ordersInventoryBar.Text = "מנהל הזמנות";
@@ -211,7 +208,7 @@
             this.operationsInventoryBar.Location = new System.Drawing.Point(181, 0);
             this.operationsInventoryBar.Name = "operationsInventoryBar";
             this.operationsInventoryBar.ResizeOrderIndex = 1;
-            this.operationsInventoryBar.Size = new System.Drawing.Size(303, 105);
+            this.operationsInventoryBar.Size = new System.Drawing.Size(303, 100);
             this.operationsInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.operationsInventoryBar.TabIndex = 5;
             this.operationsInventoryBar.Text = "פעולות";
@@ -298,7 +295,7 @@
             this.generalInventoryBar.Location = new System.Drawing.Point(3, 0);
             this.generalInventoryBar.Name = "generalInventoryBar";
             this.generalInventoryBar.ResizeOrderIndex = 1;
-            this.generalInventoryBar.Size = new System.Drawing.Size(178, 105);
+            this.generalInventoryBar.Size = new System.Drawing.Size(178, 100);
             this.generalInventoryBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.generalInventoryBar.TabIndex = 4;
             this.generalInventoryBar.Text = "כללי";
@@ -693,26 +690,11 @@
             this.systemButtons.MinimumSize = new System.Drawing.Size(120, 0);
             this.systemButtons.Name = "systemButtons";
             this.systemButtons.SubItems.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.identificationButton,
             this.disconnectButton,
             this.addNewUserButton,
             this.systemMngButton,
-            this.saveButton,
             this.printButton,
             this.exitButton});
-            // 
-            // identificationButton
-            // 
-            this.identificationButton.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.identificationButton.Image = ((System.Drawing.Image)(resources.GetObject("identificationButton.Image")));
-            this.identificationButton.ImagePaddingHorizontal = 20;
-            this.identificationButton.Name = "identificationButton";
-            this.identificationButton.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlE);
-            this.identificationButton.SubItemsExpandWidth = 24;
-            this.identificationButton.Text = "כניסה למערכת...";
-            this.identificationButton.Tooltip = "כניסה למערכת...   Ctrl+E";
-            this.identificationButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.identificationButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             // 
             // disconnectButton
             // 
@@ -723,6 +705,8 @@
             this.disconnectButton.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlE);
             this.disconnectButton.Text = "התנתק";
             this.disconnectButton.Tooltip = "התנתק מהמערכת       Ctrl+E";
+            this.disconnectButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
+            this.disconnectButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             this.disconnectButton.Click += new System.EventHandler(this.disconnectButton_Click);
             // 
             // addNewUserButton
@@ -798,19 +782,6 @@
             this.settingsButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
-            // saveButton
-            // 
-            this.saveButton.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
-            this.saveButton.Image = global::seedsfromzion.Properties.Resources.Save;
-            this.saveButton.ImagePaddingHorizontal = 20;
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlS);
-            this.saveButton.SubItemsExpandWidth = 24;
-            this.saveButton.Text = "שמור מסך...";
-            this.saveButton.Tooltip = "שמור מסך...   Ctrl+S";
-            this.saveButton.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
-            this.saveButton.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            // 
             // printButton
             // 
             this.printButton.ButtonStyle = DevComponents.DotNetBar.eButtonStyle.ImageAndText;
@@ -842,14 +813,13 @@
             // 
             // saveButtonMini
             // 
-            this.saveButtonMini.Image = ((System.Drawing.Image)(resources.GetObject("saveButtonMini.Image")));
+            this.saveButtonMini.Image = global::seedsfromzion.Properties.Resources.Download_16;
             this.saveButtonMini.ImagePaddingHorizontal = 8;
             this.saveButtonMini.Name = "saveButtonMini";
-            this.saveButtonMini.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlS);
-            this.saveButtonMini.Tooltip = "שמור מסך...";
+            this.saveButtonMini.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlB);
+            this.saveButtonMini.Tooltip = "לעשות גיבוי המערכת...   Ctrl+B";
             this.saveButtonMini.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.saveButtonMini.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
-            this.saveButtonMini.Click += new System.EventHandler(this.saveButtonMini_Click);
             // 
             // favoritesButtonMini
             // 
@@ -858,7 +828,7 @@
             this.favoritesButtonMini.ImagePaddingHorizontal = 8;
             this.favoritesButtonMini.Name = "favoritesButtonMini";
             this.favoritesButtonMini.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlF);
-            this.favoritesButtonMini.Tooltip = "מועדפים...";
+            this.favoritesButtonMini.Tooltip = "מועדפים...    Ctrl+F";
             this.favoritesButtonMini.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.favoritesButtonMini.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
             // 
@@ -868,9 +838,10 @@
             this.printButtonMini.ImagePaddingHorizontal = 8;
             this.printButtonMini.Name = "printButtonMini";
             this.printButtonMini.Shortcuts.Add(DevComponents.DotNetBar.eShortcut.CtrlP);
-            this.printButtonMini.Tooltip = "הדפס...";
+            this.printButtonMini.Tooltip = "הדפס...    Ctrl+P";
             this.printButtonMini.MouseLeave += new System.EventHandler(this.dotNetBarManager1_MouseLeave);
             this.printButtonMini.MouseEnter += new System.EventHandler(this.dotNetBarManager1_MouseEnter);
+            this.printButtonMini.Click += new System.EventHandler(this.printButtonMini_Click);
             // 
             // qatCustomizeItem1
             // 
@@ -893,9 +864,9 @@
             this.statusBar.GrabHandleStyle = DevComponents.DotNetBar.eGrabHandleStyle.ResizeHandle;
             this.statusBar.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.statusLabel});
-            this.statusBar.Location = new System.Drawing.Point(4, 584);
+            this.statusBar.Location = new System.Drawing.Point(4, 580);
             this.statusBar.Name = "statusBar";
-            this.statusBar.Size = new System.Drawing.Size(1001, 19);
+            this.statusBar.Size = new System.Drawing.Size(1001, 23);
             this.statusBar.Stretch = true;
             this.statusBar.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007;
             this.statusBar.TabIndex = 1;
@@ -957,7 +928,6 @@
         private DevComponents.DotNetBar.ButtonItem exitButton;
         private DevComponents.DotNetBar.ButtonItem printButtonMini;
         private DevComponents.DotNetBar.QatCustomizeItem qatCustomizeItem1;
-        private DevComponents.DotNetBar.ButtonItem identificationButton;
         private DevComponents.DotNetBar.ButtonItem addNewUserButton;
         private DevComponents.DotNetBar.RibbonPanel statisticsPanel;
         private DevComponents.DotNetBar.RibbonTabItem statisticsTab;
@@ -968,7 +938,6 @@
         private DevComponents.DotNetBar.ButtonItem settingsButton;
         private DevComponents.DotNetBar.ButtonItem saveButtonMini;
         private DevComponents.DotNetBar.ButtonItem favoritesButtonMini;
-        private DevComponents.DotNetBar.ButtonItem saveButton;
         private DevComponents.DotNetBar.Bar statusBar;
         private DevComponents.DotNetBar.LabelItem statusLabel;
         private DevComponents.DotNetBar.RibbonBar generalWorkersBar;
