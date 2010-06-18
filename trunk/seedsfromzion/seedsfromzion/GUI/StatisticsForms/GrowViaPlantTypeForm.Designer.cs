@@ -47,7 +47,7 @@
             this.GrowViaTypeGraphControl.AutoSize = true;
             this.GrowViaTypeGraphControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrowViaTypeGraphControl.Location = new System.Drawing.Point(6, 6);
-            this.GrowViaTypeGraphControl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GrowViaTypeGraphControl.Margin = new System.Windows.Forms.Padding(4);
             this.GrowViaTypeGraphControl.Name = "GrowViaTypeGraphControl";
             this.GrowViaTypeGraphControl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.GrowViaTypeGraphControl.ScrollGrace = 0;
@@ -106,8 +106,8 @@
             this.autoCompleteList.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.autoCompleteList.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.autoCompleteList.FormattingEnabled = true;
-            this.autoCompleteList.ItemHeight = 20;
-            this.autoCompleteList.Location = new System.Drawing.Point(57, 77);
+            this.autoCompleteList.ItemHeight = 16;
+            this.autoCompleteList.Location = new System.Drawing.Point(45, 73);
             this.autoCompleteList.Name = "autoCompleteList";
             this.autoCompleteList.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.autoCompleteList.Size = new System.Drawing.Size(190, 82);
@@ -120,7 +120,7 @@
             this.showGraphButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.showGraphButton.CanvasColor = System.Drawing.SystemColors.Control;
             this.showGraphButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.showGraphButton.Location = new System.Drawing.Point(265, 129);
+            this.showGraphButton.Location = new System.Drawing.Point(253, 129);
             this.showGraphButton.Name = "showGraphButton";
             this.showGraphButton.Size = new System.Drawing.Size(149, 54);
             // 
@@ -171,7 +171,7 @@
             this.plantChoisePanel.Controls.Add(this.plantNameLabel);
             this.plantChoisePanel.Location = new System.Drawing.Point(29, 35);
             this.plantChoisePanel.Name = "plantChoisePanel";
-            this.plantChoisePanel.Size = new System.Drawing.Size(385, 64);
+            this.plantChoisePanel.Size = new System.Drawing.Size(373, 64);
             // 
             // 
             // 
@@ -202,10 +202,10 @@
             // 
             this.plantNameTextBox.Border.Class = "TextBoxBorder";
             this.plantNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.plantNameTextBox.Location = new System.Drawing.Point(28, 16);
+            this.plantNameTextBox.Location = new System.Drawing.Point(16, 16);
             this.plantNameTextBox.Name = "plantNameTextBox";
             this.plantNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.plantNameTextBox.Size = new System.Drawing.Size(190, 26);
+            this.plantNameTextBox.Size = new System.Drawing.Size(190, 23);
             this.plantNameTextBox.TabIndex = 18;
             this.plantNameTextBox.WatermarkText = "הכנס שם של הצמח";
             this.plantNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.plantNameTextBox_KeyPress);
@@ -224,7 +224,7 @@
             this.plantNameLabel.BackgroundStyle.BorderTopWidth = 1;
             this.plantNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.plantNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.plantNameLabel.Location = new System.Drawing.Point(249, 17);
+            this.plantNameLabel.Location = new System.Drawing.Point(237, 17);
             this.plantNameLabel.Name = "plantNameLabel";
             this.plantNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.plantNameLabel.Size = new System.Drawing.Size(118, 25);
@@ -254,9 +254,8 @@
             // 
             this.ClientSize = new System.Drawing.Size(934, 535);
             this.Controls.Add(this.typeTableLayoutPanel);
-            this.DoubleBuffered = true;
             this.Name = "GrowViaPlantTypeForm";
-            this.Text = "PlantType";
+            this.Text = "גרף אחוזי הנביטה לפי סוג הצמח";
             this.Load += new System.EventHandler(this.GrowViaPlantTypeForm_Load);
             this.graphicSettingsPanel.ResumeLayout(false);
             this.plantChoisePanel.ResumeLayout(false);
