@@ -208,16 +208,9 @@ namespace seedsfromzion.GUI
             notification = new Notification(Screen.GetWorkingArea(this));
             displayFunc = new displayNotification(notification.showNotification);
             initFavorites();
-
-
-
-            
-            
+        
             PrintDoc1 = new PrintDocument();
-            PrintDoc1.PrintPage += PDoc_PrintPage;
-            
-            
-            
+            PrintDoc1.PrintPage += PDoc_PrintPage;          
         }
 
         private void initRoutines()
@@ -609,7 +602,7 @@ namespace seedsfromzion.GUI
                 return;
             }
             Bitmap bmp = new Bitmap(this.Width, this.Height);
-            this.DrawToBitmap(bmp, this.ClientRectangle);
+            this.ActiveMdiChild.DrawToBitmap(bmp, this.ClientRectangle);
             e.Graphics.DrawImage(bmp, 0, 0, PrintDoc1.DefaultPageSettings.Bounds.Width, PrintDoc1.DefaultPageSettings.Bounds.Height);
         }
         
