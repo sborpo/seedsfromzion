@@ -41,7 +41,6 @@
             this.Name = "BaseForm";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.AutoScroll = true;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
