@@ -66,6 +66,11 @@ namespace seedsfromzion.Managers
             DatabaseAccess.performDMLQuery(command);
         }
 
+        /// <summary>
+        /// Finds the worker.
+        /// </summary>
+        /// <param name="p_name">The p_name.</param>
+        /// <returns></returns>
         public DataTable FindWorker(string p_name)
         {
             MySqlCommand command = DataAccessUtils.commandBuilder("SELECT * From seedsdb.workers WHERE name=@P_NAME",
@@ -373,6 +378,10 @@ namespace seedsfromzion.Managers
         #endregion
 
         #region Properties
+        /// <summary>
+        /// Gets the visas.
+        /// </summary>
+        /// <value>The visas.</value>
         public DataTable Visas 
         {
             get
@@ -382,6 +391,10 @@ namespace seedsfromzion.Managers
             }
         }
 
+        /// <summary>
+        /// Gets the workers.
+        /// </summary>
+        /// <value>The workers.</value>
         public DataTable Workers
         {
             get
@@ -391,6 +404,10 @@ namespace seedsfromzion.Managers
             }
         }
 
+        /// <summary>
+        /// Gets the workers with payments.
+        /// </summary>
+        /// <value>The workers with payments.</value>
         public DataTable WorkersWithPayments
         { 
             get 
