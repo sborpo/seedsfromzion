@@ -12,7 +12,7 @@ namespace seedsfromzion.GUI.WorkerForms
 {
 
     /// <summary>
-    /// 
+    /// A form that take care of finding a new worker, and displaying it.
     /// </summary>
     public partial class FindWorkerForm : BaseForm
     {

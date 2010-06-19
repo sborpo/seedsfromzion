@@ -10,6 +10,9 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+    /// <summary>
+    /// A form which deals with adding a new worker to the system.
+    /// </summary>
     public partial class AddWorkerForm : BaseForm
     {
         /// <summary>

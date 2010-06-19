@@ -11,6 +11,9 @@ using seedsfromzion.DataAccess;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+    /// <summary>
+    /// A form that takes care of the workers report.
+    /// </summary>
     public partial class WorkersReportsForm : BaseForm
     {
         /// <summary>

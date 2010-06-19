@@ -10,6 +10,9 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+    /// <summary>
+    /// A form that deals with the payment to the workers.
+    /// </summary>
     public partial class PaymentsForm : BaseForm
     {
         /// <summary>
