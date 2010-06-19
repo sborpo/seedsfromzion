@@ -11,18 +11,31 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.StatisticsForms
 {
+    /// <summary>
+    /// This form is the grow percentage via fridge time statistical graph.
+    /// </summary>
     public partial class GrowViaFridgeTimeForm : seedsfromzion.GUI.BaseForm
     {
         private int selectedFavotitePlantId = -1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrowViaFridgeTimeForm"/> class.
+        /// </summary>
+        /// <param name="mainForm">The main form.</param>
         public GrowViaFridgeTimeForm(seedsFromZion mainForm)
         {
             InitializeComponent();
+            //sign up to the favorites clicked event
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
         }
 
+        /// <summary>
+        /// Handler for favorites clicked event.
+        /// </summary>
+        /// <param name="plantId">The plant id.</param>
         void mainForm_favoriteClicked(int plantId)
         {
+            //only if the form is created
             if (this.Created)
             {
                 selectedFavotitePlantId = plantId;
@@ -31,17 +44,27 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
         }
 
+        /// <summary>
+        /// Handles the Load event of the GrowViaFridgeTime control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void GrowViaFridgeTime_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
+            //initializes the basic properties for the graph control
             this.GrowViaFridgeGraphControl_Start(sender, e);
-            //StatisticsManager.initPlantNames();
-            //StatisticsManager.initPlantTypes();
         }
 
+        /// <summary>
+        /// Handles the Start event of the GrowViaFridgeGraphControl control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void GrowViaFridgeGraphControl_Start(object sender, EventArgs e)
         {
             GraphPane growGraphPane = this.GrowViaFridgeGraphControl.GraphPane;
+            //set basic properties
             growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי זמן שהיה במקרר";
             growGraphPane.Title.FontSpec.FontColor = Color.Navy;
             growGraphPane.XAxis.Title.Text = "זמן שהיה  במקרר";
@@ -51,6 +74,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Type = AxisType.Linear;
             growGraphPane.XAxis.Scale.IsVisible = false;
 
+            // Set the YAxis to Date type
             growGraphPane.YAxis.Type = AxisType.Linear;
             growGraphPane.YAxis.Scale.FormatAuto = true;
             growGraphPane.YAxis.Scale.IsVisible = false;
@@ -60,6 +84,11 @@ namespace seedsfromzion.GUI.StatisticsForms
 
         }
 
+        /// <summary>
+        /// Loads the graph. Performs basic checkups.
+        /// </summary>
+        /// <param name="plantName">Name of the plant.</param>
+        /// <param name="plantId">The plant id.</param>
         private void GrowViaFridgeGraphControl_Load(string plantName, int plantId)
         {
             GraphPane growGraphPane = this.GrowViaFridgeGraphControl.GraphPane;
@@ -77,6 +106,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             Double[] xArray = StatisticsManager.buildArrayFromGraphData<decimal,Double>(graphData, "fridgeTime");
             Double[] yArray = StatisticsManager.buildArrayFromGraphData<double,Double>(graphData, "sproutingPerc");
 
+            //if there is no data
             if (graphData.Rows.Count.Equals(0))
             {
                 new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
@@ -91,8 +121,6 @@ namespace seedsfromzion.GUI.StatisticsForms
                 int index = Array.IndexOf<double>(xArray, xSortedArray[i]);
                 ySortedArray[i] = yArray[index];
             }
-            //create the bar
-            //BarItem myCurve = growGraphPane.AddBar("Plant 'Plant'", xArray, yArray, Color.Blue);
 
             // Draw the X tics between the labels instead of at the labels
             growGraphPane.XAxis.MajorTic.IsBetweenLabels = false;
@@ -109,9 +137,6 @@ namespace seedsfromzion.GUI.StatisticsForms
 
             // disable the legend
             growGraphPane.Legend.IsVisible = true;
-
-            // Create TextObj's to provide labels for each bar
-            //BarItem.CreateBarLabels(growGraphPane, false, "f2");
 
             // Offset Y space between point and label
             // NOTE:  This offset is in Y scale units, so it depends on your actual data
@@ -133,15 +158,10 @@ namespace seedsfromzion.GUI.StatisticsForms
                 // Hide the border and the fill
                 text.FontSpec.Border.IsVisible = false;
                 text.FontSpec.Fill.IsVisible = false;
-                //text.FontSpec.Fill = new Fill( Color.FromArgb( 100, Color.GreenYellow ) );
-                // Rotate the text to 90 degrees
                 text.FontSpec.Angle = 0;
 
                 growGraphPane.GraphObjList.Add(text);
             }
-
-            // Leave some extra space on top for the labels to fit within the chart rect
-            //growGraphPane.YAxis.Scale.MaxGrace = 0.2;
 
             //set visible scales
             growGraphPane.XAxis.Scale.IsVisible = true;
@@ -152,6 +172,11 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaFridgeGraphControl.Refresh();
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the isChosenTypeCHBX control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
         {
             DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
@@ -165,6 +190,12 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the showGraphButton control.
+        /// Performs checkups of entered data.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void showGraphButton_Click(object sender, EventArgs e)
         {
             string plantName = this.plantNameTextBox.Text;
@@ -177,6 +208,7 @@ namespace seedsfromzion.GUI.StatisticsForms
                 return;
             }
             int plantId = -1;
+            //if type is enabled
             if (this.plantTypeDropBox.Enabled.Equals(true))
             {
                 if (plantType.Length <= 0)
@@ -200,16 +232,21 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaFridgeGraphControl_Load(plantName,plantId);
         }
 
-
+        /// <summary>
+        /// Handles the TextChanged event of the plantNameTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_TextChanged(object sender, EventArgs e)
-        {
+        {   //if the favorites were chosen
             if (selectedFavotitePlantId > 0)
             {
-                plantTypeDropBox_TextChanged(sender, e);
+                plantTypeDropBox_DropDown(sender, e);
                 string plantType = StatisticsManager.getTypeById(selectedFavotitePlantId);
                 this.plantTypeDropBox.SelectedIndex = this.plantTypeDropBox.Items.IndexOf(plantType);
                 selectedFavotitePlantId = -1;
             }
+            //else - text was entered
             else 
             {
                 this.autoCompleteList.Visible = false;
@@ -228,8 +265,12 @@ namespace seedsfromzion.GUI.StatisticsForms
                 }
             }
         }
-        
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the autoCompleteList control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
@@ -239,21 +280,31 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantTypeDropBox.EndUpdate();
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the plantNameTextBox control.
+        /// Filters out all except letters,backspace and delete button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
                 e.Handled = true;
         }
 
-        private void plantTypeDropBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the DropDown event of the plantTypeDropBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void plantTypeDropBox_DropDown(object sender, EventArgs e)
         {
             this.plantTypeDropBox.Items.Clear();
             if (this.plantNameTextBox.Text.Length > 0)
             {
                 this.plantTypeDropBox.BeginUpdate();
-                //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
-                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
+                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);
+                DataRow[] rows = StatisticsManager.plantTypes.Select();
                 if (rows.Length > 0)
                 {
                     String[] names = StatisticsManager.buildArrayFromGraphData<string, String>(rows, "type");
@@ -262,7 +313,5 @@ namespace seedsfromzion.GUI.StatisticsForms
                 this.plantTypeDropBox.EndUpdate();
             }
         }
-
-
     }
 }
