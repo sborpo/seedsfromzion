@@ -10,6 +10,10 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+
+    /// <summary>
+    /// A popup form which updates selected visa propertis.
+    /// </summary>
     public partial class UpdateVisaForm : DevComponents.DotNetBar.Office2007Form
     {
         /// <summary>

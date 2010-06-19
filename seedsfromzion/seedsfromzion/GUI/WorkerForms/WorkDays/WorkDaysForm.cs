@@ -10,6 +10,9 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+    /// <summary>
+    /// A form which takes care of the workers work days and hours.
+    /// </summary>
     public partial class WorkDaysForm : BaseForm
     {
         /// <summary>

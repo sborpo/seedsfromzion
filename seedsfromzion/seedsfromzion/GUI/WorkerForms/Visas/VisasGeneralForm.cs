@@ -10,6 +10,9 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+    /// <summary>
+    /// A form which dispaly the visas in the system, and their workers.
+    /// </summary>
     public partial class VisasGeneralForm : BaseForm
     {
         /// <summary>
