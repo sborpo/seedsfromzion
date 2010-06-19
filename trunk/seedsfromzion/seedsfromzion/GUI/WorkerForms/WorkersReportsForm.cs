@@ -13,6 +13,9 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class WorkersReportsForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkersReportsForm"/> class.
+        /// </summary>
         public WorkersReportsForm()
         {
             InitializeComponent();
@@ -21,6 +24,11 @@ namespace seedsfromzion.GUI.WorkerForms
             populateAllWorkers();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_save control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_save_Click(object sender, EventArgs e)
         {
             Report r = new Report();
@@ -47,6 +55,10 @@ namespace seedsfromzion.GUI.WorkerForms
             }
         }
 
+        /// <summary>
+        /// Generates all workers report.
+        /// </summary>
+        /// <param name="r">The r.</param>
         private void generateAllWorkersReport(Report r)
         {
             WorkerManager manager = new WorkerManager();
@@ -58,6 +70,10 @@ namespace seedsfromzion.GUI.WorkerForms
             workerStatus(r, "עובדים", table);
         }
 
+        /// <summary>
+        /// Generates the workers report.
+        /// </summary>
+        /// <param name="r">The r.</param>
         private void generateWorkersReport(Report r)
         {
             if (dataGrid_allWorkers.SelectedRows.Count <= 0)
@@ -84,6 +100,12 @@ namespace seedsfromzion.GUI.WorkerForms
             workerStatus(r, headr, table);
         }
 
+        /// <summary>
+        /// Workers the status.
+        /// </summary>
+        /// <param name="r">The r.</param>
+        /// <param name="headingStr">The heading STR.</param>
+        /// <param name="workers">The workers.</param>
         private void workerStatus(Report r, string headingStr, DataTable workers)
         {
             HtmlTable htmlTable = new HtmlTable(workers);
@@ -97,6 +119,11 @@ namespace seedsfromzion.GUI.WorkerForms
             r.append(new HtmlEndLine(2));
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the comboBox_type control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void comboBox_type_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBox_type.SelectedIndex == 0)
@@ -111,6 +138,9 @@ namespace seedsfromzion.GUI.WorkerForms
             }
         }
 
+        /// <summary>
+        /// Populates all workers data grid. 
+        /// </summary>
         private void populateAllWorkers()
         {
             WorkerManager workerManager = new WorkerManager();
@@ -119,10 +149,8 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGrid_allWorkers.Columns["id"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGrid_allWorkers.Columns["name"].HeaderText = "שם";
             dataGrid_allWorkers.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGrid_allWorkers.Columns["phone"].Visible  = false;// HeaderText = "טלפון";
-            //dataGrid_allWorkers.Columns["phone"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGrid_allWorkers.Columns["phone"].Visible  = false;
             dataGrid_allWorkers.Columns["comments"].Visible = false;
-            //dataGrid_allWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

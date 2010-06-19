@@ -12,11 +12,19 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class WorkDaysForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WorkDaysForm"/> class.
+        /// </summary>
         public WorkDaysForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Load event of the WorkDaysForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void WorkDaysForm_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
@@ -28,6 +36,9 @@ namespace seedsfromzion.GUI.WorkerForms
             monthCalendar.MaxDate = DateTime.Today;
         }
 
+        /// <summary>
+        /// Populates the worekres data grid..
+        /// </summary>
         private void populateWorekres()
         {
             dataGridWorkers.DataSource = m_manager.Workers;
@@ -41,6 +52,9 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        /// <summary>
+        /// Populates the hours data grid.
+        /// </summary>
         private void populateHours()
         {
             if (dataGridWorkers.SelectedRows.Count <= 0)
@@ -63,11 +77,21 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private WorkerManager m_manager = new WorkerManager();
 
+        /// <summary>
+        /// Handles the DateChanged event of the monthCalendar1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.DateRangeEventArgs"/> instance containing the event data.</param>
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             populateHours();   
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_update_hours control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_update_hours_Click(object sender, EventArgs e)
         {
             if (dataGridWorkers.SelectedRows.Count <= 0)
@@ -95,6 +119,11 @@ namespace seedsfromzion.GUI.WorkerForms
             successWindow.Show();
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the dataGridWorkers control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void dataGridWorkers_SelectionChanged(object sender, EventArgs e)
         {
             populateHours();

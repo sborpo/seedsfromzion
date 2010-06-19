@@ -12,11 +12,19 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class AddWorkerForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddWorkerForm"/> class.
+        /// </summary>
         public AddWorkerForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_addWorker control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_addWorker_Click(object sender, EventArgs e)
         {
             int workerID;
@@ -59,6 +67,11 @@ namespace seedsfromzion.GUI.WorkerForms
             successWindow.Show();
         }
 
+        /// <summary>
+        /// Handles the TextChanged event of the textBox_ID control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void textBox_ID_TextChanged(object sender, EventArgs e)
         {
            //TODO:validate that all the chars are numbers
