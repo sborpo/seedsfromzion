@@ -10,14 +10,26 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.WorkerForms
 {
+
+    /// <summary>
+    /// 
+    /// </summary>
     public partial class FindWorkerForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="FindWorkerForm"/> class.
+        /// </summary>
         public FindWorkerForm()
         {
             InitializeComponent();
             populateWorekres();
         }
 
+        /// <summary>
+        /// Handles the Load event of the FindWorkerForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void FindWorkerForm_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
@@ -26,6 +38,11 @@ namespace seedsfromzion.GUI.WorkerForms
             mainForm.deleteWorkerClicked += new seedsFromZion.deleteWorkerClickedHandler(mainForm_deleteWorkerClicked);
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_find control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_find_Click(object sender, EventArgs e)
         {
             //find through name
@@ -55,6 +72,9 @@ namespace seedsfromzion.GUI.WorkerForms
             populateWorekres(int.Parse(textBox_ID.Text));
         }
 
+        /// <summary>
+        /// Populates the worekres data grid.
+        /// </summary>
         private void populateWorekres()
         {
             dataGridWorkers.DataSource = m_manager.Workers;
@@ -68,6 +88,10 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        /// <summary>
+        /// Populates the woreker data grid.
+        /// </summary>
+        /// <param name="id">The id.</param>
         private void populateWorekres(int id)
         {
             dataGridWorkers.DataSource = m_manager.FindWorker(id);
@@ -81,6 +105,10 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        /// <summary>
+        /// Populates the woreker data grid.
+        /// </summary>
+        /// <param name="name">The name.</param>
         private void populateWorekres(string name)
         {
             dataGridWorkers.DataSource = m_manager.FindWorker(name);
@@ -96,12 +124,20 @@ namespace seedsfromzion.GUI.WorkerForms
 
         private WorkerManager m_manager = new WorkerManager();
 
+        /// <summary>
+        /// Handles the Click event of the btn_showAll control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_showAll_Click(object sender, EventArgs e)
         {
             populateWorekres();
         }
 
 
+        /// <summary>
+        /// Mains the form_delete worker clicked.
+        /// </summary>
         void mainForm_deleteWorkerClicked()
         {
             if (dataGridWorkers.SelectedRows.Count == 0)
@@ -130,6 +166,11 @@ namespace seedsfromzion.GUI.WorkerForms
             populateWorekres();
         }
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the tabControl1 control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             textBox_firstName.Text = textBox_lastName.Text = textBox_ID.Text = "";
