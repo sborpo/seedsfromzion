@@ -11,18 +11,31 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.StatisticsForms
 {
+    /// <summary>
+    /// This form represents the grow via sowing date graph statistics.
+    /// </summary>
     public partial class GrowViaSowingDateForm : seedsfromzion.GUI.BaseForm
     {
         private int selectedFavotitePlantId = -1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GrowViaSowingDateForm"/> class.
+        /// </summary>
+        /// <param name="mainForm">The main form.</param>
         public GrowViaSowingDateForm(seedsFromZion mainForm)
         {
             InitializeComponent();
+            //add handler for favorites clicked event
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
         }
 
+        /// <summary>
+        /// handles the favorites click event.
+        /// </summary>
+        /// <param name="plantId">The plant id.</param>
         void mainForm_favoriteClicked(int plantId)
         {
+            //only if the form is created - load the data
             if (this.Created)
             {
                 selectedFavotitePlantId = plantId;
@@ -30,18 +43,29 @@ namespace seedsfromzion.GUI.StatisticsForms
                 this.plantNameTextBox.Text = plantName;
             }
         }
-        
+
+        /// <summary>
+        /// Handles the Load event of the GrowViaSowingDateGraph control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void GrowViaSowingDateGraph_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
+            //Triggers the initialization of the graph control
             this.GrowViaSowGraphControl_Start(sender, e);
-            //StatisticsManager.initPlantNames();
-            //StatisticsManager.initPlantTypes();
         }
 
+        /// <summary>
+        /// Handles the Start event of the GrowViaSowGraphControl control.
+        /// Initializes the graph control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void GrowViaSowGraphControl_Start(object sender, EventArgs e)
         {
             GraphPane growGraphPane = this.GrowViaSowGraphControl.GraphPane;
+            //set the basic propetries
             growGraphPane.Title.Text = "גרף אחוזי הנביטה לפי תאריך הזריע";
             growGraphPane.Title.FontSpec.FontColor = Color.Navy;
             growGraphPane.XAxis.Title.Text = "תאריך הזריע";
@@ -52,11 +76,13 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.XAxis.Scale.Format = "yyyy-MMM-dd";
             growGraphPane.XAxis.Scale.MajorStep = 1;
             growGraphPane.XAxis.Scale.MajorUnit = DateUnit.Day;
-            // tilt the x axis labels to an angle of 65 degrees
+
+            //set the axis labels angle
             growGraphPane.XAxis.Scale.FontSpec.Angle = 90;
             growGraphPane.XAxis.Scale.FontSpec.Size = 10;
             growGraphPane.XAxis.Scale.IsVisible = false;
 
+            // Set the YAxis to Date type
             growGraphPane.YAxis.Type = AxisType.Linear;
             growGraphPane.YAxis.Scale.FormatAuto = true;
             growGraphPane.YAxis.Scale.IsVisible = false;
@@ -65,6 +91,11 @@ namespace seedsfromzion.GUI.StatisticsForms
             growGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
         }
 
+        /// <summary>
+        /// Loads the graph control. Performing several checkups of the data.
+        /// </summary>
+        /// <param name="plantName">Name of the plant.</param>
+        /// <param name="plantId">The plant id.</param>
         private void GrowViaSowGraphControl_Load(string plantName, int plantId)
         {
             GraphPane growGraphPane = this.GrowViaSowGraphControl.GraphPane;
@@ -77,7 +108,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             {
                 graphData = StatisticsManager.getGrowViaSowGraphValues(plantId);
             }
-            
+            //if no data for the entered plant exists
             if (graphData.Rows.Count.Equals(0))
             {
                 new ErrorWindow("אין מידע עבור צמח וסוג שנבחרו").Show();
@@ -89,12 +120,15 @@ namespace seedsfromzion.GUI.StatisticsForms
             Double[] yOrig = StatisticsManager.buildArrayFromGraphData<double, Double>(graphData, "sproutingPerc");
             Double[] xArray;
             Double[] yArray;
+
+            //prepare the data
             StatisticsManager.sortData(ref xOrig, ref yOrig);
             StatisticsManager.filterDates(xOrig, yOrig, this.fromDate, this.tillDate, out xArray, out yArray);
 
             //get predictions
             StatisticsManager.predictForDates(xOrig, yOrig, this.fromDate, this.tillDate, ref xArray, ref yArray);
 
+            //if no data exists after dates filtering and prediction
             if (xArray.Length.Equals(0))
             {
                 new ErrorWindow("אין מידע עבור צמח בתאריכים שנבחרו").Show();
@@ -124,6 +158,11 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaSowGraphControl.Refresh();
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the isChosenTypeCHBX control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
         {
             DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
@@ -137,6 +176,12 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the showGraphButton control.
+        /// Performs several checkups of the entered data.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void showGraphButton_Click(object sender, EventArgs e)
         {
             string plantName = this.plantNameTextBox.Text;
@@ -151,10 +196,9 @@ namespace seedsfromzion.GUI.StatisticsForms
            
             int plantId = -1;
             if (this.plantTypeDropBox.Enabled.Equals(true))
-            {
+            {   //if no type was chosen
                 if (plantType.Length <= 0)
                 {
-                    //throw new KeyNotFoundException("פרטים חסרים...");
                     new ErrorWindow("אנא בחרו סוג הצמח").Show();
                     return;
                 }
@@ -164,7 +208,6 @@ namespace seedsfromzion.GUI.StatisticsForms
                     //if no such plant name
                     if (plantId.Equals(-1))
                     {
-                        //throw new KeyNotFoundException("הצמח לא נמצא לפי פרטים שהוזנו");
                         new ErrorWindow("הצמח לא נמצא לפי פרטים שהוזנו").Show();
                         return;
                     }
@@ -189,16 +232,21 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.GrowViaSowGraphControl_Load(plantName, plantId);
         }
 
-
+        /// <summary>
+        /// Handles the TextChanged event of the plantNameTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_TextChanged(object sender, EventArgs e)
-        {
+        {   //if favorites were clicked
             if (selectedFavotitePlantId > 0)
             {
-                plantTypeDropBox_TextChanged(sender, e);
+                plantTypeDropBox_DropDown(sender, e);
                 string plantType = StatisticsManager.getTypeById(selectedFavotitePlantId);
                 this.plantTypeDropBox.SelectedIndex = this.plantTypeDropBox.Items.IndexOf(plantType);
                 selectedFavotitePlantId = -1;
             }
+            //else the text was entered - execute autocomplete
             else 
             {
                 this.autoCompleteList.Visible = false;
@@ -218,6 +266,11 @@ namespace seedsfromzion.GUI.StatisticsForms
         }
 
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the autoCompleteList control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
@@ -227,30 +280,38 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantTypeDropBox.EndUpdate();
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the plantNameTextBox control.
+        /// Filters out everything beside: letters,backspace and delete.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
                 e.Handled = true;
         }
 
-        private void plantTypeDropBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the DropDown event of the plantTypeDropBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void plantTypeDropBox_DropDown(object sender, EventArgs e)
         {
-            //MAYBE TO IMPLEMENT THE CHOISE OF THE APPROPRIATE TYPE
             this.plantTypeDropBox.Items.Clear();
+            //if plant name was entered
             if (this.plantNameTextBox.Text.Length > 0)
             {
                 this.plantTypeDropBox.BeginUpdate();
-                //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
-                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
+                //try to load the types
+                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);
+                DataRow[] rows = StatisticsManager.plantTypes.Select();
+                //if there is any type
                 if (rows.Length > 0)
                 {
                     String[] types = StatisticsManager.buildArrayFromGraphData<string, string>(rows, "type");
-
-                    //foreach(string name in names)
-                    //{
-                    //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
-                    //}
+                    //show the types
                     this.plantTypeDropBox.Items.AddRange(types);
                 }
                 this.plantTypeDropBox.EndUpdate();

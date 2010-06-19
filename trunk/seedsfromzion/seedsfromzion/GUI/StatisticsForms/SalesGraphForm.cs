@@ -11,18 +11,30 @@ using seedsfromzion.Managers;
 
 namespace seedsfromzion.GUI.StatisticsForms
 {
+    /// <summary>
+    /// This form is representing sales graph statistics.
+    /// </summary>
     public partial class SalesGraphFrom : seedsfromzion.GUI.BaseForm
     {
         private int selectedFavotitePlantId = -1;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SalesGraphFrom"/> class.
+        /// </summary>
+        /// <param name="mainForm">The main form - is the parent form.</param>
         public SalesGraphFrom(seedsFromZion mainForm)
         {
             InitializeComponent();
+            //add a new handler for the favorites click event.
             mainForm.favoriteClicked += new seedsFromZion.favoriteClickedHandler(mainForm_favoriteClicked);
         }
 
+        /// <summary>
+        /// Favorites clicked event handler.
+        /// </summary>
+        /// <param name="plantId">The plant id.</param>
         void mainForm_favoriteClicked(int plantId)
-        {
+        {   //if the form is created - load the plant data
             if (this.Created)
             {
                 selectedFavotitePlantId = plantId;
@@ -31,6 +43,12 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
         }
 
+        /// <summary>
+        /// Handles the Load event of the SalesGraphFrom control.
+        /// Performs some custom initializations.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void SalesGraphFrom_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
@@ -39,55 +57,18 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.fromDate.CustomFormat = "MM/yyyy";
             this.tillDate.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.tillDate.CustomFormat = "MM/yyyy";
-            //StatisticsManager.initPlantNames();
-            //StatisticsManager.initPlantTypes();
         }
 
-        //private void MyContextMenuBuilder(ZedGraphControl control, ContextMenuStrip menuStrip, Point mousePt, ZedGraphControl.ContextMenuObjectState objState)
-        //{
-        //    foreach (ToolStripMenuItem item in menuStrip.Items)
-        //    {
-        //        if ((string)item.Tag == "print")
-        //        {
-        //            item.Click += new System.EventHandler(this.MenuClick_Print);
-
-        //            break;
-        //        }
-        //    }
-        //}
-
-        //protected void MenuClick_Print(object sender, EventArgs e)
-        //{
-        //    DoPrint();
-        //}
-
-        //public void DoPrint()
-        //{
-        //    // Add a try/catch pair since the users of the control can't catch this one
-        //    try
-        //    {
-        //        PrintDocument pd = PrintDocument;
-
-        //        if (pd != null)
-        //        {
-        //            //pd.PrintPage += new PrintPageEventHandler( Graph_PrintPage );
-        //            PrintDialog pDlg = new PrintDialog();
-        //            pDlg.Document = pd;
-        //            if (pDlg.ShowDialog() == DialogResult.OK)
-        //                pd.Print();
-        //        }
-        //    }
-        //    catch (Exception exception)
-        //    {
-        //        MessageBox.Show(exception.Message);
-        //    }
-
-        //}
-
+        /// <summary>
+        /// Handles the Start event of the salesGraphControl control.
+        /// Initializes the graph control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void salesGraphControl_Start(object sender, EventArgs e)
         {
             GraphPane salesGraphPane = this.salesGraphControl.GraphPane;
-            //salesGraphControl.ContextMenuBuilder += new ZedGraphControl.ContextMenuBuilderEventHandler(MyContextMenuBuilder);
+            //define propetries
             salesGraphPane.Title.Text = "גרף המכירות";
             salesGraphPane.Title.FontSpec.FontColor = Color.Navy;
             salesGraphPane.XAxis.Title.Text = "חודשים";
@@ -98,11 +79,11 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.XAxis.Scale.Format = "yyyy-MMM";
             salesGraphPane.XAxis.Scale.MajorStep = 1;
             salesGraphPane.XAxis.Scale.MajorUnit = DateUnit.Month;
-            // tilt the x axis labels to an angle of 65 degrees
+            //set angles for the axis labels
             salesGraphPane.XAxis.Scale.FontSpec.Angle = 90;
             salesGraphPane.XAxis.Scale.FontSpec.Size = 10;
             salesGraphPane.XAxis.Scale.IsVisible = false;
-
+            // Set the YAxis to Date type
             salesGraphPane.YAxis.Type = AxisType.Linear;
             salesGraphPane.YAxis.Scale.FormatAuto = true;
             salesGraphPane.YAxis.Scale.IsVisible = false;
@@ -111,10 +92,16 @@ namespace seedsfromzion.GUI.StatisticsForms
             salesGraphPane.Chart.Fill = new Fill(Color.White, Color.FromArgb(255, 255, 166), 45.0F);
         }
 
+        /// <summary>
+        /// Loads the graph control for a specific plant name and plant id.
+        /// </summary>
+        /// <param name="plantName">Name of the plant.</param>
+        /// <param name="plantId">The plant id.</param>
         private void salesGraphControl_Load(string plantName,int plantId)
         {
             GraphPane salesGraphPane = this.salesGraphControl.GraphPane;
             DataTable graphData;
+            //get the graph data by id or name
             if (plantId.Equals(-1))
             {
                 graphData = StatisticsManager.getSalesGraphValues(plantName);
@@ -129,6 +116,7 @@ namespace seedsfromzion.GUI.StatisticsForms
             Double[] yOrig = StatisticsManager.buildArrayFromGraphData<decimal, double>(graphData, "units");
             Double[] xArray;
             Double[] yArray;
+            //dort and filter the data.
             StatisticsManager.sortData(ref xOrig, ref yOrig);
             StatisticsManager.filterDates(xOrig, yOrig, this.fromDate, this.tillDate, out xArray, out yArray);
 
@@ -158,7 +146,6 @@ namespace seedsfromzion.GUI.StatisticsForms
             BarItem.CreateBarLabels(salesGraphPane, false, "f0");
 
             StatisticsManager.rotateBarLables(salesGraphPane);
-            
 
             //set visible scales
             salesGraphPane.XAxis.Scale.IsVisible = true;
@@ -169,6 +156,11 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.salesGraphControl.Refresh();
         }
 
+        /// <summary>
+        /// Handles the CheckedChanged event of the isChosenTypeCHBX control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void isChosenTypeCHBX_CheckedChanged(object sender, EventArgs e)
         {
             DevComponents.DotNetBar.Controls.CheckBoxX myCHBX = sender as DevComponents.DotNetBar.Controls.CheckBoxX;
@@ -182,6 +174,12 @@ namespace seedsfromzion.GUI.StatisticsForms
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the showGraphButton control.
+        /// Performs several checkups for validity of entered data.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void showGraphButton_Click(object sender, EventArgs e)
         {
             string plantName = this.plantNameTextBox.Text;
@@ -234,22 +232,29 @@ namespace seedsfromzion.GUI.StatisticsForms
         }
 
 
+        /// <summary>
+        /// Handles the TextChanged event of the plantNameTextBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_TextChanged(object sender, EventArgs e)
         {
+            //if favorites has been selected
             if (selectedFavotitePlantId > 0)
             {
-                plantTypeDropBox_TextChanged(sender, e);
+                plantTypeDropBox_DropDown(sender, e);
                 string plantType = StatisticsManager.getTypeById(selectedFavotitePlantId);
                 this.plantTypeDropBox.SelectedIndex = this.plantTypeDropBox.Items.IndexOf(plantType);
                 selectedFavotitePlantId = -1;
             }
+            //else - text was entered by user - enable autocomplete
             else
             {
                 this.autoCompleteList.Visible = false;
                 this.Redraw();
                 if (this.plantNameTextBox.Text.Length > 0)
                 {
-                    DataRow[] rows = StatisticsManager.initPlantNames(this.plantNameTextBox.Text);//NEW
+                    DataRow[] rows = StatisticsManager.initPlantNames(this.plantNameTextBox.Text);
 
                     if (rows != null && rows.Length > 0)
                     {
@@ -263,6 +268,11 @@ namespace seedsfromzion.GUI.StatisticsForms
         }
 
 
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the autoCompleteList control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void autoCompleteList_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.plantNameTextBox.Text = (String)this.autoCompleteList.SelectedItem;
@@ -272,36 +282,38 @@ namespace seedsfromzion.GUI.StatisticsForms
             this.plantTypeDropBox.EndUpdate();
         }
 
+        /// <summary>
+        /// Handles the KeyPress event of the plantNameTextBox control.
+        /// Accepts only letters, backspace and the delete button.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.Windows.Forms.KeyPressEventArgs"/> instance containing the event data.</param>
         private void plantNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar.Equals((char)Keys.Back) || e.KeyChar.Equals((char)Keys.Delete)))
                 e.Handled = true;
         }
 
-        private void plantTypeDropBox_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Handles the DropDown event of the plantTypeDropBox control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+        private void plantTypeDropBox_DropDown(object sender, EventArgs e)
         {
-            //MAYBE TO IMPLEMENT THE CHOISE OF THE APPROPRIATE TYPE
             this.plantTypeDropBox.Items.Clear();
             if (this.plantNameTextBox.Text.Length > 0)
             {
                 this.plantTypeDropBox.BeginUpdate();
-                //DataRow[] rows = StatisticsManager.plantTypes.Select("name LIKE '" + this.plantNameTextBox.Text + "%'");
-                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);//NEW
-                DataRow[] rows = StatisticsManager.plantTypes.Select();//NEW
+                StatisticsManager.initPlantTypes(this.plantNameTextBox.Text);
+                DataRow[] rows = StatisticsManager.plantTypes.Select();
                 if (rows.Length > 0)
                 {
                     String[] types = StatisticsManager.buildArrayFromGraphData<string, string>(rows, "type");
-
-                    //foreach(string name in names)
-                    //{
-                    //    .DropDownItems.Add(new DevComponents.DotNetBar.(name));
-                    //}
                     this.plantTypeDropBox.Items.AddRange(types);
                 }
                 this.plantTypeDropBox.EndUpdate();
             }
         }
-
-
     }
 }
