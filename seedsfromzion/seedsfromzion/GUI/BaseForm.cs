@@ -9,6 +9,10 @@ using System.Windows.Forms;
 
 namespace seedsfromzion.GUI
 {
+    /// <summary>
+    /// This is the base form. All other MDI child forms must inherit from this one.
+    /// Defined common specifications, like RightToLeft property and etc.
+    /// </summary>
     public partial class BaseForm : DevComponents.DotNetBar.Office2007Form
     {
         public BaseForm()
