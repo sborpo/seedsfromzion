@@ -226,7 +226,7 @@
             this.groupPanel1.Controls.Add(this.dateChoisePanel);
             this.groupPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.groupPanel1.Location = new System.Drawing.Point(9, 10);
-            this.groupPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.groupPanel1.Name = "groupPanel1";
             this.groupPanel1.Size = new System.Drawing.Size(422, 366);
             // 
@@ -259,7 +259,7 @@
             this.ClientSize = new System.Drawing.Size(447, 388);
             this.Controls.Add(this.groupPanel1);
             this.Name = "PaymentsForm";
-            this.Text = "PaymentsForm";
+            this.Text = "תשלומים לעובדים";
             this.Load += new System.EventHandler(this.PaymentsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDowd_advancedPay)).EndInit();
