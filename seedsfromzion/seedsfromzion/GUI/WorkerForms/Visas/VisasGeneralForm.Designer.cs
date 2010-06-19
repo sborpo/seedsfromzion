@@ -673,7 +673,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "VisasGeneralForm";
-            this.Text = "VisasGeneralForm";
+            this.Text = "ויזות";
             this.Load += new System.EventHandler(this.VisasGeneralForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridVisas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_workers)).EndInit();

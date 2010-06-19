@@ -58,14 +58,14 @@
             this.comboBoxEx1.DisplayMember = "Text";
             this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.comboBoxEx1.FormattingEnabled = true;
-            this.comboBoxEx1.ItemHeight = 20;
+            this.comboBoxEx1.ItemHeight = 17;
             this.comboBoxEx1.Items.AddRange(new object[] {
             this.comboItem1,
             this.comboItem2});
             this.comboBoxEx1.Location = new System.Drawing.Point(165, 61);
             this.comboBoxEx1.Margin = new System.Windows.Forms.Padding(5);
             this.comboBoxEx1.Name = "comboBoxEx1";
-            this.comboBoxEx1.Size = new System.Drawing.Size(165, 26);
+            this.comboBoxEx1.Size = new System.Drawing.Size(165, 23);
             this.comboBoxEx1.TabIndex = 6;
             // 
             // comboItem1
@@ -108,7 +108,7 @@
             this.comboBox_type.Location = new System.Drawing.Point(165, 12);
             this.comboBox_type.Margin = new System.Windows.Forms.Padding(5);
             this.comboBox_type.Name = "comboBox_type";
-            this.comboBox_type.Size = new System.Drawing.Size(165, 28);
+            this.comboBox_type.Size = new System.Drawing.Size(165, 24);
             this.comboBox_type.TabIndex = 10;
             this.comboBox_type.Text = "כל העובדים";
             this.comboBox_type.SelectedIndexChanged += new System.EventHandler(this.comboBox_type_SelectedIndexChanged);
@@ -121,7 +121,7 @@
             this.dateTimePicker.Location = new System.Drawing.Point(36, 12);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(5);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(119, 26);
+            this.dateTimePicker.Size = new System.Drawing.Size(119, 23);
             this.dateTimePicker.TabIndex = 11;
             // 
             // dataGrid_allWorkers
@@ -194,15 +194,14 @@
             // 
             // WorkersReportsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(549, 398);
             this.Controls.Add(this.graphicSettingsPanel);
-            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "WorkersReportsForm";
-            this.Text = "WorkerReportsForm";
+            this.Text = "דוחו\"ת עובדים";
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_allWorkers)).EndInit();
             this.graphicSettingsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
