@@ -505,6 +505,11 @@ namespace seedsfromzion.GUI
 
         #region workers
 
+        /// <summary>
+        /// Handles the Click event of the addWorkerButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void addWorkerButton_Click(object sender, EventArgs e)
         {
 
@@ -513,6 +518,11 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        /// <summary>
+        /// Handles the Click event of the findWorkersButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void findWorkersButton_Click(object sender, EventArgs e)
         {
             
@@ -521,6 +531,11 @@ namespace seedsfromzion.GUI
             form.Show();   
         }
 
+        /// <summary>
+        /// Handles the Click event of the addUpdateVisaButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void addUpdateVisaButton_Click(object sender, EventArgs e)
         {
             VisasGeneralForm form = new VisasGeneralForm();
@@ -528,6 +543,11 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        /// <summary>
+        /// Handles the Click event of the paymentButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void paymentButton_Click(object sender, EventArgs e)
         {
             PaymentsForm form = new PaymentsForm();
@@ -535,6 +555,11 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
+        /// <summary>
+        /// Handles the Click event of the addWorkerHoursButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void addWorkerHoursButton_Click(object sender, EventArgs e)
         {
             WorkDaysForm form = new WorkDaysForm();
@@ -542,8 +567,13 @@ namespace seedsfromzion.GUI
             form.Show();
         }
 
-        
 
+
+        /// <summary>
+        /// Handles the Click event of the reportButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void reportButton_Click(object sender, EventArgs e)
         {
             WorkersReportsForm form = new WorkersReportsForm();
@@ -552,8 +582,19 @@ namespace seedsfromzion.GUI
         }
 
         #region removing worker
+
         public delegate void deleteWorkerClickedHandler();
+
+        /// <summary>
+        /// Occurs when [delete worker clicked].
+        /// </summary>
         public event deleteWorkerClickedHandler deleteWorkerClicked;
+
+        /// <summary>
+        /// Handles the Click event of the removeWorkerButton control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void removeWorkerButton_Click(object sender, EventArgs e)
         {
             if (deleteWorkerClicked!=null)
