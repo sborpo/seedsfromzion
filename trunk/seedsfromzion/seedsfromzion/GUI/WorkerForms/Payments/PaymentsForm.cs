@@ -12,17 +12,28 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class PaymentsForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PaymentsForm"/> class.
+        /// </summary>
         public PaymentsForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Load event of the PaymentsForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void PaymentsForm_Load(object sender, EventArgs e)
         {
             this.BaseForm_Load(sender, e);
             populateWorkers();
         }
 
+        /// <summary>
+        /// Populates the workers data grid.
+        /// </summary>
         private void populateWorkers()
         {
             WorkerManager workerManager = new WorkerManager();
@@ -38,6 +49,11 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGrid_workers.Refresh();
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the dataGrid_workers control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void dataGrid_workers_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGrid_workers.SelectedRows.Count <= 0)
@@ -48,6 +64,11 @@ namespace seedsfromzion.GUI.WorkerForms
             numericUpDown_postponedPay.Value = (decimal)((double)dataGrid_workers.SelectedRows[0].Cells["postponedPay"].Value);
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_update control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_update_Click(object sender, EventArgs e)
         {
             WorkerManager manager = new WorkerManager();
