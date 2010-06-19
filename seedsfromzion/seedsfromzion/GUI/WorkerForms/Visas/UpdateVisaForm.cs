@@ -12,6 +12,12 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class UpdateVisaForm : DevComponents.DotNetBar.Office2007Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UpdateVisaForm"/> class.
+        /// </summary>
+        /// <param name="visaId">The visa id.</param>
+        /// <param name="expireDate">The expire date.</param>
+        /// <param name="contact">The contact.</param>
         public UpdateVisaForm(int visaId, DateTime expireDate, string contact)
         {
             InitializeComponent();
@@ -21,6 +27,11 @@ namespace seedsfromzion.GUI.WorkerForms
             textBox_contact.Text = contact;
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_Update control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_Update_Click(object sender, EventArgs e)
         {
             int visaID;
@@ -70,6 +81,11 @@ namespace seedsfromzion.GUI.WorkerForms
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_cancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

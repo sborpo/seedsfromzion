@@ -12,11 +12,19 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class VisasGeneralForm : BaseForm
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VisasGeneralForm"/> class.
+        /// </summary>
         public VisasGeneralForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Load event of the VisasGeneralForm control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void VisasGeneralForm_Load(object sender, EventArgs e)
         {
             base.BaseForm_Load(sender, e);
@@ -28,6 +36,11 @@ namespace seedsfromzion.GUI.WorkerForms
             this.dataGridVisas.SelectionChanged += new System.EventHandler(this.dataGridVisas_SelectionChanged);
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_addVisa control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_addVisa_Click(object sender, EventArgs e)
         {
             var addForm = new AddVisaForm();
@@ -37,6 +50,11 @@ namespace seedsfromzion.GUI.WorkerForms
             }
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_editVisa control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_editVisa_Click(object sender, EventArgs e)
         {
             if (dataGridVisas.SelectedRows.Count <= 0)
@@ -54,6 +72,9 @@ namespace seedsfromzion.GUI.WorkerForms
             }
         }
 
+        /// <summary>
+        /// Populates the visas data grid.
+        /// </summary>
         private void populateVisas()
         {
             WorkerManager workerManager = new WorkerManager();
@@ -67,6 +88,9 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridVisas.Refresh();
         }
 
+        /// <summary>
+        /// Populates the workers data grid. 
+        /// </summary>
         private void populateWorkers()
         {
             if (dataGridVisas.SelectedRows.Count <= 0)
@@ -86,6 +110,9 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGridVisas.Refresh();
         }
 
+        /// <summary>
+        /// Populates all workers data grid.
+        /// </summary>
         private void populateAllWorkers()
         {
             WorkerManager workerManager = new WorkerManager();
@@ -100,11 +127,21 @@ namespace seedsfromzion.GUI.WorkerForms
             dataGrid_allWorkers.Columns["comments"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
+        /// <summary>
+        /// Handles the SelectionChanged event of the dataGridVisas control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void dataGridVisas_SelectionChanged(object sender, EventArgs e)
         {
             populateWorkers();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_addWorkerToVisa control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_addWorkerToVisa_Click(object sender, EventArgs e)
         {
             if (dataGridVisas.SelectedRows.Count <= 0)
@@ -125,6 +162,11 @@ namespace seedsfromzion.GUI.WorkerForms
             populateWorkers();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_deleteVisa control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_deleteVisa_Click(object sender, EventArgs e)
         {
             if (dataGridVisas.SelectedRows.Count <= 0)
@@ -144,6 +186,11 @@ namespace seedsfromzion.GUI.WorkerForms
             success.Show();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_removeWorker control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_removeWorker_Click(object sender, EventArgs e)
         {
             if (dataGridVisas.SelectedRows.Count <= 0)

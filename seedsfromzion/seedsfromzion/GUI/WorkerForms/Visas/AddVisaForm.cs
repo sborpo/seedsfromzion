@@ -12,11 +12,19 @@ namespace seedsfromzion.GUI.WorkerForms
 {
     public partial class AddVisaForm : DevComponents.DotNetBar.Office2007Form
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AddVisaForm"/> class.
+        /// </summary>
         public AddVisaForm()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_Add control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_Add_Click(object sender, EventArgs e)
         {
             int visaID;
@@ -66,6 +74,11 @@ namespace seedsfromzion.GUI.WorkerForms
             this.Close();
         }
 
+        /// <summary>
+        /// Handles the Click event of the btn_cancel control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
