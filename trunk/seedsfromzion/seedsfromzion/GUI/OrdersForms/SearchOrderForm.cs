@@ -217,6 +217,12 @@ namespace seedsfromzion.GUI.OrdersForms
             return;
         }
 
+        private void SearchOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
+            mainForm.deleteOrderClicked -= buttonX1_Click;
+        }
+
        
 
     }

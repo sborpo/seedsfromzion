@@ -253,6 +253,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.Name = "SearchOrderForm";
             this.Load += new System.EventHandler(this.SearchOrderForm_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SearchOrderForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.orderGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.detailsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.integerInput1)).EndInit();
