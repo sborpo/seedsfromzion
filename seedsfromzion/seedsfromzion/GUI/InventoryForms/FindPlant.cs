@@ -230,6 +230,9 @@ namespace seedsfromzion.GUI.InventoryForms
             {
                 pictureBox1.Image.Dispose();
             }
+            seedsFromZion mainForm = (seedsFromZion)this.MdiParent;
+            mainForm.deletePlantClicked -= mainForm_deletePlantClicked;
+          
         }
 
         private void textBoxX1_TextChanged(object sender, EventArgs e)
